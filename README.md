@@ -8,22 +8,21 @@ Dibangun dengan prinsip **Anti-AI Slop**: mengutamakan tipografi serif berwibawa
 
 ## 🌟 Fitur Unggulan
 
-- **3D Wax Seal Unboxing**: Sampul amplop fisik *Midnight Navy Velvet* dengan cap lilin emas 3D. Mengetuk segel akan memicu animasi pecah lilin, flap amplop terbuka 3D (`rotateX: 180deg`), dan *aperture clip-path* membuka halaman undangan.
-- **Atmospheric Celestial Canvas**: Kanvas partikel debu bintang emas starlight yang bergerak perlahan di latar belakang dan merespons gerakan kursor/sentuhan jari.
-- **Royal Gold Filigree Frame**: Bingkai ganda garis emas tipis dengan ukiran sudut filigree daun zaitun di 4 sudut layar.
-- **3D Flip Card Profil Mempelai**: Kartu mempelai pria dan wanita yang dapat diklik/tap untuk berputar 3D memperlihatkan kutipan romantis dan tautan Instagram.
-- **Grand Cathedral Arched Frame (Unified Event)**: Kartu kubah katedral emas terpadu untuk Akad Nikah & Resepsi (1 tanggal, 2 sesi waktu simetris, 1 venue terpusat, tombol Google Maps & Simpan ke Kalender `.ics`).
-- **React Bits Integration**:
-  - `ClickSpark`: Letupan partikel kilau emas starlight saat menyentuh layar.
-  - `ShinyText`: Sapuan cahaya emas metalik (*gold foil shimmer*) pada judul dan overline.
-- **Web Audio API Tactile Sound Effects**:
-  - Suara retakan fisik segel lilin (*wax seal pop*).
-  - Desir halus pembalikan kertas (*card flip whoosh*).
-  - Denting harmonis lonceng emas (*chime sound*).
-  - Musik instrumental latar dengan *volume fade-in* otomatis.
-- **Continuous Editorial Smooth Scroll & Top Progress Bar**: Pengalaman membaca mengalir vertikal dari atas ke bawah tanpa hentakan slide PPT kaku. Scrollbar browser default disembunyikan sepenuhnya, digantikan oleh garis starlight gold progress bar elegan di pucuk layar dengan kilau permata yang bergerak mengikuti laju bacaan.
-- **Natural Editorial Kinetic Transitions**: Transisi antar-section halus dan mewah menggunakan Lenis momentum scrolling dan GSAP ScrollTrigger berkecepatan terkalibrasi (`power3.out`), bebas dari efek alay, memantul, atau mengkerut kaku.
-- **Nir-Backend / Zero Dead Code**: Tanpa database, tanpa form RSVP rumit, tanpa amplop digital/rekening. 100% cepat, privat, dan aman.
+- **Cinematic Studio Title Sequence & Shutter Curtain Lift**: SplashScreen bertema *Luxury Editorial Film* (A24 Movie Intro) dengan studio title card `"A TRUE LOVE STORY PRESENTATION"`, kaligrafi Basmalah sakral, optical blur-to-sharp focus monogram `"AD"`, anamorphic lens flare sweep emas, dan dolly zoom judul film `"ARYA & DIAN"` yang membuka ke atas bak tirai film saat hitungan selesai (atau saat layar disentuh).
+- **21:9 Widescreen Cinema Letterbox Framing**: Bingkai letterbox sinematik atas dan bawah dengan running film metadata (`24 FPS • 2.39:1 WIDESCREEN`, `35MM COLOR GRADE`, `12.12.2026`) yang membingkai keseluruhan visual dengan nuansa film layar lebar haute-couture.
+- **Cinematic Scene Chapters**: Pembagian alur babak film bertahap dengan slug anamorphic lens flare:
+  - `SCENE 01 // PROLOGUE`: Hero pembuka dengan kartu sambutan tamu terhormat personal (`?to=Nama+Tamu`).
+  - `THE SACRED COVENANT`: Surah Ar-Rum ayat 21 dengan starlight reveal dan sekat emas memekar dari tengah.
+  - `SCENE 02 // THE PROTAGONISTS`: Kartu kedua mempelai yang meluncur simetris dari kiri dan kanan, dilengkapi interaktivitas 3D card flip.
+  - `SCENE 03 // THE CEREMONY`: Grand Cathedral Arched Frame dengan cincin ganda bercahaya untuk Akad & Resepsi.
+  - `SCENE 04 // THE CHRONOMETER`: Hitung mundur waktu sakral dengan animasi elastic pop-in stagger.
+  - `SCENE 05 // THE MEMOIR`: Kisah cinta dengan SVG Golden Thread of Destiny yang terlukis dinamis mengikuti laju scroll (*parallax scrub*).
+  - `SCENE 06 // THE BENEDICTION`: Kartu ucapan WhatsApp personal terintegrasi nama tamu.
+  - `EPILOGUE // ETERNAL DEVOTION`: Penutup sakral dan tanda tangan kedua mempelai.
+- **Atmospheric Celestial Canvas & 35mm Grain**: Kanvas partikel debu bintang starlight interaktif dan tekstur fine 35mm film grain yang hidup.
+- **Continuous Editorial Smooth Scroll & Top Progress Bar**: Pengalaman membaca mengalir vertikal mulus tanpa hentakan slide PPT kaku menggunakan Lenis momentum smooth scroll dan GSAP ScrollTrigger terkalibrasi. Scrollbar browser di-hide rapi dan digantikan starlight gold progress indicator tepat di bawah bilah letterbox atas.
+- **Web Audio API Tactile Sound Effects & Instrumental Crescendo**: Denting harmonis lonceng emas (*chime sound*), desir halus pembalikan kartu 3D, dan musik latar instrumental yang memudar masuk lembut (*crescendo*).
+- **Nir-Backend / Zero Dead Code**: 100% statis, tanpa database, tanpa form RSVP rumit, tanpa amplop digital/rekening. Super cepat, privat, dan aman.
 
 ---
 

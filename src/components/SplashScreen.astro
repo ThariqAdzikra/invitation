@@ -1,5 +1,5 @@
 ---
-// SplashScreen.astro — Cinematic Auto-Intro Splashscreen (No Card / No Box)
+// SplashScreen.astro — Cinematic Studio Intro to Dolly Zoom Title Sequence
 import BotanicalCrest from './BotanicalCrest.astro';
 import ShinyText from './reactbits/ShinyText';
 import content from '../data/content.json';
@@ -7,82 +7,94 @@ import content from '../data/content.json';
 
 <div
   id="splashscreen"
-  class="fixed inset-0 z-[9999] flex flex-col items-center justify-between p-6 sm:p-12 bg-navy-base cursor-pointer select-none overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+  class="fixed inset-0 z-[9999] flex flex-col items-center justify-between p-6 sm:p-12 bg-[#040810] cursor-pointer select-none overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
   role="dialog"
   aria-modal="true"
-  aria-label="Animasi Pembuka Undangan"
+  aria-label="Penayangan Judul Sinematik Undangan"
 >
-  <!-- Ambient Atmospheric Glowing Orbs -->
+  <!-- Ambient Filmic Vignette & Anamorphic Glow -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[600px] h-[340px] sm:h-[600px] rounded-full bg-gold/10 blur-[100px] animate-pulse"></div>
+    <!-- Center Flare -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[700px] h-[340px] sm:h-[700px] rounded-full bg-gold/10 blur-[120px] animate-pulse"></div>
+    <!-- Horizontal Anamorphic Blue-Gold Lens Streak -->
+    <div class="absolute top-1/2 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold-bright/60 to-transparent shadow-[0_0_15px_rgba(226,201,138,0.8)] opacity-0 animate-[flareSweep_2s_ease-in-out_0.8s_forwards]"></div>
   </div>
 
-  <!-- Top Accent: Bismillah -->
-  <header class="relative z-10 text-center pt-4 sm:pt-6 opacity-0 animate-[fadeIn_1s_ease-out_0.2s_forwards]">
-    <p class="font-arabic text-xl sm:text-2xl text-gold-bright tracking-wider" dir="rtl" lang="ar">
-      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+  <!-- Studio Header Title Card -->
+  <header class="relative z-10 text-center pt-6 sm:pt-10 opacity-0 animate-[cinematicFadeIn_1.1s_ease-out_0.2s_forwards]">
+    <p class="text-[0.62rem] sm:text-[0.72rem] text-gold/80 tracking-[0.45em] uppercase font-light">
+      A TRUE LOVE STORY PRESENTATION
     </p>
-    <p class="text-[0.68rem] sm:text-xs text-gold/70 tracking-[0.35em] uppercase mt-1 font-light">
-      Walimatul 'Urs
+    <p class="font-arabic text-xl sm:text-2xl text-gold-bright/90 tracking-wider mt-1.5" dir="rtl" lang="ar">
+      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
     </p>
   </header>
 
-  <!-- Central Majestic Crest & Monogram Composition -->
-  <main class="relative z-10 text-center flex flex-col items-center my-auto">
+  <!-- Central Movie Title & Monogram (Dolly Zoom Reveal) -->
+  <main id="splash-movie-title" class="relative z-10 text-center flex flex-col items-center my-auto transition-transform duration-[2800ms] ease-out">
     
-    <!-- Botanical Monogram Crest with Radiant Halo -->
-    <div class="relative mb-6 opacity-0 animate-[fadeInScale_1.1s_cubic-bezier(0.16,1,0.3,1)_0.4s_forwards]">
+    <!-- Botanical Monogram Crest (Focus from Optical Blur) -->
+    <div class="relative mb-5 opacity-0 animate-[focalSharp_1.2s_cubic-bezier(0.16,1,0.3,1)_0.5s_forwards]">
       <div class="absolute inset-0 rounded-full bg-gold/25 blur-xl animate-pulse"></div>
-      <BotanicalCrest monogram="AD" size={96} />
+      <BotanicalCrest monogram="AD" size={102} />
     </div>
 
-    <!-- Sacred Overline -->
-    <div class="opacity-0 animate-[fadeIn_1s_ease-out_0.7s_forwards]">
-      <p class="text-overline tracking-[0.3em] text-xs">
-        THE WEDDING OF
+    <!-- Sacred Filmic Overline -->
+    <div class="opacity-0 animate-[cinematicFadeIn_1s_ease-out_0.8s_forwards]">
+      <p class="text-overline tracking-[0.38em] text-[0.68rem] sm:text-xs text-gold">
+        WALIMATUL 'URS &bull; THE WEDDING OF
       </p>
     </div>
 
-    <!-- Shimmering Names -->
-    <div class="opacity-0 animate-[fadeInUp_1.2s_cubic-bezier(0.16,1,0.3,1)_0.9s_forwards] my-2">
-      <h1 class="font-display text-4xl sm:text-6xl md:text-7xl text-pearl font-normal tracking-tight">
-        <ShinyText client:load text={`${content.couple.groom.nickname} & ${content.couple.bride.nickname}`} speed={2.8} />
+    <!-- Grand Movie Title -->
+    <div class="opacity-0 animate-[titleRise_1.3s_cubic-bezier(0.16,1,0.3,1)_1.0s_forwards] my-2">
+      <h1 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-pearl font-normal tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
+        <ShinyText client:load text={`${content.couple.groom.nickname} & ${content.couple.bride.nickname}`} speed={2.5} />
       </h1>
     </div>
 
-    <!-- Date Preview -->
-    <div class="opacity-0 animate-[fadeIn_1s_ease-out_1.2s_forwards] mt-2">
-      <p class="text-xs sm:text-sm text-gold-bright/90 font-light tracking-[0.25em] uppercase">
+    <!-- Date & Location Subtitle -->
+    <div class="opacity-0 animate-[cinematicFadeIn_1s_ease-out_1.3s_forwards] mt-2">
+      <p class="text-xs sm:text-sm text-gold-bright/90 font-light tracking-[0.3em] uppercase">
         {content.event.dateFormatted} &bull; BANDA ACEH
       </p>
     </div>
 
   </main>
 
-  <!-- Bottom Indicator: 2.5s Cinematic Progress Line -->
-  <footer class="relative z-10 w-full max-w-xs mx-auto text-center pb-4 sm:pb-6 opacity-0 animate-[fadeIn_1s_ease-out_1.4s_forwards]">
-    <div class="w-full h-[2px] bg-navy-surface rounded-full overflow-hidden border border-gold/20 mb-2.5">
-      <div id="intro-progress-bar" class="h-full bg-gradient-to-r from-gold-soft via-gold to-gold-bright rounded-full w-0 transition-all duration-[2400ms] ease-out"></div>
+  <!-- Bottom Film Reel Timecode & Progress Loader -->
+  <footer class="relative z-10 w-full max-w-sm mx-auto text-center pb-6 sm:pb-10 opacity-0 animate-[cinematicFadeIn_1s_ease-out_1.5s_forwards]">
+    <div class="flex items-center justify-between text-[0.58rem] sm:text-[0.62rem] text-pearl-muted/70 tracking-[0.25em] font-mono mb-2">
+      <span>ACT I: THE UNION</span>
+      <span id="splash-timecode">00:00:02:24</span>
     </div>
-    <p class="text-[0.62rem] sm:text-[0.68rem] text-pearl-muted/80 tracking-[0.2em] uppercase font-light">
-      Sentuh di mana saja untuk langsung masuk
+    <div class="w-full h-[2px] bg-navy-surface rounded-full overflow-hidden border border-gold/20 mb-2.5">
+      <div id="intro-progress-bar" class="h-full bg-gradient-to-r from-gold-soft via-gold to-gold-bright rounded-full w-0 transition-all duration-[2600ms] ease-out"></div>
+    </div>
+    <p class="text-[0.62rem] sm:text-[0.68rem] text-pearl-muted/80 tracking-[0.25em] uppercase font-light">
+      Sentuh di mana saja untuk memulai film
     </p>
   </footer>
 
 </div>
 
 <style>
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes fadeInScale {
-    from { opacity: 0; transform: scale(0.85); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(18px); }
+  @keyframes cinematicFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes focalSharp {
+    from { opacity: 0; filter: blur(14px); transform: scale(0.88); }
+    to { opacity: 1; filter: blur(0px); transform: scale(1); }
+  }
+  @keyframes titleRise {
+    from { opacity: 0; filter: blur(8px); transform: translateY(22px); }
+    to { opacity: 1; filter: blur(0px); transform: translateY(0); }
+  }
+  @keyframes flareSweep {
+    0% { opacity: 0; transform: scaleX(0.2); }
+    50% { opacity: 0.9; transform: scaleX(1); }
+    100% { opacity: 0.35; transform: scaleX(1); }
   }
 </style>
 
@@ -92,27 +104,40 @@ import content from '../data/content.json';
   function initSplashScreen() {
     const splash = document.getElementById('splashscreen');
     const progressBar = document.getElementById('intro-progress-bar');
+    const movieTitle = document.getElementById('splash-movie-title');
+    const timecode = document.getElementById('splash-timecode');
     if (!splash) return;
 
-    // Start loading bar animation
+    // Start slow cinematic dolly zoom
     requestAnimationFrame(() => {
-      if (progressBar) {
-        progressBar.style.width = '100%';
-      }
+      if (progressBar) progressBar.style.width = '100%';
+      if (movieTitle) movieTitle.style.transform = 'scale(1.04)';
     });
+
+    // Timecode ticker
+    let frames = 0;
+    const tcInterval = setInterval(() => {
+      frames++;
+      if (timecode) {
+        const sec = Math.floor(frames / 30);
+        const fr = frames % 30;
+        timecode.textContent = `00:00:0${sec}:${String(fr).padStart(2, '0')}`;
+      }
+    }, 33);
 
     let isDismissed = false;
 
     function dismissSplash() {
       if (isDismissed) return;
       isDismissed = true;
+      clearInterval(tcInterval);
 
       playChimeSound();
 
       // Trigger audio player & progress bar
       window.dispatchEvent(new CustomEvent('invitationOpening'));
 
-      // Luxury vertical curtain wipe
+      // Cinematic vertical shutter curtain opening
       splash.style.transform = 'translateY(-100%)';
       splash.style.opacity = '0';
 
@@ -123,16 +148,15 @@ import content from '../data/content.json';
       }, 750);
     }
 
-    // Auto-transition after 2.5 seconds
-    const autoTimer = setTimeout(dismissSplash, 2500);
+    // Auto-transition at 2.8s
+    const autoTimer = setTimeout(dismissSplash, 2800);
 
-    // Allow user to tap/click anywhere to enter immediately
+    // Tap/Click to enter immediately
     splash.addEventListener('click', () => {
       clearTimeout(autoTimer);
       dismissSplash();
     });
 
-    // Touch support
     splash.addEventListener('touchend', () => {
       clearTimeout(autoTimer);
       dismissSplash();
