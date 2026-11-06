@@ -95,6 +95,18 @@ const {
         });
       });
 
+      // Hero blooming transition when curtain lifts
+      window.addEventListener('invitationOpening', () => {
+        const hero = document.getElementById('hero');
+        if (hero) {
+          gsap.fromTo(
+            hero,
+            { scale: 0.96, opacity: 0.35 },
+            { scale: 1, opacity: 1, duration: 1.15, ease: 'power3.out' }
+          );
+        }
+      });
+
       // Recalculate triggers after splashscreen is unlocked
       window.addEventListener('invitationOpened', () => {
         setTimeout(() => {

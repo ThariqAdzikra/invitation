@@ -5,7 +5,7 @@ import BotanicalCrest from './BotanicalCrest.astro';
 import FiligreeDivider from './FiligreeDivider.astro';
 ---
 
-<section id="hero" class="section-hero relative px-4 text-center overflow-hidden" aria-label="Informasi Utama Pernikahan">
+<section id="hero" class="section-hero relative px-4 text-center overflow-hidden transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]" aria-label="Informasi Utama Pernikahan">
   
   <!-- Subtle Parallax Watermark Monogram -->
   <div class="watermark-monogram ornament-parallax pointer-events-none select-none" aria-hidden="true">&amp;</div>
@@ -38,8 +38,18 @@ import FiligreeDivider from './FiligreeDivider.astro';
       </p>
     </div>
 
+    <!-- Prestigious Personalized Guest Welcome Card -->
+    <div class="mt-6 mb-2 py-4 px-6 sm:px-8 rounded-xl bg-navy-surface/80 border border-gold/25 backdrop-blur-md max-w-md w-full mx-auto shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
+      <p class="text-[0.68rem] sm:text-xs text-pearl-muted font-light tracking-[0.2em] uppercase mb-1.5">
+        Kepada Yth. Bapak/Ibu/Saudara/i:
+      </p>
+      <h2 id="guest-name-hero" class="font-display text-xl sm:text-2xl md:text-3xl text-pearl font-normal leading-snug">
+        Tamu Undangan Terhormat
+      </h2>
+    </div>
+
     <!-- Elegant Gentle Scroll Cue (Non-blocking aesthetic cue) -->
-    <div class="mt-12 sm:mt-16 flex flex-col items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
+    <div class="mt-8 sm:mt-12 flex flex-col items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
       <span class="text-[0.65rem] tracking-[0.25em] uppercase text-gold">Gulir ke Bawah</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold animate-bounce">
         <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
@@ -48,3 +58,40 @@ import FiligreeDivider from './FiligreeDivider.astro';
 
   </div>
 </section>
+
+<script>
+  function initHeroGuestName() {
+    const guestNameEl = document.getElementById('guest-name-hero');
+    if (!guestNameEl) return;
+
+    // Parse & sanitize ?to= parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const rawTo = urlParams.get('to');
+    let sanitizedGuestName = 'Tamu Undangan Terhormat';
+
+    if (rawTo) {
+      let decoded = '';
+      try {
+        decoded = decodeURIComponent(rawTo.replace(/\+/g, ' '));
+      } catch (e) {
+        decoded = rawTo.replace(/\+/g, ' ');
+      }
+      const stripped = decoded.replace(/<[^>]*>/g, '');
+      const sanitized = stripped.replace(/[<>'"/\\`~^;={}[\]|]/g, '').trim().substring(0, 75);
+      if (sanitized.length > 0) {
+        sanitizedGuestName = sanitized;
+      }
+    }
+
+    if (sanitizedGuestName.length > 26) {
+      guestNameEl.style.fontSize = 'clamp(1.15rem, 3.5vw, 1.6rem)';
+    }
+    guestNameEl.textContent = sanitizedGuestName;
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroGuestName);
+  } else {
+    initHeroGuestName();
+  }
+</script>
