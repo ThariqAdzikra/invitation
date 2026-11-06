@@ -3,12 +3,12 @@ import content from '../data/content.json';
 import ShinyText from './reactbits/ShinyText';
 ---
 
-<section id="couple" class="section-flow relative px-4" aria-label="Profil Kedua Mempelai">
+<section id="couple" class="section-flow relative px-4 overflow-hidden" aria-label="Profil Kedua Mempelai">
   <div class="max-w-4xl mx-auto w-full">
     
     <!-- Section Header -->
-    <div class="text-center mb-8 md:mb-12 couple-reveal">
-      <p class="text-overline">
+    <div class="text-center mb-8 md:mb-12 couple-header">
+      <p class="text-overline tracking-[0.25em]">
         <ShinyText client:visible text="KEDUA MEMPELAI" speed={4} />
       </p>
       <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-pearl font-normal mt-1.5">
@@ -19,11 +19,11 @@ import ShinyText from './reactbits/ShinyText';
       </p>
     </div>
 
-    <!-- 3D Flip Cards Grid -->
+    <!-- 3D Flip Cards Symmetrical Convergence Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
       
-      <!-- Kartu Mempelai Pria -->
-      <div class="couple-flip-container couple-reveal">
+      <!-- Kartu Mempelai Pria (Glides in from Left) -->
+      <div id="card-groom-container" class="couple-flip-container">
         <div id="card-groom" class="couple-flip-card" role="button" tabindex="0" aria-label="Kartu Profil Mempelai Pria. Ketuk untuk membalik.">
           
           <!-- Sisi Depan (Front) -->
@@ -74,8 +74,8 @@ import ShinyText from './reactbits/ShinyText';
         </div>
       </div>
 
-      <!-- Kartu Mempelai Wanita -->
-      <div class="couple-flip-container couple-reveal">
+      <!-- Kartu Mempelai Wanita (Glides in from Right) -->
+      <div id="card-bride-container" class="couple-flip-container">
         <div id="card-bride" class="couple-flip-card" role="button" tabindex="0" aria-label="Kartu Profil Mempelai Wanita. Ketuk untuk membalik.">
           
           <!-- Sisi Depan (Front) -->
@@ -143,7 +143,6 @@ import ShinyText from './reactbits/ShinyText';
     const cards = document.querySelectorAll('.couple-flip-card');
     cards.forEach((card) => {
       card.addEventListener('click', (e) => {
-        // Jangan balik jika klik link Instagram
         if ((e.target as HTMLElement).closest('a')) return;
         card.classList.toggle('is-flipped');
         playCardFlipSound();
@@ -158,26 +157,39 @@ import ShinyText from './reactbits/ShinyText';
       });
     });
 
-    // ScrollTrigger Reveal
+    // Symmetrical Convergence Reveal
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion) {
-      gsap.fromTo(
-        '.couple-reveal',
-        { opacity: 0, y: 28 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.85,
-          stagger: 0.16,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '#couple',
-            start: 'top 78%',
-            once: true
-          }
-        }
-      );
-    }
+    if (prefersReducedMotion) return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#couple',
+        start: 'top 78%',
+        once: true
+      }
+    });
+
+    // 1. Header fades in
+    tl.fromTo(
+      '.couple-header',
+      { opacity: 0, y: 25 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
+    );
+
+    // 2. Groom & Bride converge from left & right
+    tl.fromTo(
+      '#card-groom-container',
+      { opacity: 0, x: -50, y: 30 },
+      { opacity: 1, x: 0, y: 0, duration: 1.1, ease: 'power3.out' },
+      '-=0.4'
+    );
+
+    tl.fromTo(
+      '#card-bride-container',
+      { opacity: 0, x: 50, y: 30 },
+      { opacity: 1, x: 0, y: 0, duration: 1.1, ease: 'power3.out' },
+      '-=1.1'
+    );
   }
 
   if (document.readyState === 'loading') {

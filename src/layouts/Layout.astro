@@ -84,7 +84,7 @@ const {
       // Subtle continuous parallax on background monograms and watermarks
       gsap.utils.toArray('.ornament-parallax').forEach((el: any) => {
         gsap.to(el, {
-          y: 65,
+          y: 70,
           ease: 'none',
           scrollTrigger: {
             trigger: el.parentElement || el,
@@ -95,9 +95,24 @@ const {
         });
       });
 
+      // Layered Card Elevation: Hero gently recedes as user scrolls towards Opening
+      const hero = document.getElementById('hero');
+      if (hero) {
+        gsap.to(hero, {
+          scale: 0.94,
+          opacity: 0.55,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#opening',
+            start: 'top bottom',
+            end: 'top 25%',
+            scrub: true
+          }
+        });
+      }
+
       // Hero blooming transition when curtain lifts
       window.addEventListener('invitationOpening', () => {
-        const hero = document.getElementById('hero');
         if (hero) {
           gsap.fromTo(
             hero,
@@ -111,7 +126,7 @@ const {
       window.addEventListener('invitationOpened', () => {
         setTimeout(() => {
           ScrollTrigger.refresh();
-        }, 100);
+        }, 120);
       });
     }
   </script>

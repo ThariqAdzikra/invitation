@@ -3,38 +3,46 @@ import content from '../data/content.json';
 import FiligreeDivider from './FiligreeDivider.astro';
 ---
 
-<section id="opening" class="section-flow relative px-4" aria-label="Kata Pembuka dan Doa">
-  <div class="max-w-2xl mx-auto text-center flex flex-col items-center">
-    
-    <!-- Ornate Gold Divider Top -->
-    <FiligreeDivider className="mb-4 opening-reveal" />
+<section id="opening" class="section-flow relative px-4 text-center overflow-hidden" aria-label="Kata Pembuka dan Doa">
+  
+  <!-- Subtle Ambient Spiritual Light Halo -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-gold/5 blur-3xl pointer-events-none" aria-hidden="true"></div>
 
-    <!-- Bismillah -->
-    <p class="font-arabic text-2xl md:text-3xl text-gold-bright mb-4 opening-reveal" dir="rtl" lang="ar">
+  <div class="max-w-2xl mx-auto text-center flex flex-col items-center relative z-10">
+    
+    <!-- Ornate Gold Divider Top (Expands from Center) -->
+    <div class="opening-divider w-full flex justify-center mb-6">
+      <FiligreeDivider className="" />
+    </div>
+
+    <!-- Sacred Bismillah -->
+    <p class="opening-bismillah font-arabic text-3xl sm:text-4xl text-gold-bright mb-6 drop-shadow-[0_0_12px_rgba(226,201,138,0.35)]" dir="rtl" lang="ar">
       {content.opening.bismillah}
     </p>
 
     <!-- Ayat Suci QS Ar-Rum 21 -->
-    <blockquote lang="ar" dir="rtl" class="font-arabic text-xl md:text-2xl text-pearl leading-loose my-3 opening-reveal">
+    <blockquote lang="ar" dir="rtl" class="opening-item font-arabic text-xl sm:text-2xl text-pearl leading-loose my-3 max-w-xl">
       {content.opening.verse}
     </blockquote>
 
     <!-- Terjemahan -->
-    <p class="text-xs md:text-sm text-pearl-muted font-light leading-relaxed my-3 opening-reveal">
+    <p class="opening-item text-xs sm:text-sm text-pearl-muted font-light leading-relaxed my-3 max-w-lg italic">
       &ldquo;{content.opening.translation}&rdquo;
     </p>
 
-    <p class="text-overline my-1.5 opening-reveal">
+    <p class="opening-item text-overline my-2 text-gold tracking-[0.25em]">
       {content.opening.source}
     </p>
 
     <!-- Kata Sambutan Tulus -->
-    <p class="text-xs md:text-sm text-pearl mt-4 font-light max-w-lg opening-reveal">
+    <p class="opening-item text-xs sm:text-sm text-pearl mt-5 font-light max-w-lg leading-relaxed">
       {content.opening.greeting}
     </p>
 
     <!-- Ornate Gold Divider Bottom -->
-    <FiligreeDivider className="mt-4 opening-reveal" />
+    <div class="opening-divider w-full flex justify-center mt-6">
+      <FiligreeDivider className="" />
+    </div>
 
   </div>
 </section>
@@ -49,21 +57,35 @@ import FiligreeDivider from './FiligreeDivider.astro';
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    gsap.fromTo(
-      '.opening-reveal',
-      { opacity: 0, y: 28 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.9,
-        stagger: 0.12,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '#opening',
-          start: 'top 82%',
-          once: true
-        }
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#opening',
+        start: 'top 78%',
+        once: true
       }
+    });
+
+    // 1. Dividers expand from center
+    tl.fromTo(
+      '.opening-divider',
+      { scaleX: 0, opacity: 0 },
+      { scaleX: 1, opacity: 1, duration: 1.0, ease: 'power3.out', stagger: 0.2 }
+    );
+
+    // 2. Bismillah blooms with golden light
+    tl.fromTo(
+      '.opening-bismillah',
+      { opacity: 0, y: 30, scale: 0.95 },
+      { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: 'power2.out' },
+      '-=0.7'
+    );
+
+    // 3. Staggered reveal of scripture & translation
+    tl.fromTo(
+      '.opening-item',
+      { opacity: 0, y: 25 },
+      { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' },
+      '-=0.6'
     );
   }
 
