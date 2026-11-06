@@ -1,0 +1,189 @@
+---
+// Cover.astro — 3D Wax Seal Unboxing on Midnight Navy Velvet
+---
+
+<div id="cover-overlay" class="cover-overlay" role="dialog" aria-modal="true" aria-label="Sampul Undangan Pernikahan">
+  
+  <!-- Header Monoline Accent -->
+  <header class="text-center pt-2">
+    <svg class="mx-auto" width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M24 6V42M24 6C24 18 36 22 36 22M24 6C24 18 12 22 12 22M24 24C24 32 32 35 32 35M24 24C24 32 16 35 16 35" stroke="var(--color-accent-gold)" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+  </header>
+
+  <!-- Envelope Container -->
+  <main class="my-auto w-full">
+    <div class="envelope-wrapper">
+      <div class="envelope-box">
+        
+        <!-- 3D Envelope Upper Flap -->
+        <div id="envelope-flap" class="envelope-flap" aria-hidden="true"></div>
+
+        <p class="text-overline mt-4">Undangan Pernikahan</p>
+        <p class="text-sm text-pearl-muted mt-1 font-light tracking-wide">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+        
+        <div class="my-4 px-2">
+          <h1 id="guest-name" class="font-display text-2xl md:text-3xl text-pearl font-normal leading-tight">
+            Tamu Undangan Terhormat
+          </h1>
+        </div>
+
+        <!-- Metallic Starlight Gold Wax Seal Button -->
+        <button id="btn-open-invitation" class="wax-seal-btn" type="button" aria-label="Tekan Segel Lilin Emas untuk Membuka Undangan">
+          <svg class="wax-seal-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#F3E3B6"/>
+                <stop offset="35%" stop-color="#C5A059"/>
+                <stop offset="70%" stop-color="#7A5E2A"/>
+                <stop offset="100%" stop-color="#D8B568"/>
+              </linearGradient>
+              <radialGradient id="waxSheen" cx="35%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#FFFBF0" stop-opacity="0.65"/>
+                <stop offset="50%" stop-color="#C5A059" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#3D2E14" stop-opacity="0.7"/>
+              </radialGradient>
+            </defs>
+            <!-- Organic Melted Wax Outer Rim -->
+            <path d="M50 4C73 2 94 22 96 46C98 70 78 94 54 96C30 98 4 80 4 54C4 28 27 6 50 4Z" fill="url(#goldGradient)"/>
+            <path d="M50 4C73 2 94 22 96 46C98 70 78 94 54 96C30 98 4 80 4 54C4 28 27 6 50 4Z" fill="url(#waxSheen)"/>
+            <!-- Inner Stamp Rings -->
+            <circle cx="50" cy="50" r="32" stroke="#5E471C" stroke-width="1.5" stroke-opacity="0.6" fill="none"/>
+            <circle cx="50" cy="50" r="30" stroke="#FFF0C7" stroke-width="1" stroke-opacity="0.5" fill="none"/>
+            <!-- Embossed Ampersand Monogram -->
+            <text x="51" y="58" text-anchor="middle" font-family="var(--font-display)" font-size="28" font-style="italic" fill="#382910" opacity="0.85">&amp;</text>
+            <text x="50" y="57" text-anchor="middle" font-family="var(--font-display)" font-size="28" font-style="italic" fill="#FFF5DC" opacity="0.95">&amp;</text>
+          </svg>
+        </button>
+
+        <span class="wax-seal-hint">Ketuk Segel untuk Membuka</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Ornament -->
+  <footer class="text-center pb-2">
+    <div class="w-8 h-[1px] bg-gold-soft mx-auto opacity-50"></div>
+  </footer>
+
+</div>
+
+<script>
+  import gsap from 'gsap';
+  import { playWaxSealSound } from './reactbits/SoundEffects';
+
+  function initCover() {
+    const coverOverlay = document.getElementById('cover-overlay');
+    const guestNameEl = document.getElementById('guest-name');
+    const btnOpen = document.getElementById('btn-open-invitation');
+    const envelopeFlap = document.getElementById('envelope-flap');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 1. Parse & Sanitize ?to= parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const rawTo = urlParams.get('to');
+    let sanitizedGuestName = 'Tamu Undangan Terhormat';
+
+    if (rawTo) {
+      let decoded = '';
+      try {
+        decoded = decodeURIComponent(rawTo.replace(/\+/g, ' '));
+      } catch (e) {
+        decoded = rawTo.replace(/\+/g, ' ');
+      }
+      let stripped = decoded.replace(/<[^>]*>/g, '');
+      const sanitized = stripped.replace(/[<>'"/\\`~^;={}[\]|]/g, '').trim().substring(0, 75);
+      if (sanitized.length > 0) {
+        sanitizedGuestName = sanitized;
+      }
+    }
+
+    if (guestNameEl) {
+      if (sanitizedGuestName.length > 28) {
+        guestNameEl.style.fontSize = 'clamp(1.25rem, 3.5vw + 0.25rem, 1.85rem)';
+      }
+      guestNameEl.textContent = sanitizedGuestName;
+    }
+
+    // 2. Open Invitation Sequence
+    let isOpened = false;
+
+    if (btnOpen && coverOverlay) {
+      btnOpen.addEventListener('click', () => {
+        if (isOpened) return;
+        isOpened = true;
+        btnOpen.setAttribute('disabled', 'true');
+
+        // Tactile sound effect on wax seal break
+        playWaxSealSound();
+
+        window.dispatchEvent(new CustomEvent('invitationOpening'));
+
+        if (prefersReducedMotion) {
+          coverOverlay.style.opacity = '0';
+          setTimeout(() => {
+            coverOverlay.style.display = 'none';
+            document.body.classList.remove('is-locked');
+            window.dispatchEvent(new CustomEvent('invitationOpened'));
+          }, 250);
+          return;
+        }
+
+        const rect = btnOpen.getBoundingClientRect();
+        const xPercent = ((rect.left + rect.width / 2) / window.innerWidth) * 100;
+        const yPercent = ((rect.top + rect.height / 2) / window.innerHeight) * 100;
+
+        const tl = gsap.timeline({
+          onComplete: () => {
+            coverOverlay.style.display = 'none';
+            document.body.classList.remove('is-locked');
+            window.dispatchEvent(new CustomEvent('invitationOpened'));
+          }
+        });
+
+        // Step 1: Wax seal press
+        tl.to(btnOpen, {
+          scale: 0.9,
+          duration: 0.16,
+          ease: 'power2.in'
+        });
+
+        // Step 2: Flap unfolds 3D + seal dissolves
+        if (envelopeFlap) {
+          tl.to(envelopeFlap, {
+            rotateX: 180,
+            duration: 0.6,
+            ease: 'power2.inOut'
+          }, '+=0.04');
+        }
+
+        tl.to(btnOpen, {
+          opacity: 0,
+          scale: 1.15,
+          filter: 'blur(3px)',
+          duration: 0.35,
+          ease: 'power2.out'
+        }, '-=0.45');
+
+        // Step 3: Aperture circle reveal
+        tl.fromTo(
+          coverOverlay,
+          { clipPath: `circle(0% at ${xPercent}% ${yPercent}%)` },
+          {
+            clipPath: `circle(150% at ${xPercent}% ${yPercent}%)`,
+            duration: 0.95,
+            ease: 'power4.inOut'
+          },
+          '-=0.15'
+        );
+      });
+    }
+  }
+
+  // Run on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCover);
+  } else {
+    initCover();
+  }
+</script>

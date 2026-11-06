@@ -1,0 +1,196 @@
+---
+import content from '../data/content.json';
+import ShinyText from './reactbits/ShinyText';
+---
+
+<section id="couple" class="section-slide relative px-4" aria-label="Profil Kedua Mempelai">
+  <div class="max-w-4xl mx-auto w-full my-auto">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-8 md:mb-12 couple-reveal">
+      <p class="text-overline">
+        <ShinyText client:visible text="KEDUA MEMPELAI" speed={4} />
+      </p>
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-pearl font-normal mt-1.5">
+        Mempelai Pria &amp; Wanita
+      </h2>
+      <p class="text-xs text-pearl-muted font-light mt-1.5 tracking-wider">
+        Ketuk kartu untuk melihat kutipan &amp; pesan mempelai
+      </p>
+    </div>
+
+    <!-- 3D Flip Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+      
+      <!-- Kartu Mempelai Pria -->
+      <div class="couple-flip-container couple-reveal">
+        <div id="card-groom" class="couple-flip-card" role="button" tabindex="0" aria-label="Kartu Profil Mempelai Pria. Ketuk untuk membalik.">
+          
+          <!-- Sisi Depan (Front) -->
+          <div class="couple-card-front">
+            <div class="my-auto flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full border border-gold flex items-center justify-center mb-4 text-gold font-display text-2xl shadow-gold-glow">
+                {content.couple.groom.nickname[0]}
+              </div>
+              <p class="text-overline text-gold-bright mb-1">Mempelai Pria</p>
+              <h3 class="font-display text-2xl text-pearl font-normal mb-2">
+                {content.couple.groom.fullName}
+              </h3>
+              <p class="text-xs md:text-sm text-pearl-muted font-light max-w-xs leading-relaxed">
+                {content.couple.groom.parents}
+              </p>
+            </div>
+
+            <div class="flip-hint-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+              </svg>
+              <span>Ketuk untuk Membalik</span>
+            </div>
+          </div>
+
+          <!-- Sisi Belakang (Back) -->
+          <div class="couple-card-back">
+            <div class="my-auto flex flex-col items-center px-2">
+              <svg class="text-gold mb-3 opacity-80" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+              <p class="font-display italic text-base md:text-lg text-pearl font-normal leading-relaxed mb-6 max-w-xs">
+                &ldquo;{content.couple.groom.quote}&rdquo;
+              </p>
+              <a href={`https://instagram.com/${content.couple.groom.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gold-bright hover:underline tracking-widest uppercase">
+                <span>{content.couple.groom.instagram}</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="flip-hint-pill">
+              <span>Kembali</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Kartu Mempelai Wanita -->
+      <div class="couple-flip-container couple-reveal">
+        <div id="card-bride" class="couple-flip-card" role="button" tabindex="0" aria-label="Kartu Profil Mempelai Wanita. Ketuk untuk membalik.">
+          
+          <!-- Sisi Depan (Front) -->
+          <div class="couple-card-front">
+            <div class="my-auto flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full border border-gold flex items-center justify-center mb-4 text-gold font-display text-2xl shadow-gold-glow">
+                {content.couple.bride.nickname[0]}
+              </div>
+              <p class="text-overline text-gold-bright mb-1">Mempelai Wanita</p>
+              <h3 class="font-display text-2xl text-pearl font-normal mb-2">
+                {content.couple.bride.fullName}
+              </h3>
+              <p class="text-xs md:text-sm text-pearl-muted font-light max-w-xs leading-relaxed">
+                {content.couple.bride.parents}
+              </p>
+            </div>
+
+            <div class="flip-hint-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+              </svg>
+              <span>Ketuk untuk Membalik</span>
+            </div>
+          </div>
+
+          <!-- Sisi Belakang (Back) -->
+          <div class="couple-card-back">
+            <div class="my-auto flex flex-col items-center px-2">
+              <svg class="text-gold mb-3 opacity-80" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+              <p class="font-display italic text-base md:text-lg text-pearl font-normal leading-relaxed mb-6 max-w-xs">
+                &ldquo;{content.couple.bride.quote}&rdquo;
+              </p>
+              <a href={`https://instagram.com/${content.couple.bride.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gold-bright hover:underline tracking-widest uppercase">
+                <span>{content.couple.bride.instagram}</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="flip-hint-pill">
+              <span>Kembali</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Scroll Prompt -->
+  <a href="#events" class="scroll-prompt" aria-label="Gulir ke bagian acara">
+    <span>Acara</span>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+    </svg>
+  </a>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { playCardFlipSound } from './reactbits/SoundEffects';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initCoupleSection() {
+    // 3D Flip Card Interaction
+    const cards = document.querySelectorAll('.couple-flip-card');
+    cards.forEach((card) => {
+      card.addEventListener('click', (e) => {
+        // Jangan balik jika klik link Instagram
+        if ((e.target as HTMLElement).closest('a')) return;
+        card.classList.toggle('is-flipped');
+        playCardFlipSound();
+      });
+
+      card.addEventListener('keydown', (e: any) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.classList.toggle('is-flipped');
+          playCardFlipSound();
+        }
+      });
+    });
+
+    // ScrollTrigger Reveal
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+      gsap.fromTo(
+        '.couple-reveal',
+        { opacity: 0, y: 28 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.85,
+          stagger: 0.16,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#couple',
+            start: 'top 78%',
+            once: true
+          }
+        }
+      );
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCoupleSection);
+  } else {
+    initCoupleSection();
+  }
+</script>

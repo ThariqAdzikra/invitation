@@ -1,0 +1,83 @@
+---
+import content from '../data/content.json';
+import FiligreeDivider from './FiligreeDivider.astro';
+---
+
+<section id="opening" class="section-slide relative px-4" aria-label="Kata Pembuka dan Doa">
+  <div class="max-w-2xl mx-auto text-center flex flex-col items-center my-auto">
+    
+    <!-- Ornate Gold Divider Top -->
+    <FiligreeDivider className="mb-4 opening-reveal" />
+
+    <!-- Bismillah -->
+    <p class="font-arabic text-2xl md:text-3xl text-gold-bright mb-4 opening-reveal" dir="rtl" lang="ar">
+      {content.opening.bismillah}
+    </p>
+
+    <!-- Ayat Suci QS Ar-Rum 21 -->
+    <blockquote lang="ar" dir="rtl" class="font-arabic text-xl md:text-2xl text-pearl leading-loose my-3 opening-reveal">
+      {content.opening.verse}
+    </blockquote>
+
+    <!-- Terjemahan -->
+    <p class="text-xs md:text-sm text-pearl-muted font-light leading-relaxed my-3 opening-reveal">
+      &ldquo;{content.opening.translation}&rdquo;
+    </p>
+
+    <p class="text-overline my-1.5 opening-reveal">
+      {content.opening.source}
+    </p>
+
+    <!-- Kata Sambutan Tulus -->
+    <p class="text-xs md:text-sm text-pearl mt-4 font-light max-w-lg opening-reveal">
+      {content.opening.greeting}
+    </p>
+
+    <!-- Ornate Gold Divider Bottom -->
+    <FiligreeDivider className="mt-4 opening-reveal" />
+
+  </div>
+
+  <!-- Scroll Prompt -->
+  <a href="#couple" class="scroll-prompt" aria-label="Gulir ke bagian mempelai">
+    <span>Mempelai</span>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+    </svg>
+  </a>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initOpeningTrigger() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    gsap.fromTo(
+      '.opening-reveal',
+      { opacity: 0, y: 22 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.85,
+        stagger: 0.12,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#opening',
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initOpeningTrigger);
+  } else {
+    initOpeningTrigger();
+  }
+</script>

@@ -1,0 +1,12 @@
+# Dependencies & OS
+.DS_Store
+Thumbs.db
+node_modules/
+
+# Astro & Build output
+dist/
+.astro/
+
+# Logs & temp
+*.log
+.temp/

@@ -1,0 +1,71 @@
+{
+  "couple": {
+    "groom": {
+      "nickname": "Arya",
+      "fullName": "Arya Wirayudha, S.T.",
+      "parents": "Putra dari Bapak H. Bambang Soedirman & Ibu Hj. Siti Rahayu",
+      "quote": "Bagi saya, mencintaimu adalah ketenangan paling tulus yang dianugerahkan semesta.",
+      "instagram": "@aryawira"
+    },
+    "bride": {
+      "nickname": "Dian",
+      "fullName": "Dian Paramitha, S.Ds.",
+      "parents": "Putri dari Bapak Ir. H. Hendra Kusuma & Ibu Hj. Ratna Dewi",
+      "quote": "Menemukanmu adalah jawaban dari setiap doa yang kupanjatkan dalam hening.",
+      "instagram": "@dianparamitha"
+    }
+  },
+  "event": {
+    "day": "Sabtu",
+    "date": "2026-12-12",
+    "dateFormatted": "Sabtu, 12 Desember 2026",
+    "timezone": "WIB",
+    "akad": {
+      "title": "Akad Nikah",
+      "time": "08.00 – 10.00 WIB"
+    },
+    "resepsi": {
+      "title": "Resepsi Pernikahan",
+      "time": "11.00 – Selesai"
+    },
+    "venue": {
+      "name": "Banda Aceh Convention Hall",
+      "address": "Jl. Prof. A. Majid Ibrahim No. 2, Banda Aceh",
+      "mapsUrl": "https://maps.google.com"
+    }
+  },
+  "opening": {
+    "bismillah": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
+    "verse": "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ",
+    "translation": "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir.",
+    "source": "QS. Ar-Rum: 21",
+    "greeting": "Dengan memohon rahmat dan rida Allah SWT, kami bermaksud mengumumkan ikrar suci pernikahan kami kepada Bapak/Ibu/Saudara/i sekalian."
+  },
+  "loveStory": [
+    {
+      "year": "2021",
+      "title": "Pertemuan Pertama",
+      "text": "Takdir mempertemukan kami di sebuah ruang diskusi hangat di sudut kota, bertukar sapa yang menjadi awal perjalanan panjang."
+    },
+    {
+      "year": "2024",
+      "title": "Sebuah Komitmen",
+      "text": "Di bawah restu kedua keluarga, kami memutuskan untuk saling menggenggam janji melangkah bersama menuju ibadah terpanjang."
+    },
+    {
+      "year": "2026",
+      "title": "Hari Bahagia",
+      "text": "Hari di mana kami mengikat janji suci pernikahan, menyempurnakan separuh agama di hadapan orang-orang terkasih."
+    }
+  ],
+  "music": {
+    "file": "/assets/music.mp3",
+    "title": "Wedding Instrumental"
+  },
+  "meta": {
+    "title": "Undangan Pernikahan Arya & Dian",
+    "description": "Kami mengundang Anda untuk berbagi kebahagiaan di hari pernikahan Arya & Dian.",
+    "ogImage": "/assets/og.jpg",
+    "siteUrl": "https://undangan.domain.com"
+  }
+}

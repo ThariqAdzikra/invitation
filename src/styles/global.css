@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ========================================================================
+     Design Tokens: Midnight Navy & Starlight Gold (Anti-AI Slop)
+     ======================================================================== */
+  --color-bg-base: #070D17;
+  --color-bg-surface: #0E1726;
+  --color-bg-elevated: #142035;
+  --color-bg-envelope: #0B1320;
+
+  --color-text-primary: #F8F9FA;
+  --color-text-secondary: #9BA9BF;
+  --color-text-muted: #64748B;
+
+  --color-accent-gold: #C5A059;
+  --color-accent-gold-bright: #E2C98A;
+  --color-accent-gold-soft: #8A6D3B;
+  --color-accent-gold-deep: #4A3A1D;
+
+  --color-border-hairline: rgba(197, 160, 89, 0.22);
+  --color-border-subtle: rgba(197, 160, 89, 0.12);
+
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-arabic: 'Amiri', serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ==========================================================================
+   Base & Reset Styles
+   ========================================================================== */
+html {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg-base);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(197, 160, 89, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(20, 32, 53, 0.6) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+body.is-locked {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Luxury Linen / Film Grain Texture Overlay */
+.film-grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* Atmospheric Glowing Nebula Orbs */
+.nebula-glow-1 {
+  position: fixed;
+  top: 15%;
+  left: 10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(18, 36, 66, 0.45) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatNebula 18s ease-in-out infinite alternate;
+}
+
+.nebula-glow-2 {
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, transparent 65%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatNebula 22s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatNebula {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.1); }
+  100% { transform: translate(-30px, 40px) scale(0.95); }
+}
+
+/* Full-Page Section Snapping & Transitions */
+.section-slide {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Floating Section Navigator Dots */
+.section-nav {
+  position: fixed;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 850;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .section-nav {
+    right: 0.6rem;
+    gap: 0.65rem;
+  }
+}
+
+.nav-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(197, 160, 89, 0.3);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  cursor: pointer;
+  transition: all 0.3s var(--ease-editorial);
+  outline: none;
+  padding: 0;
+}
+
+.nav-dot:hover,
+.nav-dot.is-active {
+  background-color: var(--color-accent-gold-bright);
+  transform: scale(1.4);
+  box-shadow: 0 0 10px rgba(226, 201, 138, 0.7);
+}
+
+.nav-dot-tooltip {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+  color: var(--color-accent-gold-bright);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.25s var(--ease-editorial);
+}
+
+.nav-dot:hover .nav-dot-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Typography Helpers
+   ========================================================================== */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+.text-overline {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+  font-weight: 500;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Giant Ambient Watermark Monogram
+   ========================================================================== */
+.watermark-monogram {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(16rem, 36vw, 32rem);
+  font-style: italic;
+  color: var(--color-accent-gold);
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Cover & 3D Envelope Unboxing
+   ========================================================================== */
+.cover-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-bg-base);
+  background-image: radial-gradient(circle at center, #0B1320 0%, #070D17 100%);
+  padding: 2.5rem 1.25rem;
+  overflow: hidden;
+}
+
+.envelope-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  perspective: 1200px;
+}
+
+.envelope-box {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 40px rgba(197, 160, 89, 0.08);
+  padding: 2.75rem 1.5rem 2rem;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(180deg, #101B2E 0%, #0E1726 100%);
+  border: 1px solid var(--color-border-hairline);
+  border-bottom: none;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--ease-editorial);
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.envelope-flap.is-unfolded {
+  transform: rotateX(180deg);
+}
+
+.wax-seal-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  margin: 1.25rem auto 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.25s var(--ease-editorial);
+}
+
+.wax-seal-btn:hover {
+  transform: scale(1.06);
+}
+
+.wax-seal-btn:active {
+  transform: scale(0.94);
+}
+
+.wax-seal-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 8px 20px rgba(197, 160, 89, 0.45));
+}
+
+.wax-seal-hint {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold-bright);
+  animation: pulseHint 2.4s infinite ease-in-out;
+  margin-top: 0.5rem;
+}
+
+@keyframes pulseHint {
+  0%, 100% { opacity: 0.5; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-2px); }
+}
+
+/* ==========================================================================
+   Hero Split-Text Animation
+   ========================================================================== */
+.hero-line {
+  overflow: hidden;
+}
+
+.hero-text-inner {
+  display: inline-block;
+  transform: translateY(115%);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   3D Flip Card Profil Mempelai (Interaktif)
+   ========================================================================== */
+.couple-flip-container {
+  perspective: 1200px;
+}
+
+.couple-flip-card {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  transform-style: preserve-3d;
+  transition: transform 0.75s var(--ease-editorial);
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.couple-flip-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.couple-card-front,
+.couple-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 6px;
+  padding: 2.25rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--color-border-hairline);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+}
+
+.couple-card-front {
+  background-color: var(--color-bg-surface);
+  text-align: center;
+  align-items: center;
+}
+
+.couple-card-back {
+  background-color: var(--color-bg-elevated);
+  transform: rotateY(180deg);
+  text-align: center;
+  align-items: center;
+}
+
+.flip-hint-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   Grand Cathedral Arched Frame (Unified Event Card)
+   ========================================================================== */
+.event-card-unified {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: clamp(100px, 32vw, 140px) clamp(100px, 32vw, 140px) 4px 4px;
+  padding: 3.5rem 1.75rem 2.5rem;
+  position: relative;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 40px rgba(197, 160, 89, 0.08);
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.event-card-unified::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: clamp(94px, calc(32vw - 6px), 134px) clamp(94px, calc(32vw - 6px), 134px) 2px 2px;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Monoline SVG Line Drawing
+   ========================================================================== */
+.timeline-svg-track {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 1.8s var(--ease-editorial);
+}
+
+.timeline-svg-track.is-drawn {
+  stroke-dashoffset: 0;
+}
+
+/* ==========================================================================
+   Buttons & Interactive Elements
+   ========================================================================== */
+.btn-gold-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-accent-gold);
+  padding: 0.85rem 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.25s var(--ease-editorial);
+}
+
+.btn-gold-outline:hover {
+  background-color: var(--color-accent-gold);
+  color: var(--color-bg-base);
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-gold-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-accent-gold);
+  color: var(--color-bg-base);
+  border: 1px solid var(--color-accent-gold);
+  padding: 0.85rem 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.25s var(--ease-editorial);
+}
+
+.btn-gold-solid:hover {
+  background-color: var(--color-accent-gold-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.4);
+}
+
+/* ==========================================================================
+   Floating Audio Control
+   ========================================================================== */
+.audio-toggle-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 900;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s var(--ease-editorial);
+}
+
+.audio-toggle-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.3);
+}
+
+/* ==========================================================================
+   React Bits: ShinyText Shimmer Keyframes
+   ========================================================================== */
+@keyframes shiny {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.animate-shiny {
+  animation: shiny 3.5s linear infinite;
+}
+
+/* ==========================================================================
+   Prefers Reduced Motion Overrides
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero-text-inner {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .timeline-svg-track {
+    stroke-dashoffset: 0 !important;
+  }
+}

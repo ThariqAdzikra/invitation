@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFFBF7">
+  <title>Undangan Pernikahan [Nama] & [Nama]</title>
+  <meta name="description" content="Kami mengundang Anda untuk berbagi kebahagiaan di hari pernikahan kami.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph / WhatsApp Preview (Anti-Slop: clean typography preview) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Undangan Pernikahan">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:title" content="Undangan Pernikahan [Nama] & [Nama]">
+  <meta property="og:description" content="Kami mengundang Anda untuk berbagi kebahagiaan di hari pernikahan kami.">
+  <meta property="og:image" content="assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="[ ]">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Undangan Pernikahan [Nama] & [Nama]">
+  <meta name="twitter:description" content="Kami mengundang Anda untuk berbagi kebahagiaan di hari pernikahan kami.">
+  <meta name="twitter:image" content="assets/og.jpg">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400..600;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+
+  <!-- ========================================================================
+       Section 01: Cover / Opening Gate (Milestone 2)
+       ======================================================================== -->
+  <div id="cover-overlay" class="cover-overlay" role="dialog" aria-modal="true" aria-label="Sampul Undangan Pernikahan">
+    
+    <!-- Header Ornament -->
+    <header class="cover-header">
+      <svg class="cover-ornament" width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M24 6V42M24 6C24 18 36 22 36 22M24 6C24 18 12 22 12 22M24 24C24 32 32 35 32 35M24 24C24 32 16 35 16 35" stroke="var(--color-accent-gold)" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+    </header>
+
+    <!-- Main Content -->
+    <main class="cover-main">
+      <div class="envelope-wrapper">
+        <div class="envelope-box">
+          <!-- 3D Envelope Upper Flap -->
+          <div id="envelope-flap" class="envelope-flap" aria-hidden="true"></div>
+
+          <p class="text-overline cover-badge" style="margin-top: var(--space-4);">Undangan Pernikahan</p>
+          <p class="cover-salutation">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+          
+          <div class="cover-guest-wrapper">
+            <h1 id="guest-name" class="cover-guest-name">
+              Tamu Undangan Terhormat
+            </h1>
+          </div>
+
+          <!-- Metallic Antique Gold Wax Seal (Interaksi Utama Buka Undangan) -->
+          <button id="btn-open-invitation" class="wax-seal-btn" type="button" aria-label="Tekan Segel Lilin untuk Membuka Undangan">
+            <svg class="wax-seal-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#E5CA85"/>
+                  <stop offset="35%" stop-color="#B89758"/>
+                  <stop offset="70%" stop-color="#7C6028"/>
+                  <stop offset="100%" stop-color="#D4B46A"/>
+                </linearGradient>
+                <radialGradient id="waxSheen" cx="35%" cy="35%" r="65%">
+                  <stop offset="0%" stop-color="#FFF8E7" stop-opacity="0.6"/>
+                  <stop offset="50%" stop-color="#B89758" stop-opacity="0"/>
+                  <stop offset="100%" stop-color="#4A3714" stop-opacity="0.6"/>
+                </radialGradient>
+              </defs>
+              <!-- Organic Melted Wax Outer Rim -->
+              <path d="M50 4C73 2 94 22 96 46C98 70 78 94 54 96C30 98 4 80 4 54C4 28 27 6 50 4Z" fill="url(#goldGradient)"/>
+              <path d="M50 4C73 2 94 22 96 46C98 70 78 94 54 96C30 98 4 80 4 54C4 28 27 6 50 4Z" fill="url(#waxSheen)"/>
+              <!-- Inner Stamp Rings -->
+              <circle cx="50" cy="50" r="32" stroke="#6D501E" stroke-width="1.5" stroke-opacity="0.6" fill="none"/>
+              <circle cx="50" cy="50" r="30" stroke="#FFF0C7" stroke-width="1" stroke-opacity="0.5" fill="none"/>
+              <!-- Embossed Ampersand Monogram -->
+              <text x="51" y="58" text-anchor="middle" font-family="var(--font-display)" font-size="28" font-style="italic" fill="#443210" opacity="0.85">&amp;</text>
+              <text x="50" y="57" text-anchor="middle" font-family="var(--font-display)" font-size="28" font-style="italic" fill="#FFF5DC" opacity="0.95">&amp;</text>
+            </svg>
+          </button>
+
+          <span class="wax-seal-hint">Ketuk Segel untuk Membuka</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer Ornament -->
+    <footer class="cover-footer">
+      <div style="width: 32px; height: 1px; background-color: var(--color-accent-gold-soft); opacity: 0.6;"></div>
+    </footer>
+
+  </div>
+
+  <!-- ========================================================================
+       Main Content
+       ======================================================================== -->
+  <div id="main-content">
+
+    <!-- Giant Subtle Watermark Monogram (Parallax Ambient) -->
+    <div class="watermark-monogram ornament-parallax" aria-hidden="true">&amp;</div>
+
+    <!-- Section 02: Hero Section -->
+    <section id="hero" class="hero-section" aria-label="Informasi Utama Pernikahan">
+      <div class="container hero-container">
+        
+        <div class="hero-meta-top">
+          <p class="text-overline">Pernikahan Kami</p>
+        </div>
+
+        <!-- Asymmetrical Editorial Magazine Typography -->
+        <div class="hero-names">
+          
+          <!-- Baris 1: Nama Pria (Left-Aligned) -->
+          <div class="hero-line hero-line-left">
+            <div class="hero-text-inner">
+              <h2 class="hero-name">[Nama Pria]</h2>
+            </div>
+          </div>
+
+          <!-- Baris 2: Simbol & (Center-Aligned) -->
+          <div class="hero-line hero-line-center">
+            <div class="hero-text-inner">
+              <span class="hero-ampersand">&amp;</span>
+            </div>
+          </div>
+
+          <!-- Baris 3: Nama Wanita (Right-Aligned) -->
+          <div class="hero-line hero-line-right">
+            <div class="hero-text-inner">
+              <h2 class="hero-name">[Nama Wanita]</h2>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Tanggal & Meta Detail Hero -->
+        <div class="hero-meta-bottom">
+          <div class="hero-line">
+            <div class="hero-text-inner">
+              <p class="hero-date-text">[YYYY-MM-DD] &bull; [WIB/WITA/WIT]</p>
+            </div>
+          </div>
+          <div class="hero-line">
+            <div class="hero-text-inner">
+              <p class="hero-venue-preview">[Nama Venue], [Alamat Singkat]</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 03: Kata Pembuka / Ayat Sakral (Center-Aligned Intimate Column) -->
+    <section id="opening" class="section opening-section" aria-label="Kata Pembuka dan Doa">
+      <div class="container opening-container">
+        
+        <div class="gold-divider-line opening-reveal ornament-parallax" style="margin-bottom: var(--space-6);"></div>
+        
+        <p class="opening-bismillah opening-reveal" dir="rtl" lang="ar">
+          بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+        </p>
+
+        <blockquote lang="ar" dir="rtl" class="opening-arabic-verse opening-reveal">
+          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+        </blockquote>
+
+        <p class="opening-translation opening-reveal">
+          &ldquo;Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.&rdquo;
+        </p>
+        
+        <p class="text-overline opening-source opening-reveal">
+          QS. Ar-Rum: 21
+        </p>
+
+        <p class="opening-greeting opening-reveal">
+          [1-2 kalimat singkat dan tulus, tulis sendiri]
+        </p>
+
+        <div class="gold-divider-line opening-reveal ornament-parallax" style="margin-top: var(--space-6);"></div>
+
+      </div>
+    </section>
+
+    <!-- Section 04: Profil Mempelai (Offset Staggered Layout — Asimetris) -->
+    <section id="couple" class="section couple-section" aria-label="Profil Kedua Mempelai">
+      <div class="container">
+        
+        <div class="couple-header couple-reveal">
+          <p class="text-overline">Kedua Mempelai</p>
+          <h2 class="font-display" style="font-size: var(--text-h2); margin-top: var(--space-1);">
+            Mempelai Pria &amp; Wanita
+          </h2>
+        </div>
+
+        <div class="couple-grid">
+          
+          <!-- Mempelai Pria (Left Column) -->
+          <article class="couple-card couple-card-groom couple-reveal">
+            <div class="couple-monogram-wrapper">
+              <svg width="72" height="72" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle class="svg-monogram-circle" cx="40" cy="40" r="36" stroke="var(--color-accent-gold)" stroke-width="1.2"/>
+                <text x="40" y="48" text-anchor="middle" font-family="var(--font-display)" font-size="24" fill="var(--color-accent-rose-hover)">P</text>
+              </svg>
+            </div>
+            <div>
+              <p class="text-overline" style="color: var(--color-accent-rose-hover); margin-bottom: var(--space-1);">Mempelai Pria</p>
+              <h3 class="couple-name">[Nama Lengkap Pria]</h3>
+              <p class="couple-parents">Putra dari Bapak [ ] &amp; Ibu [ ]</p>
+            </div>
+          </article>
+
+          <!-- Mempelai Wanita (Right Column — Offset Staggered di Desktop) -->
+          <article class="couple-card couple-card-stagger couple-card-bride couple-reveal">
+            <div class="couple-monogram-wrapper">
+              <svg width="72" height="72" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle class="svg-monogram-circle" cx="40" cy="40" r="36" stroke="var(--color-accent-gold)" stroke-width="1.2"/>
+                <text x="40" y="48" text-anchor="middle" font-family="var(--font-display)" font-size="24" fill="var(--color-accent-rose-hover)">W</text>
+              </svg>
+            </div>
+            <div>
+              <p class="text-overline" style="color: var(--color-accent-rose-hover); margin-bottom: var(--space-1);">Mempelai Wanita</p>
+              <h3 class="couple-name">[Nama Lengkap Wanita]</h3>
+              <p class="couple-parents">Putri dari Bapak [ ] &amp; Ibu [ ]</p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 05: Detail Acara (Architectural Grid Cards) -->
+    <section id="events" class="section events-section" aria-label="Rangkaian Acara Pernikahan">
+      <div class="container">
+        
+        <div class="events-reveal" style="text-align: left;">
+          <p class="text-overline">Rangkaian Acara</p>
+          <h2 class="font-display" style="font-size: var(--text-h2); margin-top: var(--space-1);">
+            Waktu &amp; Tempat
+          </h2>
+        </div>
+
+        <div class="events-grid">
+          
+          <!-- Kartu 1: Akad Nikah (Arched Cathedral Window) -->
+          <article class="event-card event-card-arched events-reveal">
+            <div>
+              <div class="event-arch-header">
+                <div class="event-arch-icon">
+                  <!-- Monoline Ring Icon SVG (Antique Gold) -->
+                  <svg class="event-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;">
+                    <circle cx="9" cy="12" r="5.5"></circle>
+                    <circle cx="15" cy="12" r="5.5"></circle>
+                  </svg>
+                </div>
+                <span class="text-overline event-badge">Akad Nikah</span>
+              </div>
+
+              <h3 class="event-date">[YYYY-MM-DD]</h3>
+              <p class="event-time">Pukul [HH:mm] [WIB/WITA/WIT]</p>
+              
+              <div style="margin: var(--space-4) 0 var(--space-6);">
+                <p class="event-venue-name">[Nama Venue]</p>
+                <p class="event-venue-address">[Alamat Lengkap]</p>
+              </div>
+            </div>
+
+            <a href="[ ]" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%;">
+              <span>Buka Google Maps</span>
+              <svg class="btn-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 12L12 4M12 4H6M12 4V10"/>
+              </svg>
+            </a>
+          </article>
+
+          <!-- Kartu 2: Resepsi (Arched Cathedral Window) -->
+          <article class="event-card event-card-arched events-reveal">
+            <div>
+              <div class="event-arch-header">
+                <div class="event-arch-icon">
+                  <!-- Monoline Arch Icon SVG (Antique Gold) -->
+                  <svg class="event-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 22px; height: 22px;">
+                    <path d="M4 21V10C4 5.58 7.58 2 12 2C16.42 2 20 5.58 20 10V21"></path>
+                    <path d="M9 21V13C9 11.34 10.34 10 12 10C13.66 10 15 11.34 15 13V21"></path>
+                  </svg>
+                </div>
+                <span class="text-overline event-badge">Resepsi</span>
+              </div>
+
+              <h3 class="event-date">[YYYY-MM-DD]</h3>
+              <p class="event-time">Pukul [HH:mm - selesai] [WIB/WITA/WIT]</p>
+              
+              <div style="margin: var(--space-4) 0 var(--space-6);">
+                <p class="event-venue-name">[Nama Venue]</p>
+                <p class="event-venue-address">[Alamat Lengkap]</p>
+              </div>
+            </div>
+
+            <a href="[ ]" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%;">
+              <span>Buka Google Maps</span>
+              <svg class="btn-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 12L12 4M12 4H6M12 4V10"/>
+              </svg>
+            </a>
+          </article>
+
+        </div>
+
+        <!-- Shared Action: Add to Calendar -->
+        <div class="events-shared-action events-reveal">
+          <button id="btn-add-calendar" class="btn btn-outline" type="button">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 16px; height: 16px;">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Simpan ke Kalender</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 06: Countdown (Metronomic Horizontal Band) -->
+    <section id="countdown" class="section countdown-section" aria-label="Hitung Mundur Acara"
+             data-date="[YYYY-MM-DD]" data-time="[HH:mm]" data-timezone="[WIB/WITA/WIT]">
+      <div class="container">
+        
+        <div class="countdown-wrapper countdown-reveal">
+          <p class="text-overline countdown-title-vertical">Menghitung Hari Bahagia</p>
+
+          <div id="countdown-grid" class="countdown-grid">
+            
+            <div class="countdown-box">
+              <div id="countdown-days" class="countdown-num tabular-nums">00</div>
+              <span class="text-overline countdown-label">Hari</span>
+            </div>
+
+            <div class="countdown-box">
+              <div id="countdown-hours" class="countdown-num tabular-nums">00</div>
+              <span class="text-overline countdown-label">Jam</span>
+            </div>
+
+            <div class="countdown-box">
+              <div id="countdown-minutes" class="countdown-num tabular-nums">00</div>
+              <span class="text-overline countdown-label">Menit</span>
+            </div>
+
+            <div class="countdown-box">
+              <div id="countdown-seconds" class="countdown-num tabular-nums">00</div>
+              <span class="text-overline countdown-label">Detik</span>
+            </div>
+
+          </div>
+
+          <div id="countdown-passed" class="countdown-passed-msg">
+            Hari Bahagia Telah Tiba &bull; Terima kasih atas doa restu Anda
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 07: Love Story (Timeline Asimetris dengan Garis SVG) -->
+    <section id="love-story" class="section love-story-section" aria-label="Kisah Perjalanan Mempelai">
+      <div class="container">
+        
+        <div class="love-story-reveal" style="text-align: left;">
+          <p class="text-overline">Perjalanan Kami</p>
+          <h2 class="font-display" style="font-size: var(--text-h2); margin-top: var(--space-1);">
+            Sebuah Awal Cerita
+          </h2>
+        </div>
+
+        <div class="timeline-container">
+          
+          <!-- Garis Jalur Vertikal SVG yang Tergambar Saat Scroll -->
+          <div class="timeline-svg-wrapper" aria-hidden="true">
+            <svg width="2" height="100%" viewBox="0 0 2 800" preserveAspectRatio="none" fill="none">
+              <line class="timeline-svg-track" x1="1" y1="0" x2="1" y2="800" stroke="var(--color-border-hairline)" stroke-width="2"/>
+            </svg>
+          </div>
+
+          <!-- Timeline Items (Data dari content.json.loveStory) -->
+          <div class="timeline-item love-story-reveal">
+            <div class="timeline-year">2021</div>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Pertemuan Pertama</h3>
+              <p class="timeline-text">Takdir mempertemukan kami di sebuah ruang diskusi hangat di sudut kota.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item love-story-reveal">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Sebuah Komitmen</h3>
+              <p class="timeline-text">Memutuskan melangkah bersama dengan niat tulus untuk menyempurnakan ibadah.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item love-story-reveal">
+            <div class="timeline-year">2026</div>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Hari Bahagia</h3>
+              <p class="timeline-text">Mengikat janji suci pernikahan di hadapan keluarga dan para sahabat tercinta.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 08: Penutup & Footer -->
+    <section id="closing" class="section" style="text-align: center; padding-top: var(--space-12); padding-bottom: var(--space-16);">
+      <div class="container" style="max-width: 640px;">
+        <div class="gold-divider-line ornament-parallax" style="margin-bottom: var(--space-6);"></div>
+        <p style="font-size: var(--text-body-lead); color: var(--color-text-secondary); margin-bottom: var(--space-6); line-height: 1.7;">
+          Merupakan suatu kehormatan dan kebahagiaan apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.
+        </p>
+        <p class="text-overline" style="margin-bottom: var(--space-2);">Hormat Kami</p>
+        <h2 style="font-family: var(--font-display); font-size: var(--text-h2); color: var(--color-accent-rose-hover); margin-bottom: var(--space-12);">
+          [Nama Pria] &amp; [Nama Wanita]
+        </h2>
+
+        <footer style="border-top: var(--border-hairline); padding-top: var(--space-6);">
+          <p style="font-size: var(--text-micro); color: var(--color-text-muted); letter-spacing: 0.12em; text-transform: uppercase;">
+            &copy; 2026 &bull; Undangan Pernikahan Digital
+          </p>
+        </footer>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ========================================================================
+       Floating Audio Control (Milestone 4)
+       ======================================================================== -->
+  <button id="audio-toggle" class="audio-toggle-btn" type="button" aria-label="Nyalakan Musik">
+    <!-- SVG Speaker Off (Muted) -->
+    <svg id="icon-speaker-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <line x1="23" y1="9" x2="17" y2="15"></line>
+      <line x1="17" y1="9" x2="23" y2="15"></line>
+    </svg>
+    <!-- SVG Speaker On (Playing Waves) -->
+    <svg id="icon-speaker-on" class="icon-speaker-waves" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: none;">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+    </svg>
+  </button>
+  <audio id="bg-audio" preload="none" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ========================================================================
+       Toast Notification Component (Milestone 4)
+       ======================================================================== -->
+  <div id="toast" class="toast-notification" role="status" aria-live="polite">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toast-message">Berhasil disalin ke clipboard</span>
+  </div>
+
+  <!-- Custom Editorial Cursor (Milestone 5 — Desktop Only) -->
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true"></div>
+
+  <!-- ========================================================================
+       Vendor Scripts & Core Logic
+       ======================================================================== -->
+  <script src="assets/js/vendor/lenis.min.js"></script>
+  <script src="assets/js/vendor/gsap.min.js"></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

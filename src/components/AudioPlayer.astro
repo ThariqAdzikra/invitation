@@ -1,0 +1,96 @@
+---
+import content from '../data/content.json';
+---
+
+<button id="audio-toggle" class="audio-toggle-btn" type="button" aria-label="Nyalakan Musik">
+  <!-- Speaker Off Icon -->
+  <svg id="icon-speaker-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <line x1="23" y1="9" x2="17" y2="15"></line>
+    <line x1="17" y1="9" x2="23" y2="15"></line>
+  </svg>
+  <!-- Speaker On Icon -->
+  <svg id="icon-speaker-on" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+  </svg>
+</button>
+
+<audio id="bg-audio" preload="none" loop>
+  <source src={content.music.file} type="audio/mpeg" />
+</audio>
+
+<script>
+  import gsap from 'gsap';
+
+  function initAudioPlayer() {
+    const btn = document.getElementById('audio-toggle');
+    const audio = document.getElementById('bg-audio') as HTMLAudioElement | null;
+    const iconOff = document.getElementById('icon-speaker-off');
+    const iconOn = document.getElementById('icon-speaker-on');
+
+    if (!btn || !audio) return;
+
+    let isPlaying = false;
+
+    function setAudioState(playing: boolean) {
+      isPlaying = playing;
+      if (playing) {
+        btn.setAttribute('aria-label', 'Matikan Musik');
+        if (iconOff) iconOff.classList.add('hidden');
+        if (iconOn) iconOn.classList.remove('hidden');
+      } else {
+        btn.setAttribute('aria-label', 'Nyalakan Musik');
+        if (iconOff) iconOff.classList.remove('hidden');
+        if (iconOn) iconOn.classList.add('hidden');
+      }
+    }
+
+    function play(fadeIn = false) {
+      if (!audio) return;
+      if (fadeIn) {
+        audio.volume = 0;
+        audio.play().then(() => {
+          setAudioState(true);
+          gsap.to(audio, { volume: 0.65, duration: 2, ease: 'power1.out' });
+        }).catch((e) => {
+          console.warn('Audio play restricted by browser policy:', e);
+          setAudioState(false);
+        });
+      } else {
+        audio.volume = 0.65;
+        audio.play().then(() => {
+          setAudioState(true);
+        }).catch((e) => {
+          console.warn('Audio play failed:', e);
+          setAudioState(false);
+        });
+      }
+    }
+
+    function pause() {
+      if (!audio) return;
+      audio.pause();
+      setAudioState(false);
+    }
+
+    btn.addEventListener('click', () => {
+      if (isPlaying) {
+        pause();
+      } else {
+        play(false);
+      }
+    });
+
+    // Auto fade-in when cover unboxing happens
+    window.addEventListener('invitationOpening', () => {
+      play(true);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAudioPlayer);
+  } else {
+    initAudioPlayer();
+  }
+</script>

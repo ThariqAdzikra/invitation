@@ -1,0 +1,1251 @@
+/* ==========================================================================
+   Design System Tokens (Sesuai Spesifikasi design.md)
+   ========================================================================== */
+
+:root {
+  /* Surfaces & Backgrounds */
+  --color-bg-base: #FFFBF7;          /* Ivory murni — kanvas utama halaman */
+  --color-bg-subtle: #F6EFE9;        /* Warm Cream — selingan section/kartu */
+  --color-bg-surface: #FFFFFF;       /* Pure White — permukaan kartu interaktif */
+  --color-bg-overlay: rgba(255, 251, 247, 0.98); /* Backdrop cover */
+
+  /* Typography / Inks */
+  --color-text-primary: #2C2220;     /* Deep Espresso — teks utama, heading */
+  --color-text-secondary: #6B5B57;   /* Warm Slate Brown — subtitle, metadata, body */
+  --color-text-muted: #9C8C88;       /* Muted Brown — label kecil, caption, disabled */
+  --color-text-inverted: #FFFBF7;    /* Teks di atas surface gelap/aksen */
+
+  /* Primary Accent: Dusty Rose */
+  --color-accent-rose: #C27A7A;      /* Dusty Rose utama — tombol primer */
+  --color-accent-rose-hover: #A86464;/* Darker Rose — teks aksen & hover (WCAG AA) */
+  --color-accent-rose-tint: #F8EDED; /* Tint muda — badge/pill */
+
+  /* Micro Accent: Warm Antique Gold */
+  --color-accent-gold: #B89758;      /* Antique Gold satin — aksen garis/ornamen */
+  --color-accent-gold-soft: #D8C39A; /* Tint gold lembut — garis batas */
+
+  /* Borders & Dividers */
+  --color-border-hairline: #E8DED6;  /* Garis batas struktural 1px */
+  --color-border-focus: #B89758;     /* Outline fokus keyboard aksesibel */
+
+  /* Utility & Feedback */
+  --color-success: #557A61;          /* Forest sage */
+  --color-danger: #A34848;           /* Muted crimson */
+
+  /* Font Families */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-arabic: 'Amiri', serif;
+
+  /* Fluid Type Scale (clamp min @360px screen, max @1200px screen) */
+  --text-display-hero: clamp(3.25rem, 8vw + 1rem, 6.5rem);   /* 52px -> 104px */
+  --text-h1:           clamp(2.25rem, 4.5vw + 1rem, 4rem);    /* 36px -> 64px */
+  --text-h2:           clamp(1.75rem, 3vw + 0.75rem, 2.75rem);/* 28px -> 44px */
+  --text-h3:           clamp(1.25rem, 1.8vw + 0.5rem, 1.75rem);/* 20px -> 28px */
+  --text-arabic:       clamp(1.5rem, 2.2vw + 0.75rem, 2.25rem);/* 24px -> 36px */
+  --text-body-lead:    clamp(1.0625rem, 0.5vw + 0.95rem, 1.25rem); /* 17px -> 20px */
+  --text-body:         clamp(0.9375rem, 0.25vw + 0.875rem, 1rem);  /* 15px -> 16px */
+  --text-caption:      clamp(0.8125rem, 0.2vw + 0.75rem, 0.875rem);/* 13px -> 14px */
+  --text-micro:        0.6875rem;                                  /* 11px fixed */
+
+  /* Spacing Scale (8-point modular) */
+  --space-1:  0.25rem;  /* 4px */
+  --space-2:  0.5rem;   /* 8px */
+  --space-3:  0.75rem;  /* 12px */
+  --space-4:  1rem;     /* 16px */
+  --space-5:  1.5rem;   /* 24px */
+  --space-6:  2rem;     /* 32px */
+  --space-8:  3rem;     /* 48px */
+  --space-10: 4rem;     /* 64px */
+  --space-12: 5rem;     /* 80px */
+  --space-16: 7.5rem;   /* 120px */
+
+  /* Corner Radius & Border Style (ANTI-SLOP: no giant round pills) */
+  --radius-none:   0px;
+  --radius-subtle: 2px;
+  --radius-badge:  9999px;
+
+  --border-width-hairline: 1px;
+  --border-hairline: 1px solid var(--color-border-hairline);
+  --border-accent:   1px solid var(--color-accent-rose);
+  --border-gold:     1px solid var(--color-accent-gold-soft);
+
+  /* Motion Tokens */
+  --duration-instant: 150ms;
+  --duration-fast:    300ms;
+  --duration-normal:  600ms;
+  --duration-slow:    900ms;
+  --duration-scenic:  1200ms;
+
+  --ease-editorial:     cubic-bezier(0.16, 1, 0.3, 1);    /* Out Expo */
+  --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1); /* In-Out Circ */
+  --ease-spring:        cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ==========================================================================
+   CSS Reset & Base Rules
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.65;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-base);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.is-locked {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Tactile Paper Texture (CSS SVG Noise — 3.5% opacity) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   Lenis Smooth Scroll Standard Rules
+   ========================================================================== */
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Accessibility & Focus
+   ========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .cover-overlay {
+    transition: opacity var(--duration-fast) ease !important;
+  }
+
+  .hero-text-inner {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ==========================================================================
+   Typography Utilities
+   ========================================================================== */
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+.text-overline {
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Layout Containers
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-5);
+  padding-right: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.section {
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-10);
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+}
+
+.section-subtle {
+  background-color: var(--color-bg-subtle);
+}
+
+/* ==========================================================================
+   Button Component (Design System Section 5.1)
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: var(--radius-subtle);
+  min-height: 48px; /* Touch target aksesibel */
+  padding: 0 32px;
+  transition: transform var(--duration-fast) var(--ease-editorial),
+              background-color var(--duration-fast) var(--ease-editorial),
+              border-color var(--duration-fast) var(--ease-editorial),
+              box-shadow var(--duration-fast) var(--ease-editorial);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-primary {
+  background-color: var(--color-accent-rose);
+  border: 1px solid var(--color-accent-rose);
+  color: var(--color-text-inverted);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-rose-hover);
+  border-color: var(--color-accent-rose-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(194, 122, 122, 0.22);
+}
+
+.btn-primary:active {
+  background-color: #8C4E4E;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-icon {
+  width: 14px;
+  height: 14px;
+  stroke-width: 1.5;
+  transition: transform var(--duration-fast) var(--ease-editorial);
+}
+
+.btn-primary:hover .btn-icon {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   Section 01: Cover Gate (Milestone 2)
+   ========================================================================== */
+
+.cover-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh; /* Mobile browser address bar safety */
+  background-color: var(--color-bg-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-8) var(--space-5);
+  clip-path: circle(150% at 50% 50%); /* Base state sebelum animasi buka */
+  will-change: clip-path, opacity;
+  overflow: hidden;
+}
+
+.cover-header, .cover-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+}
+
+.cover-main {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  margin: auto 0;
+}
+
+.cover-badge {
+  margin-bottom: var(--space-3);
+}
+
+.cover-salutation {
+  font-size: var(--text-caption);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+  letter-spacing: 0.02em;
+}
+
+.cover-guest-wrapper {
+  margin-bottom: var(--space-8);
+  padding: 0 var(--space-2);
+}
+
+.cover-guest-name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.5vw + 0.5rem, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-accent-rose-hover);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+}
+
+.cover-ornament {
+  display: block;
+  stroke: var(--color-accent-gold);
+}
+
+/* ==========================================================================
+   Section 02: Hero Section (Milestone 2)
+   ========================================================================== */
+
+.hero-section {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-12);
+  position: relative;
+  border-bottom: var(--border-hairline);
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hero-meta-top {
+  margin-bottom: var(--space-6);
+}
+
+.hero-names {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+  margin-bottom: var(--space-8);
+}
+
+/* Asymmetrical Magazine Layout Rows */
+.hero-line {
+  overflow: hidden; /* Masking untuk split-text reveal */
+  display: block;
+}
+
+.hero-line-left {
+  text-align: left;
+}
+
+.hero-line-center {
+  text-align: center;
+  margin: calc(-1 * var(--space-3)) 0;
+}
+
+.hero-line-right {
+  text-align: right;
+}
+
+.hero-text-inner {
+  display: inline-block;
+  will-change: transform, opacity;
+  transform: translateY(115%);
+  opacity: 0;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: var(--text-display-hero);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  word-break: break-word;
+}
+
+.hero-ampersand {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-style: italic;
+  line-height: 1;
+  color: var(--color-accent-gold);
+}
+
+.hero-meta-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-top: var(--border-hairline);
+  padding-top: var(--space-6);
+}
+
+.hero-date-text {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.hero-venue-preview {
+  font-size: var(--text-micro);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Button Outline Variant (Design System Section 5.1 Variant B)
+   ========================================================================== */
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-text-secondary);
+  color: var(--color-text-primary);
+  min-height: 44px;
+  padding: 0 24px;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-accent-rose);
+  color: var(--color-accent-rose-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline:active {
+  background-color: var(--color-accent-rose-tint);
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Section 03: Kata Pembuka / Ayat Sakral (Milestone 3)
+   ========================================================================== */
+
+.opening-section {
+  text-align: center;
+  position: relative;
+  border-bottom: var(--border-hairline);
+}
+
+.opening-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.gold-divider-line {
+  width: 40px;
+  height: 1px;
+  background-color: var(--color-accent-gold-soft);
+  margin: 0 auto;
+}
+
+.opening-bismillah {
+  font-family: var(--font-arabic);
+  font-size: 1.625rem;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+  line-height: 1.5;
+}
+
+.opening-arabic-verse {
+  font-family: var(--font-arabic);
+  font-size: var(--text-arabic);
+  line-height: 2.1;
+  color: var(--color-text-primary);
+  margin: var(--space-5) 0 var(--space-4);
+  font-weight: 400;
+}
+
+.opening-translation {
+  font-size: var(--text-body);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-2);
+}
+
+.opening-source {
+  color: var(--color-accent-gold);
+  margin-bottom: var(--space-6);
+}
+
+.opening-greeting {
+  font-size: var(--text-body);
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+/* ==========================================================================
+   Section 04: Profil Mempelai (Milestone 3)
+   ========================================================================== */
+
+.couple-section {
+  border-bottom: var(--border-hairline);
+  position: relative;
+}
+
+.couple-header {
+  margin-bottom: var(--space-10);
+}
+
+.couple-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .couple-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+    align-items: start;
+  }
+  
+  /* Asymmetrical vertical offset */
+  .couple-card-stagger {
+    margin-top: var(--space-12);
+  }
+}
+
+.couple-card {
+  background-color: var(--color-bg-surface);
+  border: var(--border-hairline);
+  border-left: 2px solid var(--color-accent-gold);
+  border-radius: var(--radius-none);
+  padding: var(--space-6) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .couple-card {
+    padding: var(--space-8) var(--space-6);
+  }
+}
+
+.couple-monogram-wrapper {
+  margin-bottom: var(--space-2);
+  display: inline-block;
+  width: 72px;
+  height: 72px;
+}
+
+.svg-monogram-circle {
+  stroke-dasharray: 230;
+  stroke-dashoffset: 230;
+  will-change: stroke-dashoffset;
+  transition: stroke-dashoffset 1.4s var(--ease-editorial);
+}
+
+.svg-monogram-circle.is-drawn {
+  stroke-dashoffset: 0;
+}
+
+.couple-name {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  line-height: 1.15;
+  color: var(--color-text-primary);
+  word-break: break-word;
+}
+
+.couple-parents {
+  font-size: var(--text-caption);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Section 05: Detail Acara (Milestone 3)
+   ========================================================================== */
+
+.events-section {
+  background-color: var(--color-bg-subtle);
+  border-bottom: var(--border-hairline);
+  position: relative;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .events-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.event-card {
+  background-color: var(--color-bg-surface);
+  border: var(--border-hairline);
+  border-top: 2px solid var(--color-accent-gold);
+  border-radius: var(--radius-none);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .event-card {
+    padding: var(--space-8);
+  }
+}
+
+.event-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: var(--border-hairline);
+}
+
+.event-badge {
+  color: var(--color-accent-rose-hover);
+}
+
+.event-icon-svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--color-accent-gold);
+}
+
+.event-date {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.event-time {
+  font-size: var(--text-body);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.event-venue-name {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.event-venue-address {
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-6);
+}
+
+.events-shared-action {
+  text-align: center;
+  margin-top: var(--space-8);
+}
+
+/* ==========================================================================
+   Section 06: Countdown (Milestone 3)
+   ========================================================================== */
+
+.countdown-section {
+  border-bottom: var(--border-hairline);
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-10);
+  background-color: var(--color-bg-base);
+}
+
+.countdown-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .countdown-wrapper {
+    flex-direction: row;
+    gap: var(--space-8);
+  }
+
+  .countdown-title-vertical {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    letter-spacing: 0.25em;
+    color: var(--color-text-muted);
+  }
+}
+
+.countdown-grid {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
+}
+
+.countdown-box {
+  flex: 1;
+  min-width: 64px;
+  background-color: var(--color-bg-subtle);
+  border: var(--border-hairline);
+  border-radius: var(--radius-subtle);
+  padding: var(--space-4) var(--space-2);
+  text-align: center;
+}
+
+.countdown-num {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  line-height: 1;
+  color: var(--color-text-primary);
+}
+
+.countdown-label {
+  margin-top: var(--space-2);
+  display: block;
+}
+
+.countdown-passed-msg {
+  display: none;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  color: var(--color-accent-rose-hover);
+  text-align: center;
+  padding: var(--space-4);
+}
+
+/* ==========================================================================
+   Section 07: Love Story / Perjalanan Kami (Milestone 3)
+   ========================================================================== */
+
+.love-story-section {
+  border-bottom: var(--border-hairline);
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 760px;
+  margin: var(--space-8) auto 0;
+  padding-left: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .timeline-container {
+    padding-left: 0;
+  }
+}
+
+.timeline-svg-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 12px;
+  width: 2px;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .timeline-svg-wrapper {
+    left: 28%;
+  }
+}
+
+.timeline-svg-track {
+  width: 2px;
+  height: 100%;
+  stroke: var(--color-border-hairline);
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  will-change: stroke-dashoffset;
+  transition: stroke-dashoffset 1.8s var(--ease-editorial);
+}
+
+.timeline-svg-track.is-drawn {
+  stroke-dashoffset: 0;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 24% 8% 1fr;
+    align-items: start;
+    margin-bottom: var(--space-10);
+  }
+
+  .timeline-year {
+    text-align: right;
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    line-height: 1;
+    color: var(--color-accent-rose-hover);
+  }
+}
+
+.timeline-dot {
+  width: 9px;
+  height: 9px;
+  background-color: var(--color-accent-gold);
+  border-radius: var(--radius-badge);
+  margin-top: 6px;
+  position: absolute;
+  left: -24px;
+}
+
+@media (min-width: 768px) {
+  .timeline-dot {
+    position: static;
+    margin: 6px auto 0;
+  }
+}
+
+.timeline-content {
+  background-color: var(--color-bg-surface);
+  border: var(--border-hairline);
+  border-left: 2px solid var(--color-accent-rose);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-none);
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.timeline-text {
+  font-size: var(--text-body);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Toast Notification Component (Design System Section 5.4)
+   ========================================================================== */
+
+.toast-notification {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  opacity: 0;
+  visibility: hidden;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: var(--radius-subtle);
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-base);
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--color-accent-gold);
+  box-shadow: 0 8px 24px rgba(44, 34, 32, 0.18);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  z-index: 2000;
+  pointer-events: none;
+  transition: transform var(--duration-fast) var(--ease-spring),
+              opacity var(--duration-fast) ease,
+              visibility var(--duration-fast);
+  white-space: nowrap;
+}
+
+.toast-notification.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   Floating Audio Control (Design System Section 5.6)
+   ========================================================================== */
+
+.audio-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-badge);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-accent-gold-soft);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 500;
+  box-shadow: 0 4px 16px rgba(44, 34, 32, 0.1);
+  transition: transform var(--duration-fast) var(--ease-editorial),
+              border-color var(--duration-fast) var(--ease-editorial),
+              color var(--duration-fast) var(--ease-editorial);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.audio-toggle-btn:hover {
+  transform: scale(1.05);
+  border-color: var(--color-accent-gold);
+}
+
+.audio-toggle-btn.is-playing {
+  border-color: var(--color-accent-rose);
+  color: var(--color-accent-rose-hover);
+}
+
+.audio-toggle-btn.is-playing .icon-speaker-waves {
+  animation: pulseWaves 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseWaves {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* ==========================================================================
+   Custom Editorial Cursor (Milestone 5 — Desktop Only)
+   ========================================================================== */
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent-rose);
+  border-radius: var(--radius-badge);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width var(--duration-fast) var(--ease-editorial),
+              height var(--duration-fast) var(--ease-editorial),
+              opacity var(--duration-fast) var(--ease-editorial),
+              background-color var(--duration-fast) var(--ease-editorial);
+  will-change: transform, width, height, opacity;
+}
+
+.custom-cursor.is-active {
+  opacity: 0.85;
+}
+
+.custom-cursor.is-hovering {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-accent-rose);
+  opacity: 0.22;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Micro-Interactions & Refinements (Milestone 5)
+   ========================================================================== */
+
+/* Countdown digit tick micro-animation wrapper */
+.countdown-num {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Parallax subtle wrapper */
+.ornament-parallax {
+  will-change: transform;
+}
+
+/* ==========================================================================
+   Elevated Visuals: Wax Seal, 3D Envelope, Arched Frames, & Ambient Aura
+   ========================================================================== */
+
+/* Ambient Warm Lighting in Canvas */
+body {
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(216, 195, 154, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(194, 122, 122, 0.07) 0%, transparent 45%);
+  background-attachment: fixed;
+}
+
+/* Giant Background Watermark Monogram */
+.watermark-monogram {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(14rem, 30vw, 28rem);
+  font-style: italic;
+  color: var(--color-accent-gold);
+  opacity: 0.045;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   3D Envelope & Wax Seal Unboxing
+   ========================================================================== */
+
+.envelope-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  perspective: 1200px;
+}
+
+.envelope-box {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+  box-shadow: 0 16px 40px rgba(44, 34, 32, 0.08);
+  padding: var(--space-8) var(--space-5) var(--space-6);
+  text-align: center;
+  border-radius: var(--radius-subtle);
+  overflow: visible;
+}
+
+/* Envelope 3D Upper Flap */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(180deg, #F9F2EB 0%, #FFFBF7 100%);
+  border: 1px solid var(--color-border-hairline);
+  border-bottom: none;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  transition: transform 0.9s var(--ease-editorial);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(44, 34, 32, 0.05);
+}
+
+.envelope-flap.is-unfolded {
+  transform: rotateX(180deg);
+}
+
+/* Wax Seal Button (Tactile 3D Antique Gold) */
+.wax-seal-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  margin: var(--space-4) auto var(--space-3);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform var(--duration-fast) var(--ease-editorial);
+}
+
+.wax-seal-btn:hover {
+  transform: scale(1.06);
+}
+
+.wax-seal-btn:active {
+  transform: scale(0.95);
+}
+
+.wax-seal-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 6px 14px rgba(184, 151, 88, 0.35));
+  transition: filter var(--duration-fast) ease;
+}
+
+.wax-seal-btn:hover .wax-seal-svg {
+  filter: drop-shadow(0 8px 18px rgba(184, 151, 88, 0.5));
+}
+
+.wax-seal-hint {
+  display: block;
+  font-size: var(--text-micro);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-rose-hover);
+  animation: pulseHint 2.4s infinite ease-in-out;
+  margin-top: var(--space-2);
+}
+
+@keyframes pulseHint {
+  0%, 100% { opacity: 0.5; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-2px); }
+}
+
+/* ==========================================================================
+   Arched Cathedral Window Frames (Kartu Akad & Resepsi)
+   ========================================================================== */
+
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  margin-top: var(--space-10);
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .events-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* Siluet Lengkung Arsitektural Mewah */
+.event-card.event-card-arched {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: clamp(100px, 32vw, 140px) clamp(100px, 32vw, 140px) 0 0; /* Lengkungan kubah arsitektural */
+  padding: var(--space-10) var(--space-6) var(--space-8);
+  position: relative;
+  box-shadow: 0 12px 32px rgba(44, 34, 32, 0.04);
+  transition: transform var(--duration-normal) var(--ease-editorial),
+              box-shadow var(--duration-normal) var(--ease-editorial),
+              border-color var(--duration-normal) var(--ease-editorial);
+  text-align: center;
+}
+
+.event-card.event-card-arched:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent-gold-soft);
+  box-shadow: 0 16px 40px rgba(184, 151, 88, 0.12);
+}
+
+.event-card.event-card-arched::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--color-accent-gold-soft);
+  border-radius: clamp(94px, calc(32vw - 6px), 134px) clamp(94px, calc(32vw - 6px), 134px) 0 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.event-arch-header {
+  margin-bottom: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.event-arch-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-badge);
+  border: 1px solid var(--color-accent-gold-soft);
+  color: var(--color-accent-gold);
+  margin-bottom: var(--space-1);
+}

@@ -1,0 +1,160 @@
+---
+import content from '../data/content.json';
+---
+
+<section id="countdown" class="section-slide relative px-4" aria-label="Hitung Mundur Acara"
+         data-date={content.event.date} data-time={content.event.akad.time.split(' ')[0]} data-timezone={content.event.timezone}>
+  <div class="max-w-xl mx-auto text-center my-auto w-full">
+    
+    <div class="countdown-reveal mb-8">
+      <p class="text-overline">Menghitung Hari</p>
+      <h2 class="font-display text-2xl md:text-3xl text-pearl font-normal mt-2">
+        Menuju Janji Suci
+      </h2>
+    </div>
+
+    <!-- Countdown Grid -->
+    <div id="countdown-grid" class="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto countdown-reveal">
+      
+      <!-- Hari -->
+      <div class="bg-navy-surface border border-navy-border rounded p-3 sm:p-5 flex flex-col items-center shadow-lg">
+        <span id="countdown-days" class="font-display text-2xl sm:text-4xl md:text-5xl text-gold-bright font-normal tabular-nums">
+          00
+        </span>
+        <span class="text-[0.65rem] sm:text-xs text-pearl-muted uppercase tracking-widest mt-1">Hari</span>
+      </div>
+
+      <!-- Jam -->
+      <div class="bg-navy-surface border border-navy-border rounded p-3 sm:p-5 flex flex-col items-center shadow-lg">
+        <span id="countdown-hours" class="font-display text-2xl sm:text-4xl md:text-5xl text-gold-bright font-normal tabular-nums">
+          00
+        </span>
+        <span class="text-[0.65rem] sm:text-xs text-pearl-muted uppercase tracking-widest mt-1">Jam</span>
+      </div>
+
+      <!-- Menit -->
+      <div class="bg-navy-surface border border-navy-border rounded p-3 sm:p-5 flex flex-col items-center shadow-lg">
+        <span id="countdown-minutes" class="font-display text-2xl sm:text-4xl md:text-5xl text-gold-bright font-normal tabular-nums">
+          00
+        </span>
+        <span class="text-[0.65rem] sm:text-xs text-pearl-muted uppercase tracking-widest mt-1">Menit</span>
+      </div>
+
+      <!-- Detik -->
+      <div class="bg-navy-surface border border-navy-border rounded p-3 sm:p-5 flex flex-col items-center shadow-lg">
+        <span id="countdown-seconds" class="font-display text-2xl sm:text-4xl md:text-5xl text-gold-bright font-normal tabular-nums">
+          00
+        </span>
+        <span class="text-[0.65rem] sm:text-xs text-pearl-muted uppercase tracking-widest mt-1">Detik</span>
+      </div>
+
+    </div>
+
+    <!-- Passed Message -->
+    <div id="countdown-passed" class="hidden text-gold-bright font-display text-xl my-4">
+      Hari Bahagia Telah Tiba &bull; Terima kasih atas doa restu Anda
+    </div>
+
+  </div>
+
+  <!-- Scroll Prompt -->
+  <a href="#love-story" class="scroll-prompt" aria-label="Gulir ke bagian cerita">
+    <span>Kisah</span>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+    </svg>
+  </a>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initCountdown() {
+    const section = document.getElementById('countdown');
+    if (!section) return;
+
+    const daysEl = document.getElementById('countdown-days');
+    const hoursEl = document.getElementById('countdown-hours');
+    const minutesEl = document.getElementById('countdown-minutes');
+    const secondsEl = document.getElementById('countdown-seconds');
+    const gridEl = document.getElementById('countdown-grid');
+    const passedEl = document.getElementById('countdown-passed');
+
+    const dateStr = section.getAttribute('data-date') || '2026-12-12';
+    const timeStr = section.getAttribute('data-time') || '08:00';
+    const tzStr = section.getAttribute('data-timezone') || 'WIB';
+
+    const tzOffsets: Record<string, string> = { WIB: '+07:00', WITA: '+08:00', WIT: '+09:00' };
+    const offset = tzOffsets[tzStr] || '+07:00';
+
+    let cleanTime = timeStr.length === 5 ? `${timeStr}:00` : timeStr;
+    const isoString = `${dateStr}T${cleanTime}${offset}`;
+    let targetTime = new Date(isoString).getTime();
+
+    if (isNaN(targetTime)) {
+      targetTime = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).getTime();
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function updateDigit(el: HTMLElement | null, val: string) {
+      if (!el || el.textContent === val) return;
+      el.textContent = val;
+
+      if (!prefersReducedMotion) {
+        gsap.fromTo(el, { y: 4, opacity: 0.5 }, { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' });
+      }
+    }
+
+    function tick() {
+      const diff = targetTime - Date.now();
+      if (diff <= 0) {
+        if (gridEl) gridEl.classList.add('hidden');
+        if (passedEl) passedEl.classList.remove('hidden');
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      updateDigit(daysEl, String(days).padStart(2, '0'));
+      updateDigit(hoursEl, String(hours).padStart(2, '0'));
+      updateDigit(minutesEl, String(minutes).padStart(2, '0'));
+      updateDigit(secondsEl, String(seconds).padStart(2, '0'));
+    }
+
+    tick();
+    setInterval(tick, 1000);
+
+    // Scroll reveal
+    if (!prefersReducedMotion) {
+      gsap.fromTo(
+        '.countdown-reveal',
+        { opacity: 0, y: 22 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#countdown',
+            start: 'top 82%',
+            once: true
+          }
+        }
+      );
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCountdown);
+  } else {
+    initCountdown();
+  }
+</script>

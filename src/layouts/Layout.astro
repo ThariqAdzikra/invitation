@@ -1,0 +1,109 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Undangan Pernikahan Arya & Dian",
+  description = "Kami mengundang Anda untuk berbagi kebahagiaan di hari pernikahan kami.",
+  ogImage = "/assets/og.jpg"
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070D17" />
+  
+  <title>{title}</title>
+  <meta name="description" content={description} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph / WhatsApp Preview (Anti-Slop Luxury Typography) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Undangan Pernikahan" />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Preconnect Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="/src/styles/global.css" />
+</head>
+<body class="is-locked">
+  <slot />
+
+  <!-- Core Scripts: Lenis & GSAP -->
+  <script>
+    import Lenis from 'lenis';
+    import gsap from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      const lenis = new Lenis({
+        duration: 1.15,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 0.9,
+        touchMultiplier: 1.5,
+      });
+
+      lenis.on('scroll', ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+
+      // Expose globally for components
+      (window as any).__lenis = lenis;
+
+      // Inter-section kinetic transitions
+      window.addEventListener('invitationOpened', () => {
+        const slides = document.querySelectorAll('.section-slide');
+        slides.forEach((slide) => {
+          gsap.fromTo(
+            slide,
+            { opacity: 0.35, scale: 0.97, y: 25 },
+            {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              duration: 0.8,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: slide,
+                start: 'top 85%',
+                toggleActions: 'play reverse play reverse'
+              }
+            }
+          );
+        });
+      });
+    }
+  </script>
+</body>
+</html>

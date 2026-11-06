@@ -1,0 +1,56 @@
+---
+// OrnateFrame.astro — Royal Gold Filigree Corner Ornaments & Hairline Border
+---
+
+<div class="pointer-events-none fixed inset-0 z-10 p-3 sm:p-5" aria-hidden="true">
+  <!-- Outer Double Hairline Frame -->
+  <div class="w-full h-full relative border border-gold/20 rounded-sm">
+    <div class="absolute inset-[3px] border border-gold/10 pointer-events-none"></div>
+
+    <!-- Top-Left Filigree Corner -->
+    <div class="absolute -top-[1px] -left-[1px] w-8 h-8 sm:w-12 sm:h-12 text-gold">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full stroke-current stroke-[1.2]">
+        <path d="M2 18V2H18" stroke-linecap="round"/>
+        <path d="M6 14V6H14" stroke-opacity="0.6" stroke-linecap="round"/>
+        <!-- Botanical flourish leaf -->
+        <path d="M2 2C8 8 14 6 18 2" stroke-linecap="round"/>
+        <path d="M2 2C8 8 6 14 2 18" stroke-linecap="round"/>
+        <circle cx="9" cy="9" r="1.5" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <!-- Top-Right Filigree Corner -->
+    <div class="absolute -top-[1px] -right-[1px] w-8 h-8 sm:w-12 sm:h-12 text-gold">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full stroke-current stroke-[1.2] transform scale-x-[-1]">
+        <path d="M2 18V2H18" stroke-linecap="round"/>
+        <path d="M6 14V6H14" stroke-opacity="0.6" stroke-linecap="round"/>
+        <path d="M2 2C8 8 14 6 18 2" stroke-linecap="round"/>
+        <path d="M2 2C8 8 6 14 2 18" stroke-linecap="round"/>
+        <circle cx="9" cy="9" r="1.5" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <!-- Bottom-Left Filigree Corner -->
+    <div class="absolute -bottom-[1px] -left-[1px] w-8 h-8 sm:w-12 sm:h-12 text-gold">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full stroke-current stroke-[1.2] transform scale-y-[-1]">
+        <path d="M2 18V2H18" stroke-linecap="round"/>
+        <path d="M6 14V6H14" stroke-opacity="0.6" stroke-linecap="round"/>
+        <path d="M2 2C8 8 14 6 18 2" stroke-linecap="round"/>
+        <path d="M2 2C8 8 6 14 2 18" stroke-linecap="round"/>
+        <circle cx="9" cy="9" r="1.5" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <!-- Bottom-Right Filigree Corner -->
+    <div class="absolute -bottom-[1px] -right-[1px] w-8 h-8 sm:w-12 sm:h-12 text-gold">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full stroke-current stroke-[1.2] transform -scale-100">
+        <path d="M2 18V2H18" stroke-linecap="round"/>
+        <path d="M6 14V6H14" stroke-opacity="0.6" stroke-linecap="round"/>
+        <path d="M2 2C8 8 14 6 18 2" stroke-linecap="round"/>
+        <path d="M2 2C8 8 6 14 2 18" stroke-linecap="round"/>
+        <circle cx="9" cy="9" r="1.5" fill="currentColor"/>
+      </svg>
+    </div>
+
+  </div>
+</div>

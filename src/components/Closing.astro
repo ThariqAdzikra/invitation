@@ -1,0 +1,28 @@
+---
+import content from '../data/content.json';
+---
+
+<section id="closing" class="section-slide relative px-4 text-center" aria-label="Penutup Undangan">
+  <div class="max-w-xl mx-auto flex flex-col items-center my-auto w-full">
+    
+    <!-- Gold Divider Top -->
+    <div class="w-12 h-[1px] bg-gold-soft opacity-60 mb-8"></div>
+
+    <p class="text-sm md:text-base text-pearl-muted font-light leading-relaxed mb-8 max-w-md">
+      Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.
+    </p>
+
+    <p class="text-overline mb-2">Hormat Kami yang Berbahagia</p>
+    
+    <h2 class="font-display text-3xl md:text-4xl text-gold-bright font-normal mb-14 tracking-tight">
+      {content.couple.groom.nickname} &amp; {content.couple.bride.nickname}
+    </h2>
+
+    <footer class="w-full pt-8 border-t border-navy-border">
+      <p class="text-[0.65rem] md:text-xs text-pearl-hairline tracking-[0.2em] uppercase font-light">
+        &copy; 2026 &bull; Undangan Pernikahan Digital &bull; {content.couple.groom.nickname} &amp; {content.couple.bride.nickname}
+      </p>
+    </footer>
+
+  </div>
+</section>

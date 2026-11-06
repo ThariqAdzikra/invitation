@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#FFFBF7"/>
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#E8DED6" stroke-width="1"/>
+  <circle cx="600" cy="220" r="48" stroke="#B89758" stroke-width="1" fill="none"/>
+  <text x="600" y="235" text-anchor="middle" font-family="Georgia, serif" font-size="44" font-style="italic" fill="#C27A7A">&amp;</text>
+  <text x="600" y="140" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="600" letter-spacing="4" fill="#9C8C88">UNDANGAN PERNIKAHAN</text>
+  <text x="600" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="56" fill="#2C2220">[Nama Pria] &amp; [Nama Wanita]</text>
+  <line x1="560" y1="380" x2="640" y2="380" stroke="#B89758" stroke-width="1"/>
+  <text x="600" y="430" text-anchor="middle" font-family="sans-serif" font-size="18" letter-spacing="3" fill="#6B5B57">[DD . MM . YYYY]</text>
+</svg>
