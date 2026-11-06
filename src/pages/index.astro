@@ -1,16 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Cover from '../components/Cover.astro';
+import SplashScreen from '../components/SplashScreen.astro';
 import Hero from '../components/Hero.astro';
 import Opening from '../components/Opening.astro';
 import Couple from '../components/Couple.astro';
 import UnifiedEvent from '../components/UnifiedEvent.astro';
 import Countdown from '../components/Countdown.astro';
 import LoveStory from '../components/LoveStory.astro';
+import Wishes from '../components/Wishes.astro';
 import Closing from '../components/Closing.astro';
 import AudioPlayer from '../components/AudioPlayer.astro';
 import ProgressBar from '../components/ProgressBar.astro';
-import OrnateFrame from '../components/OrnateFrame.astro';
 import ClickSpark from '../components/reactbits/ClickSpark';
 import CelestialCanvas from '../components/reactbits/CelestialCanvas';
 import content from '../data/content.json';
@@ -31,29 +31,27 @@ import content from '../data/content.json';
   <!-- Background Layer 3: Luxury Fine-Art Linen / Film Grain Texture Overlay -->
   <div class="film-grain-overlay" aria-hidden="true"></div>
 
-  <!-- Foreground Layer: Royal Gold Filigree Corner Frames & Border -->
-  <OrnateFrame />
-
   <!-- React Bits: Interactive Starlight Gold Click Spark Burst -->
-  <ClickSpark client:load sparkColor="#E2C98A" sparkSize={10} sparkRadius={22} sparkCount={8} />
+  <ClickSpark client:load sparkColor="#E2C98A" sparkSize={10} sparkRadius={24} sparkCount={9} />
 
-  <!-- Cover Gate / 3D Wax Seal Unboxing -->
-  <Cover />
+  <!-- Aesthetic Haute-Couture SplashScreen -->
+  <SplashScreen />
   
-  <!-- Main Editorial Content -->
-  <main id="main-content" class="relative z-10">
+  <!-- Main Editorial Content Flow -->
+  <main id="main-content" class="relative z-10 overflow-hidden">
     <Hero />
     <Opening />
     <Couple />
     <UnifiedEvent />
     <Countdown />
     <LoveStory />
+    <Wishes />
     <Closing />
   </main>
 
   <!-- Starlight Gold Reading Progress Bar -->
   <ProgressBar />
 
-  <!-- Floating Audio Control -->
+  <!-- Floating Interactive Audio Player -->
   <AudioPlayer />
 </Layout>

@@ -255,7 +255,7 @@ html.lenis, html.lenis body {
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-display);
-  font-size: clamp(16rem, 36vw, 32rem);
+  font-size: clamp(12rem, 30vw, 24rem);
   font-style: italic;
   color: var(--color-accent-gold);
   opacity: 0.035;
@@ -263,6 +263,9 @@ html.lenis, html.lenis body {
   z-index: 0;
   user-select: none;
   line-height: 1;
+  max-width: 100vw;
+  overflow: hidden;
+}
 }
 
 /* ==========================================================================
@@ -391,11 +394,11 @@ html.lenis, html.lenis body {
 .couple-flip-card {
   position: relative;
   width: 100%;
-  height: 380px;
+  height: 440px;
   transform-style: preserve-3d;
   transition: transform 0.75s var(--ease-editorial);
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .couple-flip-card.is-flipped {

@@ -84,7 +84,7 @@ const {
       // Subtle continuous parallax on background monograms and watermarks
       gsap.utils.toArray('.ornament-parallax').forEach((el: any) => {
         gsap.to(el, {
-          y: 75,
+          y: 65,
           ease: 'none',
           scrollTrigger: {
             trigger: el.parentElement || el,
@@ -95,29 +95,11 @@ const {
         });
       });
 
-      // Refined continuous flow transitions when invitation is opened
+      // Recalculate triggers after splashscreen is unlocked
       window.addEventListener('invitationOpened', () => {
-        // Refresh ScrollTrigger calculations after unlock
-        ScrollTrigger.refresh();
-
-        const flowSections = document.querySelectorAll('.section-flow');
-        flowSections.forEach((section) => {
-          gsap.fromTo(
-            section,
-            { opacity: 0.15, y: 35 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 1.1,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: section,
-                start: 'top 85%',
-                once: true
-              }
-            }
-          );
-        });
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 100);
       });
     }
   </script>
