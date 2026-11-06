@@ -21,7 +21,8 @@ Dibangun dengan prinsip **Anti-AI Slop**: mengutamakan tipografi serif berwibawa
   - Desir halus pembalikan kertas (*card flip whoosh*).
   - Denting harmonis lonceng emas (*chime sound*).
   - Musik instrumental latar dengan *volume fade-in* otomatis.
-- **Full-Page Section Snapping (`100dvh`)**: Setiap bab acara mengunci presisi 1 layar penuh dengan CSS Scroll Snap dan navigator titik starlight gold di sisi kanan layar.
+- **Continuous Editorial Smooth Scroll & Top Progress Bar**: Pengalaman membaca mengalir vertikal dari atas ke bawah tanpa hentakan slide PPT kaku. Scrollbar browser default disembunyikan sepenuhnya, digantikan oleh garis starlight gold progress bar elegan di pucuk layar dengan kilau permata yang bergerak mengikuti laju bacaan.
+- **Natural Editorial Kinetic Transitions**: Transisi antar-section halus dan mewah menggunakan Lenis momentum scrolling dan GSAP ScrollTrigger berkecepatan terkalibrasi (`power3.out`), bebas dari efek alay, memantul, atau mengkerut kaku.
 - **Nir-Backend / Zero Dead Code**: Tanpa database, tanpa form RSVP rumit, tanpa amplop digital/rekening. 100% cepat, privat, dan aman.
 
 ---

@@ -3,8 +3,8 @@ import content from '../data/content.json';
 import FiligreeDivider from './FiligreeDivider.astro';
 ---
 
-<section id="opening" class="section-slide relative px-4" aria-label="Kata Pembuka dan Doa">
-  <div class="max-w-2xl mx-auto text-center flex flex-col items-center my-auto">
+<section id="opening" class="section-flow relative px-4" aria-label="Kata Pembuka dan Doa">
+  <div class="max-w-2xl mx-auto text-center flex flex-col items-center">
     
     <!-- Ornate Gold Divider Top -->
     <FiligreeDivider className="mb-4 opening-reveal" />
@@ -37,14 +37,6 @@ import FiligreeDivider from './FiligreeDivider.astro';
     <FiligreeDivider className="mt-4 opening-reveal" />
 
   </div>
-
-  <!-- Scroll Prompt -->
-  <a href="#couple" class="scroll-prompt" aria-label="Gulir ke bagian mempelai">
-    <span>Mempelai</span>
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
-    </svg>
-  </a>
 </section>
 
 <script>
@@ -59,16 +51,16 @@ import FiligreeDivider from './FiligreeDivider.astro';
 
     gsap.fromTo(
       '.opening-reveal',
-      { opacity: 0, y: 22 },
+      { opacity: 0, y: 28 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.85,
+        duration: 0.9,
         stagger: 0.12,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '#opening',
-          start: 'top 80%',
+          start: 'top 82%',
           once: true
         }
       }

@@ -5,15 +5,13 @@ import BotanicalCrest from './BotanicalCrest.astro';
 import FiligreeDivider from './FiligreeDivider.astro';
 ---
 
-<section id="hero" class="section-slide relative px-4 overflow-hidden" aria-label="Informasi Utama Pernikahan">
+<section id="hero" class="section-hero relative px-4 overflow-hidden" aria-label="Informasi Utama Pernikahan">
   
   <!-- Subtle Parallax Watermark Monogram -->
   <div class="watermark-monogram ornament-parallax" aria-hidden="true">&amp;</div>
 
   <div class="relative z-10 max-w-4xl w-full mx-auto text-center flex flex-col items-center">
-  <div class="relative z-10 max-w-4xl w-full mx-auto text-center flex flex-col items-center my-auto">
     
-    <div class="mb-8">
     <!-- Royal Botanical Crest -->
     <div class="mb-4">
       <BotanicalCrest monogram="AD" size={82} />
@@ -27,10 +25,8 @@ import FiligreeDivider from './FiligreeDivider.astro';
 
     <!-- Asymmetrical Editorial Magazine Typography -->
     <div class="w-full my-6 flex flex-col gap-2 md:gap-4">
-    <div class="w-full my-4 flex flex-col gap-2 md:gap-4">
       
       <!-- Baris 1: Nama Pria (Left-Aligned di container) -->
-      <div class="hero-line text-left md:pl-8">
       <div class="hero-line text-left md:pl-10">
         <div class="hero-text-inner">
           <h2 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-pearl font-normal tracking-tight">
@@ -40,7 +36,6 @@ import FiligreeDivider from './FiligreeDivider.astro';
       </div>
 
       <!-- Baris 2: Simbol & (Center-Aligned) -->
-      <div class="hero-line text-center my-1">
       <div class="hero-line text-center my-0.5">
         <div class="hero-text-inner">
           <span class="font-display italic text-3xl sm:text-5xl md:text-6xl text-gold">
@@ -50,7 +45,6 @@ import FiligreeDivider from './FiligreeDivider.astro';
       </div>
 
       <!-- Baris 3: Nama Wanita (Right-Aligned di container) -->
-      <div class="hero-line text-right md:pr-8">
       <div class="hero-line text-right md:pr-10">
         <div class="hero-text-inner">
           <h2 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-pearl font-normal tracking-tight">
@@ -65,8 +59,7 @@ import FiligreeDivider from './FiligreeDivider.astro';
     <FiligreeDivider className="my-2" />
 
     <!-- Tanggal & Venue Preview -->
-    <div class="mt-8 flex flex-col items-center gap-1.5">
-    <div class="mt-2 flex flex-col items-center gap-1.5">
+    <div class="mt-4 flex flex-col items-center gap-1.5">
       <div class="hero-line">
         <div class="hero-text-inner">
           <p class="text-sm md:text-base text-gold-bright tracking-[0.2em] uppercase font-light">
@@ -84,14 +77,6 @@ import FiligreeDivider from './FiligreeDivider.astro';
     </div>
 
   </div>
-
-  <!-- Scroll Prompt -->
-  <a href="#opening" class="scroll-prompt" aria-label="Gulir ke bagian ayat">
-    <span>Gulir</span>
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
-    </svg>
-  </a>
 </section>
 
 <script>
@@ -112,15 +97,15 @@ import FiligreeDivider from './FiligreeDivider.astro';
     gsap.to(heroInners, {
       y: '0%',
       opacity: 1,
-      duration: 0.9,
+      duration: 1.0,
       stagger: 0.12,
-      ease: 'expo.out',
+      ease: 'power3.out',
       clearProps: 'willChange'
     });
   }
 
   // Listen for cover unboxing completion
   window.addEventListener('invitationOpening', () => {
-    setTimeout(playHeroReveal, 450);
+    setTimeout(playHeroReveal, 400);
   });
 </script>

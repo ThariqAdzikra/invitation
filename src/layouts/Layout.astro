@@ -51,7 +51,7 @@ const {
 <body class="is-locked">
   <slot />
 
-  <!-- Core Scripts: Lenis & GSAP -->
+  <!-- Core Scripts: Lenis Smooth Scroll & GSAP -->
   <script>
     import Lenis from 'lenis';
     import gsap from 'gsap';
@@ -63,12 +63,12 @@ const {
 
     if (!prefersReducedMotion) {
       const lenis = new Lenis({
-        duration: 1.15,
+        duration: 1.25,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         orientation: 'vertical',
         smoothWheel: true,
-        wheelMultiplier: 0.9,
-        touchMultiplier: 1.5,
+        wheelMultiplier: 0.95,
+        touchMultiplier: 1.3,
       });
 
       lenis.on('scroll', ScrollTrigger.update);
@@ -78,26 +78,42 @@ const {
       });
       gsap.ticker.lagSmoothing(0);
 
-      // Expose globally for components
+      // Expose globally for components (e.g. ProgressBar)
       (window as any).__lenis = lenis;
 
-      // Inter-section kinetic transitions
+      // Subtle continuous parallax on background monograms and watermarks
+      gsap.utils.toArray('.ornament-parallax').forEach((el: any) => {
+        gsap.to(el, {
+          y: 75,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: el.parentElement || el,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.2
+          }
+        });
+      });
+
+      // Refined continuous flow transitions when invitation is opened
       window.addEventListener('invitationOpened', () => {
-        const slides = document.querySelectorAll('.section-slide');
-        slides.forEach((slide) => {
+        // Refresh ScrollTrigger calculations after unlock
+        ScrollTrigger.refresh();
+
+        const flowSections = document.querySelectorAll('.section-flow');
+        flowSections.forEach((section) => {
           gsap.fromTo(
-            slide,
-            { opacity: 0.35, scale: 0.97, y: 25 },
+            section,
+            { opacity: 0.15, y: 35 },
             {
               opacity: 1,
-              scale: 1,
               y: 0,
-              duration: 0.8,
+              duration: 1.1,
               ease: 'power3.out',
               scrollTrigger: {
-                trigger: slide,
+                trigger: section,
                 start: 'top 85%',
-                toggleActions: 'play reverse play reverse'
+                once: true
               }
             }
           );

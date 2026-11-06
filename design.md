@@ -91,8 +91,13 @@ Situs undangan ini menolak seluruh klise template generator AI murahan:
 - **Easing Utama**:
   - `var(--ease-editorial)`: `cubic-bezier(0.16, 1, 0.3, 1)` (Expo Out)
   - `var(--ease-smooth)`: `cubic-bezier(0.25, 1, 0.5, 1)` (Power3 Out)
-- **Lenis Smooth Scroll**:
-  - Durasi: 1.1s, easing: exponential deceleration.
+- **Lenis Smooth Momentum Scroll**:
+  - Durasi: 1.25s, easing: exponential deceleration (`t => Math.min(1, 1.001 - Math.pow(2, -10 * t))`).
+  - Aliran vertikal kontinu natural dari atas ke bawah, tanpa penguncian snap slide PPT kaku (`scroll-snap-type` dihilangkan).
+- **Starlight Gold Reading Progress Bar**:
+  - Garis tipis 3px di bagian paling atas layar (`top: 0, z-index: 9999`).
+  - Gradien foil emas dengan kilau permata (*sparkle point*) yang meluncur mengikuti persentase scroll pembaca.
+  - Scrollbar browser bawaan di-hide 100% pada semua browser (Chrome, Firefox, Safari, Edge).
 - **Prefers-reduced-motion**:
   - Seluruh transform dan parallax dimatikan; transisi disederhanakan menjadi opacity fade seketika.
 

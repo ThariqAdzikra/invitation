@@ -9,7 +9,7 @@ import Countdown from '../components/Countdown.astro';
 import LoveStory from '../components/LoveStory.astro';
 import Closing from '../components/Closing.astro';
 import AudioPlayer from '../components/AudioPlayer.astro';
-import SectionNav from '../components/SectionNav.astro';
+import ProgressBar from '../components/ProgressBar.astro';
 import OrnateFrame from '../components/OrnateFrame.astro';
 import ClickSpark from '../components/reactbits/ClickSpark';
 import CelestialCanvas from '../components/reactbits/CelestialCanvas';
@@ -51,7 +51,9 @@ import content from '../data/content.json';
     <Closing />
   </main>
 
-  <!-- Floating Audio Control & Interactive Section Navigator -->
+  <!-- Starlight Gold Reading Progress Bar -->
+  <ProgressBar />
+
+  <!-- Floating Audio Control -->
   <AudioPlayer />
-  <SectionNav />
 </Layout>

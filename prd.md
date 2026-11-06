@@ -90,11 +90,11 @@ src/
 - Milestone perjalanan cinta kedua mempelai dalam tata letak asimetris.
 - Garis vertikal monoline SVG tergambar secara dinamis mengikuti posisi scroll (*ScrollTrigger*).
 
-### 4.7 Full-Page Snap & Inter-Section Transitions
-- Setiap section memiliki tinggi layar penuh `100dvh` dengan vertical centering.
-- CSS Scroll Snap mengunci pergerakan layar tepat di awal tiap section secara presisi.
-- Interactive Section Navigator dots di sisi kanan mempermudah navigasi langsung ke tiap bab acara.
-- Efek transisi kinetis (scale & fade lift) memperhalus perpindahan visual antar section.
+### 4.7 Continuous Editorial Flow & Starlight Gold Reading Progress Bar
+- Scroll mengalir alami dari atas ke bawah tanpa penguncian kaku ala slide presentasi/PPT.
+- Scrollbar default browser disembunyikan sepenuhnya di seluruh browser (Chrome, Safari, Edge, Firefox).
+- Progress bar emas tipis 3px di bagian paling atas viewport dengan starlight sparkle indicator yang meluncur mengikuti posisi baca.
+- Transisi kinetis berkecepatan editorial (`power3.out`) dengan staggered unveil saat elemen memasuki layar.
 
 ---
 
