@@ -1,110 +1,219 @@
 ---
-// RomanticSwans.astro — Pair of Symmetrical Swans Forming a Heart Shape on Water
+// RomanticSwans.astro — Exquisite Pair of Symmetrical Swans Forming a Clear Heart Shape on Water
 interface Props {
   className?: string;
   size?: number;
 }
 
-const { className = "", size = 160 } = Astro.props;
+const { className = "", size = 180 } = Astro.props;
 ---
 
-<div class={`relative inline-flex flex-col items-center pointer-events-none select-none ${className}`} style={`width: ${size}px;`} aria-hidden="true">
-  
-  <svg width={size} height={Math.round(size * 0.65)} viewBox="0 0 160 104" fill="none" class="filter drop-shadow-[0_4px_12px_rgba(184,147,82,0.18)]">
-    
+<div 
+  class={`relative inline-flex flex-col items-center pointer-events-none select-none ${className}`} 
+  style={`width: ${size}px;`} 
+  aria-hidden="true"
+>
+  <svg 
+    width={size} 
+    height={Math.round(size * 0.65)} 
+    viewBox="0 0 200 130" 
+    fill="none" 
+    class="filter drop-shadow-[0_6px_16px_rgba(42,52,38,0.08)]"
+  >
+    <!-- Soft Golden Radiance Halo behind the Heart -->
+    <ellipse cx="100" cy="50" rx="36" ry="32" fill="url(#swan-heart-glow)" opacity="0.6" />
+
     <!-- Water Ripple Rings at Base -->
-    <ellipse cx="80" cy="92" rx="65" ry="6" stroke="#B89352" stroke-width="0.8" opacity="0.3" stroke-dasharray="3 3" />
-    <ellipse cx="80" cy="94" rx="42" ry="4" stroke="#4A5D43" stroke-width="0.7" opacity="0.4" />
-    <ellipse cx="80" cy="96" rx="22" ry="2.5" stroke="#B89352" stroke-width="0.6" opacity="0.5" />
+    <g class="swan-ripples" opacity="0.75">
+      <!-- Outer Water Ripple -->
+      <ellipse cx="100" cy="114" rx="84" ry="7" stroke="#B89352" stroke-width="0.75" stroke-dasharray="3 3" opacity="0.4" />
+      <!-- Mid Ripple -->
+      <ellipse cx="100" cy="116" rx="58" ry="5.5" stroke="#4A5D43" stroke-width="0.8" opacity="0.45" />
+      <!-- Inner Crisp Ripple -->
+      <ellipse cx="100" cy="118" rx="32" ry="3.5" stroke="#B89352" stroke-width="0.9" opacity="0.6" />
+      <!-- Left Swan Local Ripple -->
+      <ellipse cx="54" cy="112" rx="28" ry="3" stroke="#B89352" stroke-width="0.5" opacity="0.35" />
+      <!-- Right Swan Local Ripple -->
+      <ellipse cx="146" cy="112" rx="28" ry="3" stroke="#B89352" stroke-width="0.5" opacity="0.35" />
+    </g>
 
     <!-- =====================================================================
-         LEFT SWAN (Facing Right, Neck Curves to Center forming left half of heart)
+         LEFT SWAN (Facing Right — Forming Left Half of Heart ♡)
          ===================================================================== -->
     <g class="swan-left">
-      <!-- Swan Body -->
+      <!-- Body Shadow on Water -->
+      <ellipse cx="56" cy="110" rx="26" ry="4" fill="#2A3426" opacity="0.08" />
+
+      <!-- Main Swan Body -->
       <path 
-        d="M25 82 C35 70, 52 70, 68 76 C72 78, 76 84, 72 88 C62 94, 38 94, 25 88 C20 86, 18 84, 25 82 Z" 
-        fill="#FAF8F5" 
+        d="M24 96 
+           C20 90, 24 82, 34 78 
+           C46 74, 64 75, 78 82 
+           C86 86, 88 94, 84 102 
+           C78 110, 52 112, 36 108 
+           C28 106, 22 102, 24 96 Z" 
+        fill="url(#swan-body-grad)" 
         stroke="#B89352" 
         stroke-width="1.3" 
         stroke-linejoin="round"
       />
-      <!-- Wing Feathers -->
-      <path d="M38 74 C48 72, 60 75, 66 80" stroke="#B89352" stroke-width="0.9" opacity="0.7" />
-      <path d="M44 78 C52 77, 62 80, 68 84" stroke="#B89352" stroke-width="0.8" opacity="0.6" />
-      <!-- Graceful Neck & Head (Left half of heart ♡) -->
+
+      <!-- Graceful Wing Feather Tiers -->
+      <path d="M38 88 C48 83, 62 85, 74 92" stroke="#B89352" stroke-width="0.9" stroke-linecap="round" opacity="0.7" />
+      <path d="M44 94 C54 90, 66 92, 76 98" stroke="#B89352" stroke-width="0.8" stroke-linecap="round" opacity="0.6" />
+      <path d="M50 100 C60 97, 70 99, 78 104" stroke="#B89352" stroke-width="0.7" stroke-linecap="round" opacity="0.5" />
+      <!-- Tail Feathers -->
+      <path d="M24 96 C18 92, 14 90, 16 86 C20 86, 26 90, 28 92" fill="#FAF8F5" stroke="#B89352" stroke-width="1" />
+
+      <!-- Graceful Heart-Shaped Neck & Head -->
+      <!-- Curves upward forming left lobe of heart, then dips to center touching beak -->
       <path 
-        d="M62 76 C55 60, 50 42, 60 26 C66 16, 75 16, 78 22 C79 24, 78 28, 75 30 C70 33, 67 46, 70 76" 
-        fill="#FAF8F5" 
+        d="M74 85 
+           C70 68, 60 52, 60 36 
+           C60 20, 72 14, 82 20 
+           C90 25, 92 34, 86 42 
+           C82 48, 76 56, 76 68 
+           C76 76, 78 84, 80 88" 
+        fill="url(#swan-body-grad)" 
         stroke="#B89352" 
-        stroke-width="1.3" 
+        stroke-width="1.4" 
         stroke-linecap="round" 
         stroke-linejoin="round"
       />
-      <!-- Eye -->
-      <circle cx="75" cy="24" r="1.2" fill="#2A3426" />
-      <!-- Beak (Kissing at center) -->
-      <path d="M78 24 L80 25 L77 27 Z" fill="#D4AF6E" stroke="#B89352" stroke-width="0.6" />
+
+      <!-- Black Mask Around Eye and Bill Base (Mute Swan Characteristic) -->
+      <path d="M84 32 C86 31, 88 32, 90 34 C89 36, 86 36, 84 35 Z" fill="#2A3426" />
+      
+      <!-- Swan Eye -->
+      <circle cx="85.5" cy="31.5" r="1.3" fill="#FAF8F5" />
+      <circle cx="85.7" cy="31.5" r="0.8" fill="#1A2218" />
+
+      <!-- Royal Golden-Amber Beak (Kissing Center X=100) -->
+      <path d="M90 33 L100 37 L90 39 Z" fill="#D4AF6E" stroke="#B89352" stroke-width="0.8" stroke-linejoin="round" />
     </g>
 
     <!-- =====================================================================
-         RIGHT SWAN (Facing Left, Neck Curves to Center forming right half of heart)
+         RIGHT SWAN (Facing Left — Forming Right Half of Heart ♡)
          ===================================================================== -->
     <g class="swan-right">
-      <!-- Swan Body -->
+      <!-- Body Shadow on Water -->
+      <ellipse cx="144" cy="110" rx="26" ry="4" fill="#2A3426" opacity="0.08" />
+
+      <!-- Main Swan Body -->
       <path 
-        d="M135 82 C125 70, 108 70, 92 76 C88 78, 84 84, 88 88 C98 94, 122 94, 135 88 C140 86, 142 84, 135 82 Z" 
-        fill="#FAF8F5" 
+        d="M176 96 
+           C180 90, 176 82, 166 78 
+           C154 74, 136 75, 122 82 
+           C114 86, 112 94, 116 102 
+           C122 110, 148 112, 164 108 
+           C172 106, 178 102, 176 96 Z" 
+        fill="url(#swan-body-grad)" 
         stroke="#B89352" 
         stroke-width="1.3" 
         stroke-linejoin="round"
       />
-      <!-- Wing Feathers -->
-      <path d="M122 74 C112 72, 100 75, 94 80" stroke="#B89352" stroke-width="0.9" opacity="0.7" />
-      <path d="M116 78 C108 77, 98 80, 92 84" stroke="#B89352" stroke-width="0.8" opacity="0.6" />
-      <!-- Graceful Neck & Head (Right half of heart ♡) -->
+
+      <!-- Graceful Wing Feather Tiers -->
+      <path d="M162 88 C152 83, 138 85, 126 92" stroke="#B89352" stroke-width="0.9" stroke-linecap="round" opacity="0.7" />
+      <path d="M156 94 C146 90, 134 92, 124 98" stroke="#B89352" stroke-width="0.8" stroke-linecap="round" opacity="0.6" />
+      <path d="M150 100 C140 97, 130 99, 122 104" stroke="#B89352" stroke-width="0.7" stroke-linecap="round" opacity="0.5" />
+      <!-- Tail Feathers -->
+      <path d="M176 96 C182 92, 186 90, 184 86 C180 86, 174 90, 172 92" fill="#FAF8F5" stroke="#B89352" stroke-width="1" />
+
+      <!-- Graceful Heart-Shaped Neck & Head -->
+      <!-- Curves upward forming right lobe of heart, then dips to center touching beak -->
       <path 
-        d="M98 76 C105 60, 110 42, 100 26 C94 16, 85 16, 82 22 C81 24, 82 28, 85 30 C90 33, 93 46, 90 76" 
-        fill="#FAF8F5" 
+        d="M126 85 
+           C130 68, 140 52, 140 36 
+           C140 20, 128 14, 118 20 
+           C110 25, 108 34, 114 42 
+           C118 48, 124 56, 124 68 
+           C124 76, 122 84, 120 88" 
+        fill="url(#swan-body-grad)" 
         stroke="#B89352" 
-        stroke-width="1.3" 
+        stroke-width="1.4" 
         stroke-linecap="round" 
         stroke-linejoin="round"
       />
-      <!-- Eye -->
-      <circle cx="85" cy="24" r="1.2" fill="#2A3426" />
-      <!-- Beak (Kissing at center) -->
-      <path d="M82 24 L80 25 L83 27 Z" fill="#D4AF6E" stroke="#B89352" stroke-width="0.6" />
+
+      <!-- Black Mask Around Eye and Bill Base (Mute Swan Characteristic) -->
+      <path d="M116 32 C114 31, 112 32, 110 34 C111 36, 114 36, 116 35 Z" fill="#2A3426" />
+
+      <!-- Swan Eye -->
+      <circle cx="114.5" cy="31.5" r="1.3" fill="#FAF8F5" />
+      <circle cx="114.3" cy="31.5" r="0.8" fill="#1A2218" />
+
+      <!-- Royal Golden-Amber Beak (Kissing Center X=100) -->
+      <path d="M110 33 L100 37 L110 39 Z" fill="#D4AF6E" stroke="#B89352" stroke-width="0.8" stroke-linejoin="round" />
     </g>
 
-    <!-- Center Golden Love Sparkle Above Beaks -->
-    <circle cx="80" cy="18" r="1.8" fill="#B89352" opacity="0.8" />
-  </svg>
+    <!-- Center Love Heart Sparkle Above Kissing Beaks -->
+    <path 
+      d="M100 24 C97 20, 93 21, 93 24 C93 27, 98 30, 100 32 C102 30, 107 27, 107 24 C107 21, 103 20, 100 24 Z" 
+      fill="#B89352" 
+      opacity="0.85" 
+      class="swan-heart-sparkle"
+    />
 
+    <!-- Gradients & Defs -->
+    <defs>
+      <!-- Warm Ivory Satin Body Gradient with Subtle Depth -->
+      <linearGradient id="swan-body-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFFFFF" />
+        <stop offset="55%" stop-color="#FAF8F5" />
+        <stop offset="100%" stop-color="#F2EDE2" />
+      </linearGradient>
+
+      <!-- Soft Ambient Halo behind Heart Center -->
+      <radialGradient id="swan-heart-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#B89352" stop-opacity="0.25" />
+        <stop offset="60%" stop-color="#B89352" stop-opacity="0.08" />
+        <stop offset="100%" stop-color="#B89352" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+  </svg>
 </div>
 
 <style>
   .swan-left {
-    transform-origin: 50px 85px;
-    animation: gentleSwanBobLeft 4.5s ease-in-out infinite alternate;
+    transform-origin: 55px 105px;
+    animation: gentleSwanBobLeft 5.0s ease-in-out infinite alternate;
   }
   .swan-right {
-    transform-origin: 110px 85px;
-    animation: gentleSwanBobRight 4.8s ease-in-out infinite alternate;
+    transform-origin: 145px 105px;
+    animation: gentleSwanBobRight 5.2s ease-in-out infinite alternate;
+  }
+  .swan-heart-sparkle {
+    animation: gentleHeartPulse 3.5s ease-in-out infinite alternate;
+    transform-origin: 100px 28px;
+  }
+  .swan-ripples {
+    animation: gentleWaterPulse 6.0s ease-in-out infinite alternate;
+    transform-origin: 100px 116px;
   }
 
   @keyframes gentleSwanBobLeft {
     0% { transform: translate3d(0, 0, 0) rotate(0deg); }
-    100% { transform: translate3d(0, -2px, 0) rotate(-0.8deg); }
+    100% { transform: translate3d(0, -2.5px, 0) rotate(-1deg); }
   }
 
   @keyframes gentleSwanBobRight {
     0% { transform: translate3d(0, 0, 0) rotate(0deg); }
-    100% { transform: translate3d(0, -2px, 0) rotate(0.8deg); }
+    100% { transform: translate3d(0, -2.5px, 0) rotate(1deg); }
+  }
+
+  @keyframes gentleHeartPulse {
+    0% { transform: scale(0.9); opacity: 0.65; }
+    100% { transform: scale(1.15); opacity: 0.95; }
+  }
+
+  @keyframes gentleWaterPulse {
+    0% { transform: scaleX(0.96); opacity: 0.6; }
+    100% { transform: scaleX(1.04); opacity: 0.9; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .swan-left, .swan-right {
+    .swan-left, .swan-right, .swan-heart-sparkle, .swan-ripples {
       animation: none !important;
     }
   }

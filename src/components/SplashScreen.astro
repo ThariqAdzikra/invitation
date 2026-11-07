@@ -4,6 +4,7 @@
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
+import RomanticSwans from './botanical/RomanticSwans.astro';
 ---
 
 <div
@@ -293,6 +294,17 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     </div>
   </div>
 
+  <!-- ROMANTIC SWANS EMBLEM (Resting gracefully on the linen table below the envelope) -->
+  <div 
+    id="splash-swans-watermark" 
+    class="mt-4 sm:mt-6 flex flex-col items-center pointer-events-none select-none transition-all duration-700 opacity-85 z-10"
+  >
+    <RomanticSwans size={140} className="sm:scale-110" />
+    <span class="text-[0.52rem] sm:text-[0.58rem] tracking-[0.32em] text-[#B89352] uppercase font-light mt-1.5 opacity-75">
+      Ketulusan &bull; Cinta &bull; Abadi
+    </span>
+  </div>
+
 </div>
 
 <script>
@@ -367,6 +379,11 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
 
       if (botanicalAccents) {
         tl.to(botanicalAccents, { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, 0);
+      }
+
+      const swansWatermark = document.getElementById('splash-swans-watermark');
+      if (swansWatermark) {
+        tl.to(swansWatermark, { opacity: 0, y: 12, duration: 0.45, ease: 'power2.inOut' }, 0);
       }
 
       // PHASE 2: Euro flap flips open 180° in 3D (0.2s -> 0.95s)
