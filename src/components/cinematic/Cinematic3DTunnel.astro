@@ -7,7 +7,7 @@ import FlyingDoves from '../botanical/FlyingDoves.astro';
 import FloralCorner from '../botanical/FloralCorner.astro';
 ---
 
-<div id="cinematic-tunnel-container" class="relative w-full min-h-[350vh] z-20">
+<div id="cinematic-tunnel-container" class="relative w-full min-h-[420vh] z-20">
   
   <!-- Pinned 3D Viewport Rig (Stationary Camera Perspective) -->
   <div 
@@ -213,7 +213,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         style="transform: translate3d(0, 0, -850px); transform-style: preserve-3d;"
         aria-label="Profil Kedua Mempelai"
       >
-        <div class="max-w-2xl w-full mx-auto flex flex-col items-center justify-center my-auto">
+        <div class="max-w-2xl w-full mx-auto flex flex-col items-center justify-center my-auto relative">
           
           <div id="couple-header-block" class="flex flex-col items-center will-change-transform">
             <p class="text-overline tracking-[0.28em] text-[0.62rem] mb-0.5">
@@ -228,7 +228,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
           </div>
 
           <!-- Dual Profiles Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full mt-2">
+          <div id="couple-cards-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full mt-2 relative">
             
             <!-- Arya (Groom) -->
             <article 
@@ -236,9 +236,9 @@ import FloralCorner from '../botanical/FloralCorner.astro';
               class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-4 sm:p-5 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden interactive-foil-card will-change-transform"
               data-foil="true"
             >
-              <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
+              <div class="card-gold-top absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
-              <div class="mb-2.5 relative group">
+              <div class="groom-avatar-wrap mb-2.5 relative group">
                 <div class="w-22 h-22 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-[#B89352]/40 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-md relative overflow-hidden">
                   <img 
                     src="/assets/vector-groom.jpg" 
@@ -249,31 +249,34 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                 </div>
               </div>
 
-              <p class="text-[0.55rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-0.5">Mempelai Pria</p>
-              <h3 class="font-display text-base sm:text-lg text-[#2A3426] font-normal">
-                {content.couple.groom.fullName}
-              </h3>
-              <p class="text-[0.65rem] text-[#566A4E] font-light max-w-xs leading-relaxed mt-0.5 mb-2">
-                {content.couple.groom.parents}
-              </p>
-
-              <div class="py-1.5 px-3 rounded-lg bg-[#FAF8F5] border border-[#566A4E]/10 w-full mb-2.5">
-                <p class="font-display italic text-[0.65rem] sm:text-xs text-[#3E4C38] leading-relaxed">
-                  &ldquo;{content.couple.groom.quote}&rdquo;
+              <!-- Text block that hides on fusion scroll -->
+              <div class="couple-card-text flex flex-col items-center w-full will-change-transform">
+                <p class="text-[0.55rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-0.5">Mempelai Pria</p>
+                <h3 class="font-display text-base sm:text-lg text-[#2A3426] font-normal">
+                  {content.couple.groom.fullName}
+                </h3>
+                <p class="text-[0.65rem] text-[#566A4E] font-light max-w-xs leading-relaxed mt-0.5 mb-2">
+                  {content.couple.groom.parents}
                 </p>
-              </div>
 
-              <a 
-                href={`https://instagram.com/${content.couple.groom.instagram.replace('@', '')}`} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="inline-flex items-center gap-1.5 text-[0.6rem] text-[#566A4E] hover:text-[#2A3426] tracking-widest uppercase font-semibold px-3 py-1 rounded-full border border-[#566A4E]/20 bg-white hover:border-[#B89352] transition-colors"
-              >
-                <span>{content.couple.groom.instagram}</span>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-                </svg>
-              </a>
+                <div class="py-1.5 px-3 rounded-lg bg-[#FAF8F5] border border-[#566A4E]/10 w-full mb-2.5">
+                  <p class="font-display italic text-[0.65rem] sm:text-xs text-[#3E4C38] leading-relaxed">
+                    &ldquo;{content.couple.groom.quote}&rdquo;
+                  </p>
+                </div>
+
+                <a 
+                  href={`https://instagram.com/${content.couple.groom.instagram.replace('@', '')}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="inline-flex items-center gap-1.5 text-[0.6rem] text-[#566A4E] hover:text-[#2A3426] tracking-widest uppercase font-semibold px-3 py-1 rounded-full border border-[#566A4E]/20 bg-white hover:border-[#B89352] transition-colors"
+                >
+                  <span>{content.couple.groom.instagram}</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                  </svg>
+                </a>
+              </div>
             </article>
 
             <!-- Dian (Bride) -->
@@ -282,9 +285,9 @@ import FloralCorner from '../botanical/FloralCorner.astro';
               class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-4 sm:p-5 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden interactive-foil-card will-change-transform"
               data-foil="true"
             >
-              <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
+              <div class="card-gold-top absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
-              <div class="mb-2.5 relative group">
+              <div class="bride-avatar-wrap mb-2.5 relative group">
                 <div class="w-22 h-22 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-[#B89352]/40 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-md relative overflow-hidden">
                   <img 
                     src="/assets/vector-bride.jpg" 
@@ -295,32 +298,122 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                 </div>
               </div>
 
-              <p class="text-[0.55rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-0.5">Mempelai Wanita</p>
-              <h3 class="font-display text-base sm:text-lg text-[#2A3426] font-normal">
-                {content.couple.bride.fullName}
-              </h3>
-              <p class="text-[0.65rem] text-[#566A4E] font-light max-w-xs leading-relaxed mt-0.5 mb-2">
-                {content.couple.bride.parents}
-              </p>
-
-              <div class="py-1.5 px-3 rounded-lg bg-[#FAF8F5] border border-[#566A4E]/10 w-full mb-2.5">
-                <p class="font-display italic text-[0.65rem] sm:text-xs text-[#3E4C38] leading-relaxed">
-                  &ldquo;{content.couple.bride.quote}&rdquo;
+              <!-- Text block that hides on fusion scroll -->
+              <div class="couple-card-text flex flex-col items-center w-full will-change-transform">
+                <p class="text-[0.55rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-0.5">Mempelai Wanita</p>
+                <h3 class="font-display text-base sm:text-lg text-[#2A3426] font-normal">
+                  {content.couple.bride.fullName}
+                </h3>
+                <p class="text-[0.65rem] text-[#566A4E] font-light max-w-xs leading-relaxed mt-0.5 mb-2">
+                  {content.couple.bride.parents}
                 </p>
+
+                <div class="py-1.5 px-3 rounded-lg bg-[#FAF8F5] border border-[#566A4E]/10 w-full mb-2.5">
+                  <p class="font-display italic text-[0.65rem] sm:text-xs text-[#3E4C38] leading-relaxed">
+                    &ldquo;{content.couple.bride.quote}&rdquo;
+                  </p>
+                </div>
+
+                <a 
+                  href={`https://instagram.com/${content.couple.bride.instagram.replace('@', '')}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="inline-flex items-center gap-1.5 text-[0.6rem] text-[#566A4E] hover:text-[#2A3426] tracking-widest uppercase font-semibold px-3 py-1 rounded-full border border-[#566A4E]/20 bg-white hover:border-[#B89352] transition-colors"
+                >
+                  <span>{content.couple.bride.instagram}</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- THE MERGED LOVE (HEART) EMBLEM OVERLAY -->
+          <div 
+            id="couple-love-fusion" 
+            class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 will-change-transform z-30"
+          >
+            <!-- Luminous Golden Heart Morph Container -->
+            <div class="relative flex items-center justify-center">
+              
+              <!-- Radiant Warm Golden Aura Pulsating -->
+              <div class="absolute -inset-14 bg-[radial-gradient(circle,rgba(184,147,82,0.38)_0%,rgba(212,175,110,0.2)_45%,transparent_70%)] blur-2xl"></div>
+
+              <!-- Organic Elegant Heart SVG with Gold Gradient & Botanical Filigree -->
+              <svg 
+                id="love-heart-svg"
+                class="w-52 h-52 sm:w-64 sm:h-64 text-[#B89352] drop-shadow-[0_10px_35px_rgba(184,147,82,0.6)]" 
+                viewBox="0 0 100 100" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- Soft Glow Inset Fill -->
+                <path 
+                  d="M50 88 C22 66, 6 48, 6 28 C6 14, 17 4, 31 4 C40 4, 46 9, 50 16 C54 9, 60 4, 69 4 C83 4, 94 14, 94 28 C94 48, 78 66, 50 88 Z" 
+                  fill="url(#loveHeartFillGrad)" 
+                  opacity="0.15"
+                />
+                
+                <!-- Main Flowing Heart Contour Line -->
+                <path 
+                  id="love-heart-path"
+                  d="M50 88 C22 66, 6 48, 6 28 C6 14, 17 4, 31 4 C40 4, 46 9, 50 16 C54 9, 60 4, 69 4 C83 4, 94 14, 94 28 C94 48, 78 66, 50 88 Z" 
+                  stroke="url(#loveHeartStrokeGrad)" 
+                  stroke-width="2.6" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"
+                />
+
+                <!-- Inner Delicate Second Sketch Loop for Luxury Touch -->
+                <path 
+                  d="M50 82 C25 62, 11 46, 11 29 C11 17, 20 8, 32 8 C39 8, 45 13, 50 19 C55 13, 61 8, 68 8 C80 8, 89 17, 89 29 C89 46, 75 62, 50 82 Z" 
+                  stroke="url(#loveHeartStrokeGrad)" 
+                  stroke-width="1.2" 
+                  stroke-dasharray="8 3"
+                  opacity="0.75"
+                />
+
+                <defs>
+                  <linearGradient id="loveHeartStrokeGrad" x1="6" y1="4" x2="94" y2="88" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#E2C48D"/>
+                    <stop offset="0.5" stop-color="#B89352"/>
+                    <stop offset="1" stop-color="#8C703C"/>
+                  </linearGradient>
+                  <linearGradient id="loveHeartFillGrad" x1="6" y1="4" x2="94" y2="88" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FAF8F5"/>
+                    <stop offset="0.6" stop-color="#B89352"/>
+                    <stop offset="1" stop-color="#4A5D43"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              <!-- Center of Heart: Dual Interlocked Avatars & "Arya & Dian" Monogram -->
+              <div id="love-center-crest" class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                
+                <!-- Floating Mini Twin Portraits side by side inside Heart -->
+                <div class="flex items-center justify-center -space-x-3 mb-1">
+                  <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full p-0.5 border-2 border-[#B89352] bg-white shadow-md overflow-hidden relative z-10">
+                    <img src="/assets/vector-groom.jpg" alt="Arya" class="w-full h-full object-cover rounded-full" />
+                  </div>
+                  <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full p-0.5 border-2 border-[#B89352] bg-white shadow-md overflow-hidden relative z-20">
+                    <img src="/assets/vector-bride.jpg" alt="Dian" class="w-full h-full object-cover rounded-full" />
+                  </div>
+                </div>
+
+                <!-- Romantic "Arya & Dian" Monogram inside Heart -->
+                <span class="font-display text-base sm:text-lg text-[#2A3426] tracking-wide font-normal mt-1">
+                  Arya <span class="italic text-[#B89352]">&amp;</span> Dian
+                </span>
+                
+                <span class="text-[0.55rem] sm:text-[0.62rem] tracking-[0.26em] uppercase text-[#B89352] font-semibold mt-0.5">
+                  Menyatu Dalam Cinta
+                </span>
+
               </div>
 
-              <a 
-                href={`https://instagram.com/${content.couple.bride.instagram.replace('@', '')}`} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="inline-flex items-center gap-1.5 text-[0.6rem] text-[#566A4E] hover:text-[#2A3426] tracking-widest uppercase font-semibold px-3 py-1 rounded-full border border-[#566A4E]/20 bg-white hover:border-[#B89352] transition-colors"
-              >
-                <span>{content.couple.bride.instagram}</span>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-                </svg>
-              </a>
-            </article>
+            </div>
 
           </div>
 
@@ -562,7 +655,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     }, 0.58);
 
     // =========================================================================
-    // STEP 4: KEDUA MEMPELAI CONVERGENCE REVEAL (0.62 -> 0.92)
+    // STEP 4: KEDUA MEMPELAI CONVERGENCE REVEAL & READING (0.58 -> 0.78)
     // Arya glides from left depth, Dian glides from right depth, converging in center!
     // =========================================================================
     tl.to(sceneCouple, {
@@ -570,54 +663,145 @@ import FloralCorner from '../botanical/FloralCorner.astro';
       scale: 1,
       opacity: 1,
       filter: 'blur(0px)',
-      duration: 0.28,
+      duration: 0.20,
       ease: 'power2.out',
       onStart: () => {
         if (sceneCouple) sceneCouple.style.pointerEvents = 'auto';
       }
-    }, 0.62);
+    }, 0.58);
 
     if (coupleHeader) {
       tl.fromTo(coupleHeader,
         { y: -25, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.24, ease: 'power2.out' },
-        0.64
+        { y: 0, opacity: 1, duration: 0.16, ease: 'power2.out' },
+        0.60
       );
     }
 
     if (groomCard) {
       tl.fromTo(groomCard,
         { x: -60, z: -350, opacity: 0, scale: 0.9 },
-        { x: 0, z: 0, opacity: 1, scale: 1, duration: 0.30, ease: 'power2.out' },
-        0.66
+        { x: 0, z: 0, opacity: 1, scale: 1, duration: 0.20, ease: 'power2.out' },
+        0.61
       );
     }
 
     if (brideCard) {
       tl.fromTo(brideCard,
         { x: 60, z: -350, opacity: 0, scale: 0.9 },
-        { x: 0, z: 0, opacity: 1, scale: 1, duration: 0.30, ease: 'power2.out' },
-        0.66
+        { x: 0, z: 0, opacity: 1, scale: 1, duration: 0.20, ease: 'power2.out' },
+        0.61
       );
     }
 
-    // Couple Scene rests comfortably in crisp focus until near the end
-    tl.to(sceneCouple, {
-      z: 0,
-      scale: 1,
-      duration: 0.12
-    }, 0.80);
+    // Comfortable reading resting pause from 0.72 to 0.78
+    tl.to(sceneCouple, { z: 0, duration: 0.06 }, 0.72);
 
-    // Seamless Deck Stacking Handoff: As scroll completes the 3D journey (0.90 -> 1.00),
-    // Scene 3 eases back gently with scale 0.95 & subtle dim to seamlessly welcome the incoming deck card!
-    tl.to(sceneCouple, {
-      scale: 0.95,
-      opacity: 0.85,
+    // =========================================================================
+    // STEP 5: THE LOVE FUSION & HEART MORPH (0.78 -> 0.96)
+    // 1. Hide all texts in this section (headers, names, quotes, pills)
+    // 2. Both cards glide to center, dissolve backgrounds & merge
+    // 3. Radiant glowing Love Heart blooms in the center
+    // 4. Heart expands and dissolves into the Rangkaian Acara section below
+    // =========================================================================
+    
+    // Hide header
+    if (coupleHeader) {
+      tl.to(coupleHeader, {
+        y: -30,
+        opacity: 0,
+        duration: 0.06,
+        ease: 'power2.in'
+      }, 0.78);
+    }
+
+    // Hide card text details (names, parents, quotes, Instagram)
+    tl.to('.couple-card-text', {
+      opacity: 0,
       y: 20,
-      filter: 'blur(1px)',
-      duration: 0.10,
-      ease: 'power1.out'
-    }, 0.90);
+      duration: 0.06,
+      ease: 'power2.in'
+    }, 0.78);
+
+    // Hide card top gold line
+    tl.to('.card-gold-top', {
+      opacity: 0,
+      duration: 0.04
+    }, 0.78);
+
+    // Cards glide towards center and dissolve white borders
+    const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 640;
+    const groomMoveX = isDesktop ? 150 : 0;
+    const groomMoveY = isDesktop ? 0 : 70;
+    const brideMoveX = isDesktop ? -150 : 0;
+    const brideMoveY = isDesktop ? 0 : -70;
+
+    if (groomCard) {
+      tl.to(groomCard, {
+        x: groomMoveX,
+        y: groomMoveY,
+        backgroundColor: 'rgba(255, 255, 255, 0)',
+        borderColor: 'rgba(86, 106, 78, 0)',
+        boxShadow: 'none',
+        duration: 0.08,
+        ease: 'power2.inOut'
+      }, 0.79);
+    }
+
+    if (brideCard) {
+      tl.to(brideCard, {
+        x: brideMoveX,
+        y: brideMoveY,
+        backgroundColor: 'rgba(255, 255, 255, 0)',
+        borderColor: 'rgba(86, 106, 78, 0)',
+        boxShadow: 'none',
+        duration: 0.08,
+        ease: 'power2.inOut'
+      }, 0.79);
+    }
+
+    // Fade out separate cards as Love Heart takes center stage
+    tl.to(['#couple-groom-card', '#couple-bride-card'], {
+      opacity: 0,
+      scale: 0.85,
+      duration: 0.05
+    }, 0.85);
+
+    // Love Heart blooms in the center!
+    const loveFusion = document.getElementById('couple-love-fusion');
+    if (loveFusion) {
+      tl.fromTo(loveFusion,
+        { opacity: 0, scale: 0.35 },
+        { opacity: 1, scale: 1, duration: 0.08, ease: 'back.out(1.5)' },
+        0.84
+      );
+
+      // Heart radiates proudly in center from 0.88 to 0.94
+      tl.to(loveFusion, {
+        scale: 1.05,
+        duration: 0.06,
+        ease: 'sine.inOut'
+      }, 0.88);
+
+      // Heart expands with radiant bloom to open the portal to the next section
+      tl.to(loveFusion, {
+        scale: 1.35,
+        opacity: 0,
+        filter: 'blur(6px)',
+        duration: 0.06,
+        ease: 'power1.in'
+      }, 0.94);
+    }
+
+    // Scene 3 completes smoothly to hand off to next section
+    tl.to(sceneCouple, {
+      opacity: 0,
+      duration: 0.05,
+      ease: 'power1.out',
+      onComplete: () => {
+        if (sceneCouple) sceneCouple.style.pointerEvents = 'none';
+      }
+    }, 0.95);
 
     // Ensure ScrollTrigger recalculates after invitation envelope is unboxed
     window.addEventListener('invitationOpened', () => {
