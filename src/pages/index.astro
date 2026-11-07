@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import SplashScreen from '../components/SplashScreen.astro';
 import Cinematic3DTunnel from '../components/cinematic/Cinematic3DTunnel.astro';
-import KineticRibbon from '../components/cinematic/KineticRibbon.astro';
 import UnifiedEvent from '../components/UnifiedEvent.astro';
 import Countdown from '../components/Countdown.astro';
 import LoveStory from '../components/LoveStory.astro';
@@ -35,9 +34,6 @@ import content from '../data/content.json';
     <!-- Phase 1: Pinned 3D Camera Z-Space Fly-Through (Hero -> Ayat Suci -> Kedua Mempelai) -->
     <Cinematic3DTunnel />
 
-    <!-- Bridging Kinetic Ticker Ribbon -->
-    <KineticRibbon />
-
     <!-- Phase 2: Grounded Interactive 3D Stage (Jadwal, Countdown, Kisah, Hadiah, & RSVP) -->
     <div id="interactive-stage" class="relative z-20">
       <UnifiedEvent />
@@ -62,6 +58,5 @@ import content from '../data/content.json';
   <script>
     import '../utils/interactiveFoil';
     import '../utils/confetti';
-    import '../utils/kineticVelocity';
   </script>
 </Layout>
