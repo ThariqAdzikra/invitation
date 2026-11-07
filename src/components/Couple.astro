@@ -1,370 +1,164 @@
 ---
+// Couple.astro — Editorial Dual Profile of Groom & Bride
 import content from '../data/content.json';
-import FloralWreath from './botanical/FloralWreath.astro';
-import FloralCorner from './botanical/FloralCorner.astro';
-import FloralBouquet from './botanical/FloralBouquet.astro';
-import FloralDivider from './botanical/FloralDivider.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
-import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
-import SceneTitleCard from './cinematic/SceneTitleCard.astro';
 ---
 
-<section id="couple" class="deck-section tone-couple section-flow relative px-4 overflow-hidden z-30 pt-16 pb-20" aria-label="Profil Kedua Mempelai">
+<section id="couple" class="deck-section tone-couple section-flow relative px-4 overflow-hidden z-30 pt-20 pb-24" aria-label="Profil Kedua Mempelai">
   
-  <TwinkleSparkles />
-
   <div class="max-w-4xl mx-auto w-full">
     
-    <!-- Section Header with Crown Bouquet -->
-    <div class="text-center mb-8 md:mb-12 couple-header">
-      <div class="mb-2 scale-90">
-        <FloralBouquet width={240} height={60} />
-      </div>
-      
-      <!-- Cinematic Scene Indicator Badge -->
-      <div class="mb-3">
-        <SceneTitleCard act="ACT III" title="THE PROTAGONISTS" scene="SCENE 03" />
-      </div>
-
-      <p class="text-overline tracking-[0.25em]">
+    <!-- Section Header -->
+    <div class="text-center mb-10 md:mb-14 couple-header">
+      <p class="text-overline tracking-[0.28em]">
         KEDUA MEMPELAI
       </p>
-      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-[#2A3426] font-normal mt-1.5">
+      <h2 class="font-display text-3xl sm:text-4xl text-[#2A3426] font-normal mt-1.5">
         Mempelai Pria &amp; Wanita
       </h2>
-      <div class="my-1.5">
-        <FloralFlourish width={190} height={32} />
+      <div class="my-2 flex justify-center opacity-70">
+        <FloralFlourish width={160} height={24} />
       </div>
-      <p class="text-xs text-[#566A4E] font-light mt-1 tracking-wider">
-        Ketuk kartu untuk melihat kutipan &amp; pesan personal
+      <p class="text-xs text-[#566A4E] font-light tracking-wider">
+        Dengan memohon rahmat &amp; rida Allah SWT
       </p>
     </div>
 
-    <!-- 3D Flip Cards Grid -->
+    <!-- Editorial Profiles Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
       
-      <!-- Kartu Mempelai Pria -->
-      <div id="card-groom-container" class="couple-flip-container">
-        <div id="card-groom" class="couple-flip-card" role="button" tabindex="0" aria-label="Kartu Profil Mempelai Pria. Ketuk untuk membalik.">
-          
-          <!-- Sisi Depan (Front) -->
-          <div class="couple-card-front relative overflow-hidden">
-            <!-- 4 Floral Corners (Scaled to 42px to eliminate text collision) -->
-            <div class="absolute top-2 left-2 pointer-events-none opacity-50">
-              <FloralCorner position="top-left" size={42} />
-            </div>
-            <div class="absolute top-2 right-2 pointer-events-none opacity-50">
-              <FloralCorner position="top-right" size={42} />
-            </div>
-            <div class="absolute bottom-2 left-2 pointer-events-none opacity-50">
-              <FloralCorner position="bottom-left" size={42} />
-            </div>
-            <div class="absolute bottom-2 right-2 pointer-events-none opacity-50">
-              <FloralCorner position="bottom-right" size={42} />
-            </div>
+      <!-- Profil Mempelai Pria (Arya) -->
+      <article class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
-            <!-- Inset Gold Hairline Frame -->
-            <div class="absolute inset-2.5 sm:inset-3 border border-[#B89352]/30 rounded-xl pointer-events-none"></div>
-
-            <div class="my-auto flex flex-col items-center relative z-10 w-full px-2 py-2">
-              
-              <!-- Authentic Editorial Groom Portrait -->
-              <div class="relative mb-2.5 group">
-                <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-[#B89352] via-[#EDE8DC] to-[#566A4E] shadow-[0_8px_24px_rgba(74,93,67,0.18)]">
-                  <div class="w-full h-full rounded-full overflow-hidden border-2 border-[#FAF8F5] relative bg-[#EDE8DC]">
-                    <img 
-                      src={content.couple.groom.photo || "/assets/groom.jpg"} 
-                      alt={content.couple.groom.fullName}
-                      class="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-500 ease-out" 
-                      loading="lazy"
-                      width="256"
-                      height="256"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#263322]/20 via-transparent to-transparent pointer-events-none"></div>
-                  </div>
-                </div>
-              </div>
-
-              <p class="text-[0.62rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-0.5">Mempelai Pria</p>
-              <h3 class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal mb-1">
-                {content.couple.groom.fullName}
-              </h3>
-              
-              <div class="my-1">
-                <FloralFlourish width={135} height={22} />
-              </div>
-
-              <p class="text-[0.75rem] sm:text-xs text-[#566A4E] font-light max-w-xs leading-relaxed text-center px-4">
-                {content.couple.groom.parents}
-              </p>
-            </div>
-
-            <div class="flip-hint-pill relative z-10">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
-              </svg>
-              <span>Ketuk untuk Membalik</span>
-            </div>
+        <!-- Portrait Frame -->
+        <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-tr from-[#B89352] via-[#EDE8DC] to-[#566A4E] shadow-[0_10px_25px_rgba(74,93,67,0.18)] mb-4">
+          <div class="w-full h-full rounded-full overflow-hidden border-2 border-[#FAF8F5] relative bg-[#EDE8DC]">
+            <img 
+              src={content.couple.groom.photo || "/assets/groom.jpg"} 
+              alt={content.couple.groom.fullName}
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500 ease-out" 
+              loading="lazy"
+              width="280"
+              height="280"
+            />
           </div>
-
-          <!-- Sisi Belakang (Back) -->
-          <div class="couple-card-back relative overflow-hidden">
-            <div class="absolute top-2 left-2 pointer-events-none opacity-30">
-              <FloralCorner position="top-left" size={40} />
-            </div>
-            <div class="absolute bottom-2 right-2 pointer-events-none opacity-30">
-              <FloralCorner position="bottom-right" size={40} />
-            </div>
-
-            <div class="my-auto flex flex-col items-center px-4 relative z-10">
-              <div class="mb-2">
-                <FloralWreath monogram={content.couple.groom.nickname[0]} size={60} />
-              </div>
-              <span class="font-display italic text-3xl text-[#B89352] mb-1">&ldquo;</span>
-              <p class="font-display italic text-base md:text-lg text-[#2A3426] font-normal leading-relaxed mb-5 max-w-xs text-center">
-                {content.couple.groom.quote}
-              </p>
-              
-              <div class="mb-4">
-                <FloralDivider width={140} height={20} />
-              </div>
-
-              <a href={`https://instagram.com/${content.couple.groom.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-[#566A4E] hover:text-[#2A3426] hover:underline tracking-widest uppercase font-semibold bg-white/60 px-3 py-1.5 rounded-full border border-[#566A4E]/20 shadow-sm">
-                <span>{content.couple.groom.instagram}</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-                </svg>
-              </a>
-            </div>
-
-            <div class="flip-hint-pill relative z-10">
-              <span>Kembali</span>
-            </div>
-          </div>
-
         </div>
-      </div>
 
-      <!-- Kartu Mempelai Wanita -->
-      <div id="card-bride-container" class="couple-flip-container">
-        <div id="card-bride" class="couple-flip-card" role="button" tabindex="0" aria-label="Kartu Profil Mempelai Wanita. Ketuk untuk membalik.">
-          
-          <!-- Sisi Depan (Front) -->
-          <div class="couple-card-front relative overflow-hidden">
-            <!-- 4 Floral Corners (Scaled to 42px to eliminate text collision) -->
-            <div class="absolute top-2 left-2 pointer-events-none opacity-50">
-              <FloralCorner position="top-left" size={42} />
-            </div>
-            <div class="absolute top-2 right-2 pointer-events-none opacity-50">
-              <FloralCorner position="top-right" size={42} />
-            </div>
-            <div class="absolute bottom-2 left-2 pointer-events-none opacity-50">
-              <FloralCorner position="bottom-left" size={42} />
-            </div>
-            <div class="absolute bottom-2 right-2 pointer-events-none opacity-50">
-              <FloralCorner position="bottom-right" size={42} />
-            </div>
+        <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-1">Mempelai Pria</p>
+        <h3 class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal mb-1">
+          {content.couple.groom.fullName}
+        </h3>
+        
+        <p class="text-xs text-[#566A4E] font-light max-w-xs leading-relaxed mt-1 mb-4">
+          {content.couple.groom.parents}
+        </p>
 
-            <!-- Inset Gold Hairline Frame -->
-            <div class="absolute inset-2.5 sm:inset-3 border border-[#B89352]/30 rounded-xl pointer-events-none"></div>
-
-            <div class="my-auto flex flex-col items-center relative z-10 w-full px-2 py-2">
-              
-              <!-- Authentic Editorial Bride Portrait -->
-              <div class="relative mb-2.5 group">
-                <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-[#566A4E] via-[#EDE8DC] to-[#B89352] shadow-[0_8px_24px_rgba(74,93,67,0.18)]">
-                  <div class="w-full h-full rounded-full overflow-hidden border-2 border-[#FAF8F5] relative bg-[#EDE8DC]">
-                    <img 
-                      src={content.couple.bride.photo || "/assets/bride.jpg"} 
-                      alt={content.couple.bride.fullName}
-                      class="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-500 ease-out" 
-                      loading="lazy"
-                      width="256"
-                      height="256"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#263322]/20 via-transparent to-transparent pointer-events-none"></div>
-                  </div>
-                </div>
-              </div>
-
-              <p class="text-[0.62rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-0.5">Mempelai Wanita</p>
-              <h3 class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal mb-1">
-                {content.couple.bride.fullName}
-              </h3>
-              
-              <div class="my-1">
-                <FloralFlourish width={135} height={22} />
-              </div>
-
-              <p class="text-[0.75rem] sm:text-xs text-[#566A4E] font-light max-w-xs leading-relaxed text-center px-4">
-                {content.couple.bride.parents}
-              </p>
-            </div>
-
-            <div class="flip-hint-pill relative z-10">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
-              </svg>
-              <span>Ketuk untuk Membalik</span>
-            </div>
-          </div>
-
-          <!-- Sisi Belakang (Back) -->
-          <div class="couple-card-back relative overflow-hidden">
-            <div class="absolute top-2 left-2 pointer-events-none opacity-30">
-              <FloralCorner position="top-left" size={40} />
-            </div>
-            <div class="absolute bottom-2 right-2 pointer-events-none opacity-30">
-              <FloralCorner position="bottom-right" size={40} />
-            </div>
-
-            <div class="my-auto flex flex-col items-center px-4 relative z-10">
-              <div class="mb-2">
-                <FloralWreath monogram={content.couple.bride.nickname[0]} size={60} />
-              </div>
-              <span class="font-display italic text-3xl text-[#B89352] mb-1">&ldquo;</span>
-              <p class="font-display italic text-base md:text-lg text-[#2A3426] font-normal leading-relaxed mb-5 max-w-xs text-center">
-                {content.couple.bride.quote}
-              </p>
-
-              <div class="mb-4">
-                <FloralDivider width={140} height={20} />
-              </div>
-
-              <a href={`https://instagram.com/${content.couple.bride.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-[#566A4E] hover:text-[#2A3426] hover:underline tracking-widest uppercase font-semibold bg-white/60 px-3 py-1.5 rounded-full border border-[#566A4E]/20 shadow-sm">
-                <span>{content.couple.bride.instagram}</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-                </svg>
-              </a>
-            </div>
-
-            <div class="flip-hint-pill relative z-10">
-              <span>Kembali</span>
-            </div>
-          </div>
-
+        <!-- Personal Quote -->
+        <div class="my-auto py-3 px-4 rounded-xl bg-[#FAF8F5] border border-[#566A4E]/10 w-full max-w-xs">
+          <p class="font-display italic text-xs sm:text-sm text-[#3E4C38] leading-relaxed">
+            &ldquo;{content.couple.groom.quote}&rdquo;
+          </p>
         </div>
-      </div>
+
+        <!-- Social Media Link -->
+        <a 
+          href={`https://instagram.com/${content.couple.groom.instagram.replace('@', '')}`} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-flex items-center gap-1.5 text-[0.68rem] text-[#566A4E] hover:text-[#2A3426] tracking-widest uppercase font-semibold mt-4 px-3.5 py-1.5 rounded-full border border-[#566A4E]/20 bg-white hover:border-[#B89352] transition-colors"
+        >
+          <span>{content.couple.groom.instagram}</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+          </svg>
+        </a>
+      </article>
+
+      <!-- Profil Mempelai Wanita (Dian) -->
+      <article class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
+
+        <!-- Portrait Frame -->
+        <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-tr from-[#566A4E] via-[#EDE8DC] to-[#B89352] shadow-[0_10px_25px_rgba(74,93,67,0.18)] mb-4">
+          <div class="w-full h-full rounded-full overflow-hidden border-2 border-[#FAF8F5] relative bg-[#EDE8DC]">
+            <img 
+              src={content.couple.bride.photo || "/assets/bride.jpg"} 
+              alt={content.couple.bride.fullName}
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500 ease-out" 
+              loading="lazy"
+              width="280"
+              height="280"
+            />
+          </div>
+        </div>
+
+        <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-1">Mempelai Wanita</p>
+        <h3 class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal mb-1">
+          {content.couple.bride.fullName}
+        </h3>
+        
+        <p class="text-xs text-[#566A4E] font-light max-w-xs leading-relaxed mt-1 mb-4">
+          {content.couple.bride.parents}
+        </p>
+
+        <!-- Personal Quote -->
+        <div class="my-auto py-3 px-4 rounded-xl bg-[#FAF8F5] border border-[#566A4E]/10 w-full max-w-xs">
+          <p class="font-display italic text-xs sm:text-sm text-[#3E4C38] leading-relaxed">
+            &ldquo;{content.couple.bride.quote}&rdquo;
+          </p>
+        </div>
+
+        <!-- Social Media Link -->
+        <a 
+          href={`https://instagram.com/${content.couple.bride.instagram.replace('@', '')}`} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-flex items-center gap-1.5 text-[0.68rem] text-[#566A4E] hover:text-[#2A3426] tracking-widest uppercase font-semibold mt-4 px-3.5 py-1.5 rounded-full border border-[#566A4E]/20 bg-white hover:border-[#B89352] transition-colors"
+        >
+          <span>{content.couple.bride.instagram}</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+          </svg>
+        </a>
+      </article>
 
     </div>
 
   </div>
 </section>
 
-<style>
-  .couple-flip-container {
-    perspective: 1200px;
-    height: 480px;
-  }
-
-  @media (min-width: 768px) {
-    .couple-flip-container {
-      height: 500px;
-    }
-  }
-
-  .couple-flip-card {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    cursor: pointer;
-    border-radius: 1.25rem;
-  }
-
-  .couple-flip-card.is-flipped {
-    transform: rotateY(180deg);
-  }
-
-  .couple-card-front,
-  .couple-card-back {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 1.25rem;
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 14px 35px rgba(42, 52, 38, 0.08);
-  }
-
-  .couple-card-front {
-    background: #FAF8F5;
-    border: 1px solid rgba(86, 106, 78, 0.25);
-  }
-
-  .couple-card-back {
-    background: #F3F5EE;
-    border: 1px solid rgba(184, 147, 82, 0.35);
-    transform: rotateY(180deg);
-  }
-
-  .flip-hint-pill {
-    align-self: center;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.35rem 0.85rem;
-    border-radius: 9999px;
-    background: rgba(86, 106, 78, 0.1);
-    border: 1px solid rgba(86, 106, 78, 0.2);
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: #3E4C38;
-    transition: all 0.3s ease;
-  }
-
-  .couple-flip-card:hover .flip-hint-pill {
-    background: rgba(86, 106, 78, 0.18);
-    transform: translateY(-2px);
-  }
-</style>
-
 <script>
-  import { playCardFlipSound } from './reactbits/SoundEffects';
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-  function initCoupleCards() {
-    const cardGroom = document.getElementById('card-groom');
-    const cardBride = document.getElementById('card-bride');
+  gsap.registerPlugin(ScrollTrigger);
 
-    function toggleFlip(card: HTMLElement | null) {
-      if (!card) return;
-      playCardFlipSound();
-      card.classList.toggle('is-flipped');
-    }
+  function initCoupleSection() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
 
-    if (cardGroom) {
-      cardGroom.addEventListener('click', () => toggleFlip(cardGroom));
-      cardGroom.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleFlip(cardGroom);
+    gsap.fromTo(
+      '.couple-profile-card',
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#couple',
+          start: 'top 78%',
+          once: true
         }
-      });
-    }
-
-    if (cardBride) {
-      cardBride.addEventListener('click', () => toggleFlip(cardBride));
-      cardBride.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleFlip(cardBride);
-        }
-      });
-    }
+      }
+    );
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCoupleCards);
+    document.addEventListener('DOMContentLoaded', initCoupleSection);
   } else {
-    initCoupleCards();
+    initCoupleSection();
   }
 </script>

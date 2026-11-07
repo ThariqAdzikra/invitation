@@ -83,17 +83,9 @@ const {
         lenis.scrollTo(0, { immediate: true });
       }
 
-      // 3D Scroll Velocity Inertia: Sections flex slightly along the X axis as user scrolls
-      lenis.on('scroll', (e: any) => {
+      // Update ScrollTrigger on scroll
+      lenis.on('scroll', () => {
         ScrollTrigger.update();
-        const velocity = e.velocity || 0;
-        const tiltX = gsap.utils.clamp(-3.2, 3.2, velocity * 0.12);
-        gsap.to('.deck-section', {
-          rotateX: -tiltX,
-          duration: 0.45,
-          ease: 'power2.out',
-          overwrite: 'auto'
-        });
       });
 
       gsap.ticker.add((time) => {
@@ -104,10 +96,10 @@ const {
       // Expose globally for components (e.g. ProgressBar)
       (window as any).__lenis = lenis;
 
-      // Subtle continuous parallax on background monograms and watermarks
+      // Subtle continuous parallax on background monograms
       gsap.utils.toArray('.ornament-parallax').forEach((el: any) => {
         gsap.to(el, {
-          y: 70,
+          y: 60,
           ease: 'none',
           scrollTrigger: {
             trigger: el.parentElement || el,
@@ -117,72 +109,6 @@ const {
           }
         });
       });
-
-      // Cinematic Card Deck Stacking Physics: Each section recedes as the next section slides over it
-      const deckSections = gsap.utils.toArray<HTMLElement>('.deck-section');
-      deckSections.forEach((section, idx) => {
-        if (idx < deckSections.length - 1) {
-          const nextSection = deckSections[idx + 1];
-          gsap.to(section, {
-            scale: 0.96,
-            opacity: 0.75,
-            filter: 'brightness(0.94)',
-            ease: 'none',
-            scrollTrigger: {
-              trigger: nextSection,
-              start: 'top bottom',
-              end: 'top top',
-              scrub: true
-            }
-          });
-        }
-      });
-
-      // Interactive 3D Magnetic Touch / Pointer Tilt on luxury cards
-      function setup3DTilt(elementSelector: string, maxTilt = 7) {
-        const cards = document.querySelectorAll<HTMLElement>(elementSelector);
-        cards.forEach((card) => {
-          let bounds: DOMRect;
-
-          card.addEventListener('pointerenter', () => {
-            bounds = card.getBoundingClientRect();
-          });
-
-          card.addEventListener('pointermove', (e: PointerEvent) => {
-            if (!bounds) bounds = card.getBoundingClientRect();
-            const relX = (e.clientX - bounds.left) / bounds.width - 0.5;
-            const relY = (e.clientY - bounds.top) / bounds.height - 0.5;
-            const rotX = -relY * maxTilt;
-            const rotY = relX * maxTilt;
-
-            gsap.to(card, {
-              rotateX: rotX,
-              rotateY: rotY,
-              transformPerspective: 1000,
-              translateZ: 10,
-              duration: 0.35,
-              ease: 'power1.out',
-              overwrite: 'auto'
-            });
-          });
-
-          card.addEventListener('pointerleave', () => {
-            gsap.to(card, {
-              rotateX: 0,
-              rotateY: 0,
-              translateZ: 0,
-              duration: 0.6,
-              ease: 'power2.out',
-              overwrite: 'auto'
-            });
-          });
-        });
-      }
-
-      setup3DTilt('#master-event-card', 6);
-      setup3DTilt('.couple-flip-card', 7);
-      setup3DTilt('.countdown-box', 5);
-      setup3DTilt('.story-item article', 6);
 
       // Cleanly resume scroll & recalculate triggers after splashscreen is unlocked
       window.addEventListener('invitationOpened', () => {

@@ -1,78 +1,52 @@
 ---
-// SplashScreen.astro — Authentic 3D Classical Wedding Envelope Unboxing
-// Audited for Zero Visual Collisions:
-// - Stamp in top-right with no colliding corner flourish
-// - Wax seal and guest badge positioned with generous breathing room
-// - 100% opaque envelope pocket concealing inner card until open
-// - Slide-out card with silky smooth scroll-triggered transition
+// SplashScreen.astro — Quiet Luxury Wedding Stationery Envelope Reveal
+// Elegant single-action unboxing: Tap to open, envelope unfolds gracefully into the Hero section
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
-import FloralDivider from './botanical/FloralDivider.astro';
-import FloralCorner from './botanical/FloralCorner.astro';
-import FloralBouquet from './botanical/FloralBouquet.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 import BotanicalStamp from './botanical/BotanicalStamp.astro';
-import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 ---
 
 <div
   id="envelope-screen"
-  class="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-3 sm:p-6 bg-[#EDE8DC] select-none overflow-hidden transition-opacity duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+  class="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-4 sm:p-6 bg-[#FAF8F5] select-none overflow-hidden transition-opacity duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
   role="dialog"
   aria-modal="true"
   aria-label="Amplop Undangan Pernikahan"
 >
-  <!-- Ambient Botanical Linen Texture -->
-  <div class="absolute inset-0 pointer-events-none opacity-35 bg-[radial-gradient(#566A4E_1px,transparent_1px)] [background-size:20px_20px]" aria-hidden="true"></div>
-
-  <!-- Twinkling Gold Sparkles Background -->
-  <TwinkleSparkles />
+  <!-- Fine Linen Subtle Grain -->
+  <div class="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#4A5D43_1px,transparent_1px)] [background-size:24px_24px]" aria-hidden="true"></div>
 
   <!-- 3D Perspective Scene Container -->
   <div
     id="envelope-scene"
-    class="relative w-full max-w-[460px] sm:max-w-[530px] aspect-[1.42/1] my-auto cursor-pointer"
+    class="relative w-full max-w-[460px] sm:max-w-[500px] aspect-[1.42/1] my-auto cursor-pointer"
     style="perspective: 1400px;"
   >
-    <!-- Envelope Ambient Shadow on Surface -->
+    <!-- Envelope Ambient Shadow -->
     <div
       id="envelope-shadow"
-      class="absolute -inset-2 rounded-2xl bg-[#263322]/15 blur-xl pointer-events-none transform translate-y-6 transition-all duration-700"
+      class="absolute -inset-3 rounded-2xl bg-[#263322]/12 blur-2xl pointer-events-none transform translate-y-8"
     ></div>
 
-    <!-- MAIN ENVELOPE BODY (Overflow visible so card and flap can emerge upwards) -->
+    <!-- MAIN ENVELOPE BODY -->
     <div
       id="envelope-body"
-      class="relative w-full h-full rounded-2xl shadow-[0_25px_60px_rgba(42,52,38,0.22)] border border-[#C8BEAA] bg-[#E3DAC7] overflow-visible"
+      class="relative w-full h-full rounded-2xl shadow-[0_25px_60px_rgba(42,52,38,0.18)] border border-[#D5CCBC] bg-[#EAE3D2] overflow-visible"
     >
-      <!-- LAYER 0: Inside Pocket Lining Pattern -->
-      <div class="absolute inset-0 rounded-2xl overflow-hidden bg-[#E1D7C3] pointer-events-none">
-        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#4A5D43_1.5px,transparent_1.5px)] [background-size:16px_16px]"></div>
-        <!-- Inner Bottom Shadow (depth illusion inside pocket) -->
-        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent"></div>
+      <!-- LAYER 0: Inside Pocket Lining -->
+      <div class="absolute inset-0 rounded-2xl overflow-hidden bg-[#E2D9C6] pointer-events-none">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#4A5D43_1.5px,transparent_1.5px)] [background-size:16px_16px]"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/15 to-transparent"></div>
       </div>
 
       <!-- LAYER 1: THE LETTER CARD (Tucked inside, emerges upwards on open) -->
       <div
         id="envelope-card"
-        class="absolute left-[3%] right-[3%] top-[4%] h-[92%] bg-[#FAF8F5] rounded-xl shadow-[0_8px_25px_rgba(42,52,38,0.15)] border border-[#B89352]/40 p-4 sm:p-6 flex flex-col items-center justify-between text-center z-10 origin-center opacity-0 pointer-events-none"
+        class="absolute left-[3%] right-[3%] top-[4%] h-[92%] bg-[#FAF8F5] rounded-xl shadow-[0_10px_30px_rgba(42,52,38,0.12)] border border-[#B89352]/35 p-5 sm:p-6 flex flex-col items-center justify-between text-center z-10 opacity-0 pointer-events-none"
       >
         <!-- Inset Gold Hairline Frame -->
-        <div class="absolute inset-2 sm:inset-3 border border-[#B89352]/30 rounded-lg pointer-events-none"></div>
-
-        <!-- Mini Floral Corners on Card (Size 34px for clean margins) -->
-        <div class="absolute top-1.5 left-1.5 pointer-events-none opacity-45">
-          <FloralCorner position="top-left" size={34} />
-        </div>
-        <div class="absolute top-1.5 right-1.5 pointer-events-none opacity-45">
-          <FloralCorner position="top-right" size={34} />
-        </div>
-        <div class="absolute bottom-1.5 left-1.5 pointer-events-none opacity-45">
-          <FloralCorner position="bottom-left" size={34} />
-        </div>
-        <div class="absolute bottom-1.5 right-1.5 pointer-events-none opacity-45">
-          <FloralCorner position="bottom-right" size={34} />
-        </div>
+        <div class="absolute inset-2.5 sm:inset-3 border border-[#B89352]/25 rounded-lg pointer-events-none"></div>
 
         <!-- Card Header -->
         <div class="pt-1">
@@ -86,16 +60,16 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 
         <!-- Card Center Monogram & Couple -->
         <div class="my-auto flex flex-col items-center">
-          <div class="scale-75 sm:scale-85 mb-0.5">
+          <div class="scale-80 sm:scale-90 mb-1">
             <FloralWreath monogram="AD" size={68} />
           </div>
-          <p class="text-[0.55rem] sm:text-[0.6rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold">
+          <p class="text-[0.58rem] sm:text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold">
             WALIMATUL 'URS
           </p>
           <h2 class="font-display text-2xl sm:text-3xl text-[#2A3426] font-normal my-0.5 tracking-tight">
             {content.couple.groom.nickname} <span class="italic text-[#B89352]">&amp;</span> {content.couple.bride.nickname}
           </h2>
-          <FloralFlourish width={135} height={20} className="scale-75 sm:scale-85" />
+          <FloralFlourish width={140} height={22} className="scale-80 sm:scale-90" />
         </div>
 
         <!-- Card Footer Meta -->
@@ -106,163 +80,92 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
         </div>
       </div>
 
-      <!-- LAYER 2: FRONT ENVELOPE SOLID POCKET (100% Covers the Inside Card) -->
+      <!-- LAYER 2: FRONT ENVELOPE SOLID POCKET -->
       <!-- Left Triangle Fold -->
       <div
-        class="absolute inset-0 bg-gradient-to-r from-[#ECE6D8] to-[#E3DCCB] z-20 pointer-events-none rounded-2xl"
+        class="absolute inset-0 bg-gradient-to-r from-[#F0EAE0] to-[#EAE3D4] z-20 pointer-events-none rounded-2xl"
         style="clip-path: polygon(0 0, 50% 50%, 0 100%);"
-      >
-        <div class="absolute inset-0 border-l border-b border-[#D6CDBC]/50"></div>
-      </div>
+      ></div>
 
       <!-- Right Triangle Fold -->
       <div
-        class="absolute inset-0 bg-gradient-to-l from-[#ECE6D8] to-[#E3DCCB] z-20 pointer-events-none rounded-2xl"
+        class="absolute inset-0 bg-gradient-to-l from-[#F0EAE0] to-[#EAE3D4] z-20 pointer-events-none rounded-2xl"
         style="clip-path: polygon(100% 0, 50% 50%, 100% 100%);"
-      >
-        <div class="absolute inset-0 border-r border-b border-[#D6CDBC]/50"></div>
-      </div>
+      ></div>
 
       <!-- Bottom Triangle Pocket Face -->
       <div
         id="envelope-pocket-bottom"
-        class="absolute inset-0 bg-gradient-to-t from-[#F4EFE3] via-[#EFEAE0] to-[#E5DEC9] z-22 pointer-events-none rounded-2xl shadow-[0_-4px_12px_rgba(42,52,38,0.06)]"
+        class="absolute inset-0 bg-gradient-to-t from-[#F7F3EB] via-[#F2ECE1] to-[#E8E1D2] z-22 pointer-events-none rounded-2xl shadow-[0_-4px_12px_rgba(42,52,38,0.04)]"
         style="clip-path: polygon(0 100%, 100% 100%, 50% 46%);"
-      >
-        <!-- Gold stitch line along the bottom pocket edge -->
-        <div
-          class="absolute inset-0"
-          style="clip-path: polygon(2% 100%, 98% 100%, 50% 48%); border-top: 1px dashed rgba(184, 147, 82, 0.4);"
-        ></div>
-      </div>
+      ></div>
 
-      <!-- LAYER 2.5: ELEMENTS FIXED ON THE FRONT OF CLOSED ENVELOPE (ZERO COLLISIONS) -->
+      <!-- LAYER 2.5: FRONT ENVELOPE DETAILS -->
       <div id="envelope-front-decorations" class="absolute inset-0 z-25 pointer-events-none">
-        
-        <!-- Vintage Postal Stamp in Top-Right Corner (Alone in top-right, no collision!) -->
-        <div class="absolute top-2.5 right-2.5 sm:top-3.5 sm:right-3.5 scale-75 sm:scale-85 origin-top-right">
+        <!-- Postal Stamp in Top-Right -->
+        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 scale-80 sm:scale-90 origin-top-right">
           <BotanicalStamp />
         </div>
 
-        <!-- 3 Outer Corner Botanical Flourishes (Top-right intentionally omitted to prevent collision with stamp!) -->
-        <div class="absolute top-1 left-1 opacity-60">
-          <FloralCorner position="top-left" size={55} />
-        </div>
-        <div class="absolute bottom-1 left-1 opacity-60">
-          <FloralCorner position="bottom-left" size={55} />
-        </div>
-        <div class="absolute bottom-1 right-1 opacity-60">
-          <FloralCorner position="bottom-right" size={55} />
-        </div>
-
-        <!-- Recipient Guest Badge (Positioned at bottom with safe clearance from wax seal) -->
-        <div class="absolute bottom-2.5 sm:bottom-3 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%] max-w-[270px] py-1.5 px-3 rounded-lg bg-white/95 border border-[#DCD5C5] shadow-sm text-center">
-          <p class="text-[0.52rem] sm:text-[0.58rem] text-[#566A4E] uppercase tracking-[0.2em] font-medium mb-0.5">
+        <!-- Recipient Guest Badge -->
+        <div class="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%] max-w-[270px] py-2 px-3 rounded-xl bg-white/95 border border-[#D5CCBC] shadow-sm text-center">
+          <p class="text-[0.55rem] text-[#566A4E] uppercase tracking-[0.22em] font-medium mb-0.5">
             Kepada Yth. Bapak/Ibu/Saudara/i:
           </p>
           <p id="guest-name-splash" class="font-display text-sm sm:text-base text-[#2A3426] font-normal leading-tight truncate">
             Tamu Undangan Terhormat
           </p>
         </div>
-
       </div>
 
-      <!-- LAYER 3: TOP TRIANGULAR FLAP (Overlaps pocket when closed, flips 180° upwards) -->
+      <!-- LAYER 3: TOP TRIANGULAR FLAP (Overlaps pocket, flips 180° upwards) -->
       <div
         id="envelope-top-flap"
-        class="absolute top-0 left-0 right-0 h-[58%] origin-top z-30 transition-shadow rounded-t-2xl pointer-events-none"
-        style="clip-path: polygon(0 0, 100% 0, 50% 100%); transform-style: preserve-3d; background: linear-gradient(to bottom, #F5F1E6, #EAE3D3);"
+        class="absolute top-0 left-0 right-0 h-[58%] origin-top z-30 rounded-t-2xl pointer-events-none"
+        style="clip-path: polygon(0 0, 100% 0, 50% 100%); transform-style: preserve-3d; background: linear-gradient(to bottom, #FAF7EF, #EFE9DB);"
       >
-        <!-- Flap Stitching / Gold Hairline Border -->
-        <div
-          class="absolute inset-0"
-          style="clip-path: polygon(3% 0, 97% 0, 50% 95%); border-bottom: 1.2px dashed rgba(184, 147, 82, 0.45);"
-        ></div>
-        <!-- Shadow Cast by Flap onto Bottom Pocket -->
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-5 bg-black/10 blur-sm rounded-full"></div>
+        <div class="absolute inset-0" style="clip-path: polygon(3% 0, 97% 0, 50% 95%); border-bottom: 1px dashed rgba(184, 147, 82, 0.4);"></div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-5 bg-black/8 blur-sm rounded-full"></div>
       </div>
 
-      <!-- LAYER 4: INTERACTIVE 3D OLIVE WAX SEAL (Centered at flap tip) -->
+      <!-- LAYER 4: OLIVE WAX SEAL (Centered at flap tip) -->
       <div
         id="wax-seal-container"
-        class="absolute top-[57%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto group transform transition-transform duration-300 hover:scale-108 active:scale-95"
+        class="absolute top-[57%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto transform transition-transform duration-300 hover:scale-105 active:scale-95"
       >
         <div class="relative flex items-center justify-center">
-          
-          <!-- Left Mini Laurel Branch -->
-          <svg width="30" height="24" viewBox="0 0 50 40" fill="none" class="hidden xs:block absolute -left-6 opacity-75">
-            <path d="M45 35 C30 32, 10 20, 5 5" stroke="#566A4E" stroke-width="1.3" stroke-linecap="round" />
-            <path d="M38 31 C32 26, 33 20, 39 19 C42 24, 42 29, 38 31 Z" fill="#6E8564" />
-            <path d="M25 24 C18 20, 20 14, 26 13 C29 18, 28 23, 25 24 Z" fill="#4A5C43" />
-            <circle cx="34" cy="27" r="1.8" fill="#B89352" />
-          </svg>
-
-          <!-- 3D Organic Olive Wax Disc (Comfortable 52px on mobile, 60px on desktop) -->
+          <!-- Organic Olive Wax Disc -->
           <div
             id="wax-seal"
-            class="w-13 h-13 sm:w-15 sm:h-15 w-[52px] h-[52px] sm:w-[60px] sm:h-[60px] rounded-full bg-gradient-to-br from-[#4A5D43] via-[#3B4C35] to-[#243120] shadow-[0_6px_18px_rgba(36,49,32,0.45),inset_0_2px_4px_rgba(255,255,255,0.3)] border-2 border-[#5C7253] flex items-center justify-center relative overflow-hidden"
+            class="w-[54px] h-[54px] sm:w-[60px] sm:h-[60px] rounded-full bg-gradient-to-br from-[#4A5D43] via-[#3B4C35] to-[#243120] shadow-[0_8px_20px_rgba(36,49,32,0.35),inset_0_2px_4px_rgba(255,255,255,0.25)] border-2 border-[#5C7253] flex items-center justify-center relative overflow-hidden"
           >
-            <!-- Wax Rim Edge -->
-            <div class="absolute inset-1.5 rounded-full border border-[#B89352]/40 border-dashed"></div>
-            
-            <!-- Gold Monogram Emboss -->
+            <div class="absolute inset-1 rounded-full border border-[#B89352]/35 border-dashed"></div>
             <div class="flex flex-col items-center">
-              <span class="font-display text-xs sm:text-sm text-[#F4E5C7] tracking-widest pl-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
+              <span class="font-display text-xs sm:text-sm text-[#F4E5C7] tracking-widest pl-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
                 AD
               </span>
-              <div class="w-3.5 h-[1px] bg-[#B89352]/70 mt-0.5"></div>
+              <div class="w-3 h-[1px] bg-[#B89352]/60 mt-0.5"></div>
             </div>
           </div>
-
-          <!-- Right Mini Laurel Branch -->
-          <svg width="30" height="24" viewBox="0 0 50 40" fill="none" class="hidden xs:block absolute -right-6 opacity-75 transform scale-x-[-1]">
-            <path d="M45 35 C30 32, 10 20, 5 5" stroke="#566A4E" stroke-width="1.3" stroke-linecap="round" />
-            <path d="M38 31 C32 26, 33 20, 39 19 C42 24, 42 29, 38 31 Z" fill="#6E8564" />
-            <path d="M25 24 C18 20, 20 14, 26 13 C29 18, 28 23, 25 24 Z" fill="#4A5C43" />
-            <circle cx="34" cy="27" r="1.8" fill="#B89352" />
-          </svg>
-
-          <!-- Golden Pulse Ping Aura -->
-          <div class="absolute inset-0 rounded-full bg-[#B89352]/30 animate-ping pointer-events-none opacity-40"></div>
-
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- STATE A: Initial Tap Prompt (Shown when envelope is closed) -->
-  <div id="envelope-prompt" class="mt-5 flex flex-col items-center gap-2 cursor-pointer z-50 pointer-events-auto">
-    <div class="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#566A4E]/10 border border-[#566A4E]/25 text-[#3E4C38] shadow-sm animate-bounce">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/>
-        <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/>
-        <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
-        <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
-      </svg>
-      <span class="text-[0.62rem] sm:text-xs tracking-[0.25em] uppercase font-semibold">
-        Ketuk Segel untuk Membuka Amplop
+  <!-- SINGLE REFINED CTA: "Buka Undangan" -->
+  <div id="envelope-prompt" class="mt-6 flex flex-col items-center gap-1.5 cursor-pointer z-50 pointer-events-auto">
+    <button
+      id="btn-open-envelope"
+      type="button"
+      class="group inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-[#FAF8F5] border border-[#B89352]/50 text-[#2A3426] shadow-sm hover:border-[#566A4E] hover:bg-white hover:shadow-md transition-all duration-300"
+    >
+      <span class="text-xs text-[#B89352] group-hover:rotate-45 transition-transform duration-300">✦</span>
+      <span class="text-xs tracking-[0.25em] uppercase font-semibold text-[#3E4C38]">
+        Buka Undangan
       </span>
-    </div>
-  </div>
-
-  <!-- STATE B: Scroll Prompt (Revealed when card has emerged from envelope) -->
-  <div
-    id="envelope-scroll-cue"
-    class="mt-5 opacity-0 pointer-events-none flex flex-col items-center gap-1.5 z-50 transition-opacity duration-500"
-  >
-    <div class="flex items-center gap-2 px-5 py-2 rounded-full bg-white/95 border border-[#B89352]/40 text-[#2A3426] shadow-md animate-bounce cursor-pointer pointer-events-auto">
-      <span class="text-xs text-[#B89352]">✦</span>
-      <span class="text-[0.65rem] sm:text-xs tracking-[0.25em] uppercase font-semibold text-[#3E4C38]">
-        Gulir ke Bawah untuk Membuka Undangan
-      </span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-[#566A4E]">
-        <path d="M12 5v14M19 12l-7 7-7-7"/>
-      </svg>
-    </div>
-    <span class="text-[0.55rem] sm:text-[0.6rem] text-[#7E8F77] tracking-widest uppercase font-mono">
-      Atau sentuh layar untuk melanjutkan
-    </span>
+      <span class="text-xs text-[#B89352] group-hover:rotate-45 transition-transform duration-300">✦</span>
+    </button>
   </div>
 
 </div>
@@ -271,18 +174,23 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
   import gsap from 'gsap';
   import { playWaxSealSound, playCardFlipSound, playChimeSound } from './reactbits/SoundEffects';
 
-  function initClassicEnvelope() {
+  function initLuxuryEnvelope() {
     const screen = document.getElementById('envelope-screen');
     const scene = document.getElementById('envelope-scene');
-    const envelopeBody = document.getElementById('envelope-body');
     const topFlap = document.getElementById('envelope-top-flap');
     const letterCard = document.getElementById('envelope-card');
     const waxSealContainer = document.getElementById('wax-seal-container');
-    const tapPrompt = document.getElementById('envelope-prompt');
-    const scrollCue = document.getElementById('envelope-scroll-cue');
+    const promptBtn = document.getElementById('btn-open-envelope');
     const guestSplash = document.getElementById('guest-name-splash');
 
     if (!screen || !topFlap || !letterCard) return;
+
+    // Strict Scroll Containment: Ensure page is locked at (0, 0)
+    window.scrollTo(0, 0);
+    if ((window as any).__lenis) {
+      (window as any).__lenis.stop();
+      (window as any).__lenis.scrollTo(0, { immediate: true });
+    }
 
     // Parse guest name from URL ?to=
     const urlParams = new URLSearchParams(window.location.search);
@@ -294,118 +202,76 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
       } catch (e) {}
     }
 
-    let isEnvelopeOpened = false;
-    let isReadyToScroll = false;
-    let isTransitioningToHero = false;
+    let isOpened = false;
 
-    // Strict Scroll Containment: Ensure initial scroll is locked at (0, 0)
-    window.scrollTo(0, 0);
-    if ((window as any).__lenis) {
-      (window as any).__lenis.stop();
-      (window as any).__lenis.scrollTo(0, { immediate: true });
-    }
+    // Single-action fluid reveal: Unboxing into Hero section
+    function openInvitation() {
+      if (isOpened) return;
+      isOpened = true;
 
-    // 1. STAGE 1: Buka Amplop & Keluarkan Kartu Undangan
-    function openEnvelope() {
-      if (isEnvelopeOpened) return;
-      isEnvelopeOpened = true;
-
-      // Suara lilin segel pecah
       playWaxSealSound();
-
-      // Trigger music start on user interaction
       window.dispatchEvent(new CustomEvent('invitationOpening'));
 
-      // Hilangkan tombol tap prompt
-      if (tapPrompt) {
-        gsap.to(tapPrompt, { opacity: 0, y: 15, duration: 0.3, onComplete: () => { tapPrompt.style.display = 'none'; } });
-      }
+      const tl = gsap.timeline({ defaults: { ease: 'power2.inOut' } });
 
-      const tl = gsap.timeline();
-
-      // A. Wax seal pecah dan menghilang
+      // 1. Wax seal lifts & fades
       if (waxSealContainer) {
         tl.to(waxSealContainer, {
-          scale: 1.35,
+          scale: 1.25,
           opacity: 0,
           duration: 0.35,
           ease: 'power2.out'
         }, 0);
       }
 
-      // B. Flap segitiga membuka 180 derajat ke atas
+      // Hide CTA button
+      const promptEl = document.getElementById('envelope-prompt');
+      if (promptEl) {
+        tl.to(promptEl, { opacity: 0, y: 10, duration: 0.25 }, 0);
+      }
+
+      // 2. Flap opens smoothly in 3D
       tl.to(topFlap, {
         rotateX: 180,
-        duration: 0.7,
-        ease: 'power2.inOut',
+        duration: 0.65,
         onUpdate: function() {
           if (this.progress() > 0.48) {
-            topFlap.style.zIndex = '5'; // flap pindah ke belakang kartu
+            topFlap.style.zIndex = '5';
           }
         }
-      }, 0.15);
+      }, 0.1);
 
-      // C. Kartu undangan meluncur naik keluar dari kantong amplop
+      // 3. Card glides out smoothly
       tl.add(() => {
         playCardFlipSound();
-      }, 0.65);
+      }, 0.45);
 
       tl.to(letterCard, {
         opacity: 1,
-        y: '-78%',
-        boxShadow: '0 25px 50px rgba(42, 52, 38, 0.25)',
-        duration: 0.85,
+        y: '-70%',
+        boxShadow: '0 20px 45px rgba(42, 52, 38, 0.2)',
+        duration: 0.7,
         ease: 'power3.out'
-      }, 0.65);
+      }, 0.45);
 
-      // D. Kartu telah keluar seutuhnya ➔ Tampilkan petunjuk Scroll Cue
+      // 4. Fluid dissolve & rise into the main invitation
       tl.add(() => {
-        isReadyToScroll = true;
-        if (scrollCue) {
-          scrollCue.classList.remove('pointer-events-none');
-          gsap.to(scrollCue, { opacity: 1, duration: 0.6, ease: 'power2.out' });
-        }
-      }, 1.55);
-    }
+        playChimeSound();
+      }, 0.85);
 
-    // 2. STAGE 2: Transisi Super Smooth Saat Di-Scroll Masuk ke Halaman Utama
-    function enterMainInvitation() {
-      if (!isReadyToScroll || isTransitioningToHero) return;
-      isTransitioningToHero = true;
-
-      // Hard clamp scroll to top
-      window.scrollTo(0, 0);
-      if ((window as any).__lenis) {
-        (window as any).__lenis.stop();
-        (window as any).__lenis.scrollTo(0, { immediate: true });
-      }
-
-      playChimeSound();
-
-      // Hilangkan scroll cue
-      if (scrollCue) {
-        gsap.to(scrollCue, { opacity: 0, duration: 0.3 });
-      }
-
-      // Master smooth transition
-      const tl = gsap.timeline();
-
-      // Amplop dan kartu meluncur naik lembut & memudar
       tl.to(scene, {
-        y: -140,
-        scale: 0.94,
+        y: -100,
+        scale: 0.96,
         opacity: 0,
-        duration: 0.9,
-        ease: 'power2.inOut'
-      }, 0);
+        duration: 0.85
+      }, 0.85);
 
       tl.to(screen, {
         opacity: 0,
-        duration: 0.85,
-        ease: 'power2.inOut'
-      }, 0.05);
+        duration: 0.85
+      }, 0.9);
 
-      // Selesai: Buka scroll kunci dan tampilkan Hero tepat di titik (0, 0)
+      // 5. Complete reveal at exact top (0, 0)
       tl.add(() => {
         screen.style.display = 'none';
         document.documentElement.classList.remove('is-locked');
@@ -416,88 +282,33 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
           (window as any).__lenis.start();
         }
         window.dispatchEvent(new CustomEvent('invitationOpened'));
-      }, 0.9);
+      }, 1.35);
     }
 
-    // LISTENER 1: Klik untuk membuka amplop
-    if (waxSealContainer) {
-      waxSealContainer.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openEnvelope();
-      });
-    }
+    // Trigger on seal click, CTA button click, or scene click
+    if (waxSealContainer) waxSealContainer.addEventListener('click', openInvitation);
+    if (promptBtn) promptBtn.addEventListener('click', openInvitation);
+    if (scene) scene.addEventListener('click', openInvitation);
 
-    if (scene) {
-      scene.addEventListener('click', () => {
-        if (!isEnvelopeOpened) {
-          openEnvelope();
-        } else if (isReadyToScroll) {
-          enterMainInvitation();
-        }
-      });
-    }
-
-    if (tapPrompt) {
-      tapPrompt.addEventListener('click', openEnvelope);
-    }
-
-    // LISTENER 2: SCROLL DETECTIONS (Strictly intercept scroll so it NEVER bleeds into body/Lenis)
-    // A. Mouse Wheel Scroll
-    window.addEventListener('wheel', (e) => {
+    // Prevent wheel/touch from scrolling background while envelope is visible
+    const onPrevent = (e: Event) => {
       if (screen && screen.style.display !== 'none') {
-        e.preventDefault(); // Stop wheel event from advancing background virtual scroll!
-        if (isReadyToScroll && !isTransitioningToHero && e.deltaY > 5) {
-          enterMainInvitation();
-        }
+        e.preventDefault();
       }
-    }, { passive: false });
-
-    // B. Touch Swipe Up (Mobile touch scroll)
-    let touchStartY = 0;
-    window.addEventListener('touchstart', (e) => {
-      if (e.touches.length > 0) {
-        touchStartY = e.touches[0].clientY;
-      }
-    }, { passive: true });
-
-    window.addEventListener('touchmove', (e) => {
-      if (screen && screen.style.display !== 'none') {
-        if (isReadyToScroll && !isTransitioningToHero && e.touches.length > 0) {
-          const touchCurrentY = e.touches[0].clientY;
-          const deltaY = touchStartY - touchCurrentY;
-          if (deltaY > 20) {
-            e.preventDefault();
-            enterMainInvitation();
-            return;
-          }
-        }
-        e.preventDefault(); // Stop background touch scroll
-      }
-    }, { passive: false });
-
-    // C. Keyboard Scroll (Down arrow, PageDown, Space)
+    };
+    window.addEventListener('wheel', onPrevent, { passive: false });
+    window.addEventListener('touchmove', onPrevent, { passive: false });
     window.addEventListener('keydown', (e) => {
-      if (screen && screen.style.display !== 'none') {
-        if (['ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) {
-          e.preventDefault();
-          if (!isEnvelopeOpened) {
-            openEnvelope();
-          } else if (isReadyToScroll && !isTransitioningToHero) {
-            enterMainInvitation();
-          }
-        }
+      if (screen && screen.style.display !== 'none' && ['Enter', ' '].includes(e.key)) {
+        e.preventDefault();
+        openInvitation();
       }
     });
-
-    // D. Klik tombol scroll cue
-    if (scrollCue) {
-      scrollCue.addEventListener('click', enterMainInvitation);
-    }
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initClassicEnvelope);
+    document.addEventListener('DOMContentLoaded', initLuxuryEnvelope);
   } else {
-    initClassicEnvelope();
+    initLuxuryEnvelope();
   }
 </script>

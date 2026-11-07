@@ -1,80 +1,44 @@
 ---
-// Opening.astro — Botanical Opening Section with Sacred Verse & Floral Framing
+// Opening.astro — Sacred Verse & Welcoming Blessings
 import content from '../data/content.json';
-import FloralDivider from './botanical/FloralDivider.astro';
-import FloralCorner from './botanical/FloralCorner.astro';
-import FloralBouquet from './botanical/FloralBouquet.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
-import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
-import SceneTitleCard from './cinematic/SceneTitleCard.astro';
 ---
 
-<section id="opening" class="deck-section tone-opening section-flow relative px-4 text-center overflow-hidden z-20 pt-16 pb-16" aria-label="Kata Pembuka dan Doa">
+<section id="opening" class="deck-section tone-opening section-flow relative px-4 text-center overflow-hidden z-20 pt-20 pb-20" aria-label="Kata Pembuka dan Doa">
   
-  <TwinkleSparkles />
-
   <div class="max-w-2xl mx-auto text-center flex flex-col items-center relative z-10">
     
-    <!-- Crown Botanical Bouquet -->
-    <div class="opening-divider mb-3 scale-90">
-      <FloralBouquet width={240} height={60} />
-    </div>
-
-    <!-- Cinematic Scene Indicator Badge -->
-    <div class="opening-item mb-4">
-      <SceneTitleCard act="ACT II" title="THE SACRED COVENANT" scene="SCENE 02" />
-    </div>
-
-    <!-- Sacred Bismillah with Golden Halo -->
-    <p class="opening-bismillah font-arabic text-3xl sm:text-4xl text-[#3E4C38] mb-5 drop-shadow-sm" dir="rtl" lang="ar">
+    <!-- Sacred Bismillah -->
+    <p class="opening-bismillah font-arabic text-3xl sm:text-4xl text-[#3E4C38] mb-6 drop-shadow-sm" dir="rtl" lang="ar">
       {content.opening.bismillah}
     </p>
 
-    <!-- Ayat Suci QS Ar-Rum 21 Card with 4 Floral Corner Accents & Inset Frame -->
-    <div class="opening-item w-full bg-white/90 border border-[#566A4E]/25 rounded-2xl p-6 sm:p-9 shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden my-3">
-      <!-- 4 Floral Corner Flourishes -->
-      <div class="absolute top-2 left-2 pointer-events-none">
-        <FloralCorner position="top-left" size={65} />
-      </div>
-      <div class="absolute top-2 right-2 pointer-events-none">
-        <FloralCorner position="top-right" size={65} />
-      </div>
-      <div class="absolute bottom-2 left-2 pointer-events-none">
-        <FloralCorner position="bottom-left" size={65} />
-      </div>
-      <div class="absolute bottom-2 right-2 pointer-events-none">
-        <FloralCorner position="bottom-right" size={65} />
-      </div>
-
-      <!-- Inset Gold Hairline Frame -->
-      <div class="absolute inset-3 border border-[#B89352]/30 rounded-xl pointer-events-none"></div>
+    <!-- Ayat Suci QS Ar-Rum 21 Card -->
+    <div class="opening-item w-full bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-10 shadow-[0_12px_35px_rgba(42,52,38,0.05)] relative overflow-hidden my-3">
+      <!-- Subtle top gold highlight line -->
+      <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
       <blockquote lang="ar" dir="rtl" class="font-arabic text-xl sm:text-2xl text-[#2A3426] leading-loose max-w-xl mx-auto relative z-10">
         {content.opening.verse}
       </blockquote>
 
-      <p class="text-xs sm:text-sm text-[#566A4E] font-light leading-relaxed my-3 max-w-lg mx-auto italic relative z-10">
+      <p class="text-xs sm:text-sm text-[#566A4E] font-light leading-relaxed my-4 max-w-lg mx-auto italic relative z-10">
         &ldquo;{content.opening.translation}&rdquo;
       </p>
 
-      <div class="my-2 relative z-10">
-        <FloralFlourish width={160} height={28} />
+      <div class="my-2 relative z-10 opacity-70">
+        <FloralFlourish width={140} height={24} />
       </div>
 
-      <p class="text-[0.68rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mt-2 relative z-10">
+      <p class="text-[0.65rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mt-2 relative z-10">
         {content.opening.source}
       </p>
     </div>
 
     <!-- Kata Sambutan Tulus -->
-    <p class="opening-item text-xs sm:text-sm text-[#2A3426] mt-5 font-normal max-w-lg leading-relaxed">
+    <p class="opening-item text-xs sm:text-sm text-[#4A5D43] mt-6 font-normal max-w-lg leading-relaxed">
       {content.opening.greeting}
     </p>
-
-    <!-- Botanical Floral Divider Bottom -->
-    <div class="opening-divider mt-6 scale-x-0">
-      <FloralDivider width={260} height={34} />
-    </div>
 
   </div>
 </section>
@@ -97,29 +61,17 @@ import SceneTitleCard from './cinematic/SceneTitleCard.astro';
       }
     });
 
-    // 1. Dividers expand from center
-    tl.to('.opening-divider', {
-      scaleX: 1,
-      opacity: 1,
-      duration: 0.8,
-      ease: 'power3.out',
-      stagger: 0.2
-    });
-
-    // 2. Bismillah blooms cleanly
     tl.fromTo(
       '.opening-bismillah',
-      { opacity: 0, y: 24 },
-      { opacity: 1, y: 0, duration: 1.0, ease: 'power2.out' },
-      '-=0.6'
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }
     );
 
-    // 3. Staggered reveal of scripture & translation
     tl.fromTo(
       '.opening-item',
       { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.85, stagger: 0.1, ease: 'power3.out' },
-      '-=0.7'
+      { opacity: 1, y: 0, duration: 0.85, stagger: 0.12, ease: 'power3.out' },
+      '-=0.5'
     );
   }
 
