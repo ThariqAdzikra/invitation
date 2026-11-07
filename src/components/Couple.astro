@@ -2,8 +2,6 @@
 // Couple.astro — Editorial Dual Profile of Groom & Bride (Vector Portraits)
 import content from '../data/content.json';
 import FloralFlourish from './botanical/FloralFlourish.astro';
-import GroomVector from './vector/GroomVector.astro';
-import BrideVector from './vector/BrideVector.astro';
 ---
 
 <section id="couple" class="deck-section section-flow relative px-4 overflow-hidden z-30 pt-20 pb-24" aria-label="Profil Kedua Mempelai">
@@ -30,12 +28,20 @@ import BrideVector from './vector/BrideVector.astro';
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
       
       <!-- Profil Mempelai Pria (Arya) -->
-      <article class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden">
+      <article class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden interactive-foil-card" data-foil="true">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
         <!-- Groom Vector Portrait Frame -->
-        <div class="mb-4 transform hover:scale-105 transition-transform duration-500">
-          <GroomVector size={150} />
+        <div class="mb-5 relative group">
+          <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full p-1.5 border-2 border-[#B89352]/40 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-md relative overflow-hidden">
+            <img 
+              src="/assets/vector-groom.jpg" 
+              alt={content.couple.groom.fullName} 
+              class="w-full h-full object-cover rounded-full transform group-hover:scale-105 transition-transform duration-500 ease-out"
+              loading="lazy"
+            />
+          </div>
+          <div class="w-24 h-2.5 bg-[#263322]/10 rounded-full blur-sm mx-auto -mt-1 pointer-events-none"></div>
         </div>
 
         <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-1">Mempelai Pria</p>
@@ -69,12 +75,20 @@ import BrideVector from './vector/BrideVector.astro';
       </article>
 
       <!-- Profil Mempelai Wanita (Dian) -->
-      <article class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden">
+      <article class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden interactive-foil-card" data-foil="true">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
         <!-- Bride Vector Portrait Frame -->
-        <div class="mb-4 transform hover:scale-105 transition-transform duration-500">
-          <BrideVector size={150} />
+        <div class="mb-5 relative group">
+          <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full p-1.5 border-2 border-[#B89352]/40 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-md relative overflow-hidden">
+            <img 
+              src="/assets/vector-bride.jpg" 
+              alt={content.couple.bride.fullName} 
+              class="w-full h-full object-cover rounded-full transform group-hover:scale-105 transition-transform duration-500 ease-out"
+              loading="lazy"
+            />
+          </div>
+          <div class="w-24 h-2.5 bg-[#263322]/10 rounded-full blur-sm mx-auto -mt-1 pointer-events-none"></div>
         </div>
 
         <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-1">Mempelai Wanita</p>

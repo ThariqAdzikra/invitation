@@ -2,16 +2,26 @@
 // Closing.astro — Grand Finale & Words of Gratitude
 import content from '../data/content.json';
 import FloralFlourish from './botanical/FloralFlourish.astro';
-import ClosingVector from './vector/ClosingVector.astro';
 ---
 
 <section id="closing" class="deck-section section-flow relative px-4 text-center pb-24 overflow-hidden z-80 pt-20" aria-label="Penutup Undangan">
   
   <div class="max-w-xl mx-auto flex flex-col items-center w-full relative z-10 closing-content">
     
-    <!-- ROMANTIC FINALE VECTOR (Arya & Dian Holding Hands) -->
-    <div class="my-4 w-full max-w-sm mx-auto group transform hover:scale-103 transition-transform duration-500">
-      <ClosingVector width={280} height={200} />
+    <!-- ROMANTIC FINALE VECTOR (Arya & Dian Holding Hands at Sunset) -->
+    <div class="my-6 w-full max-w-md mx-auto group">
+      <div class="rounded-2xl p-2 border border-[#B89352]/40 bg-gradient-to-b from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-[0_16px_40px_rgba(42,52,38,0.08)] overflow-hidden interactive-foil-card" data-foil="true">
+        <div class="rounded-xl overflow-hidden aspect-[16/9] relative border border-[#566A4E]/15">
+          <img 
+            src="/assets/vector-closing.jpg" 
+            alt="Ilustrasi Arya & Dian Menatap Masa Depan" 
+            class="w-full h-full object-cover transform group-hover:scale-104 transition-transform duration-700 ease-out"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2A3426]/20 via-transparent to-transparent pointer-events-none"></div>
+        </div>
+      </div>
+      <div class="w-48 h-3 bg-[#263322]/10 rounded-full blur-md mx-auto -mt-1 pointer-events-none"></div>
     </div>
 
     <p class="text-xs sm:text-sm md:text-base text-[#4A5D43] font-light leading-relaxed my-5 max-w-md">

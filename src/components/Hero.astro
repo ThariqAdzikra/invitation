@@ -3,7 +3,6 @@
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
-import CoupleHeroVector from './vector/CoupleHeroVector.astro';
 ---
 
 <section id="hero" class="deck-section section-hero relative px-4 text-center overflow-hidden z-10 pt-16 pb-24" aria-label="Informasi Utama Pernikahan">
@@ -32,12 +31,25 @@ import CoupleHeroVector from './vector/CoupleHeroVector.astro';
       <FloralFlourish width={160} height={24} />
     </div>
 
-    <!-- EDITORIAL PREWEDDING VECTOR ILLUSTRATION (Animated Contours & Roman Arch Frame) -->
+    <!-- EDITORIAL PREWEDDING VECTOR ILLUSTRATION (Roman Arch Frame) -->
     <div id="hero-silhouette-container" class="my-4 relative opacity-0 transform transition-transform duration-700">
-      <div id="hero-silhouette-inner" class="will-change-transform transform hover:scale-102 transition-transform duration-500">
-        <CoupleHeroVector width={290} height={380} />
+      <div 
+        class="relative w-64 sm:w-72 aspect-[3/4] mx-auto rounded-t-full border-2 border-[#B89352]/40 p-2 bg-gradient-to-b from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-[0_16px_40px_rgba(42,52,38,0.1)] interactive-foil-card overflow-hidden group" 
+        data-foil="true"
+      >
+        <!-- Inner Arch Frame -->
+        <div class="w-full h-full rounded-t-full overflow-hidden border border-[#566A4E]/20 relative bg-[#FAF8F5]">
+          <img 
+            src="/assets/vector-hero.jpg" 
+            alt="Ilustrasi Mempelai Arya & Dian" 
+            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2A3426]/15 via-transparent to-transparent pointer-events-none"></div>
+        </div>
       </div>
-      <div class="w-44 h-3 bg-[#263322]/10 rounded-full blur-md mx-auto -mt-2 pointer-events-none"></div>
+      <div class="w-48 h-3 bg-[#263322]/10 rounded-full blur-md mx-auto -mt-1 pointer-events-none"></div>
     </div>
 
     <!-- Date & Venue -->
