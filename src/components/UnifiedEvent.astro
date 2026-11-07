@@ -154,20 +154,51 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    gsap.fromTo(
+    // Elegant Haute-Couture Cascading Scroll Entrance
+    const eventTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#events',
+        start: 'top 75%',
+        once: true
+      }
+    });
+
+    eventTl.fromTo(
       '#master-event-card',
-      { opacity: 0, y: 30 },
+      { opacity: 0, y: 45, scale: 0.97 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.9,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '#events',
-          start: 'top 78%',
-          once: true
-        }
+        scale: 1,
+        duration: 1.0,
+        ease: 'power3.out'
       }
+    );
+
+    eventTl.fromTo(
+      '#master-event-card .grid > div',
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: 'power2.out'
+      },
+      '-=0.5'
+    );
+
+    eventTl.fromTo(
+      '#master-event-card .flex.flex-col.sm\\:flex-row a',
+      { opacity: 0, y: 15 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power2.out'
+      },
+      '-=0.3'
     );
   }
 

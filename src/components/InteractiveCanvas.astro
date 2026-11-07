@@ -145,11 +145,35 @@
     // MAIN 60FPS RENDER & PHYSICS LOOP
     // =========================================================================
     let tick = 0;
+    let scrollVelocity = 0;
+    let lastScrollY = window.scrollY;
+
+    // Track scroll momentum smoothly (works with both Lenis and native scroll)
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY;
+      lastScrollY = currentScrollY;
+      // Cap maximum momentum
+      scrollVelocity = Math.max(-25, Math.min(25, delta));
+    }, { passive: true });
+
+    // Also tap directly into Lenis velocity if available for ultra-smooth inertia
+    if ((window as any).__lenis) {
+      (window as any).__lenis.on('scroll', (e: any) => {
+        if (typeof e.velocity === 'number') {
+          scrollVelocity = Math.max(-25, Math.min(25, e.velocity));
+        }
+      });
+    }
 
     function render() {
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
       tick++;
+
+      // Gradually damp scroll velocity back to zero
+      scrollVelocity *= 0.92;
+      const scrollBoost = Math.abs(scrollVelocity) * 0.6;
 
       // -----------------------------------------------------------------------
       // 1. Draw Clouds
@@ -180,7 +204,8 @@
       // 2. Draw Organic Curved Wind Gusts with Graceful Sweeps & Companion Trails
       // -----------------------------------------------------------------------
       for (const gust of windGusts) {
-        gust.headX += gust.speedX;
+        // Boost wind gust speed when scrolling
+        gust.headX += gust.speedX + scrollBoost * 0.7;
 
         // Reset gust when it travels beyond right edge
         if (gust.headX - gust.length > width + 100) {
@@ -312,10 +337,10 @@
         p.vx *= 0.94;
         p.vy *= 0.92;
 
-        // Update positions with gravity, ambient breeze, and dynamic wind velocities
+        // Update positions with gravity, ambient breeze, dynamic wind velocities, and scroll momentum
         p.sway += p.swaySpeed;
-        p.x += p.vx + Math.sin(p.sway) * p.swayMagnitude + ambientBreeze;
-        p.y += p.speedY + p.vy;
+        p.x += p.vx + Math.sin(p.sway) * p.swayMagnitude + ambientBreeze + (scrollVelocity * 0.1);
+        p.y += p.speedY + p.vy + (Math.abs(scrollVelocity) * 0.22);
 
         p.rotation += p.rotationSpeed;
         p.flip += p.flipSpeed;
