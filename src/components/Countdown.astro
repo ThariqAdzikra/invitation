@@ -46,15 +46,30 @@ const calendarCells = [
       </p>
     </div>
 
-    <!-- Save-The-Date Calendar Stationery Card -->
-    <div id="master-calendar-card" class="bg-white/95 backdrop-blur-md border border-[#B89352]/30 rounded-3xl p-5 sm:p-7 max-w-md mx-auto shadow-[0_12px_36px_rgba(42,52,38,0.06)] relative overflow-hidden mb-8 transition-transform duration-300">
-      
-      <!-- Top Gold Hairline & Vintage Corner Brackets -->
-      <div class="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
+    <!-- Save-The-Date Open Editorial Architectural Arch Pavilion (NO WHITE CARD) -->
+    <div 
+      id="master-calendar-card" 
+      class="relative max-w-md mx-auto pt-8 pb-7 px-5 sm:px-8 mb-9 transition-transform duration-300 rounded-t-[140px] sm:rounded-t-[160px] rounded-b-2xl border border-[#B89352]/35 bg-gradient-to-b from-[#F5EFEB]/50 via-[#FAF8F5]/30 to-transparent backdrop-blur-[1px]"
+    >
+      <!-- Inset Classical Tailored Arch Hairline -->
+      <div class="absolute inset-2 sm:inset-2.5 rounded-t-[132px] sm:rounded-t-[152px] rounded-b-xl border border-dashed border-[#B89352]/30 pointer-events-none"></div>
+
+      <!-- Arch Crown Botanical Flourish Icon & Subtle Olive Sprigs -->
+      <div class="relative z-10 flex flex-col items-center justify-center mb-2">
+        <div class="w-10 h-10 rounded-full border border-[#B89352]/40 bg-[#FAF8F5] flex items-center justify-center shadow-xs mb-1">
+          <svg class="w-5 h-5 text-[#B89352]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+            <circle cx="12" cy="16" r="1.5" fill="#B89352"></circle>
+          </svg>
+        </div>
+      </div>
       
       <!-- Card Header: Save The Date & Month -->
-      <div class="text-center mb-5">
-        <div class="flex items-center justify-center gap-2 mb-1.5">
+      <div class="text-center mb-5 relative z-10">
+        <div class="flex items-center justify-center gap-2 mb-1">
           <span class="h-[1px] w-6 sm:w-8 bg-gradient-to-r from-transparent to-[#B89352]/70"></span>
           <span class="text-[0.62rem] sm:text-[0.7rem] font-semibold tracking-[0.28em] text-[#B89352] uppercase">
             SAVE THE DATE
@@ -72,7 +87,7 @@ const calendarCells = [
       </div>
 
       <!-- Calendar 7-Day Header -->
-      <div class="grid grid-cols-7 gap-1 sm:gap-2 mb-2 pb-2.5 border-b border-[#566A4E]/15">
+      <div class="grid grid-cols-7 gap-1 sm:gap-2 mb-2 pb-2.5 border-b border-[#B89352]/20 relative z-10">
         {dayNames.map((name, idx) => (
           <div class={`text-center text-[0.62rem] sm:text-xs font-semibold uppercase tracking-wider ${
             idx === 0 
@@ -87,7 +102,7 @@ const calendarCells = [
       </div>
 
       <!-- Calendar 35-Cell Grid -->
-      <div class="grid grid-cols-7 gap-1 sm:gap-2 select-none">
+      <div class="grid grid-cols-7 gap-1 sm:gap-2 select-none relative z-10">
         {calendarCells.map((day) => {
           if (!day) {
             return <div class="h-8 sm:h-10 flex items-center justify-center" aria-hidden="true"></div>;
@@ -155,8 +170,8 @@ const calendarCells = [
         })}
       </div>
 
-      <!-- Card Footer: Hari Bahagia Badge -->
-      <div class="mt-4 pt-3 border-t border-[#566A4E]/12 flex items-center justify-center gap-2">
+      <!-- Stele Footer: Hari Bahagia Badge -->
+      <div class="mt-4 pt-3 border-t border-[#B89352]/20 flex items-center justify-center gap-2 relative z-10">
         <span class="inline-block w-2 h-2 rounded-full bg-[#B89352] animate-ping"></span>
         <span class="text-[0.65rem] sm:text-xs tracking-wider uppercase font-semibold text-[#4A5D43]">
           💍 Hari-H: Akad & Resepsi Pernikahan
@@ -177,47 +192,51 @@ const calendarCells = [
       
       <!-- Hari -->
       <div class="countdown-box flex flex-col items-center">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/40 bg-white/80 backdrop-blur-xs flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.12)] hover:border-[#B89352] transition-colors relative group">
-          <span id="countdown-days" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/85 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.08)] hover:border-[#B89352] hover:bg-[#FAF8F5] transition-all relative group">
+          <div class="absolute inset-1 rounded-full border border-dashed border-[#B89352]/25 pointer-events-none"></div>
+          <span id="countdown-days" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none relative z-10">
             00
           </span>
-          <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold">Hari</span>
+          <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold relative z-10">Hari</span>
         </div>
       </div>
 
-      <span class="text-[#B89352]/60 text-xs sm:text-sm font-serif select-none">•</span>
+      <span class="text-[#B89352]/70 text-xs sm:text-sm font-serif select-none">•</span>
 
       <!-- Jam -->
       <div class="countdown-box flex flex-col items-center">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/40 bg-white/80 backdrop-blur-xs flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.12)] hover:border-[#B89352] transition-colors relative group">
-          <span id="countdown-hours" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/85 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.08)] hover:border-[#B89352] hover:bg-[#FAF8F5] transition-all relative group">
+          <div class="absolute inset-1 rounded-full border border-dashed border-[#B89352]/25 pointer-events-none"></div>
+          <span id="countdown-hours" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none relative z-10">
             00
           </span>
-          <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold">Jam</span>
+          <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold relative z-10">Jam</span>
         </div>
       </div>
 
-      <span class="text-[#B89352]/60 text-xs sm:text-sm font-serif select-none">•</span>
+      <span class="text-[#B89352]/70 text-xs sm:text-sm font-serif select-none">•</span>
 
       <!-- Menit -->
       <div class="countdown-box flex flex-col items-center">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/40 bg-white/80 backdrop-blur-xs flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.12)] hover:border-[#B89352] transition-colors relative group">
-          <span id="countdown-minutes" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/85 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.08)] hover:border-[#B89352] hover:bg-[#FAF8F5] transition-all relative group">
+          <div class="absolute inset-1 rounded-full border border-dashed border-[#B89352]/25 pointer-events-none"></div>
+          <span id="countdown-minutes" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none relative z-10">
             00
           </span>
-          <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold">Menit</span>
+          <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold relative z-10">Menit</span>
         </div>
       </div>
 
-      <span class="text-[#B89352]/60 text-xs sm:text-sm font-serif select-none">•</span>
+      <span class="text-[#B89352]/70 text-xs sm:text-sm font-serif select-none">•</span>
 
       <!-- Detik -->
       <div class="countdown-box flex flex-col items-center">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/40 bg-white/80 backdrop-blur-xs flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.12)] hover:border-[#B89352] transition-colors relative group">
-          <span id="countdown-seconds" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/85 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.08)] hover:border-[#B89352] hover:bg-[#FAF8F5] transition-all relative group">
+          <div class="absolute inset-1 rounded-full border border-dashed border-[#B89352]/25 pointer-events-none"></div>
+          <span id="countdown-seconds" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none relative z-10">
             00
           </span>
-          <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold">Detik</span>
+          <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold relative z-10">Detik</span>
         </div>
       </div>
 
@@ -229,7 +248,7 @@ const calendarCells = [
         href={content.event.venue.calendarUrl} 
         target="_blank" 
         rel="noopener noreferrer" 
-        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-[#B89352]/40 text-[#4A5D43] bg-white/90 hover:bg-[#4A5D43] hover:text-white transition-all shadow-sm active:scale-95"
+        class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-[#B89352]/45 text-[#3D4D37] bg-[#FAF8F5]/90 hover:bg-[#4A5D43] hover:text-[#FAF8F5] hover:border-[#4A5D43] transition-all shadow-[0_4px_14px_rgba(42,52,38,0.05)] active:scale-95"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
