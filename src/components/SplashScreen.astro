@@ -117,9 +117,6 @@ import WeddingGate from './architectural/WeddingGate.astro';
       <!-- LAYER 2: FRONT ENVELOPE SOLID POCKET (100% Opaque Cotton Stock with Tailored Gold Stitching) -->
       <div class="absolute inset-0 z-20 pointer-events-none rounded-2xl overflow-hidden">
         
-        <!-- Base Solid Pocket Background (Completely blocks anything from bleeding through) -->
-        <div class="absolute inset-0 bg-[#EFEADF]"></div>
-
         <!-- Left Side Flap Fold -->
         <div 
           class="absolute inset-0"
@@ -181,38 +178,20 @@ import WeddingGate from './architectural/WeddingGate.astro';
       <!-- LAYER 3: 3D EURO TOP FLAP (Deep V with Gold Contour & Gold Stitching) -->
       <div
         id="envelope-top-flap-container"
-        class="absolute top-0 left-0 right-0 h-[58%] origin-top z-30 pointer-events-none"
-        style="transform-style: preserve-3d; perspective: 1200px;"
+        class="absolute top-0 left-0 right-0 h-[56%] origin-top z-30 pointer-events-none"
+        style="perspective: 1200px; transform-style: preserve-3d;"
       >
-        <!-- The Flipping Flap Element -->
+        <!-- The Flipping Flap Element (Swings up 180° with point facing upward into the sky) -->
         <div
           id="envelope-top-flap"
-          class="relative w-full h-full origin-top will-change-transform"
-          style="transform-style: preserve-3d; transform-origin: top center;"
+          class="w-full h-full will-change-transform filter drop-shadow-[0_8px_16px_rgba(42,52,38,0.12)]"
+          style="transform-origin: top center; transform-style: preserve-3d; clip-path: polygon(0 0, 100% 0, 50% 100%); background: linear-gradient(180deg, #FAF7F0 0%, #F1ECE2 60%, #E7E0D0 100%);"
         >
-          <!-- Flap Front Face (Visible When Closed: Deep Euro V Pointing Down with Gold Stitching) -->
-          <div
-            class="absolute inset-0 rounded-t-2xl filter drop-shadow-[0_8px_16px_rgba(42,52,38,0.12)]"
-            style="clip-path: polygon(0 0, 100% 0, 50% 100%); background: linear-gradient(180deg, #FAF7F0 0%, #F1ECE2 60%, #E7E0D0 100%); backface-visibility: hidden; -webkit-backface-visibility: hidden;"
-          >
-            <!-- Inset Gold Stitching Contour Line along Flap Edge -->
-            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 58" preserveAspectRatio="none">
-              <path d="M2.5 1 L50 55.5 L97.5 1" fill="none" stroke="#B89352" stroke-width="0.75" stroke-dasharray="2 1.5" opacity="0.8" />
-              <path d="M0 0 L50 58 L100 0" fill="none" stroke="#D5CCBC" stroke-width="0.5" opacity="0.7" />
-            </svg>
-          </div>
-
-          <!-- Flap Back Face (Visible When Flipped Open 180°: Clean Satin Cream with Gold Stitching) -->
-          <div
-            class="absolute inset-0 rounded-t-2xl overflow-hidden"
-            style="clip-path: polygon(0 0, 100% 0, 50% 100%); background: linear-gradient(180deg, #F8F5EE 0%, #EDE7DB 100%); transform: rotateX(180deg); backface-visibility: hidden; -webkit-backface-visibility: hidden;"
-          >
-            <!-- Inset Gold Stitching on inside of flap -->
-            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 58" preserveAspectRatio="none">
-              <path d="M3.5 1.5 L50 55 L96.5 1.5" fill="none" stroke="#B89352" stroke-width="0.65" stroke-dasharray="2 1.5" opacity="0.6" />
-            </svg>
-            <div class="absolute inset-0 border-t-2 border-[#B89352]/40"></div>
-          </div>
+          <!-- Inset Gold Stitching Contour Line along Flap Edge -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 56" preserveAspectRatio="none">
+            <path d="M2.5 1 L50 54 L97.5 1" fill="none" stroke="#B89352" stroke-width="0.75" stroke-dasharray="2 1.5" opacity="0.8" />
+            <path d="M0 0 L50 56 L100 0" fill="none" stroke="#D5CCBC" stroke-width="0.5" opacity="0.7" />
+          </svg>
         </div>
       </div>
 
@@ -349,14 +328,14 @@ import WeddingGate from './architectural/WeddingGate.astro';
         duration: 0.75,
         ease: 'power2.inOut',
         onUpdate: function() {
-          // Adjust zIndex halfway so open flap stays behind the letter card
-          if (this.progress() > 0.48 && topFlapContainer) {
-            topFlapContainer.style.zIndex = '5';
+          // Send open flap to back (behind emerging card) once it passes vertical
+          if (this.progress() > 0.45 && topFlapContainer) {
+            topFlapContainer.style.zIndex = '2';
           }
         }
       }, 0.2);
 
-      // PHASE 3: Surat keluar PENUH dari dalam amplop (0.95s -> 1.85s)
+      // PHASE 3: Surat keluar PENUH dari dalam amplop (0.95s -> 1.55s)
       tl.add(() => {
         playCardFlipSound();
         if ((window as any).triggerLuxuryConfetti) {
@@ -364,32 +343,37 @@ import WeddingGate from './architectural/WeddingGate.astro';
         }
       }, 0.95);
 
-      // Card glides straight up out of the pocket
+      // Card glides straight up out of the pocket opening
       tl.to(letterCard, {
         opacity: 1,
-        y: '-78%',
-        boxShadow: '0 28px 65px rgba(42, 52, 38, 0.25)',
-        duration: 0.85,
+        y: '-85%',
+        duration: 0.65,
         ease: 'power3.out'
       }, 0.95);
 
-      // Bring card to front (zIndex 35) once it clears the pocket, then let it settle majestically
+      // Bring card directly to the FOREFRONT in 3D (zIndex 50, z: 50) once it clears the pocket opening
       tl.add(() => {
-        if (letterCard) letterCard.style.zIndex = '35';
-      }, 1.6);
+        if (letterCard) {
+          letterCard.style.zIndex = '50';
+          gsap.set(letterCard, { z: 50 });
+        }
+      }, 1.5);
 
+      // Card settles proudly in the front-center of the screen for reading
       tl.to(letterCard, {
-        y: '-55%',
-        duration: 0.45,
+        y: '-20%',
+        scale: 1.05,
+        boxShadow: '0 32px 75px rgba(42, 52, 38, 0.3)',
+        duration: 0.6,
         ease: 'power2.out'
-      }, 1.6);
+      }, 1.55);
 
-      // PHASE 4: PAUSE & APPRECIATE (1.85s -> 2.45s) — Surat tampil utuh di depan layar!
+      // PHASE 4: PAUSE & APPRECIATE (2.15s -> 2.85s) — Surat tampil utuh di depan layar!
 
-      // PHASE 5: BARU TRANSISI HALUS KE HALAMAN UTAMA (2.45s -> 3.35s)
+      // PHASE 5: BARU TRANSISI HALUS KE HALAMAN UTAMA (2.85s -> 3.75s)
       tl.add(() => {
         playChimeSound();
-      }, 2.45);
+      }, 2.85);
 
       // Camera smoothly zooms in directly onto the letter card
       tl.to(scene, {
@@ -397,7 +381,7 @@ import WeddingGate from './architectural/WeddingGate.astro';
         y: 40,
         duration: 0.9,
         ease: 'power2.inOut'
-      }, 2.45);
+      }, 2.85);
 
       // Envelope body fades away smoothly
       const envelopeBody = document.getElementById('envelope-body');
@@ -406,7 +390,7 @@ import WeddingGate from './architectural/WeddingGate.astro';
           opacity: 0,
           duration: 0.7,
           ease: 'power2.inOut'
-        }, 2.5);
+        }, 2.9);
       }
 
       // Splash screen dissolves smoothly into the waiting Hero section directly underneath
@@ -414,7 +398,7 @@ import WeddingGate from './architectural/WeddingGate.astro';
         opacity: 0,
         duration: 0.8,
         ease: 'power2.inOut'
-      }, 2.65);
+      }, 3.05);
 
       // PHASE 6: Transition Complete — Enable Lenis Scroll & Clean Screen
       tl.add(() => {
@@ -427,7 +411,7 @@ import WeddingGate from './architectural/WeddingGate.astro';
           (window as any).__lenis.start();
         }
         window.dispatchEvent(new CustomEvent('invitationOpened'));
-      }, 3.45);
+      }, 3.85);
     }
 
     // Event listeners
