@@ -13,7 +13,7 @@ import content from '../data/content.json';
       <p class="text-overline tracking-[0.25em]">
         MENGHITUNG HARI
       </p>
-      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-pearl font-normal mt-2">
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-[#2A3426] font-normal mt-2">
         Menuju Janji Suci
       </h2>
     </div>
@@ -22,41 +22,41 @@ import content from '../data/content.json';
     <div id="countdown-grid" class="grid grid-cols-4 gap-3 sm:gap-4 max-w-md mx-auto">
       
       <!-- Hari -->
-      <div class="countdown-box bg-navy-surface border border-gold/20 rounded p-3 sm:p-5 flex flex-col items-center hover:border-gold/50 transition-colors duration-300">
-        <span id="countdown-days" class="font-display text-2xl sm:text-4xl md:text-5xl text-gold-bright font-normal tabular-nums">
+      <div class="countdown-box bg-white border border-[#566A4E]/25 rounded-lg p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_20px_rgba(42,52,38,0.06)] hover:border-[#566A4E] transition-colors duration-300">
+        <span id="countdown-days" class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tabular-nums">
           00
         </span>
-        <span class="text-[0.62rem] sm:text-xs text-pearl-muted uppercase tracking-widest mt-1.5 font-light">Hari</span>
+        <span class="text-[0.62rem] sm:text-xs text-[#566A4E] uppercase tracking-widest mt-1.5 font-medium">Hari</span>
       </div>
 
       <!-- Jam -->
-      <div class="countdown-box bg-navy-surface border border-gold/20 rounded p-3 sm:p-5 flex flex-col items-center hover:border-gold/50 transition-colors duration-300">
-        <span id="countdown-hours" class="font-display text-2xl sm:text-4xl md:text-5xl text-gold-bright font-normal tabular-nums">
+      <div class="countdown-box bg-white border border-[#566A4E]/25 rounded-lg p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_20px_rgba(42,52,38,0.06)] hover:border-[#566A4E] transition-colors duration-300">
+        <span id="countdown-hours" class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tabular-nums">
           00
         </span>
-        <span class="text-[0.62rem] sm:text-xs text-pearl-muted uppercase tracking-widest mt-1.5 font-light">Jam</span>
+        <span class="text-[0.62rem] sm:text-xs text-[#566A4E] uppercase tracking-widest mt-1.5 font-medium">Jam</span>
       </div>
 
       <!-- Menit -->
-      <div class="countdown-box bg-navy-surface border border-gold/20 rounded p-3 sm:p-5 flex flex-col items-center hover:border-gold/50 transition-colors duration-300">
-        <span id="countdown-minutes" class="font-display text-2xl sm:text-4xl md:text-5xl text-gold-bright font-normal tabular-nums">
+      <div class="countdown-box bg-white border border-[#566A4E]/25 rounded-lg p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_20px_rgba(42,52,38,0.06)] hover:border-[#566A4E] transition-colors duration-300">
+        <span id="countdown-minutes" class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tabular-nums">
           00
         </span>
-        <span class="text-[0.62rem] sm:text-xs text-pearl-muted uppercase tracking-widest mt-1.5 font-light">Menit</span>
+        <span class="text-[0.62rem] sm:text-xs text-[#566A4E] uppercase tracking-widest mt-1.5 font-medium">Menit</span>
       </div>
 
       <!-- Detik -->
-      <div class="countdown-box bg-navy-surface border border-gold/20 rounded p-3 sm:p-5 flex flex-col items-center hover:border-gold/50 transition-colors duration-300">
-        <span id="countdown-seconds" class="font-display text-2xl sm:text-4xl md:text-5xl text-gold-bright font-normal tabular-nums">
+      <div class="countdown-box bg-white border border-[#566A4E]/25 rounded-lg p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_20px_rgba(42,52,38,0.06)] hover:border-[#566A4E] transition-colors duration-300">
+        <span id="countdown-seconds" class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tabular-nums">
           00
         </span>
-        <span class="text-[0.62rem] sm:text-xs text-pearl-muted uppercase tracking-widest mt-1.5 font-light">Detik</span>
+        <span class="text-[0.62rem] sm:text-xs text-[#566A4E] uppercase tracking-widest mt-1.5 font-medium">Detik</span>
       </div>
 
     </div>
 
     <!-- Passed Message -->
-    <div id="countdown-passed" class="hidden text-gold-bright font-display text-xl my-4">
+    <div id="countdown-passed" class="hidden text-[#2A3426] font-display text-xl my-4">
       Acara Telah Berlangsung
     </div>
 
@@ -110,7 +110,6 @@ import content from '../data/content.json';
     update();
     const interval = setInterval(update, 1000);
 
-    // Scroll Animation
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!prefersReducedMotion) {
       gsap.fromTo(

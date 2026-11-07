@@ -5,25 +5,25 @@ import content from '../data/content.json';
 <div class="fixed bottom-6 right-6 z-[900] flex items-center gap-2">
   
   <!-- Floating Tooltip Pill (Desktop) -->
-  <span id="audio-status-pill" class="hidden sm:inline-flex items-center text-[0.65rem] tracking-wider uppercase px-3 py-1.5 rounded-full bg-navy-surface border border-gold/25 text-gold-bright shadow-md pointer-events-none transition-opacity duration-300 opacity-0">
+  <span id="audio-status-pill" class="hidden sm:inline-flex items-center text-[0.65rem] tracking-wider uppercase px-3 py-1.5 rounded-full bg-white border border-[#566A4E]/30 text-[#2A3426] shadow-md pointer-events-none transition-opacity duration-300 opacity-0 font-medium">
     Musik Latar Aktif
   </span>
 
   <!-- Floating Audio Button -->
   <button
     id="audio-toggle"
-    class="relative w-11 h-11 rounded-full bg-navy-surface border border-gold/40 text-gold flex items-center justify-center shadow-lg hover:border-gold hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer overflow-hidden group"
+    class="relative w-11 h-11 rounded-full bg-white border border-[#566A4E]/40 text-[#566A4E] flex items-center justify-center shadow-lg hover:border-[#566A4E] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer overflow-hidden group"
     type="button"
     aria-label="Nyalakan Musik Latar"
   >
-    <div id="audio-glow-ring" class="absolute inset-0 rounded-full border border-gold/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+    <div id="audio-glow-ring" class="absolute inset-0 rounded-full border border-[#B89352]/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
     <!-- Animated Equalizer Bars (Active State) -->
     <div id="audio-equalizer" class="hidden flex items-end gap-[3px] h-4">
-      <span class="w-[2.5px] bg-gold-bright rounded-full h-full animate-[soundWave_0.8s_ease-in-out_infinite_alternate]"></span>
-      <span class="w-[2.5px] bg-gold-bright rounded-full h-3 animate-[soundWave_0.6s_ease-in-out_infinite_alternate_0.2s]"></span>
-      <span class="w-[2.5px] bg-gold-bright rounded-full h-4 animate-[soundWave_0.9s_ease-in-out_infinite_alternate_0.1s]"></span>
-      <span class="w-[2.5px] bg-gold-bright rounded-full h-2 animate-[soundWave_0.7s_ease-in-out_infinite_alternate_0.3s]"></span>
+      <span class="w-[2.5px] bg-[#566A4E] rounded-full h-full animate-[soundWave_0.8s_ease-in-out_infinite_alternate]"></span>
+      <span class="w-[2.5px] bg-[#B89352] rounded-full h-3 animate-[soundWave_0.6s_ease-in-out_infinite_alternate_0.2s]"></span>
+      <span class="w-[2.5px] bg-[#566A4E] rounded-full h-4 animate-[soundWave_0.9s_ease-in-out_infinite_alternate_0.1s]"></span>
+      <span class="w-[2.5px] bg-[#B89352] rounded-full h-2 animate-[soundWave_0.7s_ease-in-out_infinite_alternate_0.3s]"></span>
     </div>
 
     <!-- Speaker Off Icon (Muted State) -->
@@ -97,12 +97,7 @@ import content from '../data/content.json';
           setAudioState(false);
         });
       } else {
-        audio.volume = 0.7;
-        audio.play().then(() => {
-          setAudioState(true);
-        }).catch(() => {
-          setAudioState(false);
-        });
+        audio.play().then(() => setAudioState(true)).catch(() => setAudioState(false));
       }
     }
 
@@ -121,7 +116,7 @@ import content from '../data/content.json';
       }
     });
 
-    // Auto fade-in when invitation opens from splashscreen
+    // Auto-play when invitation opens
     window.addEventListener('invitationOpening', () => {
       play(true);
     });

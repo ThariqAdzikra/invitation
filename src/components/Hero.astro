@@ -1,58 +1,72 @@
 ---
 import content from '../data/content.json';
+import FloralWreath from './botanical/FloralWreath.astro';
+import FloralDivider from './botanical/FloralDivider.astro';
+import FloralCorner from './botanical/FloralCorner.astro';
 ---
 
 <section id="hero" class="deck-section tone-hero section-hero relative px-4 text-center overflow-hidden z-10" aria-label="Informasi Utama Pernikahan">
   
+  <!-- Botanical Corner Floral Ornaments -->
+  <div class="absolute top-4 left-4 sm:top-8 sm:left-8 pointer-events-none">
+    <FloralCorner position="top-left" size={100} />
+  </div>
+  <div class="absolute top-4 right-4 sm:top-8 sm:right-8 pointer-events-none">
+    <FloralCorner position="top-right" size={100} />
+  </div>
+
   <!-- Subtle Parallax Watermark Monogram -->
-  <div class="watermark-monogram ornament-parallax pointer-events-none select-none" aria-hidden="true">&amp;</div>
+  <div class="watermark-monogram ornament-parallax pointer-events-none select-none text-[#566A4E]" aria-hidden="true">&amp;</div>
 
   <div class="relative z-10 max-w-3xl w-full mx-auto flex flex-col items-center">
     
-    <!-- Minimalist Hairline Monogram Crest -->
-    <div class="hero-crest w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center mb-4 opacity-0">
-      <span class="font-display text-base text-gold tracking-widest pl-0.5">AD</span>
+    <!-- Royal Botanical Olive & Floral Crest -->
+    <div class="hero-crest mb-3 transform hover:scale-105 transition-transform duration-500 opacity-0">
+      <FloralWreath monogram="AD" size={110} />
     </div>
 
-    <!-- Editorial Scene Tag -->
+    <!-- Editorial Botanical Badge -->
     <div class="hero-badge editorial-badge opacity-0">
       <span>THE WEDDING OF</span>
     </div>
 
-    <!-- Perfectly Balanced Headline with Overflow Mask Reveal -->
-    <div class="overflow-hidden my-3 sm:my-5">
-      <h1 id="hero-headline" class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-pearl font-normal tracking-tight leading-tight translate-y-[110%] opacity-0 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
-        {content.couple.groom.nickname} <span class="font-display italic text-gold font-normal px-1 sm:px-3">&amp;</span> {content.couple.bride.nickname}
+    <!-- Grand Headline with Staggered Mask Reveal -->
+    <div class="overflow-hidden my-2 sm:my-3">
+      <h1 id="hero-headline" class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#2A3426] font-normal tracking-tight leading-tight translate-y-[110%] opacity-0 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
+        {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1 sm:px-3">&amp;</span> {content.couple.bride.nickname}
       </h1>
     </div>
 
-    <!-- 1px Minimalist Hairline Divider -->
-    <div class="hero-divider w-12 h-[1px] bg-gold/40 my-3 scale-x-0 opacity-0 transition-all duration-700 ease-out"></div>
+    <!-- Botanical Olive & Floral Divider -->
+    <div class="hero-divider my-2 scale-x-0 opacity-0 transition-all duration-700 ease-out">
+      <FloralDivider width={260} height={34} />
+    </div>
 
     <!-- Tanggal & Venue -->
-    <div class="hero-meta mt-2 flex flex-col items-center gap-1.5 opacity-0">
-      <p class="text-xs sm:text-sm text-gold-bright tracking-[0.25em] uppercase font-light">
+    <div class="hero-meta mt-1 flex flex-col items-center gap-1.5 opacity-0">
+      <p class="text-xs sm:text-sm text-[#566A4E] tracking-[0.25em] uppercase font-semibold">
         {content.event.dateFormatted} &bull; {content.event.timezone}
       </p>
-      <p class="text-xs sm:text-sm text-pearl-muted font-light tracking-wider">
+      <p class="text-xs sm:text-sm text-[#7E8F77] font-light tracking-wider">
         {content.event.venue.name} &bull; Banda Aceh
       </p>
     </div>
 
-    <!-- Minimalist Guest Welcoming Card -->
-    <div class="hero-guest mt-8 py-5 px-6 sm:px-8 rounded border border-gold/20 bg-navy-surface/60 max-w-sm w-full mx-auto opacity-0 shadow-lg">
-      <p class="text-[0.65rem] sm:text-[0.7rem] text-pearl-muted font-light tracking-[0.22em] uppercase mb-1.5">
+    <!-- Personalized Guest Welcoming Card (Botanical Linen) -->
+    <div class="hero-guest mt-8 py-5 px-6 sm:px-8 rounded-xl border border-[#566A4E]/25 bg-white/90 max-w-sm w-full mx-auto opacity-0 shadow-[0_12px_36px_rgba(42,52,38,0.08)] relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
+      <p class="text-[0.65rem] sm:text-[0.7rem] text-[#566A4E] font-light tracking-[0.22em] uppercase mb-1.5">
         Kepada Yth. Bapak/Ibu/Saudara/i:
       </p>
-      <h2 id="guest-name-hero" class="font-display text-xl sm:text-2xl text-pearl font-normal leading-snug">
+      <h2 id="guest-name-hero" class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal leading-snug">
         Tamu Undangan Terhormat
       </h2>
     </div>
 
-    <!-- Minimalist Scroll Cue -->
-    <div class="hero-scroll mt-12 flex flex-col items-center gap-2 opacity-0">
-      <span class="text-[0.62rem] tracking-[0.3em] uppercase text-gold/70">GULIR</span>
-      <div class="w-[1px] h-6 bg-gradient-to-b from-gold/60 to-transparent animate-pulse"></div>
+    <!-- Botanical Scroll Cue -->
+    <div class="hero-scroll mt-10 sm:mt-12 flex flex-col items-center gap-2 opacity-0">
+      <span class="text-[0.62rem] tracking-[0.3em] uppercase text-[#566A4E] font-medium">GULIR KE BAWAH</span>
+      <div class="w-[1.5px] h-7 bg-gradient-to-b from-[#566A4E] to-transparent animate-pulse"></div>
     </div>
 
   </div>
@@ -110,9 +124,8 @@ import content from '../data/content.json';
         return;
       }
 
-      const tl = gsap.timeline({ delay: 0.2 });
+      const tl = gsap.timeline({ delay: 0.15 });
 
-      // Crest & Badge
       tl.to([crest, badge], {
         opacity: 1,
         y: 0,
@@ -121,7 +134,6 @@ import content from '../data/content.json';
         ease: 'power3.out'
       });
 
-      // Headline rising out of overflow mask
       tl.to(headline, {
         y: 0,
         opacity: 1,
@@ -129,15 +141,13 @@ import content from '../data/content.json';
         ease: 'power3.out'
       }, '-=0.5');
 
-      // Hairline divider expanding
       tl.to(divider, {
         scaleX: 1,
-        opacity: 0.6,
+        opacity: 1,
         duration: 0.8,
         ease: 'power2.out'
       }, '-=0.7');
 
-      // Meta & Guest card
       tl.to([meta, guest], {
         opacity: 1,
         y: 0,
@@ -146,18 +156,15 @@ import content from '../data/content.json';
         ease: 'power3.out'
       }, '-=0.5');
 
-      // Scroll cue
       tl.to(scrollCue, {
-        opacity: 0.7,
+        opacity: 0.8,
         duration: 0.8,
         ease: 'power2.out'
       }, '-=0.3');
     }
 
-    // Trigger on invitationOpening
     window.addEventListener('invitationOpening', animateHeroEntrance);
 
-    // If splashscreen is already bypassed (e.g. on direct dev visit)
     if (!document.body.classList.contains('is-locked')) {
       animateHeroEntrance();
     }

@@ -1,0 +1,36 @@
+---
+interface Props {
+  position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+  size?: number;
+  className?: string;
+}
+
+const { position = "top-left", size = 80, className = "" } = Astro.props;
+
+let transform = "";
+if (position === "top-right") transform = "scaleX(-1)";
+if (position === "bottom-left") transform = "scaleY(-1)";
+if (position === "bottom-right") transform = "scale(-1, -1)";
+---
+
+<div class={`pointer-events-none select-none opacity-60 ${className}`} style={`width: ${size}px; height: ${size}px; transform: ${transform};`} aria-hidden="true">
+  <svg width={size} height={size} viewBox="0 0 100 100" fill="none" class="w-full h-full">
+    <!-- Corner Stem -->
+    <path d="M10 90 C12 50, 40 20, 90 10" stroke="#566A4E" stroke-width="1.2" stroke-linecap="round" />
+    
+    <!-- Leaves along the stem -->
+    <path d="M22 65 C18 58, 20 50, 26 48 C28 53, 27 60, 22 65 Z" fill="#6E8564" />
+    <path d="M35 48 C30 40, 32 33, 38 31 C40 36, 40 43, 35 48 Z" fill="#4A5C43" />
+    <path d="M50 35 C48 27, 53 20, 59 20 C59 26, 56 32, 50 35 Z" fill="#718B67" />
+    <path d="M68 24 C68 16, 75 12, 80 14 C78 19, 73 24, 68 24 Z" fill="#5E7455" />
+    
+    <!-- Secondary leafy sprig -->
+    <path d="M35 48 C42 55, 48 58, 55 58" stroke="#566A4E" stroke-width="0.8" stroke-linecap="round" />
+    <path d="M48 58 C52 54, 57 56, 58 60 C55 61, 50 61, 48 58 Z" fill="#6E8564" />
+    
+    <!-- Little Gold Berries -->
+    <circle cx="28" cy="50" r="2" fill="#B89352" />
+    <circle cx="56" cy="28" r="2" fill="#B89352" />
+    <circle cx="78" cy="18" r="2" fill="#B89352" />
+  </svg>
+</div>

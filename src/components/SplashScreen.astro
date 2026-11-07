@@ -1,132 +1,187 @@
 ---
-// SplashScreen.astro — Modern Minimalist Cinematic Title Sequence & Optical Dissolve
+// SplashScreen.astro — Fullscreen Botanical Luxury Envelope Unboxing (Cream & Olive Green)
 import content from '../data/content.json';
+import FloralWreath from './botanical/FloralWreath.astro';
+import FloralDivider from './botanical/FloralDivider.astro';
 ---
 
 <div
-  id="splashscreen"
-  class="fixed inset-0 z-[9999] flex flex-col items-center justify-between p-8 sm:p-14 bg-[#050811] cursor-pointer select-none overflow-hidden transition-all"
+  id="envelope-screen"
+  class="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6 bg-[#EDE9DF] cursor-pointer select-none overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
   role="dialog"
   aria-modal="true"
-  aria-label="Penayangan Judul Undangan"
+  aria-label="Amplop Undangan Pernikahan"
 >
-  <!-- Subtle Ambient Vignette -->
-  <div class="absolute inset-0 pointer-events-none bg-radial-vignette opacity-60" aria-hidden="true"></div>
+  <!-- Ambient Botanical Linen Texture -->
+  <div class="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(#566A4E_1px,transparent_1px)] [background-size:24px_24px]" aria-hidden="true"></div>
 
-  <!-- Studio Header -->
-  <header class="relative z-10 text-center pt-4 opacity-0 animate-[cinematicFadeIn_1s_ease-out_0.2s_forwards]">
-    <p class="text-[0.65rem] sm:text-[0.72rem] text-gold tracking-[0.4em] uppercase font-light">
-      THE WEDDING CELEBRATION OF
-    </p>
-  </header>
-
-  <!-- Central Movie Title & Minimalist Monogram (Push-In Reveal) -->
-  <main id="splash-center" class="relative z-10 text-center flex flex-col items-center my-auto transition-transform duration-[2600ms] ease-out">
+  <!-- Fullscreen Envelope Container (3D Perspective) -->
+  <div id="envelope-body" class="relative w-full max-w-xl h-[92vh] sm:h-[82vh] bg-[#FAF8F3] rounded-xl sm:rounded-2xl shadow-[0_25px_60px_rgba(42,52,38,0.22)] border border-[#DCD5C5] flex flex-col justify-between p-6 sm:p-10 overflow-hidden transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
     
-    <!-- Minimalist Hairline Monogram Ring -->
-    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-gold/40 flex items-center justify-center mb-6 opacity-0 animate-[cinematicFadeIn_1s_ease-out_0.4s_forwards]">
-      <span class="font-display text-xl sm:text-2xl text-gold-bright tracking-widest pl-1 font-normal">
-        AD
-      </span>
+    <!-- Delicate Gold & Olive Double Frame -->
+    <div class="absolute inset-3 sm:inset-4 border border-[#B89352]/35 rounded-lg sm:rounded-xl pointer-events-none"></div>
+    <div class="absolute inset-4 sm:inset-5 border border-[#566A4E]/20 rounded-md sm:rounded-lg pointer-events-none"></div>
+
+    <!-- 3D Envelope Flap (Top Triangle) -->
+    <div id="envelope-flap" class="absolute top-0 left-0 right-0 h-44 sm:h-52 bg-gradient-to-b from-[#F2EEE4] to-[#EBE5D8] border-b border-[#DCD5C5] shadow-md origin-top transition-transform duration-800 ease-[cubic-bezier(0.25,1,0.5,1)] z-30" style="clip-path: polygon(0 0, 100% 0, 50% 100%);">
+      <!-- Flap Inner Stitching Line -->
+      <div class="absolute inset-0" style="clip-path: polygon(4% 0, 96% 0, 50% 93%); border-bottom: 1px dashed rgba(184, 147, 82, 0.4);"></div>
     </div>
 
-    <!-- Grand Clean Headline -->
-    <div class="opacity-0 animate-[cinematicFadeIn_1.1s_ease-out_0.6s_forwards]">
-      <h1 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-pearl font-normal tracking-tight">
-        {content.couple.groom.nickname} <span class="font-display italic text-gold font-normal px-1">&amp;</span> {content.couple.bride.nickname}
-      </h1>
-    </div>
-
-    <!-- Minimalist Date -->
-    <div class="opacity-0 animate-[cinematicFadeIn_1s_ease-out_0.8s_forwards] mt-4">
-      <p class="text-xs sm:text-sm text-gold-bright font-light tracking-[0.35em] uppercase">
-        {content.event.dateFormatted} &bull; BANDA ACEH
+    <!-- Top Header -->
+    <header class="relative z-20 text-center pt-2 sm:pt-4">
+      <p class="text-[0.62rem] sm:text-xs text-[#566A4E] tracking-[0.35em] uppercase font-medium">
+        THE WEDDING INVITATION
       </p>
-    </div>
+      <p class="font-arabic text-xl sm:text-2xl text-[#3E4C38] tracking-wider mt-1" dir="rtl" lang="ar">
+        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+      </p>
+    </header>
 
-  </main>
+    <!-- Center Monogram Crest & Couple Names -->
+    <main class="relative z-20 flex flex-col items-center text-center my-auto">
+      
+      <!-- Botanical Wreath Monogram -->
+      <div class="mb-3 transform hover:scale-105 transition-transform duration-500">
+        <FloralWreath monogram="AD" size={105} />
+      </div>
 
-  <!-- Bottom Cue -->
-  <footer class="relative z-10 text-center pb-4 opacity-0 animate-[cinematicFadeIn_1s_ease-out_1.0s_forwards] flex flex-col items-center gap-2">
-    <div class="w-8 h-[1px] bg-gold/30"></div>
-    <p class="text-[0.62rem] sm:text-[0.68rem] text-pearl-muted tracking-[0.3em] uppercase font-light">
-      Sentuh di mana saja untuk membuka
-    </p>
-  </footer>
+      <p class="text-[0.68rem] tracking-[0.28em] text-[#B89352] uppercase font-medium">
+        WALIMATUL 'URS
+      </p>
+
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-[#2A3426] font-normal tracking-tight my-2">
+        {content.couple.groom.nickname} <span class="italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.bride.nickname}
+      </h1>
+
+      <FloralDivider className="my-1 scale-90" />
+
+      <!-- Personalized Recipient Label on the Envelope -->
+      <div class="mt-4 py-3 px-6 rounded-lg bg-[#F3EFE6]/80 border border-[#DCD5C5] max-w-xs w-full shadow-sm">
+        <p class="text-[0.62rem] sm:text-[0.68rem] text-[#566A4E] uppercase tracking-[0.2em] font-light mb-1">
+          Kepada Yth. Bapak/Ibu/Saudara/i:
+        </p>
+        <p id="guest-name-splash" class="font-display text-lg sm:text-xl text-[#2A3426] font-normal leading-snug">
+          Tamu Undangan Terhormat
+        </p>
+      </div>
+
+    </main>
+
+    <!-- Interactive Olive Wax Seal Button & Tap Cue -->
+    <footer class="relative z-40 flex flex-col items-center pb-2 sm:pb-4">
+      
+      <!-- 3D Olive Wax Seal with Gold Monogram -->
+      <div id="wax-seal" class="relative group cursor-pointer mb-2 transform transition-transform duration-300 hover:scale-105 active:scale-95">
+        
+        <!-- Wax Seal Disc -->
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-[#4A5D43] via-[#3B4C35] to-[#2B3926] shadow-[0_8px_20px_rgba(43,57,38,0.4),inset_0_2px_4px_rgba(255,255,255,0.25)] border-2 border-[#5C7253] flex items-center justify-center relative overflow-hidden">
+          
+          <!-- Wax Rim Edge -->
+          <div class="absolute inset-1.5 rounded-full border border-[#B89352]/40 border-dashed"></div>
+          
+          <!-- Gold Monogram Emboss -->
+          <div class="flex flex-col items-center">
+            <span class="font-display text-sm sm:text-base text-[#F4E5C7] tracking-widest pl-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
+              AD
+            </span>
+            <div class="w-4 h-[1px] bg-[#B89352]/60 mt-0.5"></div>
+          </div>
+        </div>
+
+        <!-- Gentle Golden Pulse Aura -->
+        <div class="absolute inset-0 rounded-full bg-[#B89352]/20 animate-ping pointer-events-none opacity-40"></div>
+      </div>
+
+      <!-- Tap Prompt -->
+      <p class="text-[0.62rem] sm:text-[0.68rem] text-[#566A4E] tracking-[0.25em] uppercase font-medium">
+        Buka Amplop Undangan
+      </p>
+
+    </footer>
+
+  </div>
 </div>
 
 <style>
-  .bg-radial-vignette {
-    background: radial-gradient(circle at center, rgba(14, 22, 40, 0) 0%, rgba(5, 8, 17, 0.85) 100%);
+  #envelope-flap {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
   }
-
-  @keyframes cinematicFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .flap-open {
+    transform: rotateX(180deg);
   }
 </style>
 
 <script>
   import { playChimeSound } from './reactbits/SoundEffects';
 
-  function initSplashScreen() {
-    const splash = document.getElementById('splashscreen');
-    const center = document.getElementById('splash-center');
-    if (!splash) return;
+  function initEnvelopeScreen() {
+    const screen = document.getElementById('envelope-screen');
+    const envelopeBody = document.getElementById('envelope-body');
+    const flap = document.getElementById('envelope-flap');
+    const waxSeal = document.getElementById('wax-seal');
+    const guestSplash = document.getElementById('guest-name-splash');
+    if (!screen) return;
 
-    // Subtle gentle push-in
-    requestAnimationFrame(() => {
-      if (center) center.style.transform = 'scale(1.04)';
-    });
+    // Parse guest name from URL ?to=
+    const urlParams = new URLSearchParams(window.location.search);
+    const rawTo = urlParams.get('to');
+    if (rawTo && guestSplash) {
+      try {
+        const decoded = decodeURIComponent(rawTo.replace(/\+/g, ' ')).replace(/<[^>]*>/g, '').trim().substring(0, 50);
+        if (decoded) guestSplash.textContent = decoded;
+      } catch (e) {}
+    }
 
-    let isDismissed = false;
+    let isOpened = false;
 
-    function dismissSplash() {
-      if (isDismissed) return;
-      isDismissed = true;
+    function openEnvelope() {
+      if (isOpened) return;
+      isOpened = true;
 
       playChimeSound();
 
-      // Notify Hero and other components to start entry animations
+      // 1. 3D Flap opens upwards
+      if (flap) {
+        flap.classList.add('flap-open');
+      }
+
+      // 2. Wax seal gently pops
+      if (waxSeal) {
+        waxSeal.style.transform = 'scale(1.2)';
+        waxSeal.style.opacity = '0';
+        waxSeal.style.transition = 'all 0.5s ease-out';
+      }
+
+      // 3. Trigger invitationOpening event
       window.dispatchEvent(new CustomEvent('invitationOpening'));
 
-      // Pure optical dissolve & camera push
-      splash.style.pointerEvents = 'none';
-      splash.style.transition = 'opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
-      splash.style.opacity = '0';
-      splash.style.transform = 'scale(1.06)';
-
+      // 4. Envelope expands & dissolves, uncovering the invitation
       setTimeout(() => {
-        splash.style.display = 'none';
+        if (envelopeBody) {
+          envelopeBody.style.transform = 'translateY(-20px) scale(1.05)';
+          envelopeBody.style.opacity = '0';
+        }
+        screen.style.opacity = '0';
+        screen.style.pointerEvents = 'none';
+      }, 500);
+
+      // 5. Complete removal and scroll unlock
+      setTimeout(() => {
+        screen.style.display = 'none';
         document.body.classList.remove('is-locked');
         window.dispatchEvent(new CustomEvent('invitationOpened'));
-      }, 1100);
+      }, 1200);
     }
 
-    // Auto-transition at 2.6s
-    const autoTimer = setTimeout(dismissSplash, 2600);
-
-    // Tap/Click to enter immediately
-    splash.addEventListener('click', () => {
-      clearTimeout(autoTimer);
-      dismissSplash();
-    });
-
-    splash.addEventListener('touchend', () => {
-      clearTimeout(autoTimer);
-      dismissSplash();
-    }, { passive: true });
+    screen.addEventListener('click', openEnvelope);
+    screen.addEventListener('touchend', openEnvelope, { passive: true });
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSplashScreen);
+    document.addEventListener('DOMContentLoaded', initEnvelopeScreen);
   } else {
-    initSplashScreen();
+    initEnvelopeScreen();
   }
 </script>

@@ -1,0 +1,55 @@
+---
+interface Props {
+  monogram?: string;
+  size?: number;
+  className?: string;
+}
+
+const { monogram = "AD", size = 110, className = "" } = Astro.props;
+---
+
+<div class={`relative inline-flex items-center justify-center ${className}`} style={`width: ${size}px; height: ${size}px;`} aria-hidden="true">
+  <svg width={size} height={size} viewBox="0 0 120 120" fill="none" class="w-full h-full">
+    <!-- Outer Delicate Gold Ring -->
+    <circle cx="60" cy="60" r="50" stroke="#B89352" stroke-width="0.8" opacity="0.45" stroke-dasharray="3 3" />
+    
+    <!-- Left Olive Branch -->
+    <path d="M60 108 C35 102, 14 78, 16 52 C18 32, 36 15, 58 12" stroke="#4A5C43" stroke-width="1.3" stroke-linecap="round" fill="none" />
+    <!-- Left Leaves -->
+    <path d="M52 105 C46 102, 42 96, 44 91 C48 93, 53 98, 52 105 Z" fill="#5E7455" />
+    <path d="M38 97 C32 94, 28 88, 30 83 C34 85, 39 90, 38 97 Z" fill="#4A5C43" />
+    <path d="M26 83 C20 79, 18 72, 21 68 C24 71, 28 76, 26 83 Z" fill="#718B67" />
+    <path d="M19 66 C15 60, 15 53, 19 50 C21 54, 23 60, 19 66 Z" fill="#5E7455" />
+    <path d="M18 48 C16 41, 19 35, 24 33 C25 38, 24 44, 18 48 Z" fill="#4A5C43" />
+    <path d="M25 33 C26 26, 32 21, 37 21 C37 26, 33 31, 25 33 Z" fill="#718B67" />
+    <path d="M38 21 C41 16, 48 13, 53 14 C52 19, 47 22, 38 21 Z" fill="#5E7455" />
+    <!-- Olive Berries Gold -->
+    <circle cx="34" cy="88" r="2" fill="#B89352" />
+    <circle cx="17" cy="57" r="2" fill="#B89352" />
+    <circle cx="30" cy="27" r="2" fill="#B89352" />
+
+    <!-- Right Olive Branch -->
+    <path d="M60 108 C85 102, 106 78, 104 52 C102 32, 84 15, 62 12" stroke="#4A5C43" stroke-width="1.3" stroke-linecap="round" fill="none" />
+    <!-- Right Leaves -->
+    <path d="M68 105 C74 102, 78 96, 76 91 C72 93, 67 98, 68 105 Z" fill="#5E7455" />
+    <path d="M82 97 C88 94, 92 88, 90 83 C86 85, 81 90, 82 97 Z" fill="#4A5C43" />
+    <path d="M94 83 C100 79, 102 72, 99 68 C96 71, 92 76, 94 83 Z" fill="#718B67" />
+    <path d="M101 66 C105 60, 105 53, 101 50 C99 54, 97 60, 101 66 Z" fill="#5E7455" />
+    <path d="M102 48 C104 41, 101 35, 96 33 C95 38, 96 44, 102 48 Z" fill="#4A5C43" />
+    <path d="M95 33 C94 26, 88 21, 83 21 C83 26, 87 31, 95 33 Z" fill="#718B67" />
+    <path d="M82 21 C79 16, 72 13, 67 14 C68 19, 73 22, 82 21 Z" fill="#5E7455" />
+    <!-- Olive Berries Gold -->
+    <circle cx="86" cy="88" r="2" fill="#B89352" />
+    <circle cx="103" cy="57" r="2" fill="#B89352" />
+    <circle cx="90" cy="27" r="2" fill="#B89352" />
+    
+    <!-- Top & Bottom Small Blossoms -->
+    <circle cx="60" cy="12" r="2.5" fill="#B89352" />
+    <circle cx="60" cy="108" r="2.5" fill="#B89352" />
+  </svg>
+
+  <!-- Central Monogram -->
+  <span class="absolute font-display text-olive-deep text-lg sm:text-xl font-normal tracking-wider pl-0.5">
+    {monogram}
+  </span>
+</div>

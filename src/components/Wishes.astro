@@ -1,11 +1,14 @@
 ---
-// Wishes.astro — Minimalist WhatsApp Digital Wishes
+// Wishes.astro — Botanical Digital Wishes via WhatsApp (Cream & Olive Green)
+import FloralDivider from './botanical/FloralDivider.astro';
 ---
 
 <section id="wishes" class="deck-section tone-wishes section-flow relative px-4 text-center overflow-hidden z-70" aria-label="Kirim Doa dan Ucapan">
   <div class="max-w-xl mx-auto w-full relative z-10 wishes-content">
     
-    <div class="w-12 h-[1px] bg-gold/40 mx-auto mb-6"></div>
+    <div class="mb-5">
+      <FloralDivider width={220} height={30} />
+    </div>
 
     <div class="editorial-badge mb-2">
       <span>THE BENEDICTION</span>
@@ -15,31 +18,31 @@
       DOA &amp; RESTU
     </p>
     
-    <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-pearl font-normal mt-1 mb-3">
+    <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-[#2A3426] font-normal mt-1 mb-3">
       Kirimkan Doa &amp; Ucapan
     </h2>
 
-    <p class="text-xs sm:text-sm text-pearl-muted font-light leading-relaxed max-w-md mx-auto mb-8">
+    <p class="text-xs sm:text-sm text-[#566A4E] font-light leading-relaxed max-w-md mx-auto mb-8">
       Doa restu dari Bapak/Ibu/Saudara/i sekalian merupakan anugerah terindah dan kebahagiaan terbesar bagi awal perjalanan ibadah kami.
     </p>
 
-    <!-- Modern Minimalist Wishes Card -->
-    <div class="bg-navy-surface border border-gold/20 rounded p-6 sm:p-8 relative overflow-hidden group hover:border-gold/40 transition-colors duration-300">
+    <!-- Botanical Linen Wishes Card -->
+    <div class="bg-white border border-[#566A4E]/25 rounded-xl p-6 sm:p-8 relative overflow-hidden shadow-[0_12px_36px_rgba(42,52,38,0.07)] hover:border-[#566A4E] transition-colors duration-300">
       
       <div class="flex flex-col items-center gap-4 relative z-10">
         
-        <!-- WhatsApp Minimalist Badge -->
-        <div class="w-12 h-12 rounded-full border border-gold/30 bg-gold/5 flex items-center justify-center text-gold">
+        <!-- WhatsApp Minimalist Badge (Olive) -->
+        <div class="w-12 h-12 rounded-full border border-[#566A4E]/30 bg-[#FAF8F3] flex items-center justify-center text-[#566A4E]">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
           </svg>
         </div>
 
         <div>
-          <h3 class="font-display text-lg sm:text-xl text-pearl font-normal mb-1">
+          <h3 class="font-display text-lg sm:text-xl text-[#2A3426] font-normal mb-1">
             Sampaikan Doa Terbaik Anda
           </h3>
-          <p class="text-xs text-pearl-muted font-light max-w-sm">
+          <p class="text-xs text-[#566A4E] font-light max-w-sm">
             Klik tombol di bawah untuk mengirim pesan ucapan selamat via WhatsApp.
           </p>
         </div>
@@ -62,7 +65,9 @@
 
     </div>
 
-    <div class="w-12 h-[1px] bg-gold/40 mx-auto mt-8"></div>
+    <div class="mt-8">
+      <FloralDivider width={220} height={30} />
+    </div>
 
   </div>
 </section>

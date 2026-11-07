@@ -1,29 +1,36 @@
 ---
 import content from '../data/content.json';
+import FloralWreath from './botanical/FloralWreath.astro';
+import FloralDivider from './botanical/FloralDivider.astro';
 ---
 
 <section id="closing" class="deck-section tone-closing section-flow relative px-4 text-center pb-24 overflow-hidden z-80" aria-label="Penutup Undangan">
   <div class="max-w-xl mx-auto flex flex-col items-center w-full relative z-10 closing-content">
     
-    <!-- Hairline Divider Top -->
-    <div class="w-12 h-[1px] bg-gold/40 mb-6"></div>
+    <div class="mb-4">
+      <FloralWreath monogram="AD" size={85} />
+    </div>
 
     <div class="editorial-badge mb-4">
       <span>EPILOGUE</span>
     </div>
 
-    <p class="text-sm md:text-base text-pearl-muted font-light leading-relaxed mb-6 max-w-md">
+    <p class="text-sm md:text-base text-[#566A4E] font-light leading-relaxed mb-6 max-w-md">
       Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.
     </p>
 
-    <p class="text-overline mb-2 text-gold tracking-[0.25em]">Hormat Kami yang Berbahagia</p>
+    <p class="text-[0.68rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-2">Hormat Kami yang Berbahagia</p>
     
-    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-pearl font-normal mb-12 tracking-tight">
-      {content.couple.groom.nickname} <span class="font-display italic text-gold font-normal px-1">&amp;</span> {content.couple.bride.nickname}
+    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal mb-8 tracking-tight">
+      {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.bride.nickname}
     </h2>
 
-    <footer class="w-full pt-8 border-t border-gold/15">
-      <p class="text-[0.62rem] md:text-xs text-pearl-muted/60 tracking-[0.25em] uppercase font-light">
+    <div class="mb-10">
+      <FloralDivider width={220} height={30} />
+    </div>
+
+    <footer class="w-full pt-6 border-t border-[#566A4E]/20">
+      <p class="text-[0.62rem] md:text-xs text-[#7E8F77] tracking-[0.25em] uppercase font-medium">
         &copy; 2026 &bull; Undangan Pernikahan Digital &bull; {content.couple.groom.nickname} &amp; {content.couple.bride.nickname}
       </p>
     </footer>

@@ -1,44 +1,49 @@
 ---
 import content from '../data/content.json';
+import FloralDivider from './botanical/FloralDivider.astro';
 ---
 
 <section id="opening" class="deck-section tone-opening section-flow relative px-4 text-center overflow-hidden z-20" aria-label="Kata Pembuka dan Doa">
   <div class="max-w-2xl mx-auto text-center flex flex-col items-center relative z-10">
     
-    <!-- Minimalist Hairline Top -->
-    <div class="opening-divider w-12 h-[1px] bg-gold/40 mb-6 scale-x-0"></div>
+    <!-- Botanical Floral Divider Top -->
+    <div class="opening-divider mb-5 scale-x-0">
+      <FloralDivider width={220} height={30} />
+    </div>
 
-    <!-- Editorial Scene Badge -->
+    <!-- Editorial Botanical Badge -->
     <div class="editorial-badge opening-item mb-4">
       <span>THE SACRED COVENANT</span>
     </div>
 
     <!-- Sacred Bismillah -->
-    <p class="opening-bismillah font-arabic text-3xl sm:text-4xl text-gold-bright mb-6" dir="rtl" lang="ar">
+    <p class="opening-bismillah font-arabic text-3xl sm:text-4xl text-[#3E4C38] mb-6" dir="rtl" lang="ar">
       {content.opening.bismillah}
     </p>
 
     <!-- Ayat Suci QS Ar-Rum 21 -->
-    <blockquote lang="ar" dir="rtl" class="opening-item font-arabic text-xl sm:text-2xl text-pearl leading-loose my-3 max-w-xl">
+    <blockquote lang="ar" dir="rtl" class="opening-item font-arabic text-xl sm:text-2xl text-[#2A3426] leading-loose my-3 max-w-xl">
       {content.opening.verse}
     </blockquote>
 
     <!-- Terjemahan -->
-    <p class="opening-item text-xs sm:text-sm text-pearl-muted font-light leading-relaxed my-3 max-w-lg italic">
+    <p class="opening-item text-xs sm:text-sm text-[#566A4E] font-light leading-relaxed my-3 max-w-lg italic">
       &ldquo;{content.opening.translation}&rdquo;
     </p>
 
-    <p class="opening-item text-overline my-2 text-gold tracking-[0.25em]">
+    <p class="opening-item text-overline my-2 tracking-[0.25em]">
       {content.opening.source}
     </p>
 
     <!-- Kata Sambutan Tulus -->
-    <p class="opening-item text-xs sm:text-sm text-pearl mt-5 font-light max-w-lg leading-relaxed">
+    <p class="opening-item text-xs sm:text-sm text-[#2A3426] mt-4 font-normal max-w-lg leading-relaxed">
       {content.opening.greeting}
     </p>
 
-    <!-- Minimalist Hairline Bottom -->
-    <div class="opening-divider w-12 h-[1px] bg-gold/40 mt-8 scale-x-0"></div>
+    <!-- Botanical Floral Divider Bottom -->
+    <div class="opening-divider mt-8 scale-x-0">
+      <FloralDivider width={220} height={30} />
+    </div>
 
   </div>
 </section>
@@ -64,7 +69,7 @@ import content from '../data/content.json';
     // 1. Dividers expand from center
     tl.to('.opening-divider', {
       scaleX: 1,
-      opacity: 0.6,
+      opacity: 1,
       duration: 0.8,
       ease: 'power3.out',
       stagger: 0.2

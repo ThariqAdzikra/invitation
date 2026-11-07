@@ -1,0 +1,35 @@
+---
+interface Props {
+  className?: string;
+  width?: number;
+  height?: number;
+}
+
+const { className = "", width = 240, height = 32 } = Astro.props;
+---
+
+<div class={`flex items-center justify-center ${className}`} aria-hidden="true">
+  <svg width={width} height={height} viewBox="0 0 240 32" fill="none" class="text-olive-deep/70">
+    <!-- Center Blossom/Bud -->
+    <circle cx="120" cy="16" r="3" fill="#B89352" />
+    <circle cx="120" cy="16" r="6" stroke="#566A4E" stroke-width="1" stroke-dasharray="2 2" />
+
+    <!-- Left Main Vine -->
+    <path d="M110 16 C85 16, 50 14, 15 16" stroke="#566A4E" stroke-width="1.2" stroke-linecap="round" />
+    <!-- Left Leaves -->
+    <path d="M95 16 C90 10, 80 11, 78 16 C80 18, 90 18, 95 16 Z" fill="#6E8564" opacity="0.85" />
+    <path d="M75 16 C70 22, 60 21, 58 16 C60 14, 70 14, 75 16 Z" fill="#566A4E" opacity="0.85" />
+    <path d="M50 16 C45 9, 36 10, 34 16 C36 18, 45 18, 50 16 Z" fill="#6E8564" opacity="0.8" />
+    <path d="M30 16 C25 21, 18 20, 16 16 C18 14, 25 14, 30 16 Z" fill="#566A4E" opacity="0.75" />
+    <circle cx="15" cy="16" r="1.5" fill="#B89352" />
+
+    <!-- Right Main Vine -->
+    <path d="M130 16 C155 16, 190 14, 225 16" stroke="#566A4E" stroke-width="1.2" stroke-linecap="round" />
+    <!-- Right Leaves -->
+    <path d="M145 16 C150 10, 160 11, 162 16 C160 18, 150 18, 145 16 Z" fill="#6E8564" opacity="0.85" />
+    <path d="M165 16 C170 22, 180 21, 182 16 C180 14, 170 14, 165 16 Z" fill="#566A4E" opacity="0.85" />
+    <path d="M190 16 C195 9, 204 10, 206 16 C204 18, 195 18, 190 16 Z" fill="#6E8564" opacity="0.8" />
+    <path d="M210 16 C215 21, 222 20, 224 16 C222 14, 215 14, 210 16 Z" fill="#566A4E" opacity="0.75" />
+    <circle cx="225" cy="16" r="1.5" fill="#B89352" />
+  </svg>
+</div>
