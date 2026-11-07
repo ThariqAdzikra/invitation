@@ -4,7 +4,7 @@
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
-import WeddingGate from './architectural/WeddingGate.astro';
+import BotanicalStamp from './botanical/BotanicalStamp.astro';
 ---
 
 <div
@@ -20,29 +20,41 @@ import WeddingGate from './architectural/WeddingGate.astro';
   <!-- Ambient Warm Gold Vignette Spotlight -->
   <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_40%,rgba(74,93,67,0.04)_100%)]"></div>
 
-  <!-- GRAND ROYAL WEDDING GATE (Majestic Architectural Frame) -->
-  <div id="splash-gate-portal" class="absolute inset-0 pointer-events-none select-none z-5 flex items-center justify-center p-3 sm:p-6 overflow-hidden transition-all duration-700">
-    <WeddingGate />
+  <!-- LUXURY DOUBLE HAIRLINE GOLD STATIONERY BORDER (Fine-Art Postal Frame) -->
+  <div id="splash-stationery-border" class="absolute inset-3 sm:inset-6 pointer-events-none z-5 transition-opacity duration-700">
+    <div class="w-full h-full border border-[#B89352]/30 rounded-2xl sm:rounded-3xl relative">
+      <div class="absolute inset-1 sm:inset-1.5 border border-dashed border-[#566A4E]/25 rounded-xl sm:rounded-2xl"></div>
+      <!-- 4 Micro Corner Gilded Brackets -->
+      <div class="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-[#B89352] rounded-tl"></div>
+      <div class="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-[#B89352] rounded-tr"></div>
+      <div class="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-[#B89352] rounded-bl"></div>
+      <div class="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-[#B89352] rounded-br"></div>
+    </div>
   </div>
 
-  <!-- EDITORIAL HEADER (Pinterest Stationery Layout: Crest, Names & Date) -->
+  <!-- VINTAGE POSTAL STAMP WITH CANCELLATION POSTMARK (Top-Right Table Flat-Lay) -->
+  <div id="splash-stamp" class="absolute top-4 right-4 sm:top-8 sm:right-10 z-10 pointer-events-none transition-all duration-700 transform hover:rotate-6">
+    <BotanicalStamp />
+  </div>
+
+  <!-- EDITORIAL HEADER (Unopened Letter Invitation Header — No Spoilers) -->
   <div id="splash-editorial-header" class="flex flex-col items-center text-center mb-4 sm:mb-6 pointer-events-none relative z-10 transition-all duration-500">
     <!-- Small Monogram Wreath Crest -->
     <div class="mb-1.5 opacity-90 transform scale-90">
       <FloralWreath monogram="AD" size={54} />
     </div>
     
-    <p class="text-[0.55rem] sm:text-xs tracking-[0.38em] text-[#B89352] uppercase font-semibold mb-0.5">
-      THE WEDDING OF
+    <p class="text-[0.62rem] sm:text-xs tracking-[0.38em] text-[#B89352] uppercase font-semibold mb-1">
+      THE WEDDING INVITATION
     </p>
     
-    <h1 class="font-display text-2xl sm:text-3xl md:text-4xl text-[#2A3426] font-normal tracking-tight leading-tight">
-      {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.bride.nickname}
+    <h1 class="font-display italic text-2xl sm:text-3xl md:text-4xl text-[#2A3426] font-normal tracking-wide leading-tight">
+      You Are Cordially Invited
     </h1>
     
-    <p class="text-[0.6rem] sm:text-[0.68rem] text-[#566A4E] tracking-[0.24em] uppercase font-light mt-1">
-      {content.event.dateFormatted} &bull; Banda Aceh
-    </p>
+    <div class="my-1 opacity-60">
+      <FloralFlourish width={110} height={16} />
+    </div>
   </div>
 
   <!-- 3D PERSPECTIVE SCENE CONTAINER -->
@@ -262,7 +274,8 @@ import WeddingGate from './architectural/WeddingGate.astro';
     const promptBtn = document.getElementById('btn-open-envelope');
     const promptContainer = document.getElementById('envelope-prompt');
     const editorialHeader = document.getElementById('splash-editorial-header');
-    const gatePortal = document.getElementById('splash-gate-portal');
+    const splashStamp = document.getElementById('splash-stamp');
+    const splashBorder = document.getElementById('splash-stationery-border');
     const guestSplash = document.getElementById('guest-name-splash');
 
     if (!screen || !scene || !topFlap || !letterCard) return;
@@ -318,8 +331,12 @@ import WeddingGate from './architectural/WeddingGate.astro';
         tl.to(editorialHeader, { opacity: 0, y: -16, duration: 0.45, ease: 'power2.inOut' }, 0);
       }
 
-      if (gatePortal) {
-        tl.to(gatePortal, { opacity: 0, scale: 1.05, duration: 0.55, ease: 'power2.inOut' }, 0);
+      if (splashStamp) {
+        tl.to(splashStamp, { opacity: 0, scale: 0.9, y: -10, duration: 0.45, ease: 'power2.inOut' }, 0);
+      }
+
+      if (splashBorder) {
+        tl.to(splashBorder, { opacity: 0, duration: 0.5, ease: 'power2.inOut' }, 0);
       }
 
       // PHASE 2: Euro flap flips open 180° in 3D (0.2s -> 0.95s)
