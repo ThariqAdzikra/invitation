@@ -1,6 +1,5 @@
 ---
 import content from '../data/content.json';
-import ShinyText from './reactbits/ShinyText';
 ---
 
 <section id="love-story" class="section-flow relative px-4 overflow-hidden" aria-label="Kisah Perjalanan Mempelai">
@@ -8,11 +7,11 @@ import ShinyText from './reactbits/ShinyText';
     
     <!-- Section Header -->
     <div class="text-center md:text-left mb-12 love-story-header">
-      <div class="scene-slug anamorphic-streak">
-        <span>SCENE 05 // THE MEMOIR</span>
+      <div class="editorial-badge">
+        <span>THE MEMOIR</span>
       </div>
       <p class="text-overline tracking-[0.25em]">
-        <ShinyText client:visible text="PERJALANAN KAMI" speed={4} />
+        PERJALANAN KAMI
       </p>
       <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-pearl font-normal mt-1.5">
         Sebuah Awal Cerita
@@ -22,15 +21,15 @@ import ShinyText from './reactbits/ShinyText';
     <!-- Timeline Container -->
     <div id="timeline-container" class="relative pl-6 md:pl-0">
       
-      <!-- Vertical SVG Scroll-Drawn Golden Thread Track -->
+      <!-- Vertical SVG Scroll-Drawn Golden Line Track -->
       <div class="absolute top-2 bottom-4 left-3 md:left-[28%] w-[2px] h-full pointer-events-none" aria-hidden="true">
         <svg width="2" height="100%" viewBox="0 0 2 800" preserveAspectRatio="none" fill="none">
-          <line id="golden-thread-line" x1="1" y1="0" x2="1" y2="800" stroke="var(--color-accent-gold)" stroke-width="2" stroke-dasharray="800" stroke-dashoffset="800"/>
+          <line id="golden-thread-line" x1="1" y1="0" x2="1" y2="800" stroke="var(--color-accent-gold)" stroke-width="1.5" stroke-dasharray="800" stroke-dashoffset="800" opacity="0.6"/>
         </svg>
       </div>
 
       <!-- Timeline Items -->
-      <div class="flex flex-col gap-12 md:gap-14">
+      <div class="flex flex-col gap-10 md:gap-12">
         {content.loveStory.map((item, idx) => (
           <div class="timeline-row relative flex flex-col md:grid md:grid-cols-[24%_8%_1fr] items-start">
             
@@ -39,11 +38,11 @@ import ShinyText from './reactbits/ShinyText';
               {item.year}
             </div>
 
-            <!-- Glowing Dot Indicator -->
-            <div class="timeline-dot absolute -left-[19px] md:static w-3.5 h-3.5 rounded-full bg-gold mx-auto mt-2 border-2 border-navy-base shadow-[0_0_12px_rgba(226,201,138,0.7)]"></div>
+            <!-- Minimalist Dot Indicator -->
+            <div class="timeline-dot absolute -left-[18px] md:static w-3 h-3 rounded-full bg-gold mx-auto mt-2.5 border border-navy-base"></div>
 
             <!-- Content Card -->
-            <div class="timeline-card bg-navy-surface border border-gold/25 border-l-4 border-l-gold p-6 rounded-xl mt-2 md:mt-0 shadow-xl hover:border-gold transition-colors duration-300 w-full">
+            <div class="timeline-card bg-navy-surface border border-gold/20 p-6 rounded mt-2 md:mt-0 hover:border-gold/40 transition-colors duration-300 w-full shadow-md">
               <h3 class="font-display text-xl text-pearl font-normal mb-1.5">
                 {item.title}
               </h3>
@@ -69,20 +68,16 @@ import ShinyText from './reactbits/ShinyText';
 
   function initLoveStory() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      const line = document.getElementById('golden-thread-line');
-      if (line) line.style.strokeDashoffset = '0';
-      return;
-    }
+    if (prefersReducedMotion) return;
 
-    // 1. Header reveal
+    // Header reveal
     gsap.fromTo(
       '.love-story-header',
-      { opacity: 0, y: 25 },
+      { opacity: 0, y: 30 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.85,
+        duration: 0.9,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '#love-story',
@@ -92,45 +87,39 @@ import ShinyText from './reactbits/ShinyText';
       }
     );
 
-    // 2. Parallax Scrub Drawing for Golden Thread Line
-    const line = document.getElementById('golden-thread-line');
-    if (line) {
-      gsap.to(line, {
+    // Parallax draw golden line
+    const threadLine = document.getElementById('golden-thread-line');
+    if (threadLine) {
+      gsap.to(threadLine, {
         strokeDashoffset: 0,
         ease: 'none',
         scrollTrigger: {
           trigger: '#timeline-container',
-          start: 'top 75%',
-          end: 'bottom 85%',
+          start: 'top 70%',
+          end: 'bottom 75%',
           scrub: 0.8
         }
       });
     }
 
-    // 3. Lateral unfold for each milestone row
-    const rows = document.querySelectorAll('.timeline-row');
-    rows.forEach((row) => {
-      const card = row.querySelector('.timeline-card');
-      const dot = row.querySelector('.timeline-dot');
-      const year = row.querySelector('.timeline-year');
-
-      const rowTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: row,
-          start: 'top 82%',
-          once: true
+    // Rows entrance
+    const rows = gsap.utils.toArray('.timeline-row');
+    rows.forEach((row: any) => {
+      gsap.fromTo(
+        row,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.85,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: row,
+            start: 'top 82%',
+            once: true
+          }
         }
-      });
-
-      if (dot) {
-        rowTl.fromTo(dot, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(2)' });
-      }
-      if (year) {
-        rowTl.fromTo(year, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3');
-      }
-      if (card) {
-        rowTl.fromTo(card, { opacity: 0, x: 35 }, { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4');
-      }
+      );
     });
   }
 

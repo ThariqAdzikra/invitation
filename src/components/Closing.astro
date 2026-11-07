@@ -2,28 +2,28 @@
 import content from '../data/content.json';
 ---
 
-<section id="closing" class="section-flow relative px-4 text-center pb-28 overflow-hidden" aria-label="Penutup Undangan">
+<section id="closing" class="section-flow relative px-4 text-center pb-24 overflow-hidden" aria-label="Penutup Undangan">
   <div class="max-w-xl mx-auto flex flex-col items-center w-full relative z-10 closing-content">
     
-    <!-- Gold Divider Top -->
-    <div class="w-16 h-[1.5px] bg-gradient-to-r from-transparent via-gold to-transparent mb-8"></div>
+    <!-- Hairline Divider Top -->
+    <div class="w-12 h-[1px] bg-gold/40 mb-6"></div>
 
-    <div class="scene-slug anamorphic-streak mb-4">
-      <span>EPILOGUE // ETERNAL DEVOTION</span>
+    <div class="editorial-badge mb-4">
+      <span>EPILOGUE</span>
     </div>
 
-    <p class="text-sm md:text-base text-pearl-muted font-light leading-relaxed mb-8 max-w-md">
+    <p class="text-sm md:text-base text-pearl-muted font-light leading-relaxed mb-6 max-w-md">
       Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.
     </p>
 
     <p class="text-overline mb-2 text-gold tracking-[0.25em]">Hormat Kami yang Berbahagia</p>
     
-    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-gold-bright font-normal mb-14 tracking-tight drop-shadow-[0_0_15px_rgba(226,201,138,0.3)]">
-      {content.couple.groom.nickname} &amp; {content.couple.bride.nickname}
+    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-pearl font-normal mb-12 tracking-tight">
+      {content.couple.groom.nickname} <span class="font-display italic text-gold font-normal px-1">&amp;</span> {content.couple.bride.nickname}
     </h2>
 
-    <footer class="w-full pt-8 border-t border-navy-border/60">
-      <p class="text-[0.65rem] md:text-xs text-pearl-muted/70 tracking-[0.25em] uppercase font-light">
+    <footer class="w-full pt-8 border-t border-gold/15">
+      <p class="text-[0.62rem] md:text-xs text-pearl-muted/60 tracking-[0.25em] uppercase font-light">
         &copy; 2026 &bull; Undangan Pernikahan Digital &bull; {content.couple.groom.nickname} &amp; {content.couple.bride.nickname}
       </p>
     </footer>
@@ -47,7 +47,7 @@ import content from '../data/content.json';
       {
         opacity: 1,
         y: 0,
-        duration: 1.0,
+        duration: 0.9,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '#closing',

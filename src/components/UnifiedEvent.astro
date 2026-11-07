@@ -1,65 +1,60 @@
 ---
 import content from '../data/content.json';
-import ShinyText from './reactbits/ShinyText';
 ---
 
 <section id="events" class="section-flow relative px-4 overflow-hidden" aria-label="Rangkaian Acara Pernikahan">
-  
-  <!-- Subtle Ambient Gold Aura -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-gold/5 blur-[90px] pointer-events-none" aria-hidden="true"></div>
-
   <div class="max-w-3xl mx-auto w-full relative z-10">
     
     <!-- Section Header -->
-    <div class="text-center mb-8 md:mb-10 event-header">
-      <div class="scene-slug anamorphic-streak">
-        <span>SCENE 03 // THE CEREMONY</span>
+    <div class="text-center mb-8 md:mb-12 event-header">
+      <div class="editorial-badge">
+        <span>THE CEREMONY</span>
       </div>
       <p class="text-overline tracking-[0.25em]">
-        <ShinyText client:visible text="RANGKAIAN ACARA" speed={4} />
+        RANGKAIAN ACARA
       </p>
       <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-pearl font-normal mt-1.5">
         Waktu &amp; Tempat
       </h2>
     </div>
 
-    <!-- Grand Cathedral Arched Frame (Unified Master Event Card) -->
-    <article id="cathedral-arch-card" class="event-card-unified">
+    <!-- Modern Minimalist Event Card -->
+    <article id="master-event-card" class="event-card-modern">
       
-      <!-- Architectural Dome Icon (Rings Motif) -->
-      <div id="event-rings-icon" class="w-14 h-14 rounded-full border border-gold-soft mx-auto flex items-center justify-center text-gold mb-6 shadow-gold-glow bg-navy-base/60">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <!-- Minimalist Rings Monoline Icon -->
+      <div class="w-12 h-12 rounded-full border border-gold/30 mx-auto flex items-center justify-center text-gold mb-6 bg-navy-base/40">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="9" cy="12" r="5.5"></circle>
           <circle cx="15" cy="12" r="5.5"></circle>
         </svg>
       </div>
 
       <!-- Tanggal Utama -->
-      <p class="text-overline text-gold-bright tracking-[0.2em]">
-        <ShinyText client:visible text="HARI & TANGGAL" speed={3.5} />
+      <p class="text-overline text-gold tracking-[0.2em]">
+        HARI &amp; TANGGAL
       </p>
       <h3 class="font-display text-3xl sm:text-4xl md:text-5xl text-pearl font-normal mt-2 mb-8 tracking-tight">
         {content.event.dateFormatted}
       </h3>
 
       <!-- Dual Session Symmetrical Grid (Akad & Resepsi) -->
-      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6 my-8 py-6 border-y border-navy-border">
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6 my-8 py-6 border-y border-gold/15">
         
         <!-- Sesi 1: Akad Nikah -->
         <div class="flex flex-col items-center">
-          <span class="text-overline text-gold-bright mb-1 tracking-widest">{content.event.akad.title}</span>
+          <span class="text-overline text-gold mb-1 tracking-widest">{content.event.akad.title}</span>
           <p class="font-display text-xl sm:text-2xl text-pearl font-normal">
             Pukul {content.event.akad.time}
           </p>
         </div>
 
         <!-- Vertical Divider (Desktop) / Horizontal Divider (Mobile) -->
-        <div class="hidden md:block w-[1px] h-14 bg-navy-border mx-2"></div>
-        <div class="block md:hidden w-20 h-[1px] bg-navy-border mx-auto"></div>
+        <div class="hidden md:block w-[1px] h-12 bg-gold/20 mx-2"></div>
+        <div class="block md:hidden w-16 h-[1px] bg-gold/20 mx-auto"></div>
 
         <!-- Sesi 2: Resepsi Pernikahan -->
         <div class="flex flex-col items-center">
-          <span class="text-overline text-gold-bright mb-1 tracking-widest">{content.event.resepsi.title}</span>
+          <span class="text-overline text-gold mb-1 tracking-widest">{content.event.resepsi.title}</span>
           <p class="font-display text-xl sm:text-2xl text-pearl font-normal">
             Pukul {content.event.resepsi.time}
           </p>
@@ -68,7 +63,7 @@ import ShinyText from './reactbits/ShinyText';
       </div>
 
       <!-- Lokasi & Venue Terpusat -->
-      <div class="my-8">
+      <div class="my-6">
         <p class="text-overline text-gold-soft mb-1 tracking-wider">Bertempat di</p>
         <h4 class="font-display text-2xl md:text-3xl text-pearl font-normal mb-2">
           {content.event.venue.name}
@@ -78,20 +73,20 @@ import ShinyText from './reactbits/ShinyText';
         </p>
       </div>
 
-      <!-- Tombol Aksi Terintegrasi -->
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <!-- Tombol Aksi Minimalis -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
         
         <!-- Google Maps -->
         <a href={content.event.venue.mapsUrl} target="_blank" rel="noopener noreferrer" class="btn-gold-solid w-full sm:w-auto">
           <span>Buka Google Maps</span>
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M4 12L12 4M12 4H6M12 4V10"/>
           </svg>
         </a>
 
-        <!-- Calendar Generator (.ics) -->
-        <button id="btn-add-calendar" type="button" class="btn-gold-outline w-full sm:w-auto">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <!-- Kalender -->
+        <button id="btn-save-calendar" class="btn-gold-outline w-full sm:w-auto">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
             <line x1="16" y1="2" x2="16" y2="6"></line>
             <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -114,11 +109,11 @@ import ShinyText from './reactbits/ShinyText';
 
   gsap.registerPlugin(ScrollTrigger);
 
-  function initEventSection() {
-    // 1. Calendar (.ics) Generator
-    const btnCalendar = document.getElementById('btn-add-calendar');
-    if (btnCalendar) {
-      btnCalendar.addEventListener('click', () => {
+  function initUnifiedEvent() {
+    // 1. Calendar (.ics download)
+    const btnCal = document.getElementById('btn-save-calendar');
+    if (btnCal) {
+      btnCal.addEventListener('click', () => {
         playChimeSound();
         const icsContent = [
           'BEGIN:VCALENDAR',
@@ -127,62 +122,69 @@ import ShinyText from './reactbits/ShinyText';
           'CALSCALE:GREGORIAN',
           'METHOD:PUBLISH',
           'BEGIN:VEVENT',
-          'SUMMARY:Pernikahan Arya & Dian',
-          'DESCRIPTION:Akad Nikah & Resepsi Pernikahan Arya & Dian di Banda Aceh Convention Hall',
-          'LOCATION:Banda Aceh Convention Hall, Jl. Prof. A. Majid Ibrahim No. 2, Banda Aceh',
+          'SUMMARY:Pernikahan Arya Pratama & Dian Anggraini',
+          'DESCRIPTION:Walimatul Urs Arya & Dian. Bertempat di Hermes Palace Hotel Banda Aceh.',
+          'LOCATION:Hermes Palace Hotel, Jl. T. Panglima Nyak Makam, Banda Aceh',
+          'DTSTART:20261212T013000Z',
+          'DTEND:20261212T090000Z',
           'STATUS:CONFIRMED',
           'END:VEVENT',
           'END:VCALENDAR'
         ].join('\r\n');
 
         const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-        const url = window.URL.createObjectURL(blob);
+        const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'pernikahan-arya-dian.ics';
+        a.download = 'Pernikahan-Arya-dan-Dian.ics';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
+        URL.revokeObjectURL(url);
       });
     }
 
-    // 2. Architectural Cathedral Arch Unveil
+    // 2. Scroll Animation
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!prefersReducedMotion) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '#events',
-          start: 'top 78%',
-          once: true
-        }
-      });
-
-      tl.fromTo(
+      gsap.fromTo(
         '.event-header',
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#events',
+            start: 'top 80%',
+            once: true
+          }
+        }
       );
 
-      tl.fromTo(
-        '#cathedral-arch-card',
-        { opacity: 0, y: 50, scale: 0.94 },
-        { opacity: 1, y: 0, scale: 1, duration: 1.15, ease: 'power3.out' },
-        '-=0.4'
-      );
-
-      tl.fromTo(
-        '#event-rings-icon',
-        { scale: 0.5, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.8, ease: 'back.out(1.7)' },
-        '-=0.7'
+      gsap.fromTo(
+        '#master-event-card',
+        { opacity: 0, y: 35, scale: 0.97 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.0,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#events',
+            start: 'top 75%',
+            once: true
+          }
+        }
       );
     }
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initEventSection);
+    document.addEventListener('DOMContentLoaded', initUnifiedEvent);
   } else {
-    initEventSection();
+    initUnifiedEvent();
   }
 </script>

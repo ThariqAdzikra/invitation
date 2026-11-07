@@ -1,6 +1,5 @@
 ---
 import content from '../data/content.json';
-import ShinyText from './reactbits/ShinyText';
 ---
 
 <section id="couple" class="section-flow relative px-4 overflow-hidden" aria-label="Profil Kedua Mempelai">
@@ -8,34 +7,34 @@ import ShinyText from './reactbits/ShinyText';
     
     <!-- Section Header -->
     <div class="text-center mb-8 md:mb-12 couple-header">
-      <div class="scene-slug anamorphic-streak">
-        <span>SCENE 02 // THE PROTAGONISTS</span>
+      <div class="editorial-badge">
+        <span>THE PROTAGONISTS</span>
       </div>
       <p class="text-overline tracking-[0.25em]">
-        <ShinyText client:visible text="KEDUA MEMPELAI" speed={4} />
+        KEDUA MEMPELAI
       </p>
       <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-pearl font-normal mt-1.5">
         Mempelai Pria &amp; Wanita
       </h2>
       <p class="text-xs text-pearl-muted font-light mt-1.5 tracking-wider">
-        Ketuk kartu untuk melihat kutipan &amp; pesan mempelai
+        Ketuk kartu untuk melihat kutipan &amp; pesan personal
       </p>
     </div>
 
-    <!-- 3D Flip Cards Symmetrical Convergence Grid -->
+    <!-- 3D Flip Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
       
-      <!-- Kartu Mempelai Pria (Glides in from Left) -->
+      <!-- Kartu Mempelai Pria -->
       <div id="card-groom-container" class="couple-flip-container">
         <div id="card-groom" class="couple-flip-card" role="button" tabindex="0" aria-label="Kartu Profil Mempelai Pria. Ketuk untuk membalik.">
           
           <!-- Sisi Depan (Front) -->
           <div class="couple-card-front">
             <div class="my-auto flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full border border-gold flex items-center justify-center mb-4 text-gold font-display text-2xl shadow-gold-glow">
+              <div class="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center mb-4 text-gold font-display text-xl">
                 {content.couple.groom.nickname[0]}
               </div>
-              <p class="text-overline text-gold-bright mb-1">Mempelai Pria</p>
+              <p class="text-overline text-gold mb-1">Mempelai Pria</p>
               <h3 class="font-display text-2xl text-pearl font-normal mb-2">
                 {content.couple.groom.fullName}
               </h3>
@@ -55,13 +54,11 @@ import ShinyText from './reactbits/ShinyText';
           <!-- Sisi Belakang (Back) -->
           <div class="couple-card-back">
             <div class="my-auto flex flex-col items-center px-2">
-              <svg class="text-gold mb-3 opacity-80" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-              </svg>
+              <span class="font-display italic text-3xl text-gold/60 mb-2">&ldquo;</span>
               <p class="font-display italic text-base md:text-lg text-pearl font-normal leading-relaxed mb-6 max-w-xs">
-                &ldquo;{content.couple.groom.quote}&rdquo;
+                {content.couple.groom.quote}
               </p>
-              <a href={`https://instagram.com/${content.couple.groom.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gold-bright hover:underline tracking-widest uppercase">
+              <a href={`https://instagram.com/${content.couple.groom.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gold hover:underline tracking-widest uppercase">
                 <span>{content.couple.groom.instagram}</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
@@ -77,17 +74,17 @@ import ShinyText from './reactbits/ShinyText';
         </div>
       </div>
 
-      <!-- Kartu Mempelai Wanita (Glides in from Right) -->
+      <!-- Kartu Mempelai Wanita -->
       <div id="card-bride-container" class="couple-flip-container">
         <div id="card-bride" class="couple-flip-card" role="button" tabindex="0" aria-label="Kartu Profil Mempelai Wanita. Ketuk untuk membalik.">
           
           <!-- Sisi Depan (Front) -->
           <div class="couple-card-front">
             <div class="my-auto flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full border border-gold flex items-center justify-center mb-4 text-gold font-display text-2xl shadow-gold-glow">
+              <div class="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center mb-4 text-gold font-display text-xl">
                 {content.couple.bride.nickname[0]}
               </div>
-              <p class="text-overline text-gold-bright mb-1">Mempelai Wanita</p>
+              <p class="text-overline text-gold mb-1">Mempelai Wanita</p>
               <h3 class="font-display text-2xl text-pearl font-normal mb-2">
                 {content.couple.bride.fullName}
               </h3>
@@ -107,13 +104,11 @@ import ShinyText from './reactbits/ShinyText';
           <!-- Sisi Belakang (Back) -->
           <div class="couple-card-back">
             <div class="my-auto flex flex-col items-center px-2">
-              <svg class="text-gold mb-3 opacity-80" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-              </svg>
+              <span class="font-display italic text-3xl text-gold/60 mb-2">&ldquo;</span>
               <p class="font-display italic text-base md:text-lg text-pearl font-normal leading-relaxed mb-6 max-w-xs">
-                &ldquo;{content.couple.bride.quote}&rdquo;
+                {content.couple.bride.quote}
               </p>
-              <a href={`https://instagram.com/${content.couple.bride.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gold-bright hover:underline tracking-widest uppercase">
+              <a href={`https://instagram.com/${content.couple.bride.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gold hover:underline tracking-widest uppercase">
                 <span>{content.couple.bride.instagram}</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
@@ -141,63 +136,88 @@ import ShinyText from './reactbits/ShinyText';
 
   gsap.registerPlugin(ScrollTrigger);
 
-  function initCoupleSection() {
-    // 3D Flip Card Interaction
-    const cards = document.querySelectorAll('.couple-flip-card');
-    cards.forEach((card) => {
-      card.addEventListener('click', (e) => {
-        if ((e.target as HTMLElement).closest('a')) return;
+  function initCouple() {
+    const cardGroom = document.getElementById('card-groom');
+    const cardBride = document.getElementById('card-bride');
+
+    function setupFlip(card: HTMLElement | null) {
+      if (!card) return;
+      
+      const toggle = (e: Event) => {
+        const target = e.target as HTMLElement;
+        if (target.closest('a')) return;
+        
         card.classList.toggle('is-flipped');
         playCardFlipSound();
-      });
+      };
 
-      card.addEventListener('keydown', (e: any) => {
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          card.classList.toggle('is-flipped');
-          playCardFlipSound();
+          toggle(e);
         }
       });
-    });
+    }
 
-    // Symmetrical Convergence Reveal
+    setupFlip(cardGroom);
+    setupFlip(cardBride);
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
+    if (!prefersReducedMotion) {
+      gsap.fromTo(
+        '.couple-header',
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#couple',
+            start: 'top 80%',
+            once: true
+          }
+        }
+      );
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#couple',
-        start: 'top 78%',
-        once: true
-      }
-    });
+      gsap.fromTo(
+        '#card-groom-container',
+        { opacity: 0, x: -35 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.0,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#couple',
+            start: 'top 75%',
+            once: true
+          }
+        }
+      );
 
-    // 1. Header fades in
-    tl.fromTo(
-      '.couple-header',
-      { opacity: 0, y: 25 },
-      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
-    );
-
-    // 2. Groom & Bride converge from left & right
-    tl.fromTo(
-      '#card-groom-container',
-      { opacity: 0, x: -50, y: 30 },
-      { opacity: 1, x: 0, y: 0, duration: 1.1, ease: 'power3.out' },
-      '-=0.4'
-    );
-
-    tl.fromTo(
-      '#card-bride-container',
-      { opacity: 0, x: 50, y: 30 },
-      { opacity: 1, x: 0, y: 0, duration: 1.1, ease: 'power3.out' },
-      '-=1.1'
-    );
+      gsap.fromTo(
+        '#card-bride-container',
+        { opacity: 0, x: 35 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.0,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#couple',
+            start: 'top 75%',
+            once: true
+          }
+        }
+      );
+    }
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCoupleSection);
+    document.addEventListener('DOMContentLoaded', initCouple);
   } else {
-    initCoupleSection();
+    initCouple();
   }
 </script>

@@ -6,24 +6,24 @@
 
 :root {
   /* ========================================================================
-     Design Tokens: Midnight Navy & Starlight Gold (Anti-AI Slop)
+     Design Tokens: Ultra-Clean Modern Obsidian & Champagne Gold
      ======================================================================== */
-  --color-bg-base: #070D17;
-  --color-bg-surface: #0E1726;
-  --color-bg-elevated: #142035;
-  --color-bg-envelope: #0B1320;
+  --color-bg-base: #08090C;
+  --color-bg-surface: #0E1015;
+  --color-bg-elevated: #141720;
+  --color-bg-glass: rgba(14, 16, 21, 0.75);
 
   --color-text-primary: #F8F9FA;
-  --color-text-secondary: #9BA9BF;
-  --color-text-muted: #64748B;
+  --color-text-secondary: #9BA3AF;
+  --color-text-muted: #647082;
 
-  --color-accent-gold: #C5A059;
-  --color-accent-gold-bright: #E2C98A;
-  --color-accent-gold-soft: #8A6D3B;
-  --color-accent-gold-deep: #4A3A1D;
+  --color-accent-gold: #C9A96E;
+  --color-accent-gold-bright: #E8D3AA;
+  --color-accent-gold-soft: #8C734B;
+  --color-accent-gold-deep: #42351E;
 
-  --color-border-hairline: rgba(197, 160, 89, 0.22);
-  --color-border-subtle: rgba(197, 160, 89, 0.12);
+  --color-border-hairline: rgba(201, 169, 110, 0.18);
+  --color-border-subtle: rgba(201, 169, 110, 0.08);
 
   --font-display: 'DM Serif Display', Georgia, serif;
   --font-arabic: 'Amiri', serif;
@@ -70,9 +70,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--color-bg-base);
-  background-image: 
-    radial-gradient(circle at 15% 15%, rgba(197, 160, 89, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 85% 85%, rgba(20, 32, 53, 0.6) 0%, transparent 50%);
+  background-image: radial-gradient(circle at 50% 0%, #11141B 0%, #08090C 70%);
   background-attachment: fixed;
   color: var(--color-text-primary);
   overflow-x: hidden;
@@ -84,7 +82,7 @@ body.is-locked {
   height: 100vh;
 }
 
-/* Luxury Linen / Film Grain Texture Overlay */
+/* Subtle 35mm Film Grain Overlay (Optimized, Zero-Lag) */
 .film-grain-overlay {
   position: fixed;
   inset: 0;
@@ -92,48 +90,13 @@ body.is-locked {
   height: 100vh;
   pointer-events: none;
   z-index: 2;
-  opacity: 0.038;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
 }
 
-/* Atmospheric Glowing Nebula Orbs */
-.nebula-glow-1 {
-  position: fixed;
-  top: 15%;
-  left: 10%;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(18, 36, 66, 0.45) 0%, transparent 70%);
-  filter: blur(60px);
-  pointer-events: none;
-  z-index: 0;
-  animation: floatNebula 18s ease-in-out infinite alternate;
-}
-
-.nebula-glow-2 {
-  position: fixed;
-  bottom: 10%;
-  right: 10%;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, transparent 65%);
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 0;
-  animation: floatNebula 22s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes floatNebula {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(40px, -30px) scale(1.1); }
-  100% { transform: translate(-30px, 40px) scale(0.95); }
-}
-
 /* ==========================================================================
-   Continuous Editorial Flow Sections (No PPT Slide Locking)
+   Editorial Flow Sections
    ========================================================================== */
 .section-flow {
   position: relative;
@@ -148,17 +111,17 @@ body.is-locked {
 
 @media (min-width: 640px) {
   .section-flow {
-    padding: 6.5rem 1.75rem;
+    padding: 6.5rem 2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-flow {
-    padding: 8rem 2.5rem;
+    padding: 8rem 3rem;
   }
 }
 
-/* Hero Section: Beautiful Initial Viewport Framing (Continuous Scrollable) */
+/* Hero Section: Full Viewport Initial Framing */
 .section-hero {
   min-height: 100svh;
   width: 100%;
@@ -166,141 +129,86 @@ body.is-locked {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3.5rem 1.25rem 4rem;
+  padding: 4rem 1.25rem 4rem;
   box-sizing: border-box;
   position: relative;
 }
 
 /* ==========================================================================
-   Cinematic Letterbox Bars & Anamorphic Lens Flare (21:9 Filmic Experience)
+   Mask Reveal & Kinetic Typography Helpers (Pure 60fps CSS/GSAP)
    ========================================================================== */
-.cinema-letterbox-top {
+.mask-reveal-wrap {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.mask-reveal-item {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: transform 1.1s var(--ease-editorial), opacity 1.1s var(--ease-editorial);
+}
+
+.mask-reveal-item.is-revealed {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Editorial Minimalist Scene Badge */
+.editorial-badge {
+  font-size: 0.65rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  opacity: 0.85;
+}
+
+.editorial-badge::before,
+.editorial-badge::after {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: var(--color-border-hairline);
+}
+
+/* Hairline 1px Minimalist Divider */
+.hairline-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--color-accent-gold);
+  opacity: 0.4;
+  margin: 1.5rem auto;
+}
+
+/* ==========================================================================
+   Minimalist Champagne Progress Bar (Top of Screen)
+   ========================================================================== */
+.progress-bar-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 24px;
-  background: #03060B;
-  border-bottom: 1px solid rgba(197, 160, 89, 0.15);
-  z-index: 9500;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1.5rem;
-  box-sizing: border-box;
-}
-
-.cinema-letterbox-bottom {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 24px;
-  background: #03060B;
-  border-top: 1px solid rgba(197, 160, 89, 0.15);
-  z-index: 9500;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1.5rem;
-  box-sizing: border-box;
-}
-
-@media (max-width: 640px) {
-  .cinema-letterbox-top,
-  .cinema-letterbox-bottom {
-    height: 18px;
-    padding: 0 0.75rem;
-  }
-}
-
-/* Anamorphic Golden Lens Flare Streak */
-.anamorphic-streak {
-  position: relative;
-  display: inline-block;
-}
-
-.anamorphic-streak::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -20%;
-  width: 140%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(197, 160, 89, 0.3) 25%, rgba(255, 248, 231, 0.95) 50%, rgba(197, 160, 89, 0.3) 75%, transparent 100%);
-  transform: translateY(-50%);
-  box-shadow: 0 0 10px rgba(226, 201, 138, 0.8), 0 0 20px rgba(197, 160, 89, 0.4);
-  pointer-events: none;
-  opacity: 0.85;
-}
-
-/* Cinematic Scene Indicator Badge */
-.scene-slug {
-  font-size: 0.65rem;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--color-accent-gold-bright);
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.75rem;
-  opacity: 0.9;
-}
-
-.scene-slug::before,
-.scene-slug::after {
-  content: "";
-  width: 18px;
-  height: 1px;
-  background: var(--color-accent-gold);
-  opacity: 0.6;
-}
-
-/* ==========================================================================
-   Starlight Gold Reading Progress Bar
-   ========================================================================== */
-.progress-bar-container {
-  position: fixed;
-  top: 24px;
-  left: 0;
-  width: 100%;
-  height: 2.5px;
+  height: 2px;
   z-index: 9999;
   pointer-events: none;
-  background: rgba(7, 13, 23, 0.45);
-  backdrop-filter: blur(4px);
+  background: rgba(8, 9, 12, 0.4);
   opacity: 0;
   transition: opacity 0.6s var(--ease-editorial);
-}
-
-@media (max-width: 640px) {
-  .progress-bar-container {
-    top: 18px;
-  }
 }
 
 .progress-bar-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #6B5329 0%, #C5A059 35%, #E2C98A 75%, #FFF8E7 100%);
-  box-shadow: 0 0 10px rgba(226, 201, 138, 0.6), 0 0 20px rgba(197, 160, 89, 0.3);
+  background: linear-gradient(90deg, #8C734B 0%, #C9A96E 50%, #E8D3AA 100%);
   position: relative;
   will-change: width;
-}
-
-.progress-bar-sparkle {
-  position: absolute;
-  right: -3px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 7px;
-  height: 7px;
-  background: radial-gradient(circle, #FFF8E7 25%, #E2C98A 75%, transparent 100%);
-  border-radius: 50%;
-  box-shadow: 0 0 8px #FFF8E7, 0 0 14px #E2C98A;
 }
 
 /* Lenis Recommended CSS */
@@ -329,8 +237,8 @@ html.lenis, html.lenis body {
 }
 
 .text-overline {
-  font-size: 0.75rem;
-  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--color-accent-gold);
   font-weight: 500;
@@ -340,19 +248,17 @@ html.lenis, html.lenis body {
   font-variant-numeric: tabular-nums;
 }
 
-/* ==========================================================================
-   Giant Ambient Watermark Monogram
-   ========================================================================== */
+/* Subtle Parallax Watermark Monogram */
 .watermark-monogram {
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-display);
-  font-size: clamp(12rem, 30vw, 24rem);
+  font-size: clamp(10rem, 25vw, 20rem);
   font-style: italic;
   color: var(--color-accent-gold);
-  opacity: 0.035;
+  opacity: 0.025;
   pointer-events: none;
   z-index: 0;
   user-select: none;
@@ -362,123 +268,7 @@ html.lenis, html.lenis body {
 }
 
 /* ==========================================================================
-   Cover & 3D Envelope Unboxing
-   ========================================================================== */
-.cover-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: var(--color-bg-base);
-  background-image: radial-gradient(circle at center, #0B1320 0%, #070D17 100%);
-  padding: 2.5rem 1.25rem;
-  overflow: hidden;
-}
-
-.envelope-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 440px;
-  margin: 0 auto;
-  perspective: 1200px;
-}
-
-.envelope-box {
-  position: relative;
-  width: 100%;
-  background-color: var(--color-bg-surface);
-  border: 1px solid var(--color-border-hairline);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 40px rgba(197, 160, 89, 0.08);
-  padding: 2.75rem 1.5rem 2rem;
-  text-align: center;
-  border-radius: 4px;
-}
-
-.envelope-flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 90px;
-  background: linear-gradient(180deg, #101B2E 0%, #0E1726 100%);
-  border: 1px solid var(--color-border-hairline);
-  border-bottom: none;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  transform-origin: top center;
-  transform-style: preserve-3d;
-  transition: transform 0.8s var(--ease-editorial);
-  z-index: 10;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-}
-
-.envelope-flap.is-unfolded {
-  transform: rotateX(180deg);
-}
-
-.wax-seal-btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 88px;
-  height: 88px;
-  margin: 1.25rem auto 0.75rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 20;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.25s var(--ease-editorial);
-}
-
-.wax-seal-btn:hover {
-  transform: scale(1.06);
-}
-
-.wax-seal-btn:active {
-  transform: scale(0.94);
-}
-
-.wax-seal-svg {
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 8px 20px rgba(197, 160, 89, 0.45));
-}
-
-.wax-seal-hint {
-  display: block;
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-accent-gold-bright);
-  animation: pulseHint 2.4s infinite ease-in-out;
-  margin-top: 0.5rem;
-}
-
-@keyframes pulseHint {
-  0%, 100% { opacity: 0.5; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(-2px); }
-}
-
-/* ==========================================================================
-   Hero Split-Text Animation
-   ========================================================================== */
-.hero-line {
-  overflow: hidden;
-}
-
-.hero-text-inner {
-  display: inline-block;
-  transform: translateY(115%);
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
-/* ==========================================================================
-   3D Flip Card Profil Mempelai (Interaktif)
+   Couple Editorial 3D Flip Card
    ========================================================================== */
 .couple-flip-container {
   perspective: 1200px;
@@ -487,11 +277,11 @@ html.lenis, html.lenis body {
 .couple-flip-card {
   position: relative;
   width: 100%;
-  height: 440px;
+  height: 420px;
   transform-style: preserve-3d;
   transition: transform 0.75s var(--ease-editorial);
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .couple-flip-card.is-flipped {
@@ -506,17 +296,22 @@ html.lenis, html.lenis body {
   height: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 2.25rem 1.75rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid var(--color-border-hairline);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+  background-color: var(--color-bg-surface);
+  transition: border-color 0.4s ease;
+}
+
+.couple-flip-card:hover .couple-card-front,
+.couple-flip-card:hover .couple-card-back {
+  border-color: rgba(201, 169, 110, 0.4);
 }
 
 .couple-card-front {
-  background-color: var(--color-bg-surface);
   text-align: center;
   align-items: center;
 }
@@ -532,56 +327,39 @@ html.lenis, html.lenis body {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-accent-gold);
   border: 1px solid var(--color-border-subtle);
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
   margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.couple-flip-card:hover .flip-hint-pill {
+  border-color: var(--color-accent-gold);
+  background-color: rgba(201, 169, 110, 0.08);
 }
 
 /* ==========================================================================
-   Grand Cathedral Arched Frame (Unified Event Card)
+   Modern Editorial Event Card
    ========================================================================== */
-.event-card-unified {
+.event-card-modern {
   background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border-hairline);
-  border-radius: clamp(100px, 32vw, 140px) clamp(100px, 32vw, 140px) 4px 4px;
-  padding: 3.5rem 1.75rem 2.5rem;
+  border-radius: 4px;
+  padding: 3.5rem 2rem 3rem;
   position: relative;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 40px rgba(197, 160, 89, 0.08);
   text-align: center;
   max-width: 680px;
   margin: 0 auto;
-}
-
-.event-card-unified::before {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border: 1px solid var(--color-border-subtle);
-  border-radius: clamp(94px, calc(32vw - 6px), 134px) clamp(94px, calc(32vw - 6px), 134px) 2px 2px;
-  opacity: 0.75;
-  pointer-events: none;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* ==========================================================================
-   Monoline SVG Line Drawing
-   ========================================================================== */
-.timeline-svg-track {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  transition: stroke-dashoffset 1.8s var(--ease-editorial);
-}
-
-.timeline-svg-track.is-drawn {
-  stroke-dashoffset: 0;
-}
-
-/* ==========================================================================
-   Buttons & Interactive Elements
+   Buttons & Minimalist Interactive Elements
    ========================================================================== */
 .btn-gold-outline {
   display: inline-flex;
@@ -590,22 +368,22 @@ html.lenis, html.lenis body {
   gap: 0.5rem;
   background-color: transparent;
   color: var(--color-text-primary);
-  border: 1px solid var(--color-accent-gold);
-  padding: 0.85rem 1.5rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
+  border: 1px solid var(--color-border-hairline);
+  padding: 0.8rem 1.6rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
   border-radius: 2px;
-  transition: all 0.25s var(--ease-editorial);
+  transition: all 0.3s var(--ease-editorial);
 }
 
 .btn-gold-outline:hover {
-  background-color: var(--color-accent-gold);
-  color: var(--color-bg-base);
-  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+  border-color: var(--color-accent-gold);
+  color: var(--color-accent-gold-bright);
+  background-color: rgba(201, 169, 110, 0.05);
   transform: translateY(-2px);
 }
 
@@ -617,65 +395,68 @@ html.lenis, html.lenis body {
   background-color: var(--color-accent-gold);
   color: var(--color-bg-base);
   border: 1px solid var(--color-accent-gold);
-  padding: 0.85rem 1.5rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   border-radius: 2px;
-  transition: all 0.25s var(--ease-editorial);
+  transition: all 0.3s var(--ease-editorial);
 }
 
 .btn-gold-solid:hover {
   background-color: var(--color-accent-gold-bright);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.4);
+  box-shadow: 0 4px 16px rgba(201, 169, 110, 0.25);
 }
 
 /* ==========================================================================
-   Floating Audio Control
+   Floating Audio Control (Minimalist Corner Pill)
    ========================================================================== */
 .audio-toggle-btn {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 900;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background-color: var(--color-bg-surface);
-  border: 1px solid var(--color-accent-gold);
+  border: 1px solid var(--color-border-hairline);
   color: var(--color-accent-gold);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  transition: all 0.25s var(--ease-editorial);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s var(--ease-editorial);
 }
 
 .audio-toggle-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.3);
+  transform: scale(1.06);
+  border-color: var(--color-accent-gold);
 }
 
-/* ==========================================================================
-   React Bits: ShinyText Shimmer Keyframes
-   ========================================================================== */
-@keyframes shiny {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
+/* Equalizer Minimalist Soundwave Bars */
+.soundwave-bar {
+  display: inline-block;
+  width: 2px;
+  height: 10px;
+  background-color: var(--color-accent-gold);
+  border-radius: 1px;
+  margin: 0 1px;
+  transition: height 0.2s ease;
 }
 
-.animate-shiny {
-  animation: shiny 3.5s linear infinite;
-}
+.is-playing .soundwave-bar:nth-child(1) { animation: wave1 0.8s infinite ease-in-out alternate; }
+.is-playing .soundwave-bar:nth-child(2) { animation: wave2 0.7s infinite ease-in-out alternate 0.15s; }
+.is-playing .soundwave-bar:nth-child(3) { animation: wave3 0.9s infinite ease-in-out alternate 0.3s; }
+
+@keyframes wave1 { 0% { height: 4px; } 100% { height: 16px; } }
+@keyframes wave2 { 0% { height: 8px; } 100% { height: 18px; } }
+@keyframes wave3 { 0% { height: 6px; } 100% { height: 14px; } }
 
 /* ==========================================================================
    Prefers Reduced Motion Overrides
@@ -686,11 +467,8 @@ html.lenis, html.lenis body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .hero-text-inner {
+  .mask-reveal-item {
     transform: none !important;
     opacity: 1 !important;
-  }
-  .timeline-svg-track {
-    stroke-dashoffset: 0 !important;
   }
 }

@@ -1,27 +1,20 @@
 ---
 import content from '../data/content.json';
-import FiligreeDivider from './FiligreeDivider.astro';
 ---
 
 <section id="opening" class="section-flow relative px-4 text-center overflow-hidden" aria-label="Kata Pembuka dan Doa">
-  
-  <!-- Subtle Ambient Spiritual Light Halo -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-gold/5 blur-3xl pointer-events-none" aria-hidden="true"></div>
-
   <div class="max-w-2xl mx-auto text-center flex flex-col items-center relative z-10">
     
-    <!-- Ornate Gold Divider Top (Expands from Center) -->
-    <div class="opening-divider w-full flex justify-center mb-4">
-      <FiligreeDivider className="" />
-    </div>
+    <!-- Minimalist Hairline Top -->
+    <div class="opening-divider w-12 h-[1px] bg-gold/40 mb-6 scale-x-0"></div>
 
-    <!-- Cinematic Scene Indicator -->
-    <div class="scene-slug anamorphic-streak mb-4">
+    <!-- Editorial Scene Badge -->
+    <div class="editorial-badge opening-item mb-4">
       <span>THE SACRED COVENANT</span>
     </div>
 
     <!-- Sacred Bismillah -->
-    <p class="opening-bismillah font-arabic text-3xl sm:text-4xl text-gold-bright mb-6 drop-shadow-[0_0_12px_rgba(226,201,138,0.35)]" dir="rtl" lang="ar">
+    <p class="opening-bismillah font-arabic text-3xl sm:text-4xl text-gold-bright mb-6" dir="rtl" lang="ar">
       {content.opening.bismillah}
     </p>
 
@@ -44,10 +37,8 @@ import FiligreeDivider from './FiligreeDivider.astro';
       {content.opening.greeting}
     </p>
 
-    <!-- Ornate Gold Divider Bottom -->
-    <div class="opening-divider w-full flex justify-center mt-6">
-      <FiligreeDivider className="" />
-    </div>
+    <!-- Minimalist Hairline Bottom -->
+    <div class="opening-divider w-12 h-[1px] bg-gold/40 mt-8 scale-x-0"></div>
 
   </div>
 </section>
@@ -65,32 +56,34 @@ import FiligreeDivider from './FiligreeDivider.astro';
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: '#opening',
-        start: 'top 78%',
+        start: 'top 80%',
         once: true
       }
     });
 
     // 1. Dividers expand from center
-    tl.fromTo(
-      '.opening-divider',
-      { scaleX: 0, opacity: 0 },
-      { scaleX: 1, opacity: 1, duration: 1.0, ease: 'power3.out', stagger: 0.2 }
-    );
+    tl.to('.opening-divider', {
+      scaleX: 1,
+      opacity: 0.6,
+      duration: 0.8,
+      ease: 'power3.out',
+      stagger: 0.2
+    });
 
-    // 2. Bismillah blooms with golden light
+    // 2. Bismillah blooms cleanly
     tl.fromTo(
       '.opening-bismillah',
-      { opacity: 0, y: 30, scale: 0.95 },
-      { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: 'power2.out' },
-      '-=0.7'
+      { opacity: 0, y: 24 },
+      { opacity: 1, y: 0, duration: 1.0, ease: 'power2.out' },
+      '-=0.6'
     );
 
     // 3. Staggered reveal of scripture & translation
     tl.fromTo(
       '.opening-item',
-      { opacity: 0, y: 25 },
-      { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' },
-      '-=0.6'
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.85, stagger: 0.1, ease: 'power3.out' },
+      '-=0.5'
     );
   }
 

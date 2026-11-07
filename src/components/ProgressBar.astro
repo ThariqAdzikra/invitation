@@ -1,11 +1,9 @@
 ---
-// ProgressBar.astro — Starlight Gold Reading Progress Bar
+// ProgressBar.astro — Minimalist Champagne Gold Reading Progress Bar
 ---
 
 <div id="starlight-progress-bar" class="progress-bar-container" role="progressbar" aria-label="Progres Membaca Undangan" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-  <div id="progress-bar-fill" class="progress-bar-fill">
-    <div class="progress-bar-sparkle"></div>
-  </div>
+  <div id="progress-bar-fill" class="progress-bar-fill"></div>
 </div>
 
 <script>
@@ -49,7 +47,6 @@
       container.style.opacity = '1';
     });
 
-    // In case already open
     if (!document.body.classList.contains('is-locked')) {
       container.style.opacity = '1';
     }

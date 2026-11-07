@@ -5,19 +5,18 @@ import content from '../data/content.json';
 <div class="fixed bottom-6 right-6 z-[900] flex items-center gap-2">
   
   <!-- Floating Tooltip Pill (Desktop) -->
-  <span id="audio-status-pill" class="hidden sm:inline-flex items-center text-[0.68rem] tracking-wider uppercase px-3 py-1.5 rounded-full bg-navy-surface/90 border border-gold/30 text-gold-bright backdrop-blur-md shadow-lg pointer-events-none transition-opacity duration-300 opacity-0">
+  <span id="audio-status-pill" class="hidden sm:inline-flex items-center text-[0.65rem] tracking-wider uppercase px-3 py-1.5 rounded-full bg-navy-surface border border-gold/25 text-gold-bright shadow-md pointer-events-none transition-opacity duration-300 opacity-0">
     Musik Latar Aktif
   </span>
 
   <!-- Floating Audio Button -->
   <button
     id="audio-toggle"
-    class="relative w-12 h-12 rounded-full bg-navy-surface border border-gold text-gold flex items-center justify-center shadow-[0_6px_20px_rgba(0,0,0,0.6),0_0_15px_rgba(197,160,89,0.25)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer overflow-hidden group"
+    class="relative w-11 h-11 rounded-full bg-navy-surface border border-gold/40 text-gold flex items-center justify-center shadow-lg hover:border-gold hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer overflow-hidden group"
     type="button"
     aria-label="Nyalakan Musik Latar"
   >
-    <!-- Background Rotating Glow -->
-    <div id="audio-glow-ring" class="absolute inset-0 rounded-full border border-gold/40 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+    <div id="audio-glow-ring" class="absolute inset-0 rounded-full border border-gold/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
     <!-- Animated Equalizer Bars (Active State) -->
     <div id="audio-equalizer" class="hidden flex items-end gap-[3px] h-4">

@@ -11,9 +11,6 @@ import Wishes from '../components/Wishes.astro';
 import Closing from '../components/Closing.astro';
 import AudioPlayer from '../components/AudioPlayer.astro';
 import ProgressBar from '../components/ProgressBar.astro';
-import CinemaLetterbox from '../components/CinemaLetterbox.astro';
-import ClickSpark from '../components/reactbits/ClickSpark';
-import CelestialCanvas from '../components/reactbits/CelestialCanvas';
 import content from '../data/content.json';
 ---
 
@@ -22,20 +19,10 @@ import content from '../data/content.json';
   description={content.meta.description}
   ogImage={content.meta.ogImage}
 >
-  <!-- Background Layer 1: Ambient Glowing Sapphire & Gold Nebula Orbs -->
-  <div class="nebula-glow-1" aria-hidden="true"></div>
-  <div class="nebula-glow-2" aria-hidden="true"></div>
-
-  <!-- Background Layer 2: Celestial Stardust & Twinkling Starfield Canvas -->
-  <CelestialCanvas client:load />
-
-  <!-- Background Layer 3: Luxury Fine-Art Linen / Film Grain Texture Overlay -->
+  <!-- Background Layer: Ultra-light 35mm Film Grain Overlay -->
   <div class="film-grain-overlay" aria-hidden="true"></div>
 
-  <!-- React Bits: Interactive Starlight Gold Click Spark Burst -->
-  <ClickSpark client:load sparkColor="#E2C98A" sparkSize={10} sparkRadius={24} sparkCount={9} />
-
-  <!-- Aesthetic Haute-Couture SplashScreen -->
+  <!-- Modern Cinematic SplashScreen -->
   <SplashScreen />
   
   <!-- Main Editorial Content Flow -->
@@ -50,12 +37,9 @@ import content from '../data/content.json';
     <Closing />
   </main>
 
-  <!-- Cinematic Letterbox Widescreen Framing -->
-  <CinemaLetterbox />
-
-  <!-- Starlight Gold Reading Progress Bar -->
+  <!-- Minimalist Champagne Gold Reading Progress Bar -->
   <ProgressBar />
 
-  <!-- Floating Interactive Audio Player -->
+  <!-- Minimalist Floating Audio Control -->
   <AudioPlayer />
 </Layout>
