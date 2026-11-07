@@ -110,6 +110,26 @@ const {
         });
       });
 
+      // 3D Upward Roll & Kinetic Mask Reveal on Section Headings
+      gsap.utils.toArray('.kinetic-heading-line').forEach((heading: any) => {
+        gsap.fromTo(
+          heading,
+          { yPercent: 120, rotateX: 30, opacity: 0 },
+          {
+            yPercent: 0,
+            rotateX: 0,
+            opacity: 1,
+            duration: 1.0,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: heading,
+              start: 'top 88%',
+              once: true
+            }
+          }
+        );
+      });
+
       // Cleanly resume scroll & recalculate triggers after splashscreen is unlocked
       window.addEventListener('invitationOpened', () => {
         window.scrollTo(0, 0);

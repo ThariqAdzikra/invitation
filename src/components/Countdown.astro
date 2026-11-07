@@ -13,9 +13,11 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       <p class="text-overline tracking-[0.28em]">
         MENGHITUNG HARI
       </p>
-      <h2 class="font-display text-3xl sm:text-4xl text-[#2A3426] font-normal mt-1.5 mb-2">
-        Menuju Janji Suci
-      </h2>
+      <div class="kinetic-heading-mask my-1">
+        <h2 class="font-display text-3xl sm:text-4xl text-[#2A3426] font-normal kinetic-heading-line">
+          Menuju Janji Suci
+        </h2>
+      </div>
       <div class="flex justify-center my-2 opacity-70">
         <FloralFlourish width={150} height={22} />
       </div>
@@ -28,7 +30,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     <div id="countdown-grid" class="grid grid-cols-4 gap-2.5 sm:gap-4 max-w-md mx-auto">
       
       <!-- Hari -->
-      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card" data-foil="true">
+      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card kinetic-velocity-target" data-foil="true">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
         <span id="countdown-days" class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tabular-nums leading-none my-1">
           00
@@ -37,7 +39,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       </div>
 
       <!-- Jam -->
-      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card" data-foil="true">
+      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card kinetic-velocity-target" data-foil="true">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
         <span id="countdown-hours" class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tabular-nums leading-none my-1">
           00
@@ -46,7 +48,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       </div>
 
       <!-- Menit -->
-      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card" data-foil="true">
+      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card kinetic-velocity-target" data-foil="true">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
         <span id="countdown-minutes" class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tabular-nums leading-none my-1">
           00
@@ -55,7 +57,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       </div>
 
       <!-- Detik -->
-      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card" data-foil="true">
+      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card kinetic-velocity-target" data-foil="true">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
         <span id="countdown-seconds" class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tabular-nums leading-none my-1">
           00

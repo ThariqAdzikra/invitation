@@ -440,6 +440,25 @@ html.lenis, html.lenis body {
 }
 
 /* ==========================================================================
+   Kinetic Typography & Velocity Scrub Helpers
+   ========================================================================== */
+.kinetic-velocity-target {
+  transform: skewY(var(--velocity-skew, 0deg));
+  will-change: transform;
+}
+
+.kinetic-heading-mask {
+  overflow: hidden;
+  perspective: 800px;
+}
+
+.kinetic-heading-line {
+  display: inline-block;
+  transform-origin: bottom center;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
    Prefers Reduced Motion Overrides
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {

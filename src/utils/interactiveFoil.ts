@@ -39,12 +39,12 @@ export function initInteractiveFoil() {
       const rotateX = ((y - centerY) / centerY) * -6;
       const rotateY = ((x - centerX) / centerX) * 6;
 
-      card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(8px)`;
+      card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) skewY(var(--velocity-skew, 0deg)) translateZ(8px)`;
     });
 
     card.addEventListener('pointerleave', () => {
       if (foilEl) foilEl.style.opacity = '0';
-      card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) skewY(var(--velocity-skew, 0deg)) translateZ(0px)';
     });
   });
 }

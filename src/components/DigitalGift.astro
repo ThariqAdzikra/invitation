@@ -13,9 +13,11 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       <p class="text-overline tracking-[0.28em]">
         TANDA KASIH
       </p>
-      <h2 class="font-display text-3xl sm:text-4xl text-[#2A3426] font-normal mt-1.5 mb-2">
-        Amplop Digital
-      </h2>
+      <div class="kinetic-heading-mask my-1">
+        <h2 class="font-display text-3xl sm:text-4xl text-[#2A3426] font-normal kinetic-heading-line">
+          Amplop Digital
+        </h2>
+      </div>
       <div class="flex justify-center my-2 opacity-70">
         <FloralFlourish width={160} height={24} />
       </div>
@@ -27,7 +29,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     <!-- Bank Accounts Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-xl mx-auto mb-6">
       {content.gift.accounts.map((acc) => (
-        <div class="gift-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 flex flex-col items-center shadow-[0_10px_30px_rgba(42,52,38,0.05)] relative overflow-hidden text-center interactive-foil-card" data-foil="true">
+        <div class="gift-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 flex flex-col items-center shadow-[0_10px_30px_rgba(42,52,38,0.05)] relative overflow-hidden text-center interactive-foil-card kinetic-velocity-target" data-foil="true">
           <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
           
           <span class="text-[0.62rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-1">
@@ -77,7 +79,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     </div>
 
     <!-- Physical Gift Address Card -->
-    <div class="gift-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 max-w-xl mx-auto shadow-[0_10px_30px_rgba(42,52,38,0.05)] relative overflow-hidden text-center interactive-foil-card" data-foil="true">
+    <div class="gift-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 max-w-xl mx-auto shadow-[0_10px_30px_rgba(42,52,38,0.05)] relative overflow-hidden text-center interactive-foil-card kinetic-velocity-target" data-foil="true">
       <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
       <div class="w-10 h-10 rounded-full border border-[#B89352]/35 bg-[#FAF8F5] flex items-center justify-center text-[#B89352] mx-auto mb-3">
