@@ -7,7 +7,7 @@ import FlyingDoves from '../botanical/FlyingDoves.astro';
 import FloralCorner from '../botanical/FloralCorner.astro';
 ---
 
-<div id="cinematic-tunnel-container" class="relative w-full min-h-[420vh] z-20">
+<div id="cinematic-tunnel-container" class="relative w-full min-h-[500vh] z-20">
   
   <!-- Pinned 3D Viewport Rig (Stationary Camera Perspective) -->
   <div 
@@ -608,14 +608,14 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         anticipatePin: 1,
         onUpdate: (self) => {
           if (scrollCue) {
-            scrollCue.style.opacity = self.progress > 0.80 ? '0' : '1';
+            scrollCue.style.opacity = self.progress > 0.88 ? '0' : '1';
           }
           if (chapterRail) {
-            chapterRail.style.opacity = self.progress > 0.80 ? '0' : '0.9';
+            chapterRail.style.opacity = self.progress > 0.88 ? '0' : '0.9';
           }
-          if (self.progress < 0.35) {
+          if (self.progress < 0.25) {
             setActivePip(1);
-          } else if (self.progress < 0.70) {
+          } else if (self.progress < 0.60) {
             setActivePip(2);
           } else {
             setActivePip(3);
@@ -625,14 +625,14 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     });
 
     // =========================================================================
-    // STEP 1: HERO SCENE PORTAL SEPARATION & FLY-THROUGH (0.00 -> 0.38)
+    // STEP 1: HERO SCENE PORTAL SEPARATION & FLY-THROUGH (0.00 -> 0.35)
     // Symmetrical portal parting: top rises, arch zooms, bottom descends
     // =========================================================================
     if (heroTop) {
       tl.to(heroTop, {
         y: -90,
         opacity: 0,
-        duration: 0.32,
+        duration: 0.30,
         ease: 'power1.inOut'
       }, 0);
     }
@@ -640,7 +640,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
       tl.to(heroCorners, {
         opacity: 0,
         scale: 1.08,
-        duration: 0.28,
+        duration: 0.26,
         ease: 'power1.inOut'
       }, 0);
     }
@@ -649,7 +649,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         scale: 1.3,
         opacity: 0,
         filter: 'blur(6px)',
-        duration: 0.36,
+        duration: 0.34,
         ease: 'power1.inOut'
       }, 0.02);
     }
@@ -657,13 +657,13 @@ import FloralCorner from '../botanical/FloralCorner.astro';
       tl.to(heroBottom, {
         y: 70,
         opacity: 0,
-        duration: 0.30,
+        duration: 0.28,
         ease: 'power1.inOut'
       }, 0);
     }
     tl.to(sceneHero, {
       z: 500,
-      duration: 0.36,
+      duration: 0.34,
       ease: 'power1.inOut',
       onComplete: () => {
         if (sceneHero) sceneHero.style.pointerEvents = 'none';
@@ -674,61 +674,62 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     }, 0);
 
     // =========================================================================
-    // STEP 2: VERSE SCENE GLIDES FORWARD INTO CRISP FOCUS (0.24 -> 0.54)
+    // STEP 2: VERSE SCENE GLIDES FORWARD & READING PLATEAU (0.22 -> 0.76)
     // =========================================================================
     tl.to(sceneVerse, {
       z: 0,
       scale: 1,
       opacity: 1,
       filter: 'blur(0px)',
-      duration: 0.30,
+      duration: 0.24,
       ease: 'power2.out',
       onStart: () => {
         if (sceneVerse) sceneVerse.style.pointerEvents = 'auto';
       }
-    }, 0.24);
+    }, 0.22);
 
     if (verseBismillah) {
       tl.fromTo(verseBismillah, 
         { y: -25, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.22, ease: 'power2.out' },
-        0.30
+        { y: 0, opacity: 1, duration: 0.18, ease: 'power2.out' },
+        0.26
       );
     }
     if (verseCard) {
       tl.fromTo(verseCard,
         { scale: 0.92, y: 30 },
-        { scale: 1, y: 0, duration: 0.26, ease: 'power2.out' },
-        0.28
+        { scale: 1, y: 0, duration: 0.22, ease: 'power2.out' },
+        0.25
       );
     }
     if (verseGreeting) {
       tl.fromTo(verseGreeting,
         { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.22, ease: 'power2.out' },
-        0.34
+        { opacity: 1, y: 0, duration: 0.18, ease: 'power2.out' },
+        0.30
       );
     }
 
-    // =========================================================================
-    // STEP 3: VERSE SCENE ASCENDS & CLEARS THE STAGE (0.58 -> 0.76)
-    // =========================================================================
+    // Comfortable reading plateau for Ayat Suci (0.44 -> 0.60)
+    tl.to(sceneVerse, { z: 0, duration: 0.16 }, 0.44);
+
+    // Verse scene ascends & clears the stage (0.60 -> 0.76)
     tl.to(sceneVerse, {
       z: 450,
       scale: 1.25,
       opacity: 0,
       filter: 'blur(8px)',
       y: -60,
-      duration: 0.22,
+      duration: 0.18,
       ease: 'power1.in',
       onComplete: () => {
         if (sceneVerse) sceneVerse.style.pointerEvents = 'none';
       }
-    }, 0.58);
+    }, 0.60);
 
     // =========================================================================
-    // STEP 4: KEDUA MEMPELAI CONVERGENCE REVEAL & READING (0.58 -> 0.78)
-    // Arya glides from left depth, Dian glides from right depth, converging in center!
+    // STEP 3: KEDUA MEMPELAI ARRIVAL & GENEROUS READING PLATEAU (0.68 -> 1.30)
+    // Both cards glide in and remain completely static and readable for a long window!
     // =========================================================================
     tl.to(sceneCouple, {
       z: 0,
@@ -740,41 +741,43 @@ import FloralCorner from '../botanical/FloralCorner.astro';
       onStart: () => {
         if (sceneCouple) sceneCouple.style.pointerEvents = 'auto';
       }
-    }, 0.58);
+    }, 0.68);
 
     if (coupleHeader) {
       tl.fromTo(coupleHeader,
         { y: -25, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.16, ease: 'power2.out' },
-        0.60
+        { y: 0, opacity: 1, duration: 0.18, ease: 'power2.out' },
+        0.70
       );
     }
 
     if (groomCard) {
       tl.fromTo(groomCard,
         { x: -60, z: -350, opacity: 0, scale: 0.9 },
-        { x: 0, z: 0, opacity: 1, scale: 1, duration: 0.20, ease: 'power2.out' },
-        0.61
+        { x: 0, z: 0, opacity: 1, scale: 1, duration: 0.22, ease: 'power2.out' },
+        0.70
       );
     }
 
     if (brideCard) {
       tl.fromTo(brideCard,
         { x: 60, z: -350, opacity: 0, scale: 0.9 },
-        { x: 0, z: 0, opacity: 1, scale: 1, duration: 0.20, ease: 'power2.out' },
-        0.61
+        { x: 0, z: 0, opacity: 1, scale: 1, duration: 0.22, ease: 'power2.out' },
+        0.70
       );
     }
 
-    // Comfortable reading resting pause from 0.72 to 0.78
-    tl.to(sceneCouple, { z: 0, duration: 0.06 }, 0.72);
+    // GENEROUS READING PLATEAU (0.88 -> 1.30): Cards stay completely steady and readable!
+    // User can comfortably read profiles, quotes, parents, and click Instagram links.
+    tl.to(sceneCouple, { z: 0, duration: 0.42 }, 0.88);
 
     // =========================================================================
-    // STEP 5: THE LOVE FUSION & HEART MORPH (0.78 -> 0.96)
-    // 1. Hide all texts in this section (headers, names, quotes, pills)
-    // 2. Both cards glide to center, dissolve backgrounds & merge
-    // 3. Radiant glowing Love Heart blooms in the center
-    // 4. Heart expands and dissolves into the Rangkaian Acara section below
+    // STEP 4: THE LOVE FUSION & HEART MORPH (1.30 -> 1.82)
+    // Starts ONLY after user deliberately scrolls past the reading plateau!
+    // 1. Text fades out smoothly
+    // 2. Both cards glide to center and dissolve white borders
+    // 3. Stylized Calligraphic Love Heart blooms serenely in center
+    // 4. Heart dissolves to hand off to next section
     // =========================================================================
     
     // Hide header
@@ -782,24 +785,24 @@ import FloralCorner from '../botanical/FloralCorner.astro';
       tl.to(coupleHeader, {
         y: -30,
         opacity: 0,
-        duration: 0.06,
+        duration: 0.12,
         ease: 'power2.in'
-      }, 0.78);
+      }, 1.30);
     }
 
     // Hide card text details (names, parents, quotes, Instagram)
     tl.to('.couple-card-text', {
       opacity: 0,
       y: 20,
-      duration: 0.06,
+      duration: 0.12,
       ease: 'power2.in'
-    }, 0.78);
+    }, 1.30);
 
     // Hide card top gold line
     tl.to('.card-gold-top', {
       opacity: 0,
-      duration: 0.04
-    }, 0.78);
+      duration: 0.08
+    }, 1.30);
 
     // Cards glide towards center and dissolve white borders
     const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 640;
@@ -815,9 +818,9 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         backgroundColor: 'rgba(255, 255, 255, 0)',
         borderColor: 'rgba(86, 106, 78, 0)',
         boxShadow: 'none',
-        duration: 0.08,
+        duration: 0.14,
         ease: 'power2.inOut'
-      }, 0.79);
+      }, 1.36);
     }
 
     if (brideCard) {
@@ -827,53 +830,53 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         backgroundColor: 'rgba(255, 255, 255, 0)',
         borderColor: 'rgba(86, 106, 78, 0)',
         boxShadow: 'none',
-        duration: 0.08,
+        duration: 0.14,
         ease: 'power2.inOut'
-      }, 0.79);
+      }, 1.36);
     }
 
     // Fade out separate cards as Love Heart takes center stage
     tl.to(['#couple-groom-card', '#couple-bride-card'], {
       opacity: 0,
       scale: 0.85,
-      duration: 0.05
-    }, 0.85);
+      duration: 0.08
+    }, 1.48);
 
-    // Minimalist Line Heart fades in cleanly in the center!
+    // Stylized Calligraphic Love Heart blooms cleanly in the center!
     const loveFusion = document.getElementById('couple-love-fusion');
     if (loveFusion) {
       tl.fromTo(loveFusion,
-        { opacity: 0, scale: 0.92 },
-        { opacity: 1, scale: 1, duration: 0.08, ease: 'power2.out' },
-        0.84
+        { opacity: 0, scale: 0.88 },
+        { opacity: 1, scale: 1, duration: 0.14, ease: 'power2.out' },
+        1.48
       );
 
-      // Heart rests cleanly and serenely in center from 0.88 to 0.93
+      // Heart rests cleanly and serenely in center from 1.62 to 1.74
       tl.to(loveFusion, {
         scale: 1.02,
-        duration: 0.05,
+        duration: 0.12,
         ease: 'none'
-      }, 0.88);
+      }, 1.62);
 
       // Heart gently fades out to hand off to next section
       tl.to(loveFusion, {
-        scale: 1.06,
+        scale: 1.08,
         opacity: 0,
-        filter: 'blur(2px)',
-        duration: 0.05,
+        filter: 'blur(3px)',
+        duration: 0.08,
         ease: 'power1.out'
-      }, 0.93);
+      }, 1.74);
     }
 
     // Scene 3 completes smoothly to hand off to next section
     tl.to(sceneCouple, {
       opacity: 0,
-      duration: 0.05,
+      duration: 0.06,
       ease: 'power1.out',
       onComplete: () => {
         if (sceneCouple) sceneCouple.style.pointerEvents = 'none';
       }
-    }, 0.95);
+    }, 1.80);
 
     // Ensure ScrollTrigger recalculates after invitation envelope is unboxed
     window.addEventListener('invitationOpened', () => {
