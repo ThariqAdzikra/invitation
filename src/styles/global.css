@@ -6,24 +6,24 @@
 
 :root {
   /* ========================================================================
-     Design Tokens: Ultra-Clean Modern Obsidian & Champagne Gold
+     Design Tokens: Royal Midnight Navy & Champagne Gold (Ultra-Luxury)
      ======================================================================== */
-  --color-bg-base: #08090C;
-  --color-bg-surface: #0E1015;
-  --color-bg-elevated: #141720;
-  --color-bg-glass: rgba(14, 16, 21, 0.75);
+  --color-bg-base: #050811;
+  --color-bg-surface: #0E1628;
+  --color-bg-elevated: #141E33;
+  --color-bg-glass: rgba(14, 22, 40, 0.85);
 
   --color-text-primary: #F8F9FA;
   --color-text-secondary: #9BA3AF;
   --color-text-muted: #647082;
 
-  --color-accent-gold: #C9A96E;
-  --color-accent-gold-bright: #E8D3AA;
-  --color-accent-gold-soft: #8C734B;
-  --color-accent-gold-deep: #42351E;
+  --color-accent-gold: #D4B376;
+  --color-accent-gold-bright: #F2E2C0;
+  --color-accent-gold-soft: #94794B;
+  --color-accent-gold-deep: #47381C;
 
-  --color-border-hairline: rgba(201, 169, 110, 0.18);
-  --color-border-subtle: rgba(201, 169, 110, 0.08);
+  --color-border-hairline: rgba(212, 179, 118, 0.22);
+  --color-border-subtle: rgba(212, 179, 118, 0.1);
 
   --font-display: 'DM Serif Display', Georgia, serif;
   --font-arabic: 'Amiri', serif;
@@ -70,7 +70,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--color-bg-base);
-  background-image: radial-gradient(circle at 50% 0%, #11141B 0%, #08090C 70%);
+  background-image: radial-gradient(circle at 50% 0%, #0E182A 0%, #050811 75%);
   background-attachment: fixed;
   color: var(--color-text-primary);
   overflow-x: hidden;
@@ -96,24 +96,24 @@ body.is-locked {
 }
 
 /* ==========================================================================
-   Cinematic Chapter Tones & Stacking Card Deck Physics
+   Cinematic Chapter Tones & Stacking Card Deck Physics (Royal Midnight Family)
    ========================================================================== */
-.tone-hero { background-color: #08090C; }
-.tone-opening { background-color: #0A0E17; }
-.tone-couple { background-color: #110E0C; }
-.tone-events { background-color: #0D1219; }
-.tone-countdown { background-color: #090D15; }
-.tone-story { background-color: #08120E; }
-.tone-wishes { background-color: #0F0D11; }
-.tone-closing { background-color: #050608; }
+.tone-hero { background-color: #050811; }
+.tone-opening { background-color: #0E1628; }
+.tone-couple { background-color: #070B16; }
+.tone-events { background-color: #121C30; }
+.tone-countdown { background-color: #060A14; }
+.tone-story { background-color: #0E1729; }
+.tone-wishes { background-color: #080D1A; }
+.tone-closing { background-color: #04060C; }
 
 .deck-section {
   position: relative;
   width: 100%;
   box-sizing: border-box;
   will-change: transform, opacity;
-  box-shadow: 0 -24px 50px rgba(0, 0, 0, 0.75);
-  border-top: 1px solid rgba(201, 169, 110, 0.2);
+  box-shadow: 0 -28px 60px rgba(0, 0, 0, 0.85);
+  border-top: 1px solid rgba(212, 179, 118, 0.28);
 }
 
 .deck-section:first-child {
