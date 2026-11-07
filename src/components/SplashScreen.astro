@@ -1,6 +1,8 @@
 ---
 // SplashScreen.astro — Authentic 3D Classical Wedding Envelope Unboxing
-// Realistic Golden-Ratio Envelope, Interactive Olive Wax Seal, Letter Card Slide-Out & Cinematic Zoom-In
+// 1. Amplop tertutup rapat menutupi isi di dalamnya.
+// 2. Saat segel lilin diketuk, flap membuka dan kartu undangan meluncur naik keluar dari amplop.
+// 3. Ketika pengguna melakukan scroll (atau swipe ke atas), layar bertransisi ultra-smooth masuk ke halaman utama.
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralDivider from './botanical/FloralDivider.astro';
@@ -13,7 +15,7 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 
 <div
   id="envelope-screen"
-  class="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-4 bg-[#EDE8DC] select-none overflow-hidden transition-opacity duration-700 ease-out"
+  class="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-4 bg-[#EDE8DC] select-none overflow-hidden transition-opacity duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
   role="dialog"
   aria-modal="true"
   aria-label="Amplop Undangan Pernikahan"
@@ -27,16 +29,16 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
   <!-- 3D Perspective Scene Container -->
   <div
     id="envelope-scene"
-    class="relative w-full max-w-[500px] sm:max-w-[540px] aspect-[1.42/1] my-auto cursor-pointer"
+    class="relative w-full max-w-[480px] sm:max-w-[540px] aspect-[1.42/1] my-auto cursor-pointer"
     style="perspective: 1400px;"
   >
-    <!-- Envelope Shadow on Surface -->
+    <!-- Envelope Ambient Shadow on Surface -->
     <div
       id="envelope-shadow"
       class="absolute -inset-2 rounded-2xl bg-[#263322]/15 blur-xl pointer-events-none transform translate-y-6 transition-all duration-700"
     ></div>
 
-    <!-- MAIN ENVELOPE BODY (Overflow visible so card and flap can emerge) -->
+    <!-- MAIN ENVELOPE BODY (Overflow visible so card and flap can emerge upwards) -->
     <div
       id="envelope-body"
       class="relative w-full h-full rounded-2xl shadow-[0_25px_60px_rgba(42,52,38,0.22)] border border-[#C8BEAA] bg-[#E3DAC7] overflow-visible"
@@ -45,13 +47,13 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
       <div class="absolute inset-0 rounded-2xl overflow-hidden bg-[#E1D7C3] pointer-events-none">
         <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#4A5D43_1.5px,transparent_1.5px)] [background-size:16px_16px]"></div>
         <!-- Inner Bottom Shadow (depth illusion inside pocket) -->
-        <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-black/15 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent"></div>
       </div>
 
-      <!-- LAYER 1: THE LETTER CARD (Tucked inside, emerges upwards on click) -->
+      <!-- LAYER 1: THE LETTER CARD (Initially hidden & tucked inside, emerges upwards on open) -->
       <div
         id="envelope-card"
-        class="absolute left-[3%] right-[3%] top-[4%] h-[92%] bg-[#FAF8F5] rounded-xl shadow-[0_4px_16px_rgba(42,52,38,0.12)] border border-[#B89352]/40 p-4 sm:p-6 flex flex-col items-center justify-between text-center z-10 origin-center transition-shadow"
+        class="absolute left-[3%] right-[3%] top-[4%] h-[92%] bg-[#FAF8F5] rounded-xl shadow-[0_8px_25px_rgba(42,52,38,0.15)] border border-[#B89352]/40 p-4 sm:p-6 flex flex-col items-center justify-between text-center z-10 origin-center opacity-0 pointer-events-none"
       >
         <!-- Inset Gold Hairline Frame -->
         <div class="absolute inset-2 sm:inset-3 border border-[#B89352]/30 rounded-lg pointer-events-none"></div>
@@ -102,7 +104,7 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
         </div>
       </div>
 
-      <!-- LAYER 2: FRONT ENVELOPE POCKET (Covers bottom half of the card) -->
+      <!-- LAYER 2: FRONT ENVELOPE SOLID POCKET (100% Covers the Inside Card) -->
       <!-- Left Triangle Fold -->
       <div
         class="absolute inset-0 bg-gradient-to-r from-[#ECE6D8] to-[#E3DCCB] z-20 pointer-events-none rounded-2xl"
@@ -119,13 +121,13 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
         <div class="absolute inset-0 border-r border-b border-[#D6CDBC]/50"></div>
       </div>
 
-      <!-- Bottom Triangle Pocket Face -->
+      <!-- Bottom Triangle Pocket Face (Solid, opaque cover) -->
       <div
         id="envelope-pocket-bottom"
-        class="absolute inset-0 bg-gradient-to-t from-[#F4EFE3] via-[#EFEAE0] to-[#E7E0D0] z-22 pointer-events-none rounded-2xl shadow-[0_-4px_12px_rgba(42,52,38,0.06)]"
+        class="absolute inset-0 bg-gradient-to-t from-[#F4EFE3] via-[#EFEAE0] to-[#E5DEC9] z-22 pointer-events-none rounded-2xl shadow-[0_-4px_12px_rgba(42,52,38,0.06)]"
         style="clip-path: polygon(0 100%, 100% 100%, 50% 46%);"
       >
-        <!-- Subtle gold stitch line along the bottom pocket edge -->
+        <!-- Gold stitch line along the bottom pocket edge -->
         <div
           class="absolute inset-0"
           style="clip-path: polygon(2% 100%, 98% 100%, 50% 48%); border-top: 1px dashed rgba(184, 147, 82, 0.4);"
@@ -155,7 +157,7 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
         </div>
 
         <!-- Recipient Guest Badge (Anchored on bottom pocket) -->
-        <div class="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%] max-w-xs py-2 px-3 sm:px-4 rounded-lg bg-white/90 border border-[#DCD5C5] shadow-sm text-center">
+        <div class="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%] max-w-xs py-2 px-3 sm:px-4 rounded-lg bg-white/95 border border-[#DCD5C5] shadow-sm text-center">
           <p class="text-[0.55rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-[0.2em] font-medium mb-0.5">
             Kepada Yth. Bapak/Ibu/Saudara/i:
           </p>
@@ -166,10 +168,10 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 
       </div>
 
-      <!-- LAYER 3: TOP TRIANGULAR FLAP (Rotates 180deg upwards) -->
+      <!-- LAYER 3: TOP TRIANGULAR FLAP (Completely overlaps pocket when closed, flips 180° upwards) -->
       <div
         id="envelope-top-flap"
-        class="absolute top-0 left-0 right-0 h-[58%] origin-top z-30 transition-shadow rounded-t-2xl pointer-events-none"
+        class="absolute top-0 left-0 right-0 h-[60%] origin-top z-30 transition-shadow rounded-t-2xl pointer-events-none"
         style="clip-path: polygon(0 0, 100% 0, 50% 100%); transform-style: preserve-3d; background: linear-gradient(to bottom, #F5F1E6, #EAE3D3);"
       >
         <!-- Flap Stitching / Gold Hairline Border -->
@@ -178,13 +180,13 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
           style="clip-path: polygon(3% 0, 97% 0, 50% 95%); border-bottom: 1.2px dashed rgba(184, 147, 82, 0.45);"
         ></div>
         <!-- Shadow Cast by Flap onto Bottom Pocket -->
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black/10 blur-sm rounded-full"></div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-36 h-6 bg-black/10 blur-sm rounded-full"></div>
       </div>
 
       <!-- LAYER 4: INTERACTIVE 3D OLIVE WAX SEAL (Centered at flap tip) -->
       <div
         id="wax-seal-container"
-        class="absolute top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto group transform transition-transform duration-300 hover:scale-108 active:scale-95"
+        class="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto group transform transition-transform duration-300 hover:scale-108 active:scale-95"
       >
         <div class="relative flex items-center justify-center">
           
@@ -230,7 +232,7 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
     </div>
   </div>
 
-  <!-- Animated Tap Prompt Beneath the Envelope -->
+  <!-- STATE A: Initial Tap Prompt (Shown when envelope is closed) -->
   <div id="envelope-prompt" class="mt-6 flex flex-col items-center gap-2 cursor-pointer z-50 pointer-events-auto">
     <div class="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#566A4E]/10 border border-[#566A4E]/25 text-[#3E4C38] shadow-sm animate-bounce">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -245,11 +247,30 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
     </div>
   </div>
 
+  <!-- STATE B: Scroll Prompt (Revealed when card has emerged from envelope) -->
+  <div
+    id="envelope-scroll-cue"
+    class="mt-6 opacity-0 pointer-events-none flex flex-col items-center gap-1.5 z-50 transition-opacity duration-500"
+  >
+    <div class="flex items-center gap-2 px-5 py-2 rounded-full bg-white/95 border border-[#B89352]/40 text-[#2A3426] shadow-md animate-bounce cursor-pointer pointer-events-auto">
+      <span class="text-xs text-[#B89352]">✦</span>
+      <span class="text-[0.68rem] sm:text-xs tracking-[0.25em] uppercase font-semibold text-[#3E4C38]">
+        Gulir ke Bawah untuk Membuka Undangan
+      </span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-[#566A4E]">
+        <path d="M12 5v14M19 12l-7 7-7-7"/>
+      </svg>
+    </div>
+    <span class="text-[0.58rem] sm:text-[0.62rem] text-[#7E8F77] tracking-widest uppercase font-mono">
+      Atau sentuh layar untuk melanjutkan
+    </span>
+  </div>
+
 </div>
 
 <script>
   import gsap from 'gsap';
-  import { playWaxSealSound, playCardFlipSound } from './reactbits/SoundEffects';
+  import { playWaxSealSound, playCardFlipSound, playChimeSound } from './reactbits/SoundEffects';
 
   function initClassicEnvelope() {
     const screen = document.getElementById('envelope-screen');
@@ -258,7 +279,8 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
     const topFlap = document.getElementById('envelope-top-flap');
     const letterCard = document.getElementById('envelope-card');
     const waxSealContainer = document.getElementById('wax-seal-container');
-    const promptEl = document.getElementById('envelope-prompt');
+    const tapPrompt = document.getElementById('envelope-prompt');
+    const scrollCue = document.getElementById('envelope-scroll-cue');
     const guestSplash = document.getElementById('guest-name-splash');
 
     if (!screen || !topFlap || !letterCard) return;
@@ -273,27 +295,29 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
       } catch (e) {}
     }
 
-    let isOpened = false;
+    let isEnvelopeOpened = false;
+    let isReadyToScroll = false;
+    let isTransitioningToHero = false;
 
+    // 1. STAGE 1: Buka Amplop & Keluarkan Kartu Undangan
     function openEnvelope() {
-      if (isOpened) return;
-      isOpened = true;
+      if (isEnvelopeOpened) return;
+      isEnvelopeOpened = true;
 
-      // 1. Play tactile wax seal sound
+      // Suara lilin segel pecah
       playWaxSealSound();
 
-      // Trigger invitationOpening immediately so background music initiates on user gesture
+      // Trigger music start on user interaction
       window.dispatchEvent(new CustomEvent('invitationOpening'));
 
-      // Fade out tap prompt
-      if (promptEl) {
-        gsap.to(promptEl, { opacity: 0, y: 15, duration: 0.3 });
+      // Hilangkan tombol tap prompt
+      if (tapPrompt) {
+        gsap.to(tapPrompt, { opacity: 0, y: 15, duration: 0.3, onComplete: () => { tapPrompt.style.display = 'none'; } });
       }
 
-      // Create master GSAP unboxing timeline (~2.3s total)
       const tl = gsap.timeline();
 
-      // Step A (0.0s - 0.35s): Wax seal cracks & pops
+      // A. Wax seal pecah dan menghilang
       if (waxSealContainer) {
         tl.to(waxSealContainer, {
           scale: 1.35,
@@ -303,61 +327,80 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
         }, 0);
       }
 
-      // Step B (0.15s - 0.75s): Top Flap flips UP 180° in 3D
+      // B. Flap segitiga membuka 180 derajat ke atas
       tl.to(topFlap, {
         rotateX: 180,
-        duration: 0.65,
+        duration: 0.7,
         ease: 'power2.inOut',
         onUpdate: function() {
-          // Halfway through rotation (past 90°), drop flap z-index behind the card
           if (this.progress() > 0.48) {
-            topFlap.style.zIndex = '5';
+            topFlap.style.zIndex = '5'; // flap pindah ke belakang kartu
           }
         }
       }, 0.15);
 
-      // Step C (0.65s - 1.45s): Letter Card glides UP out of the pocket
+      // C. Kartu undangan meluncur naik keluar dari kantong amplop
       tl.add(() => {
         playCardFlipSound();
       }, 0.65);
 
       tl.to(letterCard, {
+        opacity: 1,
         y: '-78%',
         boxShadow: '0 25px 50px rgba(42, 52, 38, 0.25)',
-        duration: 0.8,
+        duration: 0.85,
         ease: 'power3.out'
       }, 0.65);
 
-      // Step D (1.45s - 2.25s): Cinematic Camera Zoom-In to card & seamless cross-fade to Hero
-      tl.to(letterCard, {
-        scale: 2.8,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.inOut'
-      }, 1.45);
+      // D. Kartu telah keluar seutuhnya ➔ Tampilkan petunjuk Scroll Cue
+      tl.add(() => {
+        isReadyToScroll = true;
+        if (scrollCue) {
+          scrollCue.classList.remove('pointer-events-none');
+          gsap.to(scrollCue, { opacity: 1, duration: 0.6, ease: 'power2.out' });
+        }
+      }, 1.55);
+    }
 
-      tl.to(envelopeBody, {
-        y: 40,
+    // 2. STAGE 2: Transisi Super Smooth Saat Di-Scroll Masuk ke Halaman Utama
+    function enterMainInvitation() {
+      if (!isReadyToScroll || isTransitioningToHero) return;
+      isTransitioningToHero = true;
+
+      playChimeSound();
+
+      // Hilangkan scroll cue
+      if (scrollCue) {
+        gsap.to(scrollCue, { opacity: 0, duration: 0.3 });
+      }
+
+      // Master smooth transition (Durasi 1.0s dengan power2.inOut yang super silky)
+      const tl = gsap.timeline();
+
+      // Amplop dan kartu meluncur naik lembut & memudar
+      tl.to(scene, {
+        y: -140,
+        scale: 0.94,
         opacity: 0,
-        duration: 0.6,
-        ease: 'power2.in'
-      }, 1.45);
+        duration: 1.0,
+        ease: 'power2.inOut'
+      }, 0);
 
       tl.to(screen, {
         opacity: 0,
-        duration: 0.75,
+        duration: 0.95,
         ease: 'power2.inOut'
-      }, 1.5);
+      }, 0.05);
 
-      // Step E (2.25s): Complete unlock & reveal
+      // Selesai: Buka scroll kunci dan tampilkan Hero
       tl.add(() => {
         screen.style.display = 'none';
         document.body.classList.remove('is-locked');
         window.dispatchEvent(new CustomEvent('invitationOpened'));
-      }, 2.25);
+      }, 1.0);
     }
 
-    // Attach click listeners to wax seal and prompt
+    // LISTENER 1: Klik untuk membuka amplop
     if (waxSealContainer) {
       waxSealContainer.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -366,11 +409,61 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
     }
 
     if (scene) {
-      scene.addEventListener('click', openEnvelope);
+      scene.addEventListener('click', () => {
+        if (!isEnvelopeOpened) {
+          openEnvelope();
+        } else if (isReadyToScroll) {
+          enterMainInvitation();
+        }
+      });
     }
 
-    if (promptEl) {
-      promptEl.addEventListener('click', openEnvelope);
+    if (tapPrompt) {
+      tapPrompt.addEventListener('click', openEnvelope);
+    }
+
+    // LISTENER 2: SCROLL DETECTIONS (Ketika di-scroll baru masuk ke halaman utama)
+    // A. Mouse Wheel Scroll
+    window.addEventListener('wheel', (e) => {
+      if (isReadyToScroll && !isTransitioningToHero) {
+        if (e.deltaY > 5) {
+          enterMainInvitation();
+        }
+      }
+    }, { passive: true });
+
+    // B. Touch Swipe Up (Mobile touch scroll)
+    let touchStartY = 0;
+    window.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 0) {
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (isReadyToScroll && !isTransitioningToHero && e.touches.length > 0) {
+        const touchCurrentY = e.touches[0].clientY;
+        const deltaY = touchStartY - touchCurrentY;
+        // Swipe up by at least 20px
+        if (deltaY > 20) {
+          enterMainInvitation();
+        }
+      }
+    }, { passive: true });
+
+    // C. Keyboard Scroll (Down arrow, PageDown, Space)
+    window.addEventListener('keydown', (e) => {
+      if (isReadyToScroll && !isTransitioningToHero) {
+        if (['ArrowDown', 'PageDown', ' '].includes(e.key)) {
+          e.preventDefault();
+          enterMainInvitation();
+        }
+      }
+    });
+
+    // D. Klik tombol scroll cue
+    if (scrollCue) {
+      scrollCue.addEventListener('click', enterMainInvitation);
     }
   }
 
