@@ -1,16 +1,16 @@
 ---
-// InteractiveCanvas.astro — Gentle Swaying Olive Leaves & Shimmering Gold Petals Canvas
+// InteractiveCanvas.astro — Multi-Layer Canvas: Soft Clouds, Wind Breeze Trails, Olive Leaves & Gold Petals
 ---
 
 <canvas
-  id="falling-leaves-canvas"
+  id="ambient-interactive-canvas"
   class="fixed inset-0 w-full h-full pointer-events-none z-[4] opacity-90"
   aria-hidden="true"
 ></canvas>
 
 <script>
-  function initFallingLeavesCanvas() {
-    const canvas = document.getElementById('falling-leaves-canvas') as HTMLCanvasElement | null;
+  function initAmbientCanvas() {
+    const canvas = document.getElementById('ambient-interactive-canvas') as HTMLCanvasElement | null;
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
@@ -27,6 +27,55 @@
       height = canvas.height = window.innerHeight;
     });
 
+    // =========================================================================
+    // LAYER 1: SOFT FLOATING CLOUDS (Awan Lembut)
+    // =========================================================================
+    interface Cloud {
+      x: number;
+      y: number;
+      radiusX: number;
+      radiusY: number;
+      speedX: number;
+      opacity: number;
+    }
+
+    const clouds: Cloud[] = [
+      { x: width * 0.1, y: height * 0.08, radiusX: 220, radiusY: 70, speedX: 0.12, opacity: 0.22 },
+      { x: width * 0.55, y: height * 0.15, radiusX: 280, radiusY: 85, speedX: 0.09, opacity: 0.18 },
+      { x: width * 0.85, y: height * 0.05, radiusX: 190, radiusY: 60, speedX: 0.15, opacity: 0.25 },
+      { x: -width * 0.2, y: height * 0.12, radiusX: 250, radiusY: 75, speedX: 0.11, opacity: 0.20 }
+    ];
+
+    // =========================================================================
+    // LAYER 2: GENTLE WIND BREEZE TRAILS (Garis Hembusan Angin)
+    // =========================================================================
+    interface WindTrail {
+      x: number;
+      y: number;
+      length: number;
+      speedX: number;
+      amplitude: number;
+      frequency: number;
+      alpha: number;
+    }
+
+    const windTrails: WindTrail[] = [];
+    const windCount = 4;
+    for (let i = 0; i < windCount; i++) {
+      windTrails.push({
+        x: Math.random() * width,
+        y: Math.random() * height * 0.7 + height * 0.1,
+        length: Math.random() * 80 + 70,
+        speedX: Math.random() * 0.8 + 0.6,
+        amplitude: Math.random() * 8 + 4,
+        frequency: Math.random() * 0.015 + 0.01,
+        alpha: Math.random() * 0.25 + 0.12
+      });
+    }
+
+    // =========================================================================
+    // LAYER 3: FALLING OLIVE LEAVES & GOLD PETALS (Daun & Kelopak Emas)
+    // =========================================================================
     interface Particle {
       type: 'leaf' | 'petal';
       x: number;
@@ -45,27 +94,16 @@
       alpha: number;
     }
 
-    const leafColors = [
-      '#4A5D43', // Deep botanical olive
-      '#5E7455', // Sage olive
-      '#6E8564', // Soft muted eucalyptus
-      '#3D4D37'  // Forest olive
-    ];
+    const leafColors = ['#4A5D43', '#5E7455', '#6E8564', '#3E5038'];
+    const petalColors = ['#B89352', '#D4AF6E', '#EAD8B5', '#C49F58'];
 
-    const petalColors = [
-      '#B89352', // Antique gold
-      '#D4AF6E', // Champagne gold
-      '#E8D7B5', // Soft ivory gold
-      '#C5A059'  // Warm brass gold
-    ];
-
-    const particleCount = window.innerWidth < 640 ? 20 : 34;
+    const particleCount = window.innerWidth < 640 ? 20 : 32;
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
       const isLeaf = i % 3 !== 0; // 2/3 leaves, 1/3 petals
-      const length = isLeaf ? Math.random() * 10 + 14 : Math.random() * 8 + 8;
-      const w = isLeaf ? length * 0.45 : length * 0.7;
+      const length = isLeaf ? Math.random() * 10 + 13 : Math.random() * 7 + 7;
+      const w = isLeaf ? length * 0.44 : length * 0.7;
 
       particles.push({
         type: isLeaf ? 'leaf' : 'petal',
@@ -73,36 +111,88 @@
         y: Math.random() * height,
         length,
         width: w,
-        speedY: Math.random() * 0.45 + 0.35,
+        speedY: Math.random() * 0.4 + 0.3,
         sway: Math.random() * Math.PI * 2,
-        swaySpeed: Math.random() * 0.018 + 0.008,
+        swaySpeed: Math.random() * 0.016 + 0.008,
         swayMagnitude: Math.random() * 0.7 + 0.4,
         rotation: Math.random() * Math.PI * 2,
-        rotationSpeed: (Math.random() - 0.5) * 0.015,
+        rotationSpeed: (Math.random() - 0.5) * 0.012,
         flip: Math.random() * Math.PI * 2,
         flipSpeed: Math.random() * 0.02 + 0.01,
         color: isLeaf
           ? leafColors[Math.floor(Math.random() * leafColors.length)]
           : petalColors[Math.floor(Math.random() * petalColors.length)],
-        alpha: Math.random() * 0.4 + 0.45
+        alpha: Math.random() * 0.35 + 0.45
       });
     }
 
-    function animate() {
+    // =========================================================================
+    // MAIN 60FPS RENDER LOOP
+    // =========================================================================
+    let tick = 0;
+
+    function render() {
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
+      tick++;
 
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
+      // 1. Draw Clouds
+      for (const cloud of clouds) {
+        cloud.x += cloud.speedX;
+        if (cloud.x - cloud.radiusX > width) {
+          cloud.x = -cloud.radiusX;
+        }
 
-        // Peaceful downward and swaying drift
+        const grad = ctx.createRadialGradient(
+          cloud.x, cloud.y, 0,
+          cloud.x, cloud.y, cloud.radiusX
+        );
+        grad.addColorStop(0, `rgba(255, 255, 255, ${cloud.opacity})`);
+        grad.addColorStop(0.6, `rgba(255, 255, 255, ${cloud.opacity * 0.5})`);
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+        ctx.save();
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.ellipse(cloud.x, cloud.y, cloud.radiusX, cloud.radiusY, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // 2. Draw Wind Breeze Trails
+      for (const wind of windTrails) {
+        wind.x += wind.speedX;
+        if (wind.x > width + 100) {
+          wind.x = -wind.length - 50;
+          wind.y = Math.random() * height * 0.7 + height * 0.1;
+        }
+
+        ctx.save();
+        ctx.beginPath();
+        const startX = wind.x;
+        const startY = wind.y + Math.sin(tick * wind.frequency) * wind.amplitude;
+        const midX = wind.x + wind.length * 0.5;
+        const midY = wind.y + Math.sin((tick + 20) * wind.frequency) * wind.amplitude;
+        const endX = wind.x + wind.length;
+        const endY = wind.y + Math.sin((tick + 40) * wind.frequency) * wind.amplitude;
+
+        ctx.moveTo(startX, startY);
+        ctx.quadraticCurveTo(midX, midY, endX, endY);
+        
+        ctx.strokeStyle = `rgba(184, 147, 82, ${wind.alpha})`;
+        ctx.lineWidth = 0.9;
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      // 3. Draw Falling Olive Leaves & Shimmering Petals
+      for (const p of particles) {
         p.y += p.speedY;
         p.sway += p.swaySpeed;
-        p.x += Math.sin(p.sway) * p.swayMagnitude;
+        p.x += Math.sin(p.sway) * p.swayMagnitude + 0.15; // gentle rightward breeze
         p.rotation += p.rotationSpeed;
         p.flip += p.flipSpeed;
 
-        // Reset if off bottom or screen edges
         if (p.y > height + 25) {
           p.y = -25;
           p.x = Math.random() * width;
@@ -114,7 +204,7 @@
         ctx.globalAlpha = p.alpha;
         ctx.translate(p.x, p.y);
         ctx.rotate(p.rotation);
-        ctx.scale(Math.cos(p.flip), 1); // 3D fluttering flip
+        ctx.scale(Math.cos(p.flip), 1);
 
         if (p.type === 'leaf') {
           // Draw Organic Olive Leaf
@@ -142,7 +232,7 @@
           ctx.lineWidth = 0.6;
           ctx.stroke();
         } else {
-          // Draw Shimmering Golden Petal
+          // Draw Golden Petal
           ctx.beginPath();
           ctx.moveTo(0, -p.length / 2);
           ctx.quadraticCurveTo(p.width * 0.7, -p.length * 0.15, p.width * 0.4, p.length / 2);
@@ -152,25 +242,25 @@
           ctx.fillStyle = p.color;
           ctx.fill();
 
-          // Subtle glistening highlight
+          // Highlight
           ctx.beginPath();
           ctx.arc(0, -p.length * 0.15, p.width * 0.25, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.35)';
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.32)';
           ctx.fill();
         }
 
         ctx.restore();
       }
 
-      requestAnimationFrame(animate);
+      requestAnimationFrame(render);
     }
 
-    requestAnimationFrame(animate);
+    requestAnimationFrame(render);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initFallingLeavesCanvas);
+    document.addEventListener('DOMContentLoaded', initAmbientCanvas);
   } else {
-    initFallingLeavesCanvas();
+    initAmbientCanvas();
   }
 </script>

@@ -1,0 +1,108 @@
+---
+// FlyingDoves.astro — Symmetrical Pair of Flying Doves with Gold Contour & Olive Sprig
+interface Props {
+  className?: string;
+  width?: number;
+  height?: number;
+}
+
+const { className = "", width = 260, height = 50 } = Astro.props;
+---
+
+<div class={`relative flex items-center justify-between pointer-events-none select-none ${className}`} style={`width: ${width}px; height: ${height}px;`}>
+  
+  <!-- Left Dove (Flying Rightward, Carrying Olive Sprig) -->
+  <div class="dove-left transform will-change-transform">
+    <svg width="48" height="42" viewBox="0 0 64 54" fill="none" class="filter drop-shadow-[0_2px_8px_rgba(184,147,82,0.15)]">
+      <!-- Body & Wings -->
+      <path 
+        d="M10 32 C12 28, 18 25, 26 27 C28 20, 36 10, 48 6 C42 16, 38 22, 36 26 C44 26, 52 24, 60 21 C54 28, 45 32, 34 33 C30 38, 22 45, 12 48 C16 42, 17 37, 10 32 Z" 
+        fill="#FAF8F5" 
+        stroke="#B89352" 
+        stroke-width="1.2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+      />
+      <!-- Wing Feathers Detail -->
+      <path d="M38 18 C33 23, 30 28, 28 32" stroke="#B89352" stroke-width="0.8" opacity="0.6" stroke-linecap="round" />
+      <path d="M43 13 C38 20, 35 25, 33 29" stroke="#B89352" stroke-width="0.8" opacity="0.6" stroke-linecap="round" />
+      <!-- Eye -->
+      <circle cx="15" cy="30" r="1" fill="#4A5D43" />
+      <!-- Golden Olive Sprig in Beak -->
+      <path d="M10 32 C6 33, 2 30, 0 32" stroke="#4A5D43" stroke-width="1" stroke-linecap="round" />
+      <path d="M4 31 C3 28, 5 26, 7 28 Z" fill="#5E7455" stroke="#B89352" stroke-width="0.6" />
+      <path d="M2 33 C0 35, 1 37, 3 36 Z" fill="#5E7455" stroke="#B89352" stroke-width="0.6" />
+    </svg>
+  </div>
+
+  <!-- Center Floating Golden Love Knot / Sparkle -->
+  <div class="flex items-center gap-1.5 opacity-60">
+    <div class="w-8 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]"></div>
+    <span class="text-[#B89352] text-[0.65rem] animate-pulse">✦</span>
+    <div class="w-8 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]"></div>
+  </div>
+
+  <!-- Right Dove (Flying Leftward, Mirrored & Harmonized) -->
+  <div class="dove-right transform will-change-transform">
+    <svg width="48" height="42" viewBox="0 0 64 54" fill="none" class="filter drop-shadow-[0_2px_8px_rgba(184,147,82,0.15)] transform -scale-x-100">
+      <!-- Body & Wings -->
+      <path 
+        d="M10 32 C12 28, 18 25, 26 27 C28 20, 36 10, 48 6 C42 16, 38 22, 36 26 C44 26, 52 24, 60 21 C54 28, 45 32, 34 33 C30 38, 22 45, 12 48 C16 42, 17 37, 10 32 Z" 
+        fill="#FAF8F5" 
+        stroke="#B89352" 
+        stroke-width="1.2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+      />
+      <!-- Wing Feathers Detail -->
+      <path d="M38 18 C33 23, 30 28, 28 32" stroke="#B89352" stroke-width="0.8" opacity="0.6" stroke-linecap="round" />
+      <path d="M43 13 C38 20, 35 25, 33 29" stroke="#B89352" stroke-width="0.8" opacity="0.6" stroke-linecap="round" />
+      <!-- Eye -->
+      <circle cx="15" cy="30" r="1" fill="#4A5D43" />
+      <!-- Golden Olive Sprig in Beak -->
+      <path d="M10 32 C6 33, 2 30, 0 32" stroke="#4A5D43" stroke-width="1" stroke-linecap="round" />
+      <path d="M4 31 C3 28, 5 26, 7 28 Z" fill="#5E7455" stroke="#B89352" stroke-width="0.6" />
+      <path d="M2 33 C0 35, 1 37, 3 36 Z" fill="#5E7455" stroke="#B89352" stroke-width="0.6" />
+    </svg>
+  </div>
+
+</div>
+
+<style>
+  .dove-left {
+    animation: gentleDoveFloatLeft 5s ease-in-out infinite alternate;
+  }
+  .dove-right {
+    animation: gentleDoveFloatRight 5.4s ease-in-out infinite alternate;
+  }
+
+  @keyframes gentleDoveFloatLeft {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(-2deg);
+    }
+    50% {
+      transform: translate3d(6px, -4px, 0) rotate(1deg);
+    }
+    100% {
+      transform: translate3d(12px, -8px, 0) rotate(3deg);
+    }
+  }
+
+  @keyframes gentleDoveFloatRight {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(2deg);
+    }
+    50% {
+      transform: translate3d(-6px, -4px, 0) rotate(-1deg);
+    }
+    100% {
+      transform: translate3d(-12px, -8px, 0) rotate(-3deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dove-left, .dove-right {
+      animation: none !important;
+    }
+  }
+</style>
