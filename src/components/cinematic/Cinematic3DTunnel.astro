@@ -335,81 +335,93 @@ import FloralCorner from '../botanical/FloralCorner.astro';
             id="couple-love-fusion" 
             class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 will-change-transform z-30"
           >
-            <!-- Luminous Golden Heart Morph Container -->
-            <div class="relative flex items-center justify-center">
+            <!-- Luminous Golden Heart Morph Container (Spacious & Majestic Scale) -->
+            <div class="relative flex items-center justify-center w-[330px] h-[310px] sm:w-[430px] sm:h-[400px] md:w-[500px] md:h-[460px]">
               
               <!-- Radiant Warm Golden Aura Pulsating -->
-              <div class="absolute -inset-14 bg-[radial-gradient(circle,rgba(184,147,82,0.38)_0%,rgba(212,175,110,0.2)_45%,transparent_70%)] blur-2xl"></div>
+              <div class="absolute -inset-10 sm:-inset-16 bg-[radial-gradient(circle,rgba(184,147,82,0.3)_0%,rgba(212,175,110,0.12)_45%,transparent_70%)] blur-3xl pointer-events-none"></div>
 
-              <!-- Organic Elegant Heart SVG with Gold Gradient & Botanical Filigree -->
+              <!-- Organic Elegant Heart SVG with Frosted Paper Inset -->
               <svg 
                 id="love-heart-svg"
-                class="w-52 h-52 sm:w-64 sm:h-64 text-[#B89352] drop-shadow-[0_10px_35px_rgba(184,147,82,0.6)]" 
-                viewBox="0 0 100 100" 
+                class="w-full h-full drop-shadow-[0_16px_45px_rgba(184,147,82,0.32)]" 
+                viewBox="0 0 140 130" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <!-- Soft Glow Inset Fill -->
+                <!-- Frosted Ivory Paper Background Inset -->
                 <path 
-                  d="M50 88 C22 66, 6 48, 6 28 C6 14, 17 4, 31 4 C40 4, 46 9, 50 16 C54 9, 60 4, 69 4 C83 4, 94 14, 94 28 C94 48, 78 66, 50 88 Z" 
-                  fill="url(#loveHeartFillGrad)" 
-                  opacity="0.15"
-                />
-                
-                <!-- Main Flowing Heart Contour Line -->
-                <path 
-                  id="love-heart-path"
-                  d="M50 88 C22 66, 6 48, 6 28 C6 14, 17 4, 31 4 C40 4, 46 9, 50 16 C54 9, 60 4, 69 4 C83 4, 94 14, 94 28 C94 48, 78 66, 50 88 Z" 
-                  stroke="url(#loveHeartStrokeGrad)" 
-                  stroke-width="2.6" 
-                  stroke-linecap="round" 
-                  stroke-linejoin="round"
+                  d="M70 122 C25 90 2 60 4 38 C6 14 26 4 46 6 C58 8 66 18 70 26 C74 18 82 8 94 6 C114 4 134 14 136 38 C138 60 115 90 70 122 Z" 
+                  fill="url(#loveHeartPaperFill)" 
                 />
 
-                <!-- Inner Delicate Second Sketch Loop for Luxury Touch -->
+                <!-- Outer Hairline Gold Border -->
                 <path 
-                  d="M50 82 C25 62, 11 46, 11 29 C11 17, 20 8, 32 8 C39 8, 45 13, 50 19 C55 13, 61 8, 68 8 C80 8, 89 17, 89 29 C89 46, 75 62, 50 82 Z" 
+                  id="love-heart-path"
+                  d="M70 122 C25 90 2 60 4 38 C6 14 26 4 46 6 C58 8 66 18 70 26 C74 18 82 8 94 6 C114 4 134 14 136 38 C138 60 115 90 70 122 Z" 
                   stroke="url(#loveHeartStrokeGrad)" 
-                  stroke-width="1.2" 
-                  stroke-dasharray="8 3"
-                  opacity="0.75"
+                  stroke-width="2.2" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                />
+
+                <!-- Inner Delicate Second Hairline Loop for Luxury Haute-Couture Touch -->
+                <path 
+                  d="M70 115 C29 85 9 58 11 39 C13 18 30 9 47 11 C57 13 65 21 70 28 C75 21 83 13 93 11 C110 9 127 18 129 39 C131 58 111 85 70 115 Z" 
+                  stroke="url(#loveHeartStrokeGrad)" 
+                  stroke-width="0.8" 
+                  opacity="0.65" 
                 />
 
                 <defs>
-                  <linearGradient id="loveHeartStrokeGrad" x1="6" y1="4" x2="94" y2="88" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#E2C48D"/>
-                    <stop offset="0.5" stop-color="#B89352"/>
-                    <stop offset="1" stop-color="#8C703C"/>
+                  <linearGradient id="loveHeartStrokeGrad" x1="4" y1="4" x2="136" y2="122" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#E5C790"/>
+                    <stop offset="50%" stop-color="#B89352"/>
+                    <stop offset="100%" stop-color="#8C703C"/>
                   </linearGradient>
-                  <linearGradient id="loveHeartFillGrad" x1="6" y1="4" x2="94" y2="88" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#FAF8F5"/>
-                    <stop offset="0.6" stop-color="#B89352"/>
-                    <stop offset="1" stop-color="#4A5D43"/>
+                  <linearGradient id="loveHeartPaperFill" x1="70" y1="6" x2="70" y2="122" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.97"/>
+                    <stop offset="55%" stop-color="#FAF8F5" stop-opacity="0.95"/>
+                    <stop offset="100%" stop-color="#F2EBE0" stop-opacity="0.92"/>
                   </linearGradient>
                 </defs>
               </svg>
 
-              <!-- Center of Heart: Dual Interlocked Avatars & "Arya & Dian" Monogram -->
-              <div id="love-center-crest" class="absolute inset-0 flex flex-col items-center justify-center text-center">
+              <!-- Center of Heart: Elevated Content in the Upper/Middle Region (No Bottom Collision!) -->
+              <div id="love-center-crest" class="absolute inset-0 pt-7 sm:pt-11 md:pt-12 px-6 flex flex-col items-center justify-start text-center z-10 pointer-events-none">
                 
-                <!-- Floating Mini Twin Portraits side by side inside Heart -->
-                <div class="flex items-center justify-center -space-x-3 mb-1">
-                  <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full p-0.5 border-2 border-[#B89352] bg-white shadow-md overflow-hidden relative z-10">
+                <!-- Twin Portraits Intertwined with Golden Knot Clasp -->
+                <div class="relative flex items-center justify-center -space-x-3 mb-1 sm:mb-2">
+                  <!-- Arya Avatar -->
+                  <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-22 md:h-22 rounded-full p-1 border-2 border-[#B89352] bg-white shadow-[0_4px_16px_rgba(42,52,38,0.12)] overflow-hidden relative z-10">
                     <img src="/assets/vector-groom.jpg" alt="Arya" class="w-full h-full object-cover rounded-full" />
                   </div>
-                  <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full p-0.5 border-2 border-[#B89352] bg-white shadow-md overflow-hidden relative z-20">
+                  
+                  <!-- Golden Heart Clasp at Intersection -->
+                  <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-[#B89352] to-[#D4AF6E] text-white flex items-center justify-center text-[10px] shadow-sm relative z-30 -mx-1 border border-white">
+                    ♥
+                  </div>
+
+                  <!-- Dian Avatar -->
+                  <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-22 md:h-22 rounded-full p-1 border-2 border-[#B89352] bg-white shadow-[0_4px_16px_rgba(42,52,38,0.12)] overflow-hidden relative z-20">
                     <img src="/assets/vector-bride.jpg" alt="Dian" class="w-full h-full object-cover rounded-full" />
                   </div>
                 </div>
 
-                <!-- Romantic "Arya & Dian" Monogram inside Heart -->
-                <span class="font-display text-base sm:text-lg text-[#2A3426] tracking-wide font-normal mt-1">
-                  Arya <span class="italic text-[#B89352]">&amp;</span> Dian
-                </span>
+                <!-- Subtle Decorative Gold Flourish Divider -->
+                <div class="my-1 opacity-75">
+                  <FloralFlourish width={85} height={14} />
+                </div>
+
+                <!-- Romantic "Arya & Dian" Title in Display Font -->
+                <h3 class="font-display text-xl sm:text-2xl md:text-3xl text-[#2A3426] tracking-wide font-normal leading-tight my-0.5 sm:my-1">
+                  Arya <span class="font-display italic text-[#B89352] font-normal px-0.5">&amp;</span> Dian
+                </h3>
                 
-                <span class="text-[0.55rem] sm:text-[0.62rem] tracking-[0.26em] uppercase text-[#B89352] font-semibold mt-0.5">
-                  Menyatu Dalam Cinta
-                </span>
+                <!-- Romantic Subtitle (With abundant margin from bottom tip!) -->
+                <p class="text-[0.58rem] sm:text-[0.68rem] tracking-[0.28em] uppercase text-[#B89352] font-semibold mt-1">
+                  MENYATU DALAM CINTA
+                </p>
 
               </div>
 
@@ -536,10 +548,10 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         anticipatePin: 1,
         onUpdate: (self) => {
           if (scrollCue) {
-            scrollCue.style.opacity = self.progress > 0.85 ? '0' : '1';
+            scrollCue.style.opacity = self.progress > 0.80 ? '0' : '1';
           }
           if (chapterRail) {
-            chapterRail.style.opacity = self.progress > 0.92 ? '0' : '0.9';
+            chapterRail.style.opacity = self.progress > 0.80 ? '0' : '0.9';
           }
           if (self.progress < 0.35) {
             setActivePip(1);
