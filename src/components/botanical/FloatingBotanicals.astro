@@ -1,0 +1,137 @@
+---
+// FloatingBotanicals.astro — Multi-Plane 3D Floating Botanical Petals & Olive Leaves
+---
+
+<div id="floating-botanicals-container" class="fixed inset-0 pointer-events-none z-30 overflow-hidden" aria-hidden="true">
+  
+  <!-- FOREGROUND LAYER (translateZ: +50px, moves faster with 3D rotation) -->
+  <div class="botanical-layer foreground-plane absolute inset-0">
+    
+    <!-- Petal 1 (Top Left) -->
+    <div class="floating-botanical-item absolute top-[12%] left-[6%] sm:left-[10%] w-7 h-7 opacity-85">
+      <svg viewBox="0 0 40 40" fill="none" class="w-full h-full transform rotate-12 drop-shadow-sm">
+        <path d="M20 4 C28 4, 36 12, 34 22 C32 32, 20 38, 20 38 C20 38, 8 32, 6 22 C4 12, 12 4, 20 4 Z" fill="#FDFBF7" stroke="#B89352" stroke-width="0.8" opacity="0.9" />
+        <path d="M20 10 Q20 25 18 34" stroke="#B89352" stroke-width="0.5" opacity="0.5" />
+      </svg>
+    </div>
+
+    <!-- Olive Leaf 1 (Mid-Right) -->
+    <div class="floating-botanical-item absolute top-[36%] right-[5%] sm:right-[12%] w-8 h-10 opacity-80">
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full transform -rotate-45 drop-shadow-sm">
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="#5E7455" />
+        <path d="M25 5 Q24 35 28 50" stroke="#FAF8F5" stroke-width="0.8" opacity="0.6" />
+        <circle cx="34" cy="46" r="2.5" fill="#B89352" />
+      </svg>
+    </div>
+
+    <!-- Petal 2 (Lower Mid-Left) -->
+    <div class="floating-botanical-item absolute top-[62%] left-[4%] sm:left-[8%] w-8 h-8 opacity-80">
+      <svg viewBox="0 0 40 40" fill="none" class="w-full h-full transform rotate-45 drop-shadow-sm">
+        <path d="M20 4 C28 4, 36 12, 34 22 C32 32, 20 38, 20 38 C20 38, 8 32, 6 22 C4 12, 12 4, 20 4 Z" fill="#FAF6EE" stroke="#566A4E" stroke-width="0.6" opacity="0.9" />
+      </svg>
+    </div>
+
+    <!-- Olive Leaf 2 (Bottom Right) -->
+    <div class="floating-botanical-item absolute top-[85%] right-[8%] sm:right-[14%] w-9 h-11 opacity-85">
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full transform rotate-25 drop-shadow-sm">
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="#4A5C43" />
+        <path d="M25 5 Q24 35 28 50" stroke="#FAF8F5" stroke-width="0.8" opacity="0.6" />
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- BACKGROUND LAYER (translateZ: -50px, moves slower, subtle depth) -->
+  <div class="botanical-layer background-plane absolute inset-0 opacity-60">
+    
+    <!-- Background Olive Sprig (Top Right) -->
+    <div class="floating-botanical-item absolute top-[22%] right-[8%] sm:right-[15%] w-6 h-8">
+      <svg viewBox="0 0 40 50" fill="none" class="w-full h-full transform rotate-180">
+        <path d="M20 5 C30 15, 32 32, 22 42 C16 36, 8 26, 12 12 Z" fill="#6E8564" opacity="0.75" />
+      </svg>
+    </div>
+
+    <!-- Background Petal (Mid Left) -->
+    <div class="floating-botanical-item absolute top-[48%] left-[10%] sm:left-[14%] w-6 h-6">
+      <svg viewBox="0 0 40 40" fill="none" class="w-full h-full transform -rotate-30">
+        <path d="M20 4 C28 4, 36 12, 34 22 C32 32, 20 38, 20 38 C20 38, 8 32, 6 22 C4 12, 12 4, 20 4 Z" fill="#EFE9DC" />
+      </svg>
+    </div>
+
+    <!-- Background Golden Bud (Lower Right) -->
+    <div class="floating-botanical-item absolute top-[74%] right-[12%] sm:right-[18%] w-5 h-5">
+      <svg viewBox="0 0 30 30" fill="none" class="w-full h-full">
+        <circle cx="15" cy="15" r="4" fill="#B89352" opacity="0.65" />
+        <circle cx="15" cy="15" r="7" stroke="#566A4E" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.5" />
+      </svg>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+  #floating-botanicals-container {
+    perspective: 1000px;
+  }
+  .foreground-plane {
+    transform: translateZ(50px);
+  }
+  .background-plane {
+    transform: translateZ(-50px);
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+
+  function initFloatingBotanicals() {
+    const container = document.getElementById('floating-botanicals-container');
+    if (!container) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    // Ambient 3D floating wobble
+    const items = gsap.utils.toArray('.floating-botanical-item');
+    items.forEach((el: any, i: number) => {
+      const dur = 4 + (i % 3) * 1.5;
+      const distY = 12 + (i % 4) * 5;
+      const rot = 10 + (i % 3) * 8;
+
+      gsap.to(el, {
+        y: `+=${distY}`,
+        rotationZ: `+=${rot}`,
+        rotationX: `+=${rot * 0.7}`,
+        duration: dur,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+        delay: i * 0.4
+      });
+    });
+
+    // Parallax response on scroll via Lenis or window scroll
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      gsap.to('.foreground-plane', {
+        y: -scrollY * 0.16,
+        ease: 'power1.out',
+        overwrite: 'auto',
+        duration: 0.5
+      });
+      gsap.to('.background-plane', {
+        y: -scrollY * 0.07,
+        ease: 'power1.out',
+        overwrite: 'auto',
+        duration: 0.5
+      });
+    }, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFloatingBotanicals);
+  } else {
+    initFloatingBotanicals();
+  }
+</script>
