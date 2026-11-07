@@ -1,9 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SplashScreen from '../components/SplashScreen.astro';
-import Hero from '../components/Hero.astro';
-import Opening from '../components/Opening.astro';
-import Couple from '../components/Couple.astro';
+import Cinematic3DTunnel from '../components/cinematic/Cinematic3DTunnel.astro';
 import UnifiedEvent from '../components/UnifiedEvent.astro';
 import Countdown from '../components/Countdown.astro';
 import LoveStory from '../components/LoveStory.astro';
@@ -33,15 +31,18 @@ import content from '../data/content.json';
   
   <!-- Main Editorial Content Flow -->
   <main id="main-content" class="relative z-10">
-    <Hero />
-    <Opening />
-    <Couple />
-    <UnifiedEvent />
-    <Countdown />
-    <LoveStory />
-    <DigitalGift />
-    <Wishes />
-    <Closing />
+    <!-- Phase 1: Pinned 3D Camera Z-Space Fly-Through (Hero -> Ayat Suci -> Kedua Mempelai) -->
+    <Cinematic3DTunnel />
+
+    <!-- Phase 2: Grounded Interactive 3D Stage (Jadwal, Countdown, Kisah, Hadiah, & RSVP) -->
+    <div id="interactive-stage" class="relative z-20">
+      <UnifiedEvent />
+      <Countdown />
+      <LoveStory />
+      <DigitalGift />
+      <Wishes />
+      <Closing />
+    </div>
   </main>
 
   <!-- Minimalist Champagne Gold Reading Progress Bar -->
