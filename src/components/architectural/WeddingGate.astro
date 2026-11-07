@@ -1,0 +1,254 @@
+---
+// WeddingGate.astro — Grand Royal Architectural Wedding Gate / Arch Portal
+// Classical Roman Arch with Ornate Gilded Filigree, Fluted Pillars, Pedestals & Symmetrically Open Gates
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div 
+  class={`relative w-full h-full max-w-[680px] max-h-[840px] mx-auto pointer-events-none select-none flex items-center justify-center ${className}`}
+  aria-hidden="true"
+>
+  <svg 
+    viewBox="0 0 600 800" 
+    fill="none" 
+    class="w-full h-full drop-shadow-[0_10px_25px_rgba(42,52,38,0.08)] opacity-85 transition-opacity duration-700"
+    preserveAspectRatio="xMidYMid meet"
+  >
+    <!-- Soft Ambient Warm Golden Light Radiance inside Arch Gate -->
+    <ellipse cx="300" cy="380" rx="240" ry="320" fill="url(#gate-ambient-glow)" opacity="0.45" />
+
+    <!-- =====================================================================
+         1. GRAND ARCH TOP (LENGKUNGAN KUBAH GERBANG & MAHKOTA UKIRAN EMAS)
+         ===================================================================== -->
+    <g class="gate-arch-top">
+      
+      <!-- Outer Architectural Keystone & Crown Crest at Apex -->
+      <g transform="translate(300, 48)">
+        <!-- Apex Royal Finial / Fleuron -->
+        <path d="M0 -32 C-6 -22, -10 -15, 0 0 C10 -15, 6 -22, 0 -32 Z" fill="#B89352" stroke="#8C6D34" stroke-width="0.8" />
+        <circle cx="0" cy="-34" r="3.5" fill="#D4AF6E" stroke="#B89352" stroke-width="0.8" />
+        
+        <!-- Symmetrical Crown Flourish -->
+        <path d="M0 -10 C-18 -24, -38 -12, -28 5 C-22 14, -10 12, 0 8 C10 12, 22 14, 28 5 C38 -12, 18 -24, 0 -10 Z" fill="#FAF8F5" stroke="#B89352" stroke-width="1.2" />
+        <path d="M-22 2 C-14 -6, -6 -6, 0 0 C6 -6, 14 -6, 22 2" stroke="#4A5D43" stroke-width="1" fill="none" stroke-linecap="round" />
+
+        <!-- Keystone Plaque with AD Initial -->
+        <rect x="-14" y="2" width="28" height="22" rx="3" fill="#FFFFFF" stroke="#B89352" stroke-width="1.2" />
+        <circle cx="0" cy="13" r="8" fill="none" stroke="#B89352" stroke-width="0.7" stroke-dasharray="2 1.5" />
+        <circle cx="0" cy="13" r="1.5" fill="#B89352" />
+      </g>
+
+      <!-- Main Outer Semi-Circular Arch -->
+      <path 
+        d="M65 110 C65 20, 200 -5, 300 -5 C400 -5, 535 20, 535 110" 
+        stroke="#B89352" 
+        stroke-width="2.2" 
+        stroke-linecap="round"
+      />
+
+      <!-- Secondary Contour Arch with Gold Stitch Dash Pattern -->
+      <path 
+        d="M75 115 C75 32, 205 10, 300 10 C395 10, 525 32, 525 115" 
+        stroke="#4A5D43" 
+        stroke-width="1.2" 
+        stroke-dasharray="4 3" 
+        opacity="0.8"
+      />
+
+      <!-- Inner Moulded Arch -->
+      <path 
+        d="M85 120 C85 45, 210 25, 300 25 C390 25, 515 45, 515 120" 
+        stroke="#B89352" 
+        stroke-width="1.6" 
+      />
+
+      <!-- Ornate Arch Frieze Filigree Scrolls (Between outer and inner arch) -->
+      <!-- Left side arch rosettes & scrolls -->
+      <circle cx="115" cy="78" r="4.5" fill="#FAF8F5" stroke="#B89352" stroke-width="0.9" />
+      <path d="M102 88 C108 80, 122 80, 128 88" stroke="#4A5D43" stroke-width="0.8" stroke-linecap="round" />
+      
+      <circle cx="165" cy="50" r="5" fill="#FAF8F5" stroke="#B89352" stroke-width="0.9" />
+      <path d="M152 58 C158 50, 172 50, 178 58" stroke="#4A5D43" stroke-width="0.8" stroke-linecap="round" />
+
+      <circle cx="225" cy="34" r="5.5" fill="#FAF8F5" stroke="#B89352" stroke-width="0.9" />
+      <path d="M212 40 C218 32, 232 32, 238 40" stroke="#4A5D43" stroke-width="0.8" stroke-linecap="round" />
+
+      <!-- Right side arch rosettes & scrolls -->
+      <circle cx="485" cy="78" r="4.5" fill="#FAF8F5" stroke="#B89352" stroke-width="0.9" />
+      <path d="M472 88 C478 80, 492 80, 498 88" stroke="#4A5D43" stroke-width="0.8" stroke-linecap="round" />
+
+      <circle cx="435" cy="50" r="5" fill="#FAF8F5" stroke="#B89352" stroke-width="0.9" />
+      <path d="M422 58 C428 50, 442 50, 448 58" stroke="#4A5D43" stroke-width="0.8" stroke-linecap="round" />
+
+      <circle cx="375" cy="34" r="5.5" fill="#FAF8F5" stroke="#B89352" stroke-width="0.9" />
+      <path d="M362 40 C368 32, 382 32, 388 40" stroke="#4A5D43" stroke-width="0.8" stroke-linecap="round" />
+
+      <!-- Symmetrical Spandrel Botanical Filigree (Left & Right Top Corners) -->
+      <!-- Left Spandrel Flourish -->
+      <path d="M60 40 C75 25, 95 30, 85 45 C78 55, 65 52, 60 40 Z" fill="#5E7455" stroke="#B89352" stroke-width="0.8" opacity="0.65" />
+      <path d="M45 60 C55 45, 75 52, 70 65 C65 75, 50 72, 45 60 Z" fill="#4A5D43" stroke="#B89352" stroke-width="0.8" opacity="0.6" />
+      
+      <!-- Right Spandrel Flourish -->
+      <path d="M540 40 C525 25, 505 30, 515 45 C522 55, 535 52, 540 40 Z" fill="#5E7455" stroke="#B89352" stroke-width="0.8" opacity="0.65" />
+      <path d="M555 60 C545 45, 525 52, 530 65 C535 75, 550 72, 555 60 Z" fill="#4A5D43" stroke="#B89352" stroke-width="0.8" opacity="0.6" />
+    </g>
+
+    <!-- =====================================================================
+         2. LEFT ARCHITECTURAL PILLAR (PILAR TIANG KIRI)
+         ===================================================================== -->
+    <g class="gate-pillar-left">
+      <!-- Classical Pillar Capital (Kepala Tiang) -->
+      <rect x="50" y="105" width="45" height="10" rx="2" fill="#FAF8F5" stroke="#B89352" stroke-width="1.2" />
+      <rect x="54" y="115" width="37" height="8" rx="1.5" fill="#EFEADF" stroke="#4A5D43" stroke-width="0.9" />
+      <path d="M48 105 C46 95, 58 92, 64 98" stroke="#B89352" stroke-width="1.2" fill="none" stroke-linecap="round" />
+      <path d="M97 105 C99 95, 87 92, 81 98" stroke="#B89352" stroke-width="1.2" fill="none" stroke-linecap="round" />
+
+      <!-- Vertical Fluted Pillar Shaft (Batang Tiang Kolom) -->
+      <rect x="55" y="123" width="35" height="580" fill="url(#pillar-shaft-grad)" stroke="#B89352" stroke-width="1.2" />
+      
+      <!-- Fluting Lines (Alur Garis Vertikal Tiang Klasik) -->
+      <line x1="62" y1="128" x2="62" y2="698" stroke="#D5CCBC" stroke-width="1.2" />
+      <line x1="68" y1="128" x2="68" y2="698" stroke="#B89352" stroke-width="0.75" stroke-dasharray="6 4" opacity="0.7" />
+      <line x1="72.5" y1="128" x2="72.5" y2="698" stroke="#4A5D43" stroke-width="0.9" opacity="0.6" />
+      <line x1="77" y1="128" x2="77" y2="698" stroke="#B89352" stroke-width="0.75" stroke-dasharray="6 4" opacity="0.7" />
+      <line x1="83" y1="128" x2="83" y2="698" stroke="#D5CCBC" stroke-width="1.2" />
+
+      <!-- Pillar Pedestal & Base Plinth (Kaki Tiang / Dudukan Marmer) -->
+      <rect x="52" y="703" width="41" height="12" rx="2" fill="#EFEADF" stroke="#4A5D43" stroke-width="1" />
+      <rect x="46" y="715" width="53" height="18" rx="3" fill="#FAF8F5" stroke="#B89352" stroke-width="1.4" />
+      <rect x="42" y="733" width="61" height="15" rx="3" fill="#E8E2D4" stroke="#8C6D34" stroke-width="1.2" />
+      <!-- Base Gold Trim -->
+      <line x1="45" y1="740" x2="100" y2="740" stroke="#B89352" stroke-width="0.8" stroke-dasharray="2 1.5" />
+    </g>
+
+    <!-- =====================================================================
+         3. RIGHT ARCHITECTURAL PILLAR (PILAR TIANG KANAN)
+         ===================================================================== -->
+    <g class="gate-pillar-right">
+      <!-- Classical Pillar Capital (Kepala Tiang) -->
+      <rect x="505" y="105" width="45" height="10" rx="2" fill="#FAF8F5" stroke="#B89352" stroke-width="1.2" />
+      <rect x="509" y="115" width="37" height="8" rx="1.5" fill="#EFEADF" stroke="#4A5D43" stroke-width="0.9" />
+      <path d="M503 105 C501 95, 513 92, 519 98" stroke="#B89352" stroke-width="1.2" fill="none" stroke-linecap="round" />
+      <path d="M552 105 C554 95, 542 92, 536 98" stroke="#B89352" stroke-width="1.2" fill="none" stroke-linecap="round" />
+
+      <!-- Vertical Fluted Pillar Shaft (Batang Tiang Kolom) -->
+      <rect x="510" y="123" width="35" height="580" fill="url(#pillar-shaft-grad)" stroke="#B89352" stroke-width="1.2" />
+      
+      <!-- Fluting Lines (Alur Garis Vertikal Tiang Klasik) -->
+      <line x1="517" y1="128" x2="517" y2="698" stroke="#D5CCBC" stroke-width="1.2" />
+      <line x1="523" y1="128" x2="523" y2="698" stroke="#B89352" stroke-width="0.75" stroke-dasharray="6 4" opacity="0.7" />
+      <line x1="527.5" y1="128" x2="527.5" y2="698" stroke="#4A5D43" stroke-width="0.9" opacity="0.6" />
+      <line x1="532" y1="128" x2="532" y2="698" stroke="#B89352" stroke-width="0.75" stroke-dasharray="6 4" opacity="0.7" />
+      <line x1="538" y1="128" x2="538" y2="698" stroke="#D5CCBC" stroke-width="1.2" />
+
+      <!-- Pillar Pedestal & Base Plinth (Kaki Tiang / Dudukan Marmer) -->
+      <rect x="507" y="703" width="41" height="12" rx="2" fill="#EFEADF" stroke="#4A5D43" stroke-width="1" />
+      <rect x="501" y="715" width="53" height="18" rx="3" fill="#FAF8F5" stroke="#B89352" stroke-width="1.4" />
+      <rect x="497" y="733" width="61" height="15" rx="3" fill="#E8E2D4" stroke="#8C6D34" stroke-width="1.2" />
+      <!-- Base Gold Trim -->
+      <line x1="500" y1="740" x2="555" y2="740" stroke="#B89352" stroke-width="0.8" stroke-dasharray="2 1.5" />
+    </g>
+
+    <!-- =====================================================================
+         4. OPEN WROUGHT-GOLD CEREMONIAL GATES (PINTU GERBANG EMAS TERBUKA)
+         Swung open in perspective toward the viewer, welcoming the guest inside
+         ===================================================================== -->
+    <!-- Left Open Gate Wing -->
+    <g class="gate-door-left" opacity="0.75">
+      <!-- Main Outer Gate Stile Frame (Angled open) -->
+      <path d="M90 200 L140 220 L140 670 L90 690 Z" fill="none" stroke="#B89352" stroke-width="1.4" />
+      <path d="M98 215 L132 230 L132 655 L98 672 Z" fill="none" stroke="#4A5D43" stroke-width="0.8" stroke-dasharray="4 2" />
+
+      <!-- Vertical Spearhead Rail Bars -->
+      <line x1="108" y1="208" x2="108" y2="682" stroke="#B89352" stroke-width="1" />
+      <path d="M108 200 L105 208 L111 208 Z" fill="#D4AF6E" stroke="#B89352" stroke-width="0.6" />
+
+      <line x1="120" y1="213" x2="120" y2="676" stroke="#B89352" stroke-width="1" />
+      <path d="M120 205 L117 213 L123 213 Z" fill="#D4AF6E" stroke="#B89352" stroke-width="0.6" />
+
+      <!-- Ornate Gate Lock Scroll Medallion -->
+      <circle cx="138" cy="445" r="7" fill="#FAF8F5" stroke="#B89352" stroke-width="1" />
+      <path d="M138 440 C144 445, 144 450, 138 455" stroke="#4A5D43" stroke-width="0.9" fill="none" />
+      <circle cx="138" cy="447.5" r="1.5" fill="#B89352" />
+
+      <!-- Lower Decorative Cross-Brace -->
+      <path d="M98 560 L132 600" stroke="#B89352" stroke-width="0.9" opacity="0.6" />
+      <path d="M98 600 L132 560" stroke="#B89352" stroke-width="0.9" opacity="0.6" />
+    </g>
+
+    <!-- Right Open Gate Wing -->
+    <g class="gate-door-right" opacity="0.75">
+      <!-- Main Outer Gate Stile Frame (Angled open) -->
+      <path d="M510 200 L460 220 L460 670 L510 690 Z" fill="none" stroke="#B89352" stroke-width="1.4" />
+      <path d="M502 215 L468 230 L468 655 L502 672 Z" fill="none" stroke="#4A5D43" stroke-width="0.8" stroke-dasharray="4 2" />
+
+      <!-- Vertical Spearhead Rail Bars -->
+      <line x1="492" y1="208" x2="492" y2="682" stroke="#B89352" stroke-width="1" />
+      <path d="M492 200 L489 208 L495 208 Z" fill="#D4AF6E" stroke="#B89352" stroke-width="0.6" />
+
+      <line x1="480" y1="213" x2="480" y2="676" stroke="#B89352" stroke-width="1" />
+      <path d="M480 205 L477 213 L483 213 Z" fill="#D4AF6E" stroke="#B89352" stroke-width="0.6" />
+
+      <!-- Ornate Gate Lock Scroll Medallion -->
+      <circle cx="462" cy="445" r="7" fill="#FAF8F5" stroke="#B89352" stroke-width="1" />
+      <path d="M462 440 C456 445, 456 450, 462 455" stroke="#4A5D43" stroke-width="0.9" fill="none" />
+      <circle cx="462" cy="447.5" r="1.5" fill="#B89352" />
+
+      <!-- Lower Decorative Cross-Brace -->
+      <path d="M502 560 L468 600" stroke="#B89352" stroke-width="0.9" opacity="0.6" />
+      <path d="M502 600 L468 560" stroke="#B89352" stroke-width="0.9" opacity="0.6" />
+    </g>
+
+    <!-- Bottom Sill / Threshold Guideline -->
+    <line x1="85" y1="745" x2="515" y2="745" stroke="#B89352" stroke-width="0.8" stroke-dasharray="4 3" opacity="0.4" />
+
+    <!-- Gradient Definitions -->
+    <defs>
+      <!-- Warm Ambient Golden Radiance inside Gate Arch -->
+      <radialGradient id="gate-ambient-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#B89352" stop-opacity="0.18" />
+        <stop offset="65%" stop-color="#566A4E" stop-opacity="0.04" />
+        <stop offset="100%" stop-color="#FAF8F5" stop-opacity="0" />
+      </radialGradient>
+
+      <!-- Classical Fluted Pillar Linear Gradient -->
+      <linearGradient id="pillar-shaft-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#FFFFFF" />
+        <stop offset="35%" stop-color="#FAF7F0" />
+        <stop offset="70%" stop-color="#F2EDE2" />
+        <stop offset="100%" stop-color="#E5DEC8" />
+      </linearGradient>
+    </defs>
+  </svg>
+</div>
+
+<style>
+  .gate-door-left {
+    transform-origin: 90px 445px;
+    animation: gentleGateBreezeLeft 7s ease-in-out infinite alternate;
+  }
+  .gate-door-right {
+    transform-origin: 510px 445px;
+    animation: gentleGateBreezeRight 7.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes gentleGateBreezeLeft {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(-3deg); }
+  }
+
+  @keyframes gentleGateBreezeRight {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(3deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gate-door-left, .gate-door-right {
+      animation: none !important;
+    }
+  }
+</style>
