@@ -1,5 +1,5 @@
 ---
-// CelestialSunStage.astro — Dynamic Celestial Sun & Sky Atmosphere (Sunrise -> Midday -> Sunset)
+// CelestialSunStage.astro — Photorealistic Celestial Sun with Concentric Halos & Cinematic Bokeh Orbs
 ---
 
 <div id="celestial-stage" class="fixed inset-0 pointer-events-none z-[4] overflow-hidden" aria-hidden="true">
@@ -12,66 +12,108 @@
   <div 
     id="sky-sunrise" 
     class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out will-change-opacity"
-    style="background: radial-gradient(circle at 18% 70%, rgba(247, 218, 198, 0.48) 0%, rgba(245, 230, 215, 0.25) 40%, transparent 75%);"
+    style="background: radial-gradient(circle at 18% 70%, rgba(247, 218, 198, 0.45) 0%, rgba(245, 230, 215, 0.22) 40%, transparent 75%);"
   ></div>
 
   <!-- Phase 2: Midday Sky (Radiant Champagne Sunlight & Pristine Daylight from Zenith) -->
   <div 
     id="sky-midday" 
     class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out will-change-opacity"
-    style="background: radial-gradient(circle at 50% 12%, rgba(255, 248, 230, 0.50) 0%, rgba(245, 238, 222, 0.25) 45%, transparent 75%);"
+    style="background: radial-gradient(circle at 50% 12%, rgba(255, 248, 230, 0.48) 0%, rgba(245, 238, 222, 0.22) 45%, transparent 75%);"
   ></div>
 
   <!-- Phase 3: Sunset Sky (Rich Amber, Terracotta & Golden Hour Warmth) -->
   <div 
     id="sky-sunset" 
     class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out will-change-opacity"
-    style="background: radial-gradient(ellipse at 50% 65%, rgba(238, 175, 115, 0.42) 0%, rgba(215, 140, 85, 0.20) 45%, rgba(184, 147, 82, 0.08) 70%, transparent 95%);"
+    style="background: radial-gradient(ellipse at 50% 30%, rgba(238, 175, 115, 0.38) 0%, rgba(215, 140, 85, 0.18) 45%, rgba(184, 147, 82, 0.06) 70%, transparent 95%);"
   ></div>
 
   <!-- =========================================================================
-       THE CELESTIAL RADIANT SUN (Moves smoothly along an arching celestial parabola)
+       THE CELESTIAL RADIANT SUN (Photorealistic Luminous Core + Bokeh Orbs)
        ========================================================================= -->
   <div 
     id="celestial-sun-wrapper" 
-    class="fixed top-0 left-0 w-28 h-28 sm:w-36 sm:h-36 -translate-x-1/2 -translate-y-1/2 opacity-0 pointer-events-none z-[5] will-change-transform"
+    class="fixed top-0 left-0 w-36 h-36 sm:w-48 sm:h-48 -translate-x-1/2 -translate-y-1/2 opacity-0 pointer-events-none z-[5] will-change-transform flex items-center justify-center"
   >
-    <!-- Wide Atmospheric Diffuse Glow -->
+    <!-- 1. Ambient Volumetric Golden Glow (Wide Soft Atmosphere) -->
     <div 
       id="sun-outer-glow" 
-      class="absolute -inset-10 sm:-inset-16 rounded-full transition-all duration-500 ease-out pointer-events-none"
-      style="background: radial-gradient(circle, rgba(255, 205, 90, 0.38) 0%, rgba(240, 160, 50, 0.14) 45%, transparent 70%);"
+      class="absolute -inset-16 sm:-inset-24 rounded-full transition-all duration-700 ease-out pointer-events-none"
+      style="background: radial-gradient(circle, rgba(255, 215, 110, 0.35) 0%, rgba(245, 165, 60, 0.15) 40%, rgba(230, 130, 40, 0.05) 60%, transparent 75%); filter: blur(12px);"
     ></div>
 
-    <!-- Soft Golden Sun Rays Starburst -->
+    <!-- 2. Concentric Ethereal Corona Rings ("Bulatan-Bulatan Pendaran Cahaya") -->
+    <!-- Outermost Atmospheric Ring -->
+    <div class="sun-ring sun-ring-3 absolute w-[240%] h-[240%] rounded-full border border-[#E68A2E]/20 bg-[radial-gradient(circle,rgba(255,200,90,0.08)_0%,transparent_70%)] animate-[pulse_6s_ease-in-out_infinite]"></div>
+    
+    <!-- Mid Concentric Solar Halo Ring -->
+    <div class="sun-ring sun-ring-2 absolute w-[180%] h-[180%] rounded-full border border-[#F5B842]/30 shadow-[0_0_25px_rgba(245,184,66,0.15)] animate-[pulse_4s_ease-in-out_infinite_0.5s]"></div>
+    
+    <!-- Inner Fine Gold Corona Ring -->
+    <div class="sun-ring sun-ring-1 absolute w-[130%] h-[130%] rounded-full border border-[#FFF8E7]/55 shadow-[0_0_15px_rgba(255,248,231,0.3)]"></div>
+
+    <!-- 3. Cinematic Optical Bokeh Bubbles ("Bulatan-Bulatan Bokeh Lensa Kamera") -->
+    <!-- Bokeh Orb 1: Upper-Right Floating Luminous Sphere -->
+    <div 
+      class="bokeh-orb absolute -top-8 -right-8 w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-white/45 bg-gradient-to-tr from-white/20 via-[#FFE6A0]/15 to-transparent backdrop-blur-[1px] shadow-[0_0_20px_rgba(255,230,160,0.25)] animate-[floatSlow_7s_ease-in-out_infinite_alternate]"
+    ></div>
+
+    <!-- Bokeh Orb 2: Lower-Left Amber Glow Bubble -->
+    <div 
+      class="bokeh-orb absolute -bottom-6 -left-7 w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-[#F5B842]/35 bg-[#E68A2E]/10 backdrop-blur-[1px] shadow-[0_0_15px_rgba(230,138,46,0.2)] animate-[floatSlow_5s_ease-in-out_infinite_alternate_1s]"
+    ></div>
+
+    <!-- Bokeh Orb 3: Distant Micro-Light Flare Dot -->
+    <div 
+      class="bokeh-orb absolute -top-12 left-10 w-4 h-4 rounded-full bg-white/70 shadow-[0_0_12px_rgba(255,255,255,0.8)] animate-pulse"
+    ></div>
+
+    <!-- Bokeh Orb 4: Soft Rose-Gold Secondary Lens Ring -->
+    <div 
+      class="bokeh-orb absolute bottom-8 -right-12 w-10 h-10 sm:w-14 sm:h-14 rounded-full border border-[#E69A48]/30 bg-gradient-to-br from-[#FFD580]/15 to-transparent animate-[floatSlow_6s_ease-in-out_infinite_alternate_2s]"
+    ></div>
+
+    <!-- 4. Soft Golden Sun Rays (Feathered Celestial Diffraction Spikes) -->
     <svg 
       id="sun-rays"
-      class="absolute -inset-4 sm:-inset-6 w-[calc(100%+2rem)] sm:w-[calc(100%+3rem)] h-[calc(100%+2rem)] sm:h-[calc(100%+3rem)] text-[#EAA845]/30 animate-[spin_60s_linear_infinite] pointer-events-none" 
+      class="absolute -inset-6 sm:-inset-10 w-[calc(100%+3rem)] sm:w-[calc(100%+5rem)] h-[calc(100%+3rem)] sm:h-[calc(100%+5rem)] text-[#EAA845]/25 animate-[spin_90s_linear_infinite] pointer-events-none" 
       viewBox="0 0 100 100" 
       fill="none"
     >
-      <line x1="50" y1="5" x2="50" y2="18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-      <line x1="50" y1="82" x2="50" y2="95" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-      <line x1="5" y1="50" x2="18" y2="50" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-      <line x1="82" y1="50" x2="95" y2="50" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-      <line x1="18" y1="18" x2="27" y2="27" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
-      <line x1="73" y1="73" x2="82" y2="82" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
-      <line x1="18" y1="82" x2="27" y2="73" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
-      <line x1="73" y1="27" x2="82" y2="18" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+      <line x1="50" y1="2" x2="50" y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+      <line x1="50" y1="80" x2="50" y2="98" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+      <line x1="2" y1="50" x2="20" y2="50" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+      <line x1="80" y1="50" x2="98" y2="50" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+      <line x1="16" y1="16" x2="28" y2="28" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+      <line x1="72" y1="72" x2="84" y2="84" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+      <line x1="16" y1="84" x2="28" y2="72" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+      <line x1="72" y1="28" x2="84" y2="16" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
     </svg>
 
-    <!-- Radiant Inner Core & Corona -->
+    <!-- 5. Photorealistic Luminous Solar Core (Feathered Light Dissipation, NO HARSH EDGES) -->
     <div 
       id="sun-sphere" 
-      class="w-full h-full rounded-full relative transition-all duration-500 ease-out shadow-[0_0_40px_rgba(240,170,60,0.65)]"
-      style="background: radial-gradient(circle at 35% 35%, #FFFDF5 0%, #FFE6A0 35%, #F5B842 70%, #E68A2E 100%);"
+      class="w-20 h-20 sm:w-28 sm:h-28 rounded-full relative transition-all duration-700 ease-out"
+      style="background: radial-gradient(circle at 40% 40%, #FFFFFF 0%, #FFF8E0 25%, #FFD27D 50%, #F5A623 75%, rgba(230, 138, 46, 0) 100%); filter: drop-shadow(0 0 35px rgba(245, 170, 50, 0.85)) blur(0.5px);"
     >
-      <!-- Concentric Delicate Golden Halo Ring -->
-      <div class="absolute inset-[-4px] sm:inset-[-6px] rounded-full border border-[#FAF8F5]/50 opacity-70 pointer-events-none"></div>
+      <!-- Intense Pure-White Solar Flare Center -->
+      <div class="absolute inset-3 sm:inset-4 rounded-full bg-white/90 blur-[3px]"></div>
     </div>
   </div>
 
 </div>
+
+<style>
+  @keyframes floatSlow {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    100% {
+      transform: translate(6px, -8px) scale(1.08);
+    }
+  }
+</style>
 
 <script>
   import gsap from 'gsap';
@@ -119,29 +161,35 @@
     // PARABOLIC CELESTIAL SUN TRAJECTORY & ATMOSPHERE INTERPOLATION
     // Sunrise (Fajar) -> Midday (Siang) -> Sunset (Senja)
     // =========================================================================
-    const windowW = window.innerWidth;
-    const windowH = window.innerHeight;
+    function calculateCoordinates() {
+      const windowW = window.innerWidth;
+      const windowH = window.innerHeight;
 
-    // Phase 1 coordinates: Sunrise (bottom-left)
-    const pSunrise = {
-      x: windowW * 0.16,
-      y: windowH * 0.62,
-      scale: 0.82
-    };
+      // Phase 1: Sunrise (bottom-left)
+      const pSunrise = {
+        x: windowW * 0.16,
+        y: windowH * 0.62,
+        scale: 0.82
+      };
 
-    // Phase 2 coordinates: Midday (high-zenith, slightly right of center for organic arc)
-    const pMidday = {
-      x: windowW * 0.52,
-      y: windowH * 0.12,
-      scale: 1.0
-    };
+      // Phase 2: Midday (high-zenith, slightly right of center for organic arc)
+      const pMidday = {
+        x: windowW * 0.52,
+        y: windowH * 0.12,
+        scale: 1.0
+      };
 
-    // Phase 3 coordinates: Sunset (centered on horizon, setting into closing panorama)
-    const pSunset = {
-      x: windowW * 0.50,
-      y: windowH * 0.42,
-      scale: 1.35
-    };
+      // Phase 3: Sunset (Centered in upper landscape horizon of Closing, NOT on top of text/swans)
+      const pSunset = {
+        x: windowW * 0.50,
+        y: windowH * 0.22,
+        scale: 1.35
+      };
+
+      return { pSunrise, pMidday, pSunset };
+    }
+
+    let { pSunrise, pMidday, pSunset } = calculateCoordinates();
 
     // Set initial position
     gsap.set(sunWrapper, {
@@ -162,9 +210,9 @@
 
     // 0.0 -> 0.45: Sunrise rising to Midday
     sunTL.to(sunWrapper, {
-      x: pMidday.x,
-      y: pMidday.y,
-      scale: pMidday.scale,
+      x: () => calculateCoordinates().pMidday.x,
+      y: () => calculateCoordinates().pMidday.y,
+      scale: () => calculateCoordinates().pMidday.scale,
       ease: 'power1.out',
       duration: 0.45
     }, 0);
@@ -177,9 +225,9 @@
 
     // 0.45 -> 1.0: Midday descending into Sunset
     sunTL.to(sunWrapper, {
-      x: pSunset.x,
-      y: pSunset.y,
-      scale: pSunset.scale,
+      x: () => calculateCoordinates().pSunset.x,
+      y: () => calculateCoordinates().pSunset.y,
+      scale: () => calculateCoordinates().pSunset.scale,
       ease: 'power1.inOut',
       duration: 0.55
     }, 0.45);
@@ -193,13 +241,13 @@
     // Deepen sun sphere glow into rich golden hour & terracotta
     if (sunSphere && sunGlow) {
       sunTL.to(sunSphere, {
-        boxShadow: '0 0 75px rgba(235, 140, 50, 0.85)',
+        filter: 'drop-shadow(0 0 55px rgba(235, 130, 40, 0.95)) blur(0.5px)',
         duration: 0.45,
         ease: 'power2.out'
       }, 0.55);
 
       sunTL.to(sunGlow, {
-        scale: 1.4,
+        scale: 1.45,
         opacity: 1,
         duration: 0.45,
         ease: 'power2.out'
