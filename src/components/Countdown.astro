@@ -23,7 +23,7 @@ const calendarCells = [
 ];
 ---
 
-<section id="countdown" class="stacked-deck-card deck-section section-flow relative px-4 overflow-hidden z-[32] pt-24 sm:pt-28 pb-20 sm:pb-24 -mt-8 sm:-mt-12" aria-label="Hitung Mundur Acara"
+<section id="countdown" class="deck-section section-flow relative px-4 overflow-hidden z-30 pt-20 pb-24" aria-label="Hitung Mundur Acara"
          data-date={content.event.date} data-time={content.event.akad.time.split(' ')[0]} data-timezone={content.event.timezone}>
   
   <div class="max-w-xl mx-auto text-center w-full relative z-10">
@@ -172,43 +172,53 @@ const calendarCells = [
       </p>
     </div>
 
-    <!-- Countdown Grid (Live Real-Time Ticking Boxes) -->
-    <div id="countdown-grid" class="grid grid-cols-4 gap-2 sm:gap-3.5 max-w-md mx-auto">
+    <!-- Countdown Grid (Floating Gilded Astrolabe Medallions) -->
+    <div id="countdown-grid" class="flex items-center justify-center gap-2 sm:gap-4 max-w-md mx-auto">
       
       <!-- Hari -->
-      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-2.5 sm:p-4 flex flex-col items-center shadow-[0_6px_20px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card" data-foil="true">
-        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
-        <span id="countdown-days" class="font-display text-2xl sm:text-4xl text-[#2A3426] font-normal tabular-nums leading-none my-1">
-          00
-        </span>
-        <span class="text-[0.52rem] sm:text-xs text-[#566A4E] uppercase tracking-widest mt-0.5 font-medium">Hari</span>
+      <div class="countdown-box flex flex-col items-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/40 bg-white/80 backdrop-blur-xs flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.12)] hover:border-[#B89352] transition-colors relative group">
+          <span id="countdown-days" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none">
+            00
+          </span>
+          <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold">Hari</span>
+        </div>
       </div>
+
+      <span class="text-[#B89352]/60 text-xs sm:text-sm font-serif select-none">•</span>
 
       <!-- Jam -->
-      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-2.5 sm:p-4 flex flex-col items-center shadow-[0_6px_20px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card" data-foil="true">
-        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
-        <span id="countdown-hours" class="font-display text-2xl sm:text-4xl text-[#2A3426] font-normal tabular-nums leading-none my-1">
-          00
-        </span>
-        <span class="text-[0.52rem] sm:text-xs text-[#566A4E] uppercase tracking-widest mt-0.5 font-medium">Jam</span>
+      <div class="countdown-box flex flex-col items-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/40 bg-white/80 backdrop-blur-xs flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.12)] hover:border-[#B89352] transition-colors relative group">
+          <span id="countdown-hours" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none">
+            00
+          </span>
+          <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold">Jam</span>
+        </div>
       </div>
+
+      <span class="text-[#B89352]/60 text-xs sm:text-sm font-serif select-none">•</span>
 
       <!-- Menit -->
-      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-2.5 sm:p-4 flex flex-col items-center shadow-[0_6px_20px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card" data-foil="true">
-        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
-        <span id="countdown-minutes" class="font-display text-2xl sm:text-4xl text-[#2A3426] font-normal tabular-nums leading-none my-1">
-          00
-        </span>
-        <span class="text-[0.52rem] sm:text-xs text-[#566A4E] uppercase tracking-widest mt-0.5 font-medium">Menit</span>
+      <div class="countdown-box flex flex-col items-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/40 bg-white/80 backdrop-blur-xs flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.12)] hover:border-[#B89352] transition-colors relative group">
+          <span id="countdown-minutes" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none">
+            00
+          </span>
+          <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold">Menit</span>
+        </div>
       </div>
 
+      <span class="text-[#B89352]/60 text-xs sm:text-sm font-serif select-none">•</span>
+
       <!-- Detik -->
-      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-2.5 sm:p-4 flex flex-col items-center shadow-[0_6px_20px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card" data-foil="true">
-        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
-        <span id="countdown-seconds" class="font-display text-2xl sm:text-4xl text-[#2A3426] font-normal tabular-nums leading-none my-1">
-          00
-        </span>
-        <span class="text-[0.52rem] sm:text-xs text-[#566A4E] uppercase tracking-widest mt-0.5 font-medium">Detik</span>
+      <div class="countdown-box flex flex-col items-center">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/40 bg-white/80 backdrop-blur-xs flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.12)] hover:border-[#B89352] transition-colors relative group">
+          <span id="countdown-seconds" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none">
+            00
+          </span>
+          <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold">Detik</span>
+        </div>
       </div>
 
     </div>

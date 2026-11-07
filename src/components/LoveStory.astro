@@ -1,16 +1,16 @@
 ---
-// LoveStory.astro — Vertical Editorial Timeline with Dynamic Glowing Scroll Scrub
+// LoveStory.astro — Open Editorial Magazine Timeline with Giant Watermark Years & Glowing Gold Vine
 import content from '../data/content.json';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 ---
 
-<section id="love-story" class="stacked-deck-card deck-section section-flow relative px-4 overflow-hidden z-[33] pt-24 sm:pt-28 pb-20 sm:pb-24 -mt-8 sm:-mt-12" aria-label="Kisah Perjalanan Mempelai">
+<section id="love-story" class="deck-section section-flow relative px-4 overflow-hidden z-30 pt-20 pb-24" aria-label="Kisah Perjalanan Mempelai">
   
   <div class="max-w-3xl mx-auto w-full relative z-10">
     
     <!-- Section Header -->
-    <div class="text-center mb-12 md:mb-16 story-header">
-      <p class="text-overline tracking-[0.28em]">
+    <div class="text-center mb-14 md:mb-20 story-header">
+      <p class="text-overline tracking-[0.28em] text-[0.62rem] sm:text-xs text-[#B89352] font-semibold uppercase mb-1">
         KISAH KAMI
       </p>
       <div class="kinetic-heading-mask my-1">
@@ -18,55 +18,72 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
           Sebuah Awal Cerita
         </h2>
       </div>
-      <div class="my-2 flex justify-center opacity-70">
-        <FloralFlourish width={160} height={24} />
+      <div class="my-2 flex justify-center opacity-75">
+        <FloralFlourish width={160} height={22} />
       </div>
-      <p class="text-xs text-[#566A4E] font-light tracking-wider">
-        Setiap babak perjalanan yang mengantarkan kami hingga hari ini
+      <p class="text-xs text-[#566A4E] font-light tracking-wider italic">
+        Setiap babak perjalanan yang mengantarkan kami hingga hari bahagia ini
       </p>
     </div>
 
-    <!-- Vertical Timeline Container -->
+    <!-- Vertical Editorial Timeline Container -->
     <div id="timeline-container" class="relative max-w-2xl mx-auto">
       
       <!-- Central Background Guide Line -->
-      <div class="absolute left-4 md:left-1/2 top-4 bottom-4 w-[2px] bg-[#566A4E]/15 -translate-x-1/2"></div>
+      <div class="absolute left-4 md:left-1/2 top-4 bottom-4 w-[2px] bg-[#B89352]/15 -translate-x-1/2"></div>
       
       <!-- Central Dynamic Glowing Gold Progress Line -->
-      <div id="timeline-progress-line" class="absolute left-4 md:left-1/2 top-4 w-[2px] bg-gradient-to-b from-[#B89352] via-[#D4AF6E] to-[#4A5D43] -translate-x-1/2 origin-top will-change-transform shadow-[0_0_8px_rgba(184,147,82,0.4)]" style="height: 0%;"></div>
+      <div id="timeline-progress-line" class="absolute left-4 md:left-1/2 top-4 w-[2px] bg-gradient-to-b from-[#B89352] via-[#D4AF6E] to-[#4A5D43] -translate-x-1/2 origin-top will-change-transform shadow-[0_0_10px_rgba(184,147,82,0.5)]" style="height: 0%;"></div>
 
-      <!-- Timeline Items -->
-      <div class="flex flex-col gap-8 md:gap-12">
+      <!-- Timeline Open Editorial Milestones -->
+      <div class="flex flex-col gap-12 md:gap-16">
         {content.loveStory.map((item, idx) => {
           const isEven = idx % 2 === 0;
           return (
-            <div class={`story-item relative flex flex-col md:flex-row items-start ${isEven ? 'md:flex-row-reverse' : ''} gap-6 md:gap-10 pl-10 md:pl-0`}>
+            <div class={`story-item relative flex flex-col md:flex-row items-start ${isEven ? 'md:flex-row-reverse' : ''} gap-6 md:gap-12 pl-10 md:pl-0`}>
               
               <!-- Timeline Dot Node with Gold Aura -->
-              <div class="story-node absolute left-4 md:left-1/2 top-5 -translate-x-1/2 w-5 h-5 rounded-full border-2 border-[#566A4E]/30 bg-[#FAF8F5] flex items-center justify-center shadow-sm z-10 transition-all duration-500">
-                <div class="w-2 h-2 rounded-full bg-[#B89352]/50 node-inner transition-transform duration-500"></div>
+              <div class="story-node absolute left-4 md:left-1/2 top-4 -translate-x-1/2 w-6 h-6 rounded-full border-2 border-[#B89352]/40 bg-[#FAF8F5] flex items-center justify-center shadow-sm z-10 transition-all duration-500">
+                <div class="w-2.5 h-2.5 rounded-full bg-[#B89352]/60 node-inner transition-transform duration-500"></div>
               </div>
 
-              <!-- Story Card Content -->
-              <article class={`w-full md:w-[calc(50%-2rem)] bg-white/95 border border-[#566A4E]/20 p-5 sm:p-7 rounded-2xl shadow-[0_10px_30px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card ${isEven ? 'md:text-right' : 'md:text-left'}`} data-foil="true">
-                <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
+              <!-- Open Editorial Story Content (No Box Card!) -->
+              <div class={`w-full md:w-[calc(50%-2.5rem)] relative ${isEven ? 'md:text-right' : 'md:text-left'} py-1 group`}>
                 
-                <span class="text-[0.62rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold block mb-1">
-                  CHAPTER 0{idx + 1}
-                </span>
-                
-                <div class="font-display text-2xl sm:text-3xl text-[#2A3426] font-normal mb-1">
+                <!-- Giant Artistic Translucent Watermark Year -->
+                <span class={`font-display text-5xl sm:text-7xl text-[#B89352]/18 font-bold block select-none -mb-4 tracking-tighter leading-none ${isEven ? 'md:mr-0' : 'md:ml-0'}`}>
                   {item.year}
+                </span>
+
+                <div class="relative z-10">
+                  
+                  <!-- Chapter Badge -->
+                  <div class={`inline-flex items-center gap-2 mb-1.5 ${isEven ? 'md:flex-row-reverse' : ''}`}>
+                    <span class="text-[0.6rem] sm:text-[0.65rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold">
+                      BABAK 0{idx + 1}
+                    </span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#B89352]/60"></span>
+                    <span class="text-[0.68rem] text-[#7E8F77] font-mono tracking-wider">
+                      {item.year}
+                    </span>
+                  </div>
+
+                  <!-- Milestone Title -->
+                  <h3 class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal mb-2 leading-snug">
+                    {item.title}
+                  </h3>
+
+                  <!-- Milestone Text -->
+                  <p class="text-xs sm:text-sm text-[#4A5D43] font-light leading-relaxed max-w-sm">
+                    {item.text}
+                  </p>
+
+                  <!-- Subtle Gold Accent Line Under Story -->
+                  <div class={`h-[1px] w-20 bg-gradient-to-r ${isEven ? 'md:from-transparent md:to-[#B89352]/50 from-[#B89352]/50 to-transparent md:ml-auto' : 'from-[#B89352]/50 to-transparent'} mt-3`}></div>
+
                 </div>
-                
-                <h3 class="font-display text-base sm:text-lg text-[#3E4C38] font-normal mb-2 leading-snug">
-                  {item.title}
-                </h3>
-                
-                <p class="text-xs sm:text-sm text-[#566A4E] font-light leading-relaxed">
-                  {item.text}
-                </p>
-              </article>
+
+              </div>
 
             </div>
           );
@@ -123,11 +140,11 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
             once: true,
             onEnter: () => {
               if (node) {
-                node.classList.remove('border-[#566A4E]/30');
+                node.classList.remove('border-[#B89352]/40');
                 node.classList.add('border-[#B89352]', 'shadow-[0_0_12px_rgba(184,147,82,0.5)]');
               }
               if (innerNode) {
-                innerNode.classList.remove('bg-[#B89352]/50');
+                innerNode.classList.remove('bg-[#B89352]/60');
                 innerNode.classList.add('bg-[#B89352]', 'scale-125');
               }
             }

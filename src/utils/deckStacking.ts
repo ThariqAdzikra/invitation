@@ -1,30 +1,30 @@
-// deckStacking.ts — GSAP ScrollTrigger Parallax Layered Card Deck Stacking Engine
+// deckStacking.ts — GSAP ScrollTrigger Organic Editorial Section Transitions
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function initDeckStacking() {
-  const cards = gsap.utils.toArray<HTMLElement>('.stacked-deck-card');
-  if (!cards || cards.length === 0) return;
+export function initSectionTransitions() {
+  const sections = gsap.utils.toArray<HTMLElement>('.section-flow');
+  if (!sections || sections.length === 0) return;
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) return;
 
-  // Animate each card as the NEXT card scrolls up and layers over it
-  cards.forEach((card, i) => {
-    const nextCard = cards[i + 1];
-    if (!nextCard) return;
+  // Add subtle organic depth and parallax float as each varied section enters and leaves
+  sections.forEach((sec, i) => {
+    const nextSec = sections[i + 1];
+    if (!nextSec) return;
 
-    gsap.to(card, {
-      scale: 0.96,
-      opacity: 0.82,
-      y: 28,
+    // As next section enters, gently relax the current section with subtle depth
+    gsap.to(sec, {
+      opacity: 0.88,
+      y: 30,
       ease: 'none',
       scrollTrigger: {
-        trigger: nextCard,
+        trigger: nextSec,
         start: 'top bottom',
-        end: 'top top+=90',
+        end: 'top center',
         scrub: 1.2,
       }
     });
@@ -40,8 +40,8 @@ export function initDeckStacking() {
 
 if (typeof window !== 'undefined') {
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initDeckStacking);
+    document.addEventListener('DOMContentLoaded', initSectionTransitions);
   } else {
-    initDeckStacking();
+    initSectionTransitions();
   }
 }
