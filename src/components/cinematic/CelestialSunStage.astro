@@ -1,0 +1,220 @@
+---
+// CelestialSunStage.astro — Dynamic Celestial Sun & Sky Atmosphere (Sunrise -> Midday -> Sunset)
+---
+
+<div id="celestial-stage" class="fixed inset-0 pointer-events-none z-[4] overflow-hidden" aria-hidden="true">
+  
+  <!-- =========================================================================
+       ATMOSPHERIC SKY FILTERS (Three-Phase Ambient Lighting on Cream Linen)
+       ========================================================================= -->
+  
+  <!-- Phase 1: Sunrise Sky (Rosy Peach & Morning Gold from lower-left horizon) -->
+  <div 
+    id="sky-sunrise" 
+    class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out will-change-opacity"
+    style="background: radial-gradient(circle at 18% 70%, rgba(247, 218, 198, 0.48) 0%, rgba(245, 230, 215, 0.25) 40%, transparent 75%);"
+  ></div>
+
+  <!-- Phase 2: Midday Sky (Radiant Champagne Sunlight & Pristine Daylight from Zenith) -->
+  <div 
+    id="sky-midday" 
+    class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out will-change-opacity"
+    style="background: radial-gradient(circle at 50% 12%, rgba(255, 248, 230, 0.50) 0%, rgba(245, 238, 222, 0.25) 45%, transparent 75%);"
+  ></div>
+
+  <!-- Phase 3: Sunset Sky (Rich Amber, Terracotta & Golden Hour Warmth) -->
+  <div 
+    id="sky-sunset" 
+    class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out will-change-opacity"
+    style="background: radial-gradient(ellipse at 50% 65%, rgba(238, 175, 115, 0.42) 0%, rgba(215, 140, 85, 0.20) 45%, rgba(184, 147, 82, 0.08) 70%, transparent 95%);"
+  ></div>
+
+  <!-- =========================================================================
+       THE CELESTIAL RADIANT SUN (Moves smoothly along an arching celestial parabola)
+       ========================================================================= -->
+  <div 
+    id="celestial-sun-wrapper" 
+    class="fixed top-0 left-0 w-28 h-28 sm:w-36 sm:h-36 -translate-x-1/2 -translate-y-1/2 opacity-0 pointer-events-none z-[5] will-change-transform"
+  >
+    <!-- Wide Atmospheric Diffuse Glow -->
+    <div 
+      id="sun-outer-glow" 
+      class="absolute -inset-10 sm:-inset-16 rounded-full transition-all duration-500 ease-out pointer-events-none"
+      style="background: radial-gradient(circle, rgba(255, 205, 90, 0.38) 0%, rgba(240, 160, 50, 0.14) 45%, transparent 70%);"
+    ></div>
+
+    <!-- Soft Golden Sun Rays Starburst -->
+    <svg 
+      id="sun-rays"
+      class="absolute -inset-4 sm:-inset-6 w-[calc(100%+2rem)] sm:w-[calc(100%+3rem)] h-[calc(100%+2rem)] sm:h-[calc(100%+3rem)] text-[#EAA845]/30 animate-[spin_60s_linear_infinite] pointer-events-none" 
+      viewBox="0 0 100 100" 
+      fill="none"
+    >
+      <line x1="50" y1="5" x2="50" y2="18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+      <line x1="50" y1="82" x2="50" y2="95" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+      <line x1="5" y1="50" x2="18" y2="50" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+      <line x1="82" y1="50" x2="95" y2="50" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+      <line x1="18" y1="18" x2="27" y2="27" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+      <line x1="73" y1="73" x2="82" y2="82" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+      <line x1="18" y1="82" x2="27" y2="73" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+      <line x1="73" y1="27" x2="82" y2="18" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+    </svg>
+
+    <!-- Radiant Inner Core & Corona -->
+    <div 
+      id="sun-sphere" 
+      class="w-full h-full rounded-full relative transition-all duration-500 ease-out shadow-[0_0_40px_rgba(240,170,60,0.65)]"
+      style="background: radial-gradient(circle at 35% 35%, #FFFDF5 0%, #FFE6A0 35%, #F5B842 70%, #E68A2E 100%);"
+    >
+      <!-- Concentric Delicate Golden Halo Ring -->
+      <div class="absolute inset-[-4px] sm:inset-[-6px] rounded-full border border-[#FAF8F5]/50 opacity-70 pointer-events-none"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initCelestialSun() {
+    const sunWrapper = document.getElementById('celestial-sun-wrapper');
+    const sunSphere = document.getElementById('sun-sphere');
+    const sunGlow = document.getElementById('sun-outer-glow');
+    const skySunrise = document.getElementById('sky-sunrise');
+    const skyMidday = document.getElementById('sky-midday');
+    const skySunset = document.getElementById('sky-sunset');
+
+    if (!sunWrapper) return;
+
+    // Check motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    let isUnlocked = !document.documentElement.classList.contains('is-locked');
+
+    // Reveal Sun smoothly once envelope unboxing completes
+    function revealCelestialSun() {
+      isUnlocked = true;
+      gsap.to(sunWrapper, {
+        opacity: 0.95,
+        duration: 1.8,
+        ease: 'power2.out'
+      });
+      // Start with soft Sunrise blush
+      if (skySunrise) {
+        gsap.to(skySunrise, { opacity: 0.85, duration: 2.0, ease: 'power2.out' });
+      }
+    }
+
+    if (isUnlocked) {
+      revealCelestialSun();
+    } else {
+      window.addEventListener('invitationOpened', revealCelestialSun, { once: true });
+    }
+
+    // =========================================================================
+    // PARABOLIC CELESTIAL SUN TRAJECTORY & ATMOSPHERE INTERPOLATION
+    // Sunrise (Fajar) -> Midday (Siang) -> Sunset (Senja)
+    // =========================================================================
+    const windowW = window.innerWidth;
+    const windowH = window.innerHeight;
+
+    // Phase 1 coordinates: Sunrise (bottom-left)
+    const pSunrise = {
+      x: windowW * 0.16,
+      y: windowH * 0.62,
+      scale: 0.82
+    };
+
+    // Phase 2 coordinates: Midday (high-zenith, slightly right of center for organic arc)
+    const pMidday = {
+      x: windowW * 0.52,
+      y: windowH * 0.12,
+      scale: 1.0
+    };
+
+    // Phase 3 coordinates: Sunset (centered on horizon, setting into closing panorama)
+    const pSunset = {
+      x: windowW * 0.50,
+      y: windowH * 0.42,
+      scale: 1.35
+    };
+
+    // Set initial position
+    gsap.set(sunWrapper, {
+      x: pSunrise.x,
+      y: pSunrise.y,
+      scale: pSunrise.scale
+    });
+
+    // Create Master Scroll-driven Celestial Timeline
+    const sunTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: document.body,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1.2
+      }
+    });
+
+    // 0.0 -> 0.45: Sunrise rising to Midday
+    sunTL.to(sunWrapper, {
+      x: pMidday.x,
+      y: pMidday.y,
+      scale: pMidday.scale,
+      ease: 'power1.out',
+      duration: 0.45
+    }, 0);
+
+    // Sunrise sky fades down, Midday sky fades up
+    if (skySunrise && skyMidday) {
+      sunTL.to(skySunrise, { opacity: 0.1, duration: 0.35, ease: 'power1.inOut' }, 0.1);
+      sunTL.to(skyMidday, { opacity: 0.75, duration: 0.35, ease: 'power1.inOut' }, 0.15);
+    }
+
+    // 0.45 -> 1.0: Midday descending into Sunset
+    sunTL.to(sunWrapper, {
+      x: pSunset.x,
+      y: pSunset.y,
+      scale: pSunset.scale,
+      ease: 'power1.inOut',
+      duration: 0.55
+    }, 0.45);
+
+    // Midday sky fades down, Sunset sky blooms warmly
+    if (skyMidday && skySunset) {
+      sunTL.to(skyMidday, { opacity: 0, duration: 0.3, ease: 'power1.inOut' }, 0.48);
+      sunTL.to(skySunset, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0.55);
+    }
+
+    // Deepen sun sphere glow into rich golden hour & terracotta
+    if (sunSphere && sunGlow) {
+      sunTL.to(sunSphere, {
+        boxShadow: '0 0 75px rgba(235, 140, 50, 0.85)',
+        duration: 0.45,
+        ease: 'power2.out'
+      }, 0.55);
+
+      sunTL.to(sunGlow, {
+        scale: 1.4,
+        opacity: 1,
+        duration: 0.45,
+        ease: 'power2.out'
+      }, 0.55);
+    }
+
+    // Handle viewport resize gracefully
+    window.addEventListener('resize', () => {
+      ScrollTrigger.refresh();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCelestialSun);
+  } else {
+    initCelestialSun();
+  }
+</script>

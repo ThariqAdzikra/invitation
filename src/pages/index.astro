@@ -12,6 +12,7 @@ import AudioPlayer from '../components/AudioPlayer.astro';
 import ProgressBar from '../components/ProgressBar.astro';
 import Toast from '../components/Toast.astro';
 import InteractiveCanvas from '../components/InteractiveCanvas.astro';
+import CelestialSunStage from '../components/cinematic/CelestialSunStage.astro';
 import content from '../data/content.json';
 ---
 
@@ -22,6 +23,9 @@ import content from '../data/content.json';
 >
   <!-- Background Layer: Ultra-light Organic Linen Paper Texture Overlay -->
   <div class="film-grain-overlay" aria-hidden="true"></div>
+
+  <!-- Dynamic Celestial Sun & Sky Atmosphere (Sunrise -> Midday -> Sunset) -->
+  <CelestialSunStage />
 
   <!-- Interactive Ambient Magnetic Golden Sparkles Aura -->
   <InteractiveCanvas />

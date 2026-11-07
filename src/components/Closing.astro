@@ -4,39 +4,46 @@ import content from '../data/content.json';
 import RomanticSwans from './botanical/RomanticSwans.astro';
 ---
 
-<section id="closing" class="deck-section section-flow relative px-4 text-center pb-24 overflow-hidden z-30 pt-20" aria-label="Penutup Undangan">
+<section id="closing" class="deck-section section-flow relative px-4 text-center pb-24 overflow-hidden z-30 pt-16 sm:pt-20" aria-label="Penutup Undangan">
   
-  <div class="max-w-xl mx-auto flex flex-col items-center w-full relative z-10 closing-content">
+  <div class="max-w-3xl sm:max-w-4xl mx-auto flex flex-col items-center w-full relative z-10 closing-content">
     
-    <!-- ROMANTIC FINALE VECTOR IN EXPANSIVE ROMAN ARCH -->
-    <div class="my-6 w-full max-w-sm sm:max-w-md mx-auto relative group">
-      <!-- Ambient Golden Sunset Halo -->
-      <div class="absolute -inset-8 bg-[radial-gradient(ellipse_at_center,rgba(184,147,82,0.22)_0%,rgba(74,93,67,0.06)_50%,transparent_70%)] blur-2xl pointer-events-none -z-10"></div>
+    <!-- IMMERSIVE PANORAMIC SUNSET LANDSCAPE (FULL SEHALAMAN & MELEBUR ALAMI) -->
+    <div class="my-4 sm:my-6 w-full relative group">
       
-      <!-- Roman Arch Portal with Golden Rim -->
-      <div class="relative p-2 rounded-t-full border border-[#B89352]/40 bg-white/50 shadow-[0_20px_50px_rgba(42,52,38,0.1)] backdrop-blur-xs">
-        <div class="rounded-t-full overflow-hidden aspect-[4/3] sm:aspect-[16/10] relative border border-[#566A4E]/20">
-          <img 
-            src="/assets/vector-closing.jpg" 
-            alt="Ilustrasi Arya & Dian Menatap Masa Depan" 
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#2A3426]/35 via-transparent to-transparent pointer-events-none"></div>
-          
-          <!-- Romantic Overlay Quote -->
-          <div class="absolute bottom-3 left-4 right-4 text-center pointer-events-none">
-            <p class="font-display italic text-white/95 text-xs sm:text-sm drop-shadow-md tracking-wide">
-              &ldquo;Melangkah bersama, menyempurnakan separuh agama&rdquo;
-            </p>
-          </div>
+      <!-- Ambient Sunset Golden Hour Bloom (Dissolves into page background) -->
+      <div class="absolute -inset-10 sm:-inset-20 bg-[radial-gradient(ellipse_at_center,rgba(238,165,75,0.38)_0%,rgba(215,135,60,0.18)_50%,transparent_75%)] blur-3xl pointer-events-none -z-10"></div>
+      
+      <!-- Panoramic Landscape Container with Feathered Soft Edge Dissolve -->
+      <div 
+        class="relative w-full aspect-[16/10] sm:aspect-[16/9] max-h-[500px] sm:max-h-[560px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_24px_70px_rgba(42,52,38,0.16)] border border-[#B89352]/30"
+        style="mask-image: radial-gradient(ellipse 98% 92% at 50% 50%, black 65%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 98% 92% at 50% 50%, black 65%, transparent 100%);"
+      >
+        <img 
+          src="/assets/vector-closing.jpg" 
+          alt="Ilustrasi Arya & Dian Menatap Senja Masa Depan" 
+          class="w-full h-full object-cover object-center scale-102 transition-transform duration-1000 ease-out group-hover:scale-105"
+          loading="lazy"
+        />
+        
+        <!-- Horizon Warmth & Twilight Shadow Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#2A3426]/55 via-transparent to-[#FAF8F5]/15 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#FAF8F5]/25 via-transparent to-[#FAF8F5]/25 pointer-events-none"></div>
+        
+        <!-- Romantic Overlay Quote Floating on Horizon -->
+        <div class="absolute bottom-4 sm:bottom-7 left-4 right-4 text-center pointer-events-none">
+          <p class="font-display italic text-[#FAF8F5] text-sm sm:text-base md:text-lg drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] tracking-wide">
+            &ldquo;Melangkah bersama, menyempurnakan separuh agama&rdquo;
+          </p>
         </div>
       </div>
-      <div class="w-48 sm:w-60 h-3 bg-[#263322]/10 rounded-full blur-md mx-auto mt-1 pointer-events-none"></div>
+      
+      <!-- Subtle Grounding Horizon Sheen -->
+      <div class="w-3/4 max-w-md h-3 bg-[#B89352]/20 rounded-full blur-lg mx-auto mt-2 pointer-events-none"></div>
     </div>
 
     <!-- Heartfelt Closing Words -->
-    <p class="text-xs sm:text-sm md:text-base text-[#4A5D43] font-light leading-relaxed my-4 max-w-md">
+    <p class="text-xs sm:text-sm md:text-base text-[#4A5D43] font-light leading-relaxed my-5 max-w-lg mx-auto">
       Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.
     </p>
 
