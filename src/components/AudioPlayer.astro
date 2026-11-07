@@ -2,21 +2,24 @@
 import content from '../data/content.json';
 ---
 
-<div class="fixed bottom-6 right-6 z-[900] flex items-center gap-2">
+<div class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-[900] flex items-center gap-2 select-none">
   
-  <!-- Floating Tooltip Pill (Desktop) -->
-  <span id="audio-status-pill" class="hidden sm:inline-flex items-center text-[0.65rem] tracking-wider uppercase px-3 py-1.5 rounded-full bg-white border border-[#566A4E]/30 text-[#2A3426] shadow-md pointer-events-none transition-opacity duration-300 opacity-0 font-medium">
-    Musik Latar Aktif
+  <!-- Floating Tooltip Pill (Song Info & Play State) -->
+  <span 
+    id="audio-status-pill" 
+    class="inline-flex items-center gap-1.5 text-[0.62rem] sm:text-[0.68rem] tracking-wider uppercase px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#566A4E]/30 text-[#2A3426] shadow-md pointer-events-none transition-all duration-300 opacity-0 font-medium max-w-[220px] truncate"
+  >
+    🎵 Adera – Muara
   </span>
 
   <!-- Floating Audio Button -->
   <button
     id="audio-toggle"
-    class="relative w-11 h-11 rounded-full bg-white border border-[#566A4E]/40 text-[#566A4E] flex items-center justify-center shadow-lg hover:border-[#566A4E] hover:bg-[#FAF8F5] active:scale-95 transition-all duration-300 cursor-pointer overflow-hidden group"
+    class="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-md border border-[#566A4E]/35 text-[#566A4E] flex items-center justify-center shadow-[0_6px_20px_rgba(42,52,38,0.14)] hover:border-[#B89352] hover:bg-[#FAF8F5] active:scale-95 transition-all duration-300 cursor-pointer overflow-hidden group"
     type="button"
     aria-label="Nyalakan Musik Latar"
   >
-    <div id="audio-glow-ring" class="absolute inset-0 rounded-full border border-[#B89352]/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+    <div id="audio-glow-ring" class="absolute inset-0 rounded-full border border-[#B89352]/40 opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
     <!-- Animated Equalizer Bars (Active State) -->
     <div id="audio-equalizer" class="hidden flex items-end gap-[3px] h-4">
@@ -36,7 +39,7 @@ import content from '../data/content.json';
 
 </div>
 
-<audio id="bg-audio" preload="none" loop>
+<audio id="bg-audio" preload="auto" loop>
   <source src={content.music.file} type="audio/mpeg" />
 </audio>
 
@@ -61,6 +64,17 @@ import content from '../data/content.json';
     if (!btn || !audio) return;
 
     let isPlaying = false;
+    let pillTimer: any = null;
+
+    function showPill(text: string, duration = 3500) {
+      if (!pill) return;
+      if (pillTimer) clearTimeout(pillTimer);
+      pill.textContent = text;
+      pill.style.opacity = '1';
+      pillTimer = setTimeout(() => {
+        if (pill) pill.style.opacity = '0';
+      }, duration);
+    }
 
     function setAudioState(playing: boolean) {
       isPlaying = playing;
@@ -68,43 +82,51 @@ import content from '../data/content.json';
         btn?.setAttribute('aria-label', 'Matikan Musik');
         if (iconOff) iconOff.classList.add('hidden');
         if (equalizer) equalizer.classList.remove('hidden');
-        if (pill) {
-          pill.textContent = 'Musik: Dimainkan';
-          pill.style.opacity = '1';
-          setTimeout(() => { if (pill) pill.style.opacity = '0'; }, 2400);
-        }
+        showPill('🎵 Adera – Muara', 3500);
       } else {
         btn?.setAttribute('aria-label', 'Nyalakan Musik');
         if (iconOff) iconOff.classList.remove('hidden');
         if (equalizer) equalizer.classList.add('hidden');
-        if (pill) {
-          pill.textContent = 'Musik: Dijeda';
-          pill.style.opacity = '1';
-          setTimeout(() => { if (pill) pill.style.opacity = '0'; }, 2000);
-        }
+        showPill('Musik: Dijeda', 2000);
       }
     }
 
     function play(fadeIn = false) {
       if (!audio) return;
+      
+      // Ensure exact start at 0:00 intro if stopped
+      if (audio.paused && audio.currentTime === 0) {
+        audio.currentTime = 0;
+      }
+
       if (fadeIn) {
         audio.volume = 0;
         audio.play().then(() => {
           setAudioState(true);
-          gsap.to(audio, { volume: 0.7, duration: 2.5, ease: 'power1.out' });
+          gsap.to(audio, { volume: 0.70, duration: 2.5, ease: 'power1.out' });
         }).catch((e) => {
           console.warn('Audio autoplay restricted:', e);
           setAudioState(false);
         });
       } else {
-        audio.play().then(() => setAudioState(true)).catch(() => setAudioState(false));
+        audio.play().then(() => {
+          setAudioState(true);
+          gsap.to(audio, { volume: 0.70, duration: 0.8, ease: 'power1.out' });
+        }).catch(() => setAudioState(false));
       }
     }
 
     function pause() {
       if (!audio) return;
-      audio.pause();
-      setAudioState(false);
+      gsap.to(audio, {
+        volume: 0,
+        duration: 0.6,
+        ease: 'power1.in',
+        onComplete: () => {
+          audio.pause();
+          setAudioState(false);
+        }
+      });
     }
 
     btn.addEventListener('click', () => {
@@ -116,9 +138,15 @@ import content from '../data/content.json';
       }
     });
 
-    // Auto-play when invitation opens
+    // Auto-play cleanly from 0:00 when invitation envelope opens
     window.addEventListener('invitationOpening', () => {
       play(true);
+    });
+
+    window.addEventListener('invitationOpened', () => {
+      if (!isPlaying) {
+        play(true);
+      }
     });
   }
 

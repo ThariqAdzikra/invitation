@@ -67,8 +67,9 @@
     }
   ],
   "music": {
-    "file": "/assets/music.mp3",
-    "title": "Wedding Instrumental"
+    "file": "/assets/audio/muara-adera.mp3",
+    "title": "Muara",
+    "artist": "Adera"
   },
   "gift": {
     "title": "Tanda Kasih",
