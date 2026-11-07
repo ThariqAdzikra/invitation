@@ -601,12 +601,23 @@ import FloralCorner from '../botanical/FloralCorner.astro';
       );
     }
 
-    // Couple Scene rests comfortably in crisp focus until the unpin transition
+    // Couple Scene rests comfortably in crisp focus until near the end
     tl.to(sceneCouple, {
       z: 0,
       scale: 1,
       duration: 0.12
-    }, 0.92);
+    }, 0.80);
+
+    // Seamless Deck Stacking Handoff: As scroll completes the 3D journey (0.90 -> 1.00),
+    // Scene 3 eases back gently with scale 0.95 & subtle dim to seamlessly welcome the incoming deck card!
+    tl.to(sceneCouple, {
+      scale: 0.95,
+      opacity: 0.85,
+      y: 20,
+      filter: 'blur(1px)',
+      duration: 0.10,
+      ease: 'power1.out'
+    }, 0.90);
 
     // Ensure ScrollTrigger recalculates after invitation envelope is unboxed
     window.addEventListener('invitationOpened', () => {

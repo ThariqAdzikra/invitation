@@ -35,7 +35,7 @@ import content from '../data/content.json';
     <Cinematic3DTunnel />
 
     <!-- Phase 2: Grounded Interactive 3D Stage (Jadwal, Countdown, Kisah, Hadiah, & RSVP) -->
-    <div id="interactive-stage" class="relative z-20">
+    <div id="interactive-stage" class="relative z-30">
       <UnifiedEvent />
       <Countdown />
       <LoveStory />
@@ -54,9 +54,10 @@ import content from '../data/content.json';
   <!-- Luxury Global Toast Feedback -->
   <Toast />
 
-  <!-- Global Interactive Foil Sheen & Particle Burst Engine -->
+  <!-- Global Interactive Foil Sheen, Particle Burst & Parallax Deck Stacking Engine -->
   <script>
     import '../utils/interactiveFoil';
     import '../utils/confetti';
+    import '../utils/deckStacking';
   </script>
 </Layout>
