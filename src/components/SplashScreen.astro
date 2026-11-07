@@ -58,8 +58,8 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       <FloralWreath monogram="AD" size={54} />
     </div>
     
-    <p class="text-[0.55rem] sm:text-xs tracking-[0.36em] text-[#B89352] uppercase font-semibold mb-0.5">
-      WALIMATUL 'URS
+    <p class="text-[0.55rem] sm:text-xs tracking-[0.38em] text-[#B89352] uppercase font-semibold mb-0.5">
+      THE WEDDING OF
     </p>
     
     <h1 class="font-display text-2xl sm:text-3xl md:text-4xl text-[#2A3426] font-normal tracking-tight leading-tight">
@@ -245,11 +245,11 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       <!-- LAYER 4: AUTHENTIC POURED OLIVE WAX SEAL (Centered at Flap V-Tip on top of the Satin Ribbon) -->
       <div
         id="wax-seal-container"
-        class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto transform transition-transform duration-200 active:scale-95"
+        class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto transform transition-all duration-300 hover:scale-105 active:scale-95"
       >
         <div class="relative flex items-center justify-center group">
           <!-- Ambient Gold Glow Halo -->
-          <div id="wax-seal-halo" class="absolute -inset-2 rounded-full bg-[#B89352]/20 blur-md opacity-60 group-hover:opacity-100 transition-opacity"></div>
+          <div id="wax-seal-halo" class="absolute -inset-3 rounded-full bg-[#B89352]/25 blur-md opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"></div>
 
           <!-- Poured Molten Wax Seal Disc (Organic 8-Lobed Shape) -->
           <svg width="60" height="60" viewBox="0 0 100 100" class="filter drop-shadow-[0_8px_18px_rgba(36,49,32,0.4)]">
@@ -291,21 +291,6 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       </div>
 
     </div>
-  </div>
-
-  <!-- SINGLE REFINED CTA BUTTON: "Buka Undangan" -->
-  <div id="envelope-prompt" class="mt-5 sm:mt-6 flex flex-col items-center gap-1.5 cursor-pointer z-50 pointer-events-auto">
-    <button
-      id="btn-open-envelope"
-      type="button"
-      class="group inline-flex items-center gap-3 px-7 py-2.5 sm:py-3 rounded-full bg-[#FAF8F5] border border-[#B89352]/50 text-[#2A3426] shadow-[0_4px_16px_rgba(42,52,38,0.06)] hover:border-[#4A5D43] hover:bg-white hover:shadow-lg transition-all duration-300 active:scale-95"
-    >
-      <span class="text-xs text-[#B89352] animate-pulse">✦</span>
-      <span class="text-xs tracking-[0.28em] uppercase font-semibold text-[#3E4C38]">
-        Buka Undangan
-      </span>
-      <span class="text-xs text-[#B89352] animate-pulse">✦</span>
-    </button>
   </div>
 
 </div>
