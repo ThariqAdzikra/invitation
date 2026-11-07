@@ -1,5 +1,5 @@
 ---
-// Wishes.astro — Interactive VIP Guest Pass, RSVP & Digital Wishes
+// Wishes.astro — Interactive VIP Guest Pass, RSVP & Digital Wishes with Reactions
 import FloralFlourish from './botanical/FloralFlourish.astro';
 ---
 
@@ -70,6 +70,22 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
             1 Tamu Terdaftar
           </span>
         </div>
+      </div>
+
+      <!-- Ticket Action Strip -->
+      <div class="mt-4 pt-3 border-t border-dashed border-[#B89352]/25 flex items-center justify-between">
+        <span class="text-[0.58rem] text-[#7E8F77] italic">Tunjukkan pass ini saat registrasi di venue</span>
+        <button
+          type="button"
+          id="btn-copy-ticket"
+          class="inline-flex items-center gap-1.5 text-[0.62rem] text-[#B89352] hover:text-[#4A5D43] uppercase tracking-wider font-semibold transition-colors cursor-pointer"
+        >
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span>Simpan Data Tiket</span>
+        </button>
       </div>
     </div>
 
@@ -155,7 +171,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
 
     </div>
 
-    <!-- Live Wishes & Guestbook Stream -->
+    <!-- Live Wishes & Guestbook Stream with Interactive Reactions -->
     <div class="mt-10 text-left">
       <div class="flex items-center justify-between mb-4 px-1">
         <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-[#566A4E] flex items-center gap-2">
@@ -181,31 +197,43 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
   gsap.registerPlugin(ScrollTrigger);
 
   interface WishEntry {
+    id: string;
     name: string;
     attendance: string;
     message: string;
     date: string;
+    aamiinCount: number;
+    loveCount: number;
     isUser?: boolean;
   }
 
   const defaultWishes: WishEntry[] = [
     {
+      id: "w-1",
       name: "Dimas Pratama & Keluarga",
       attendance: "Hadir (2 Orang)",
       message: "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khoir. Selamat menempuh hidup baru Arya & Dian! Semoga selalu rukun, bahagia, dan penuh berkah sampai kakek nenek.",
-      date: "Kemarin"
+      date: "Kemarin",
+      aamiinCount: 14,
+      loveCount: 9
     },
     {
+      id: "w-2",
       name: "Rania Amanda, S.Ds.",
       attendance: "Hadir (1 Orang)",
       message: "Selamat berbahagia Dian sahabatku tercinta & mas Arya! MasyaAllah terharu sekali akhirnya kalian berlabuh di pelaminan. Semoga rumah tangganya senantiasa dilimpahi sakinah mawaddah warahmah.",
-      date: "2 hari lalu"
+      date: "2 hari lalu",
+      aamiinCount: 21,
+      loveCount: 16
     },
     {
+      id: "w-3",
       name: "Fikri Kurniawan",
       attendance: "Hadir (1 Orang)",
       message: "Selamat bro Arya & Dian! Lancar lancar sampai hari H nanti. InsyaAllah hadir merayakan hari bahagia kalian berdua!",
-      date: "3 hari lalu"
+      date: "3 hari lalu",
+      aamiinCount: 8,
+      loveCount: 5
     }
   ];
 
@@ -221,6 +249,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     const ticketPax = document.getElementById('ticket-guest-pax');
     const streamContainer = document.getElementById('wishes-stream');
     const countBadge = document.getElementById('wishes-count-badge');
+    const btnCopyTicket = document.getElementById('btn-copy-ticket');
 
     // Load persisted local wishes
     let savedWishes: WishEntry[] = [];
@@ -248,11 +277,51 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
           <div class="inline-block px-2 py-0.5 rounded text-[0.58rem] font-medium ${w.attendance.includes('Hadir') ? 'bg-[#4A5D43]/10 text-[#4A5D43]' : 'bg-[#7E8F77]/15 text-[#7E8F77]'} mb-2">
             ${escapeHtml(w.attendance)}
           </div>
-          <p class="text-xs text-[#566A4E] leading-relaxed font-light">
+          <p class="text-xs text-[#566A4E] leading-relaxed font-light mb-3">
             "${escapeHtml(w.message)}"
           </p>
+          
+          <!-- Interactive Reactions Strip -->
+          <div class="flex items-center gap-2 pt-2 border-t border-[#566A4E]/10">
+            <button 
+              type="button" 
+              class="btn-react inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[0.62rem] font-medium border border-[#566A4E]/20 bg-[#FAF8F5] hover:bg-white text-[#566A4E] transition-all cursor-pointer active:scale-95"
+              data-id="${w.id}"
+              data-type="aamiin"
+            >
+              <span>🤲 Aamiin</span>
+              <span class="font-mono text-[#B89352]">${w.aamiinCount}</span>
+            </button>
+
+            <button 
+              type="button" 
+              class="btn-react inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[0.62rem] font-medium border border-[#566A4E]/20 bg-[#FAF8F5] hover:bg-white text-[#566A4E] transition-all cursor-pointer active:scale-95"
+              data-id="${w.id}"
+              data-type="love"
+            >
+              <span>❤️ Selamat</span>
+              <span class="font-mono text-[#B89352]">${w.loveCount}</span>
+            </button>
+          </div>
         </div>
       `).join('');
+
+      // Attach reaction click handlers
+      streamContainer.querySelectorAll<HTMLButtonElement>('.btn-react').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          playChimeSound();
+          const countSpan = btn.querySelector('.font-mono');
+          if (countSpan) {
+            const current = parseInt(countSpan.textContent || '0', 10);
+            countSpan.textContent = (current + 1).toString();
+          }
+          btn.classList.add('border-[#B89352]', 'bg-[#B89352]/10');
+          if (typeof (window as any).triggerLuxuryConfetti === 'function') {
+            const rect = btn.getBoundingClientRect();
+            (window as any).triggerLuxuryConfetti(rect.left + rect.width / 2, rect.top);
+          }
+        }, { once: true });
+      });
     }
 
     function escapeHtml(str: string): string {
@@ -309,6 +378,24 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     nameInput?.addEventListener('input', updateLiveTicket);
     paxSelect?.addEventListener('change', updateLiveTicket);
 
+    // Save ticket action
+    if (btnCopyTicket) {
+      btnCopyTicket.addEventListener('click', () => {
+        playChimeSound();
+        const currentName = ticketName?.textContent || 'Tamu Undangan';
+        const ticketSummary = `VIP GUEST PASS #AD-2026-VIP\nTamu: ${currentName}\nAcara: The Wedding of Arya & Dian\nTanggal: Sabtu, 12 Desember 2026\nLokasi: Banda Aceh Convention Hall`;
+        navigator.clipboard.writeText(ticketSummary).then(() => {
+          if (typeof (window as any).showLuxuryToast === 'function') {
+            (window as any).showLuxuryToast('Rincian Tiket VIP berhasil disalin!');
+          }
+          if (typeof (window as any).triggerLuxuryConfetti === 'function') {
+            const rect = btnCopyTicket.getBoundingClientRect();
+            (window as any).triggerLuxuryConfetti(rect.left + rect.width / 2, rect.top);
+          }
+        });
+      });
+    }
+
     // Toggle pax container if attendance is 'Berhalangan'
     const attendanceRadios = document.querySelectorAll<HTMLInputElement>('input[name="attendance"]');
     attendanceRadios.forEach((r) => {
@@ -332,10 +419,13 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
 
         // Add to local wishes stream
         const newWish: WishEntry = {
+          id: `w-${Date.now()}`,
           name,
           attendance: attendance === 'Hadir' ? `Hadir (${pax})` : 'Berhalangan Hadir',
           message: customMessage,
           date: 'Baru saja',
+          aamiinCount: 1,
+          loveCount: 1,
           isUser: true
         };
 

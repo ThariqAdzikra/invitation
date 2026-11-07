@@ -486,7 +486,7 @@ import FloralFlourish from '../botanical/FloralFlourish.astro';
       duration: 0.12
     }, 0.88);
 
-    // Mouse Parallax in 3D Rig
+    // Mouse & Touch Parallax in 3D Rig
     window.addEventListener('mousemove', (e) => {
       const xNorm = (e.clientX / window.innerWidth - 0.5) * 2;
       const yNorm = (e.clientY / window.innerHeight - 0.5) * 2;
@@ -497,6 +497,20 @@ import FloralFlourish from '../botanical/FloralFlourish.astro';
         ease: 'power2.out'
       });
     });
+
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches[0]) {
+        const touch = e.touches[0];
+        const xNorm = (touch.clientX / window.innerWidth - 0.5) * 2;
+        const yNorm = (touch.clientY / window.innerHeight - 0.5) * 2;
+        gsap.to(cameraRig, {
+          rotateY: xNorm * 3,
+          rotateX: -yNorm * 2.5,
+          duration: 1.0,
+          ease: 'power2.out'
+        });
+      }
+    }, { passive: true });
 
     // Ensure ScrollTrigger recalculates after invitation envelope is unboxed
     window.addEventListener('invitationOpened', () => {

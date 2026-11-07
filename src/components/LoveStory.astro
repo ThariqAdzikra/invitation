@@ -1,5 +1,5 @@
 ---
-// LoveStory.astro — Vertical Editorial Timeline of the Couple's Journey
+// LoveStory.astro — Vertical Editorial Timeline with Dynamic Glowing Scroll Scrub
 import content from '../data/content.json';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 ---
@@ -25,10 +25,13 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     </div>
 
     <!-- Vertical Timeline Container -->
-    <div class="relative max-w-2xl mx-auto">
+    <div id="timeline-container" class="relative max-w-2xl mx-auto">
       
-      <!-- Central Vertical Line -->
-      <div class="absolute left-4 md:left-1/2 top-4 bottom-4 w-[1.5px] bg-[#566A4E]/20 -translate-x-1/2"></div>
+      <!-- Central Background Guide Line -->
+      <div class="absolute left-4 md:left-1/2 top-4 bottom-4 w-[2px] bg-[#566A4E]/15 -translate-x-1/2"></div>
+      
+      <!-- Central Dynamic Glowing Gold Progress Line -->
+      <div id="timeline-progress-line" class="absolute left-4 md:left-1/2 top-4 w-[2px] bg-gradient-to-b from-[#B89352] via-[#D4AF6E] to-[#4A5D43] -translate-x-1/2 origin-top will-change-transform shadow-[0_0_8px_rgba(184,147,82,0.4)]" style="height: 0%;"></div>
 
       <!-- Timeline Items -->
       <div class="flex flex-col gap-8 md:gap-12">
@@ -37,12 +40,12 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
           return (
             <div class={`story-item relative flex flex-col md:flex-row items-start ${isEven ? 'md:flex-row-reverse' : ''} gap-6 md:gap-10 pl-10 md:pl-0`}>
               
-              <!-- Timeline Dot Node -->
-              <div class="absolute left-4 md:left-1/2 top-5 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-[#566A4E] bg-white flex items-center justify-center shadow-sm z-10">
-                <div class="w-1.5 h-1.5 rounded-full bg-[#B89352]"></div>
+              <!-- Timeline Dot Node with Gold Aura -->
+              <div class="story-node absolute left-4 md:left-1/2 top-5 -translate-x-1/2 w-5 h-5 rounded-full border-2 border-[#566A4E]/30 bg-[#FAF8F5] flex items-center justify-center shadow-sm z-10 transition-all duration-500">
+                <div class="w-2 h-2 rounded-full bg-[#B89352]/50 node-inner transition-transform duration-500"></div>
               </div>
 
-              <!-- Card Content -->
+              <!-- Card Content with 3D Tilt -->
               <article class={`w-full md:w-[calc(50%-2rem)] bg-white/95 border border-[#566A4E]/20 p-5 sm:p-7 rounded-2xl shadow-[0_10px_30px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card ${isEven ? 'md:text-right' : 'md:text-left'}`} data-foil="true">
                 <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
                 
@@ -80,22 +83,53 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
   gsap.registerPlugin(ScrollTrigger);
 
   function initTimeline() {
+    const timelineContainer = document.getElementById('timeline-container');
+    const progressLine = document.getElementById('timeline-progress-line');
+    const nodes = document.querySelectorAll<HTMLElement>('.story-node');
+
+    if (!timelineContainer || !progressLine) return;
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    gsap.utils.toArray<HTMLElement>('.story-item').forEach((item) => {
+    // Scrub the gold progress line along with the scroll
+    ScrollTrigger.create({
+      trigger: timelineContainer,
+      start: 'top 70%',
+      end: 'bottom 60%',
+      scrub: 1,
+      onUpdate: (self) => {
+        progressLine.style.height = `${self.progress * 100}%`;
+      }
+    });
+
+    // Animate each story item & highlight active node
+    gsap.utils.toArray<HTMLElement>('.story-item').forEach((item, idx) => {
+      const node = item.querySelector<HTMLElement>('.story-node');
+      const innerNode = item.querySelector<HTMLElement>('.node-inner');
+
       gsap.fromTo(
         item,
-        { opacity: 0, y: 25 },
+        { opacity: 0, y: 35 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.85,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: item,
-            start: 'top 85%',
-            once: true
+            start: 'top 82%',
+            once: true,
+            onEnter: () => {
+              if (node) {
+                node.classList.remove('border-[#566A4E]/30');
+                node.classList.add('border-[#B89352]', 'shadow-[0_0_12px_rgba(184,147,82,0.5)]');
+              }
+              if (innerNode) {
+                innerNode.classList.remove('bg-[#B89352]/50');
+                innerNode.classList.add('bg-[#B89352]', 'scale-125');
+              }
+            }
           }
         }
       );
