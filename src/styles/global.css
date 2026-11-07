@@ -443,8 +443,7 @@ html.lenis, html.lenis body {
    Kinetic Typography & Velocity Scrub Helpers
    ========================================================================== */
 .kinetic-velocity-target {
-  transform: skewY(var(--velocity-skew, 0deg));
-  will-change: transform;
+  transform: none;
 }
 
 .kinetic-heading-mask {

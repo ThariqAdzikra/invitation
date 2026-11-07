@@ -29,7 +29,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     <!-- Bank Accounts Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-xl mx-auto mb-6">
       {content.gift.accounts.map((acc) => (
-        <div class="gift-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 flex flex-col items-center shadow-[0_10px_30px_rgba(42,52,38,0.05)] relative overflow-hidden text-center interactive-foil-card kinetic-velocity-target" data-foil="true">
+        <div class="gift-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 flex flex-col items-center shadow-[0_10px_30px_rgba(42,52,38,0.05)] relative overflow-hidden text-center interactive-foil-card" data-foil="true">
           <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
           
           <span class="text-[0.62rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-1">
@@ -65,9 +65,9 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       <button
         type="button"
         id="btn-open-qris"
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#B89352]/40 bg-gradient-to-r from-[#FAF8F5] via-white to-[#F5EFE4] text-xs font-semibold tracking-widest uppercase text-[#2A3426] shadow-[0_6px_20px_rgba(184,147,82,0.15)] hover:border-[#B89352] hover:scale-102 active:scale-98 transition-all cursor-pointer group"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#B89352]/40 bg-gradient-to-r from-[#FAF8F5] via-white to-[#F5EFE4] text-xs font-semibold tracking-widest uppercase text-[#2A3426] shadow-[0_6px_20px_rgba(184,147,82,0.15)] hover:border-[#B89352] hover:bg-white active:scale-98 transition-all cursor-pointer group"
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#B89352] group-hover:rotate-12 transition-transform">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#B89352]">
           <rect x="3" y="3" width="7" height="7"></rect>
           <rect x="14" y="3" width="7" height="7"></rect>
           <rect x="14" y="14" width="7" height="7"></rect>
@@ -79,7 +79,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     </div>
 
     <!-- Physical Gift Address Card -->
-    <div class="gift-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 max-w-xl mx-auto shadow-[0_10px_30px_rgba(42,52,38,0.05)] relative overflow-hidden text-center interactive-foil-card kinetic-velocity-target" data-foil="true">
+    <div class="gift-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 max-w-xl mx-auto shadow-[0_10px_30px_rgba(42,52,38,0.05)] relative overflow-hidden text-center interactive-foil-card" data-foil="true">
       <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
       <div class="w-10 h-10 rounded-full border border-[#B89352]/35 bg-[#FAF8F5] flex items-center justify-center text-[#B89352] mx-auto mb-3">
