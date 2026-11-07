@@ -1,5 +1,7 @@
 ---
 import content from '../data/content.json';
+import FloralCorner from './botanical/FloralCorner.astro';
+import FloralDivider from './botanical/FloralDivider.astro';
 ---
 
 <section id="love-story" class="deck-section tone-story relative w-full h-screen overflow-hidden z-60" aria-label="Kisah Perjalanan Mempelai">
@@ -58,8 +60,15 @@ import content from '../data/content.json';
             <div class="w-2 h-2 rounded-full bg-[#B89352]"></div>
           </div>
 
-          <!-- Editorial Milestone Card -->
-          <article class="w-full bg-[#FFFFFF]/95 border border-[#566A4E]/25 p-6 sm:p-7 rounded-xl shadow-[0_16px_40px_rgba(42,52,38,0.08)] hover:border-[#566A4E] transition-colors duration-300">
+          <!-- Editorial Milestone Card with Botanical Flourishes -->
+          <article class="w-full bg-[#FFFFFF]/95 border border-[#566A4E]/25 p-6 sm:p-7 rounded-xl shadow-[0_16px_40px_rgba(42,52,38,0.08)] hover:border-[#566A4E] transition-colors duration-300 relative overflow-hidden">
+            <div class="absolute top-2 right-2 pointer-events-none">
+              <FloralCorner position="top-right" size={48} />
+            </div>
+            <div class="absolute bottom-2 left-2 pointer-events-none">
+              <FloralCorner position="bottom-left" size={48} />
+            </div>
+            
             <span class="text-[0.65rem] tracking-[0.25em] text-[#B89352] uppercase font-mono block mb-1 font-semibold">
               CHAPTER 0{idx + 1}
             </span>

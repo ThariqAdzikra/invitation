@@ -2,17 +2,32 @@
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralDivider from './botanical/FloralDivider.astro';
+import FloralBouquet from './botanical/FloralBouquet.astro';
+import FloralCorner from './botanical/FloralCorner.astro';
 ---
 
 <section id="closing" class="deck-section tone-closing section-flow relative px-4 text-center pb-24 overflow-hidden z-80" aria-label="Penutup Undangan">
+  
+  <!-- Bottom Botanical Corner Accents -->
+  <div class="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 pointer-events-none">
+    <FloralCorner position="bottom-left" size={80} />
+  </div>
+  <div class="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 pointer-events-none">
+    <FloralCorner position="bottom-right" size={80} />
+  </div>
+
   <div class="max-w-xl mx-auto flex flex-col items-center w-full relative z-10 closing-content">
     
-    <div class="mb-4">
-      <FloralWreath monogram="AD" size={85} />
+    <div class="mb-3">
+      <FloralWreath monogram="AD" size={90} />
     </div>
 
-    <div class="editorial-badge mb-4">
+    <div class="editorial-badge mb-3">
       <span>EPILOGUE</span>
+    </div>
+
+    <div class="mb-3 scale-90">
+      <FloralBouquet width={200} height={50} />
     </div>
 
     <p class="text-sm md:text-base text-[#566A4E] font-light leading-relaxed mb-6 max-w-md">

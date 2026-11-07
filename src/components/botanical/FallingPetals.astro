@@ -1,0 +1,91 @@
+---
+// FallingPetals.astro — Romantic Falling Cream Petals & Olive Leaves
+---
+
+<div id="falling-petals-shower" class="fixed inset-0 pointer-events-none z-20 overflow-hidden" aria-hidden="true">
+  <!-- Generated dynamically in script for maximum performance and random variation -->
+</div>
+
+<script>
+  function initPetalShower() {
+    const shower = document.getElementById('falling-petals-shower');
+    if (!shower) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    // Create 14 gentle romantic petals and olive leaves
+    const count = window.innerWidth < 640 ? 10 : 16;
+    const fragment = document.createDocumentFragment();
+
+    const petalSVGs = [
+      // Cream Rose Petal
+      `<svg viewBox="0 0 30 30" fill="none" class="w-full h-full drop-shadow-sm"><path d="M15 3 C22 3, 27 10, 25 18 C23 25, 15 28, 15 28 C15 28, 7 25, 5 18 C3 10, 8 3, 15 3 Z" fill="#FDFBF6" stroke="#B89352" stroke-width="0.6" opacity="0.85"/></svg>`,
+      // Soft Olive Leaf
+      `<svg viewBox="0 0 30 40" fill="none" class="w-full h-full drop-shadow-sm"><path d="M15 2 C24 12, 26 26, 18 36 C13 31, 6 22, 9 10 Z" fill="#5E7455" opacity="0.75"/><circle cx="21" cy="30" r="1.5" fill="#B89352"/></svg>`,
+      // Golden Blossom Flake
+      `<svg viewBox="0 0 24 24" fill="none" class="w-full h-full"><circle cx="12" cy="12" r="3" fill="#B89352" opacity="0.7"/><circle cx="12" cy="12" r="5" stroke="#6E8564" stroke-width="0.6" opacity="0.5"/></svg>`
+    ];
+
+    for (let i = 0; i < count; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'falling-petal absolute pointer-events-none select-none';
+      
+      const size = 16 + Math.random() * 14;
+      petal.style.width = `${size}px`;
+      petal.style.height = `${size * 1.2}px`;
+      petal.style.left = `${Math.random() * 96}%`;
+      petal.style.top = `-${Math.random() * 20 + 5}%`;
+      
+      const svgType = petalSVGs[i % petalSVGs.length];
+      petal.innerHTML = svgType;
+
+      const dur = 10 + Math.random() * 12;
+      const delay = Math.random() * 10;
+      const sway = 25 + Math.random() * 35;
+      const rot = 180 + Math.random() * 360;
+
+      petal.style.animation = `petalFall ${dur}s linear ${delay}s infinite, petalSway ${dur * 0.35}s ease-in-out infinite alternate`;
+      petal.style.setProperty('--sway-x', `${sway}px`);
+      petal.style.setProperty('--rot-end', `${rot}deg`);
+
+      fragment.appendChild(petal);
+    }
+
+    shower.appendChild(fragment);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPetalShower);
+  } else {
+    initPetalShower();
+  }
+</script>
+
+<style is:global>
+  @keyframes petalFall {
+    0% {
+      transform: translateY(-5vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.85;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(105vh) rotate(var(--rot-end, 360deg));
+      opacity: 0;
+    }
+  }
+
+  @keyframes petalSway {
+    0% {
+      margin-left: calc(-1 * var(--sway-x, 30px));
+    }
+    100% {
+      margin-left: var(--sway-x, 30px);
+    }
+  }
+</style>

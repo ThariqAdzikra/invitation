@@ -2,13 +2,17 @@
 import content from '../data/content.json';
 import FloralDivider from './botanical/FloralDivider.astro';
 import FloralCorner from './botanical/FloralCorner.astro';
+import FloralBouquet from './botanical/FloralBouquet.astro';
 ---
 
 <section id="events" class="deck-section tone-events section-flow relative px-4 overflow-hidden z-40" aria-label="Rangkaian Acara Pernikahan">
   <div class="max-w-3xl mx-auto w-full relative z-10">
     
-    <!-- Section Header -->
+    <!-- Section Header with Crown Bouquet -->
     <div class="text-center mb-8 md:mb-12 event-header">
+      <div class="mb-2 scale-90">
+        <FloralBouquet width={220} height={55} />
+      </div>
       <div class="editorial-badge">
         <span>THE CEREMONY</span>
       </div>

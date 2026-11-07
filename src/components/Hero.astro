@@ -3,16 +3,23 @@ import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralDivider from './botanical/FloralDivider.astro';
 import FloralCorner from './botanical/FloralCorner.astro';
+import FloralBouquet from './botanical/FloralBouquet.astro';
 ---
 
 <section id="hero" class="deck-section tone-hero section-hero relative px-4 text-center overflow-hidden z-10" aria-label="Informasi Utama Pernikahan">
   
-  <!-- Botanical Corner Floral Ornaments -->
+  <!-- Botanical Corner Floral Ornaments in 4 Corners -->
   <div class="absolute top-4 left-4 sm:top-8 sm:left-8 pointer-events-none">
-    <FloralCorner position="top-left" size={100} />
+    <FloralCorner position="top-left" size={110} />
   </div>
   <div class="absolute top-4 right-4 sm:top-8 sm:right-8 pointer-events-none">
-    <FloralCorner position="top-right" size={100} />
+    <FloralCorner position="top-right" size={110} />
+  </div>
+  <div class="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 pointer-events-none">
+    <FloralCorner position="bottom-left" size={90} />
+  </div>
+  <div class="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 pointer-events-none">
+    <FloralCorner position="bottom-right" size={90} />
   </div>
 
   <!-- Subtle Parallax Watermark Monogram -->
@@ -30,8 +37,11 @@ import FloralCorner from './botanical/FloralCorner.astro';
       <span>THE WEDDING OF</span>
     </div>
 
-    <!-- Grand Headline with Staggered Mask Reveal -->
-    <div class="overflow-hidden my-2 sm:my-3">
+    <!-- Grand Headline with Crown Bouquet & Staggered Mask Reveal -->
+    <div class="my-1 scale-90 sm:scale-100">
+      <FloralBouquet width={240} height={60} />
+    </div>
+    <div class="overflow-hidden my-1 sm:my-2">
       <h1 id="hero-headline" class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#2A3426] font-normal tracking-tight leading-tight translate-y-[110%] opacity-0 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
         {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1 sm:px-3">&amp;</span> {content.couple.bride.nickname}
       </h1>

@@ -1,18 +1,20 @@
 ---
 import content from '../data/content.json';
 import FloralDivider from './botanical/FloralDivider.astro';
+import FloralCorner from './botanical/FloralCorner.astro';
+import FloralBouquet from './botanical/FloralBouquet.astro';
 ---
 
 <section id="opening" class="deck-section tone-opening section-flow relative px-4 text-center overflow-hidden z-20" aria-label="Kata Pembuka dan Doa">
   <div class="max-w-2xl mx-auto text-center flex flex-col items-center relative z-10">
     
-    <!-- Botanical Floral Divider Top -->
-    <div class="opening-divider mb-5 scale-x-0">
-      <FloralDivider width={220} height={30} />
+    <!-- Crown Botanical Bouquet -->
+    <div class="opening-divider mb-3 scale-90">
+      <FloralBouquet width={220} height={55} />
     </div>
 
     <!-- Editorial Botanical Badge -->
-    <div class="editorial-badge opening-item mb-4">
+    <div class="editorial-badge opening-item mb-3">
       <span>THE SACRED COVENANT</span>
     </div>
 
@@ -21,28 +23,36 @@ import FloralDivider from './botanical/FloralDivider.astro';
       {content.opening.bismillah}
     </p>
 
-    <!-- Ayat Suci QS Ar-Rum 21 -->
-    <blockquote lang="ar" dir="rtl" class="opening-item font-arabic text-xl sm:text-2xl text-[#2A3426] leading-loose my-3 max-w-xl">
-      {content.opening.verse}
-    </blockquote>
+    <!-- Ayat Suci QS Ar-Rum 21 Card with Floral Corner Accents -->
+    <div class="opening-item w-full bg-white/80 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-9 shadow-sm relative overflow-hidden my-3">
+      <div class="absolute top-2 left-2 pointer-events-none">
+        <FloralCorner position="top-left" size={60} />
+      </div>
+      <div class="absolute bottom-2 right-2 pointer-events-none">
+        <FloralCorner position="bottom-right" size={60} />
+      </div>
 
-    <!-- Terjemahan -->
-    <p class="opening-item text-xs sm:text-sm text-[#566A4E] font-light leading-relaxed my-3 max-w-lg italic">
-      &ldquo;{content.opening.translation}&rdquo;
-    </p>
+      <blockquote lang="ar" dir="rtl" class="font-arabic text-xl sm:text-2xl text-[#2A3426] leading-loose max-w-xl mx-auto relative z-10">
+        {content.opening.verse}
+      </blockquote>
 
-    <p class="opening-item text-overline my-2 tracking-[0.25em]">
-      {content.opening.source}
-    </p>
+      <p class="text-xs sm:text-sm text-[#566A4E] font-light leading-relaxed my-3 max-w-lg mx-auto italic relative z-10">
+        &ldquo;{content.opening.translation}&rdquo;
+      </p>
+
+      <p class="text-[0.68rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mt-3 relative z-10">
+        {content.opening.source}
+      </p>
+    </div>
 
     <!-- Kata Sambutan Tulus -->
-    <p class="opening-item text-xs sm:text-sm text-[#2A3426] mt-4 font-normal max-w-lg leading-relaxed">
+    <p class="opening-item text-xs sm:text-sm text-[#2A3426] mt-5 font-normal max-w-lg leading-relaxed">
       {content.opening.greeting}
     </p>
 
     <!-- Botanical Floral Divider Bottom -->
-    <div class="opening-divider mt-8 scale-x-0">
-      <FloralDivider width={220} height={30} />
+    <div class="opening-divider mt-6 scale-x-0">
+      <FloralDivider width={240} height={32} />
     </div>
 
   </div>

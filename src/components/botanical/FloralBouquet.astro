@@ -1,0 +1,59 @@
+---
+interface Props {
+  className?: string;
+  width?: number;
+  height?: number;
+}
+
+const { className = "", width = 280, height = 70 } = Astro.props;
+---
+
+<div class={`flex items-center justify-center select-none pointer-events-none ${className}`} aria-hidden="true">
+  <svg width={width} height={height} viewBox="0 0 280 70" fill="none" class="w-full h-auto max-w-[280px]">
+    <!-- Center Blooming Blossom -->
+    <circle cx="140" cy="35" r="7" fill="#B89352" />
+    <circle cx="140" cy="35" r="14" fill="#FAF6EE" stroke="#B89352" stroke-width="1.2" opacity="0.95" />
+    <!-- Flower Petals -->
+    <path d="M140 21 C144 14, 154 18, 152 26 Z" fill="#FFFFFF" stroke="#566A4E" stroke-width="0.8" />
+    <path d="M152 28 C160 27, 162 38, 154 40 Z" fill="#FFFFFF" stroke="#566A4E" stroke-width="0.8" />
+    <path d="M150 42 C154 50, 143 54, 139 47 Z" fill="#FFFFFF" stroke="#566A4E" stroke-width="0.8" />
+    <path d="M136 45 C128 50, 122 41, 130 36 Z" fill="#FFFFFF" stroke="#566A4E" stroke-width="0.8" />
+    <path d="M131 34 C123 30, 127 19, 135 23 Z" fill="#FFFFFF" stroke="#566A4E" stroke-width="0.8" />
+    <!-- Stamen Dots Gold -->
+    <circle cx="138" cy="33" r="1.5" fill="#B89352" />
+    <circle cx="142" cy="34" r="1.5" fill="#B89352" />
+    <circle cx="140" cy="37" r="1.5" fill="#B89352" />
+
+    <!-- Left Foliage Sprig -->
+    <path d="M125 35 C100 32, 60 24, 25 35" stroke="#4A5C43" stroke-width="1.4" stroke-linecap="round" />
+    <!-- Left Blooming Rosebud -->
+    <circle cx="95" cy="22" r="5" fill="#FAF6EE" stroke="#B89352" stroke-width="1" />
+    <path d="M93 20 C95 16, 99 18, 97 23 Z" fill="#5E7455" />
+    <!-- Left Leaves -->
+    <path d="M115 31 C112 22, 101 22, 99 29 C104 33, 111 34, 115 31 Z" fill="#5E7455" />
+    <path d="M85 30 C80 39, 69 38, 68 31 C74 27, 82 28, 85 30 Z" fill="#4A5C43" />
+    <path d="M72 26 C68 18, 58 19, 56 25 C61 29, 69 29, 72 26 Z" fill="#718B67" />
+    <path d="M50 28 C45 36, 36 34, 35 28 C40 25, 47 26, 50 28 Z" fill="#5E7455" />
+    <path d="M35 32 C30 25, 22 26, 21 31 C25 34, 31 35, 35 32 Z" fill="#4A5C43" />
+    <!-- Gold Olive Berries Left -->
+    <circle cx="106" cy="39" r="2.2" fill="#B89352" />
+    <circle cx="62" cy="20" r="2" fill="#B89352" />
+    <circle cx="42" cy="35" r="2" fill="#B89352" />
+
+    <!-- Right Foliage Sprig -->
+    <path d="M155 35 C180 32, 220 24, 255 35" stroke="#4A5C43" stroke-width="1.4" stroke-linecap="round" />
+    <!-- Right Blooming Rosebud -->
+    <circle cx="185" cy="22" r="5" fill="#FAF6EE" stroke="#B89352" stroke-width="1" />
+    <path d="M187 20 C185 16, 181 18, 183 23 Z" fill="#5E7455" />
+    <!-- Right Leaves -->
+    <path d="M165 31 C168 22, 179 22, 181 29 C176 33, 169 34, 165 31 Z" fill="#5E7455" />
+    <path d="M195 30 C200 39, 211 38, 212 31 C206 27, 198 28, 195 30 Z" fill="#4A5C43" />
+    <path d="M208 26 C212 18, 222 19, 224 25 C219 29, 211 29, 208 26 Z" fill="#718B67" />
+    <path d="M230 28 C235 36, 244 34, 245 28 C240 25, 233 26, 230 28 Z" fill="#5E7455" />
+    <path d="M245 32 C250 25, 258 26, 259 31 C255 34, 249 35, 245 32 Z" fill="#4A5C43" />
+    <!-- Gold Olive Berries Right -->
+    <circle cx="174" cy="39" r="2.2" fill="#B89352" />
+    <circle cx="218" cy="20" r="2" fill="#B89352" />
+    <circle cx="238" cy="35" r="2" fill="#B89352" />
+  </svg>
+</div>

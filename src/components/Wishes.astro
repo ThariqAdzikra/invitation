@@ -1,13 +1,15 @@
 ---
 // Wishes.astro — Botanical Digital Wishes via WhatsApp (Cream & Olive Green)
 import FloralDivider from './botanical/FloralDivider.astro';
+import FloralCorner from './botanical/FloralCorner.astro';
+import FloralBouquet from './botanical/FloralBouquet.astro';
 ---
 
 <section id="wishes" class="deck-section tone-wishes section-flow relative px-4 text-center overflow-hidden z-70" aria-label="Kirim Doa dan Ucapan">
   <div class="max-w-xl mx-auto w-full relative z-10 wishes-content">
     
-    <div class="mb-5">
-      <FloralDivider width={220} height={30} />
+    <div class="mb-2 scale-90">
+      <FloralBouquet width={220} height={55} />
     </div>
 
     <div class="editorial-badge mb-2">
@@ -26,8 +28,14 @@ import FloralDivider from './botanical/FloralDivider.astro';
       Doa restu dari Bapak/Ibu/Saudara/i sekalian merupakan anugerah terindah dan kebahagiaan terbesar bagi awal perjalanan ibadah kami.
     </p>
 
-    <!-- Botanical Linen Wishes Card -->
+    <!-- Botanical Linen Wishes Card with Corner Flourishes -->
     <div class="bg-white border border-[#566A4E]/25 rounded-xl p-6 sm:p-8 relative overflow-hidden shadow-[0_12px_36px_rgba(42,52,38,0.07)] hover:border-[#566A4E] transition-colors duration-300">
+      <div class="absolute top-2 left-2 pointer-events-none">
+        <FloralCorner position="top-left" size={60} />
+      </div>
+      <div class="absolute bottom-2 right-2 pointer-events-none">
+        <FloralCorner position="bottom-right" size={60} />
+      </div>
       
       <div class="flex flex-col items-center gap-4 relative z-10">
         

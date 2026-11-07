@@ -1,21 +1,28 @@
 ---
 import content from '../data/content.json';
+import FloralDivider from './botanical/FloralDivider.astro';
 ---
 
 <section id="countdown" class="deck-section tone-countdown section-flow relative px-4 overflow-hidden z-50" aria-label="Hitung Mundur Acara"
          data-date={content.event.date} data-time={content.event.akad.time.split(' ')[0]} data-timezone={content.event.timezone}>
   <div class="max-w-xl mx-auto text-center w-full relative z-10">
     
-    <div class="countdown-header mb-8">
+    <div class="countdown-header mb-6">
       <div class="editorial-badge">
         <span>THE CHRONOMETER</span>
       </div>
       <p class="text-overline tracking-[0.25em]">
         MENGHITUNG HARI
       </p>
-      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-[#2A3426] font-normal mt-2">
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-[#2A3426] font-normal mt-1.5 mb-3">
         Menuju Janji Suci
       </h2>
+      <div class="flex justify-center my-2">
+        <FloralDivider width={200} height={26} />
+      </div>
+      <p class="text-xs text-[#566A4E] font-light italic max-w-sm mx-auto mt-2">
+        Menanti detik demi detik menuju ikrar suci yang kami nanti
+      </p>
     </div>
 
     <!-- Countdown Grid -->
