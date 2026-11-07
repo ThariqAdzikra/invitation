@@ -4,154 +4,280 @@ import content from '../data/content.json';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 ---
 
-<section id="events" class="deck-section section-flow relative px-4 overflow-hidden z-30 pt-16 sm:pt-20 pb-20 sm:pb-24" aria-label="Rangkaian Acara Pernikahan">
+---
+// UnifiedEvent.astro — Open Editorial Botanical Stele with 3D Parallax Falling & Zooming Leaves
+import content from '../data/content.json';
+import FloralFlourish from './botanical/FloralFlourish.astro';
+---
+
+<section 
+  id="events" 
+  class="deck-section relative px-4 overflow-hidden z-30 pt-20 sm:pt-28 pb-24 sm:pb-36 min-h-[125vh] flex flex-col items-center justify-center" 
+  aria-label="Rangkaian Acara Pernikahan"
+>
   
-  <div class="max-w-2xl mx-auto w-full relative z-10 text-center">
+  <!-- =========================================================================
+       3D MULTI-LAYER FALLING & ZOOMING OLIVE LEAVES STAGE
+       Foreground, Midground, & Background Parallax Leaves with Camera Fly-Through
+       ========================================================================= -->
+  <div id="events-leaves-stage" class="absolute inset-0 pointer-events-none overflow-hidden z-20" aria-hidden="true">
     
-    <!-- Architectural Pavilion Card -->
+    <!-- FOREGROUND GIANT ZOOM LEAVES (Zoom 3.5x - 5x + Blur Depth-of-Field Fly-Through) -->
+    <!-- Leaf FG 1: Top-Left Deep Olive Leaf -->
     <div 
-      id="event-pavilion-frame" 
-      class="relative w-full max-w-2xl mx-auto rounded-[28px] sm:rounded-[36px] bg-white/92 backdrop-blur-md border border-[#B89352]/35 shadow-[0_16px_48px_rgba(42,52,38,0.06)] pt-12 sm:pt-14 pb-9 sm:pb-10 px-5 sm:px-9 text-center will-change-transform"
+      class="event-leaf leaf-fg-1 absolute top-[5%] left-[4%] sm:left-[8%] w-12 h-14 sm:w-14 sm:h-16 will-change-transform"
+      style="transform-style: preserve-3d;"
     >
-      <!-- Gilded Stitched Inset Border -->
-      <div class="absolute inset-2 sm:inset-3 border border-dashed border-[#B89352]/25 rounded-[22px] sm:rounded-[28px] pointer-events-none"></div>
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full drop-shadow-[0_8px_20px_rgba(42,52,38,0.18)]">
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="#4A5C43" />
+        <path d="M25 5 Q24 35 28 50" stroke="#FAF8F5" stroke-width="0.8" opacity="0.65" />
+        <circle cx="34" cy="46" r="2.2" fill="#B89352" />
+      </svg>
+    </div>
 
-      <!-- Arch Apex Crest: Gilded Wedding Rings Medallion -->
-      <div class="absolute -top-6 left-1/2 -translate-x-1/2 flex items-center justify-center z-10">
-        <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-full border border-[#B89352]/50 bg-[#FAF8F5] flex items-center justify-center text-[#B89352] shadow-[0_6px_20px_rgba(184,147,82,0.22)]">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="9" cy="12" r="5.5"></circle>
-            <circle cx="15" cy="12" r="5.5"></circle>
-          </svg>
-        </div>
+    <!-- Leaf FG 2: Top-Right Antique Gold Leaf -->
+    <div 
+      class="event-leaf leaf-fg-2 absolute top-[12%] right-[5%] sm:right-[10%] w-11 h-13 sm:w-13 sm:h-15 will-change-transform"
+      style="transform-style: preserve-3d;"
+    >
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full drop-shadow-[0_8px_24px_rgba(184,147,82,0.28)]">
+        <defs>
+          <linearGradient id="event-gold-leaf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D4AF37" />
+            <stop offset="50%" stop-color="#B89352" />
+            <stop offset="100%" stop-color="#9A7836" />
+          </linearGradient>
+        </defs>
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="url(#event-gold-leaf-grad)" />
+        <path d="M25 5 Q24 35 28 50" stroke="#FAF8F5" stroke-width="0.8" opacity="0.8" />
+      </svg>
+    </div>
+
+    <!-- Leaf FG 3: Mid-Left Soft Olive Leaf -->
+    <div 
+      class="event-leaf leaf-fg-3 absolute top-[40%] left-[2%] sm:left-[5%] w-13 h-15 sm:w-16 sm:h-18 will-change-transform"
+      style="transform-style: preserve-3d;"
+    >
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full drop-shadow-[0_10px_25px_rgba(42,52,38,0.16)]">
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="#6E8564" />
+        <path d="M25 5 Q24 35 28 50" stroke="#FAF8F5" stroke-width="0.8" opacity="0.6" />
+      </svg>
+    </div>
+
+    <!-- Leaf FG 4: Mid-Right Large Deep Olive Leaf with Berry -->
+    <div 
+      class="event-leaf leaf-fg-4 absolute top-[48%] right-[3%] sm:right-[6%] w-14 h-16 sm:w-18 sm:h-20 will-change-transform"
+      style="transform-style: preserve-3d;"
+    >
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full drop-shadow-[0_12px_28px_rgba(42,52,38,0.20)]">
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="#4A5C43" />
+        <path d="M25 5 Q24 35 28 50" stroke="#FAF8F5" stroke-width="0.8" opacity="0.65" />
+        <circle cx="35" cy="45" r="2.5" fill="#B89352" />
+      </svg>
+    </div>
+
+    <!-- Leaf FG 5: Lower Center-Left Gilded Accent Leaf -->
+    <div 
+      class="event-leaf leaf-fg-5 absolute top-[72%] left-[6%] sm:left-[12%] w-10 h-12 sm:w-13 sm:h-15 will-change-transform"
+      style="transform-style: preserve-3d;"
+    >
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full drop-shadow-[0_8px_20px_rgba(184,147,82,0.22)]">
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="#B89352" />
+        <path d="M25 5 Q24 35 28 50" stroke="#FAF8F5" stroke-width="0.8" opacity="0.75" />
+      </svg>
+    </div>
+
+    <!-- Leaf FG 6: Lower Right Soft Green Leaf -->
+    <div 
+      class="event-leaf leaf-fg-6 absolute top-[76%] right-[8%] sm:right-[14%] w-12 h-14 sm:w-15 sm:h-17 will-change-transform"
+      style="transform-style: preserve-3d;"
+    >
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full drop-shadow-[0_10px_22px_rgba(42,52,38,0.16)]">
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="#5E7455" />
+        <path d="M25 5 Q24 35 28 50" stroke="#FAF8F5" stroke-width="0.8" opacity="0.6" />
+      </svg>
+    </div>
+
+    <!-- MIDGROUND & BACKGROUND GENTLE DRIFT LEAVES -->
+    <!-- Midground Leaf 1 -->
+    <div class="event-leaf leaf-mg-1 absolute top-[20%] left-[24%] w-7 h-9 opacity-75">
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full">
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="#5E7455" />
+      </svg>
+    </div>
+
+    <!-- Midground Leaf 2 -->
+    <div class="event-leaf leaf-mg-2 absolute top-[28%] right-[22%] w-8 h-10 opacity-70">
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full">
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="#6E8564" />
+        <circle cx="34" cy="46" r="2" fill="#B89352" />
+      </svg>
+    </div>
+
+    <!-- Midground Leaf 3 -->
+    <div class="event-leaf leaf-mg-3 absolute top-[62%] right-[26%] w-7 h-9 opacity-65">
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full">
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="#4A5C43" />
+      </svg>
+    </div>
+
+    <!-- Background Leaf 1 (Tiny, subtle) -->
+    <div class="event-leaf leaf-bg-1 absolute top-[15%] right-[32%] w-5 h-6 opacity-40">
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full">
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="#B89352" />
+      </svg>
+    </div>
+
+    <!-- Background Leaf 2 -->
+    <div class="event-leaf leaf-bg-2 absolute top-[68%] left-[28%] w-5 h-6 opacity-45">
+      <svg viewBox="0 0 50 60" fill="none" class="w-full h-full">
+        <path d="M25 5 C38 18, 42 38, 30 52 C22 45, 12 32, 16 15 C18 10, 22 6, 25 5 Z" fill="#5E7455" />
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- =========================================================================
+       OPEN EDITORIAL BOTANICAL STELE (NO BOX CARDS)
+       Pure High-Fashion Wedding Typography Resting Cleanly on Cream Linen
+       ========================================================================= -->
+  <div id="event-editorial-stele" class="max-w-2xl mx-auto w-full relative z-10 text-center will-change-transform">
+    
+    <!-- Top Rings Crest: Intertwined Rings with Gold Halo -->
+    <div class="flex items-center justify-center mb-4">
+      <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-full border border-[#B89352]/50 bg-white/80 backdrop-blur-xs flex items-center justify-center text-[#B89352] shadow-[0_4px_16px_rgba(184,147,82,0.16)]">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="9" cy="12" r="5.5"></circle>
+          <circle cx="15" cy="12" r="5.5"></circle>
+        </svg>
       </div>
+    </div>
 
-      <!-- Overline & Section Title -->
-      <div class="event-header mb-5 relative z-10">
-        <p class="text-overline tracking-[0.28em] text-[0.62rem] sm:text-xs text-[#B89352] font-semibold uppercase mb-1">
-          RANGKAIAN ACARA
-        </p>
-        <div class="kinetic-heading-mask my-1">
-          <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-[#2A3426] font-normal kinetic-heading-line">
-            Waktu &amp; Tempat
-          </h2>
-        </div>
-        <div class="my-2 flex justify-center opacity-75">
-          <FloralFlourish width={140} height={18} />
-        </div>
+    <!-- Overline & Section Title -->
+    <div class="event-header mb-6">
+      <p class="text-overline tracking-[0.32em] text-[0.62rem] sm:text-xs text-[#B89352] font-semibold uppercase mb-1">
+        RANGKAIAN ACARA
+      </p>
+      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tracking-tight">
+        Waktu &amp; Tempat
+      </h2>
+      <div class="my-2.5 flex justify-center opacity-75">
+        <FloralFlourish width={140} height={18} />
       </div>
+    </div>
 
-      <!-- Main Highlighted Date Plaque -->
-      <div class="inline-flex flex-col items-center bg-[#FAF8F5] border border-[#B89352]/30 rounded-2xl py-2 px-6 sm:px-8 mb-6 relative z-10 shadow-xs max-w-full">
-        <span class="text-[0.62rem] sm:text-[0.68rem] tracking-[0.26em] text-[#566A4E] uppercase font-semibold mb-0.5">
-          HARI &amp; TANGGAL
+    <!-- Main Highlighted Date (Clean Double Gold Hairline Rules) -->
+    <div class="my-6 sm:my-8 py-3.5 border-y border-[#B89352]/25 max-w-lg mx-auto">
+      <span class="text-[0.62rem] sm:text-[0.68rem] tracking-[0.28em] text-[#566A4E] uppercase font-semibold block mb-0.5">
+        HARI &amp; TANGGAL
+      </span>
+      <h3 class="font-display text-2xl sm:text-3xl md:text-4xl text-[#2A3426] font-normal tracking-normal">
+        {content.event.dateFormatted}
+      </h3>
+    </div>
+
+    <!-- Dual Symmetrical Sessions: Akad Nikah & Resepsi Pernikahan -->
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 sm:gap-8 items-center max-w-xl mx-auto my-7 sm:my-9">
+      
+      <!-- Akad Nikah Wing -->
+      <div class="flex flex-col items-center text-center py-1">
+        <span class="inline-flex items-center gap-1.5 text-[0.68rem] sm:text-[0.72rem] tracking-[0.22em] text-[#B89352] uppercase font-semibold mb-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#B89352]"></span>
+          {content.event.akad.title}
         </span>
-        <h3 class="font-display text-xl sm:text-2xl md:text-3xl text-[#2A3426] font-normal tracking-tight">
-          {content.event.dateFormatted}
-        </h3>
-      </div>
-
-      <!-- Dual Symmetrical Sessions: Akad Nikah & Resepsi Pernikahan -->
-      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-3.5 sm:gap-4 items-stretch mb-5 relative z-10">
-        
-        <!-- Akad Nikah Wing -->
-        <div class="rounded-2xl border border-[#B89352]/25 bg-[#FAF8F5]/90 p-4 sm:p-5 flex flex-col items-center justify-center text-center shadow-xs">
-          <span class="inline-flex items-center gap-1.5 text-[0.65rem] sm:text-[0.68rem] tracking-[0.22em] text-[#B89352] uppercase font-semibold mb-1">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#B89352]"></span>
-            {content.event.akad.title}
-          </span>
-          <p class="font-display text-lg sm:text-xl text-[#2A3426] font-normal my-0.5 whitespace-nowrap">
-            Pukul {content.event.akad.time}
-          </p>
-          <span class="text-[0.68rem] text-[#7E8F77] italic font-light">
-            Khidmat &amp; Sakral
-          </span>
-        </div>
-
-        <!-- Center Gilded Divider Desktop -->
-        <div class="hidden md:flex flex-col items-center justify-center px-1">
-          <div class="w-[1px] h-7 bg-gradient-to-b from-transparent to-[#B89352]/45"></div>
-          <span class="text-[#B89352] text-xs my-1 select-none">♦</span>
-          <div class="w-[1px] h-7 bg-gradient-to-t from-transparent to-[#B89352]/45"></div>
-        </div>
-
-        <!-- Resepsi Pernikahan Wing -->
-        <div class="rounded-2xl border border-[#B89352]/25 bg-[#FAF8F5]/90 p-4 sm:p-5 flex flex-col items-center justify-center text-center shadow-xs">
-          <span class="inline-flex items-center gap-1.5 text-[0.65rem] sm:text-[0.68rem] tracking-[0.22em] text-[#B89352] uppercase font-semibold mb-1">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#B89352]"></span>
-            {content.event.resepsi.title}
-          </span>
-          <p class="font-display text-lg sm:text-xl text-[#2A3426] font-normal my-0.5 whitespace-nowrap">
-            Pukul {content.event.resepsi.time}
-          </p>
-          <span class="text-[0.68rem] text-[#7E8F77] italic font-light">
-            Syukuran &amp; Doa Bersama
-          </span>
-        </div>
-
-      </div>
-
-      <!-- Venue & Location Block -->
-      <div class="rounded-2xl border border-[#566A4E]/20 bg-[#FAF8F5]/70 p-4 sm:p-5 mb-5 relative z-10 text-center">
-        <span class="text-[0.62rem] sm:text-xs text-[#566A4E] uppercase tracking-[0.22em] font-semibold mb-1 block">
-          BERTEMPAT DI
-        </span>
-        <h4 class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal mb-1">
-          {content.event.venue.name}
-        </h4>
-        <p class="text-xs sm:text-[0.82rem] text-[#566A4E] font-light max-w-md mx-auto leading-relaxed mb-3">
-          {content.event.venue.address}
+        <p class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal my-0.5 whitespace-nowrap">
+          Pukul {content.event.akad.time}
         </p>
-
-        <!-- 1-Click Copy Address Pill -->
-        <button
-          type="button"
-          id="btn-copy-venue-address"
-          class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#566A4E]/25 text-[0.65rem] tracking-wider uppercase font-semibold text-[#566A4E] bg-white hover:bg-[#FAF8F5] hover:border-[#B89352] hover:text-[#B89352] transition-all cursor-pointer shadow-xs active:scale-95"
-          data-address={content.event.venue.address}
-        >
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-          </svg>
-          <span>Salin Alamat Venue</span>
-        </button>
+        <span class="text-[0.70rem] text-[#7E8F77] italic font-light">
+          Khidmat &amp; Sakral
+        </span>
       </div>
 
-      <!-- Luxury Cohesive Action Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 relative z-10">
-        <a 
-          href={content.event.venue.mapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold bg-[#4A5D43] text-white hover:bg-[#384833] transition-all shadow-[0_4px_14px_rgba(74,93,67,0.22)] active:scale-95"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          <span>Buka Google Maps</span>
-        </a>
+      <!-- Center Gilded Divider Desktop -->
+      <div class="hidden md:flex flex-col items-center justify-center px-2">
+        <div class="w-[1px] h-8 bg-gradient-to-b from-transparent to-[#B89352]/45"></div>
+        <span class="text-[#B89352] text-xs my-1 select-none">♦</span>
+        <div class="w-[1px] h-8 bg-gradient-to-t from-transparent to-[#B89352]/45"></div>
+      </div>
+      <!-- Center Gilded Divider Mobile -->
+      <div class="block md:hidden w-24 h-[1px] bg-gradient-to-r from-transparent via-[#B89352]/35 to-transparent mx-auto"></div>
 
-        <a 
-          href={content.event.venue.calendarUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold border-1.5 border-[#B89352]/50 text-[#4A5D43] bg-white hover:bg-[#FAF8F5] hover:border-[#4A5D43] transition-all shadow-xs active:scale-95"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="16" y1="2" x2="16" y2="6"></line>
-            <line x1="8" y1="2" x2="8" y2="6"></line>
-            <line x1="3" y1="10" x2="21" y2="10"></line>
-          </svg>
-          <span>Simpan ke Kalender</span>
-        </a>
+      <!-- Resepsi Pernikahan Wing -->
+      <div class="flex flex-col items-center text-center py-1">
+        <span class="inline-flex items-center gap-1.5 text-[0.68rem] sm:text-[0.72rem] tracking-[0.22em] text-[#B89352] uppercase font-semibold mb-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#B89352]"></span>
+          {content.event.resepsi.title}
+        </span>
+        <p class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal my-0.5 whitespace-nowrap">
+          Pukul {content.event.resepsi.time}
+        </p>
+        <span class="text-[0.70rem] text-[#7E8F77] italic font-light">
+          Syukuran &amp; Doa Bersama
+        </span>
       </div>
 
     </div>
 
+    <!-- Venue & Location Block -->
+    <div class="my-7 sm:my-9 max-w-lg mx-auto">
+      <span class="text-[0.62rem] sm:text-xs text-[#566A4E] uppercase tracking-[0.24em] font-semibold mb-1.5 block">
+        BERTEMPAT DI
+      </span>
+      <h4 class="font-display text-2xl sm:text-3xl text-[#2A3426] font-normal mb-1.5">
+        {content.event.venue.name}
+      </h4>
+      <p class="text-xs sm:text-sm text-[#566A4E] font-light max-w-md mx-auto leading-relaxed mb-4">
+        {content.event.venue.address}
+      </p>
+
+      <!-- 1-Click Copy Address Pill -->
+      <button
+        type="button"
+        id="btn-copy-venue-address"
+        class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-[#566A4E]/25 text-[0.65rem] tracking-wider uppercase font-semibold text-[#566A4E] bg-white/80 hover:bg-white hover:border-[#B89352] hover:text-[#B89352] transition-all cursor-pointer shadow-xs active:scale-95"
+        data-address={content.event.venue.address}
+      >
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        <span>Salin Alamat Venue</span>
+      </button>
+    </div>
+
+    <!-- Luxury Cohesive Action Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mt-8 max-w-md mx-auto">
+      <a 
+        href={content.event.venue.mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold bg-[#4A5D43] text-white hover:bg-[#384833] transition-all shadow-[0_4px_14px_rgba(74,93,67,0.22)] active:scale-95"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span>Buka Google Maps</span>
+      </a>
+
+      <a 
+        href={content.event.venue.calendarUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold border-1.5 border-[#B89352]/50 text-[#4A5D43] bg-white hover:bg-[#FAF8F5] hover:border-[#4A5D43] transition-all shadow-xs active:scale-95"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span>Simpan ke Kalender</span>
+      </a>
+    </div>
+
   </div>
+
 </section>
 
 <script>
@@ -178,26 +304,82 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    // Elegant Haute-Couture Cascading Scroll Entrance for Pavilion
-    const eventTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#events',
-        start: 'top 75%',
-        once: true
-      }
-    });
-
-    eventTl.fromTo(
-      '#event-pavilion-frame',
-      { opacity: 0, y: 35, scale: 0.98 },
+    // 1. Entrance Fade-in for Open Editorial Typography
+    gsap.fromTo(
+      '#event-editorial-stele',
+      { opacity: 0, y: 40 },
       {
         opacity: 1,
         y: 0,
-        scale: 1,
-        duration: 0.95,
-        ease: 'power3.out'
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#events',
+          start: 'top 75%',
+          once: true
+        }
       }
     );
+
+    // 2. 3D Parallax Falling & Zooming Leaves Engine Scrubbed by Scroll
+    const leavesTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#events',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.2,
+      }
+    });
+
+    // Foreground Giant Zoom Leaves: Fall down, rotate in 3D, and ZOOM toward camera!
+    // Leaf FG 1 (Top Left)
+    leavesTl.fromTo('.leaf-fg-1', 
+      { y: -60, x: 0, scale: 0.9, rotationZ: -20, rotationX: 10, filter: 'blur(0px)', opacity: 0.8 },
+      { y: 380, x: -140, scale: 3.8, rotationZ: 85, rotationX: 160, filter: 'blur(6px)', opacity: 0, ease: 'none' },
+      0
+    );
+
+    // Leaf FG 2 (Top Right - Gold)
+    leavesTl.fromTo('.leaf-fg-2', 
+      { y: -80, x: 0, scale: 1.0, rotationZ: 30, rotationY: -15, filter: 'blur(0px)', opacity: 0.9 },
+      { y: 440, x: 160, scale: 4.2, rotationZ: -70, rotationY: -140, filter: 'blur(7px)', opacity: 0, ease: 'none' },
+      0
+    );
+
+    // Leaf FG 3 (Mid Left)
+    leavesTl.fromTo('.leaf-fg-3', 
+      { y: -40, x: 0, scale: 1.1, rotationZ: -10, rotationX: 20, filter: 'blur(0px)', opacity: 0.85 },
+      { y: 420, x: -160, scale: 4.5, rotationZ: 110, rotationX: 180, filter: 'blur(8px)', opacity: 0, ease: 'none' },
+      0.1
+    );
+
+    // Leaf FG 4 (Mid Right - Deep Olive with Berry)
+    leavesTl.fromTo('.leaf-fg-4', 
+      { y: -30, x: 0, scale: 1.0, rotationZ: 45, rotationY: 25, filter: 'blur(0px)', opacity: 0.9 },
+      { y: 460, x: 180, scale: 4.8, rotationZ: -90, rotationY: 190, filter: 'blur(8px)', opacity: 0, ease: 'none' },
+      0.12
+    );
+
+    // Leaf FG 5 (Lower Left - Gold)
+    leavesTl.fromTo('.leaf-fg-5', 
+      { y: -20, x: 0, scale: 0.9, rotationZ: 60, rotationX: -15, filter: 'blur(0px)', opacity: 0.8 },
+      { y: 360, x: -120, scale: 3.6, rotationZ: -45, rotationX: -130, filter: 'blur(6px)', opacity: 0, ease: 'none' },
+      0.2
+    );
+
+    // Leaf FG 6 (Lower Right)
+    leavesTl.fromTo('.leaf-fg-6', 
+      { y: -20, x: 0, scale: 1.0, rotationZ: -35, rotationY: 15, filter: 'blur(0px)', opacity: 0.85 },
+      { y: 390, x: 150, scale: 4.0, rotationZ: 80, rotationY: 160, filter: 'blur(7px)', opacity: 0, ease: 'none' },
+      0.22
+    );
+
+    // Midground & Background subtle drifting layers
+    leavesTl.fromTo('.leaf-mg-1', { y: -30, rotationZ: 0 }, { y: 220, rotationZ: 60, ease: 'none' }, 0);
+    leavesTl.fromTo('.leaf-mg-2', { y: -40, rotationZ: 15 }, { y: 260, rotationZ: -75, ease: 'none' }, 0);
+    leavesTl.fromTo('.leaf-mg-3', { y: -20, rotationZ: -30 }, { y: 200, rotationZ: 45, ease: 'none' }, 0.1);
+    leavesTl.fromTo('.leaf-bg-1', { y: -10 }, { y: 140, ease: 'none' }, 0);
+    leavesTl.fromTo('.leaf-bg-2', { y: -15 }, { y: 150, ease: 'none' }, 0);
   }
 
   if (document.readyState === 'loading') {
