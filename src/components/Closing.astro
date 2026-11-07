@@ -6,9 +6,11 @@ import FloralBouquet from './botanical/FloralBouquet.astro';
 import FloralCorner from './botanical/FloralCorner.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
+import SceneTitleCard from './cinematic/SceneTitleCard.astro';
+import ClosingSilhouette from './cinematic/ClosingSilhouette.astro';
 ---
 
-<section id="closing" class="deck-section tone-closing section-flow relative px-4 text-center pb-24 overflow-hidden z-80" aria-label="Penutup Undangan">
+<section id="closing" class="deck-section tone-closing section-flow relative px-4 text-center pb-24 overflow-hidden z-80 pt-16" aria-label="Penutup Undangan">
   
   <TwinkleSparkles />
 
@@ -28,19 +30,26 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 
   <div class="max-w-xl mx-auto flex flex-col items-center w-full relative z-10 closing-content">
     
-    <div class="mb-3 transform hover:scale-105 transition-transform duration-500">
-      <FloralWreath monogram="AD" size={95} />
+    <div class="mb-2 transform hover:scale-105 transition-transform duration-500">
+      <FloralWreath monogram="AD" size={90} />
     </div>
 
-    <div class="editorial-badge mb-3">
-      <span>EPILOGUE</span>
+    <!-- Cinematic Finale Scene Badge -->
+    <div class="mb-4">
+      <SceneTitleCard act="EPILOGUE" title="FOREVER AFTER" scene="FINALE" />
     </div>
 
+    <!-- Crown Bouquet -->
     <div class="mb-3 scale-90 sm:scale-100">
       <FloralBouquet width={240} height={60} />
     </div>
 
-    <p class="text-sm md:text-base text-[#566A4E] font-light leading-relaxed mb-6 max-w-md">
+    <!-- ROMANTIC FINALE SILHOUETTE (Couple Holding Hands under Celestial Stars) -->
+    <div class="my-4 transform hover:scale-105 transition-transform duration-500">
+      <ClosingSilhouette size={250} />
+    </div>
+
+    <p class="text-sm md:text-base text-[#566A4E] font-light leading-relaxed mb-4 max-w-md">
       Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.
     </p>
 
@@ -58,9 +67,13 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
       <FloralDivider width={240} height={32} />
     </div>
 
-    <footer class="w-full pt-6 border-t border-[#566A4E]/20">
-      <p class="text-[0.62rem] md:text-xs text-[#7E8F77] tracking-[0.25em] uppercase font-medium">
-        &copy; 2026 &bull; Undangan Pernikahan Digital &bull; {content.couple.groom.nickname} &amp; {content.couple.bride.nickname}
+    <!-- End Title Credits Footer -->
+    <footer class="w-full pt-8 border-t border-[#566A4E]/20">
+      <p class="text-[0.6rem] tracking-[0.3em] uppercase text-[#B89352] font-mono mb-1">
+        THE WEDDING OF ARYA &amp; DIAN &bull; 2026
+      </p>
+      <p class="text-[0.62rem] md:text-xs text-[#7E8F77] tracking-[0.2em] uppercase font-medium">
+        Terima Kasih atas Doa &amp; Restu Anda &bull; Banda Aceh
       </p>
     </footer>
 

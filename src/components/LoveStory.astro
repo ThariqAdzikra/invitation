@@ -5,6 +5,7 @@ import FloralDivider from './botanical/FloralDivider.astro';
 import FloralBouquet from './botanical/FloralBouquet.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
+import SceneTitleCard from './cinematic/SceneTitleCard.astro';
 ---
 
 <section id="love-story" class="deck-section tone-story relative w-full h-screen overflow-hidden z-60" aria-label="Kisah Perjalanan Mempelai">
@@ -14,14 +15,17 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
   <!-- Subtle Ambient Glow -->
   <div class="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#566A4E]/5 via-transparent to-[#566A4E]/5" aria-hidden="true"></div>
 
-  <!-- Pinned Header in Viewport with Crown Bouquet -->
+  <!-- Pinned Header in Viewport with Crown Bouquet & Scene Badge -->
   <div class="absolute top-6 left-6 sm:left-12 md:left-16 z-20 pointer-events-none">
     <div class="mb-1 scale-80 origin-left">
       <FloralBouquet width={200} height={50} />
     </div>
-    <div class="editorial-badge">
-      <span>THE MEMOIR</span>
+    
+    <!-- Cinematic Scene Indicator Badge -->
+    <div class="mb-2 origin-left scale-90">
+      <SceneTitleCard act="ACT VI" title="THE MEMOIR" scene="SCENE 06" />
     </div>
+
     <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-[#2A3426] font-normal mt-0.5">
       Sebuah Awal Cerita
     </h2>

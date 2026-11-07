@@ -1,0 +1,27 @@
+---
+// SceneTitleCard.astro — Cinematic Film Act & Scene Badge with Letterbox Hairlines
+interface Props {
+  act: string;
+  title: string;
+  scene?: string;
+  className?: string;
+}
+
+const { act, title, scene = "SCENE 01", className = "" } = Astro.props;
+---
+
+<div class={`inline-flex items-center gap-3 select-none pointer-events-none ${className}`} aria-hidden="true">
+  <!-- Left Film Hairline -->
+  <div class="w-6 sm:w-10 h-[1px] bg-gradient-to-r from-transparent via-[#B89352] to-[#B89352]/40"></div>
+  
+  <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF8F5]/90 border border-[#566A4E]/25 shadow-sm">
+    <span class="text-[0.62rem] text-[#B89352]">✦</span>
+    <span class="font-mono text-[0.58rem] sm:text-[0.62rem] tracking-[0.28em] uppercase font-bold text-[#3E4C38]">
+      {act} &bull; {title}
+    </span>
+    <span class="text-[0.62rem] text-[#B89352]">✦</span>
+  </div>
+
+  <!-- Right Film Hairline -->
+  <div class="w-6 sm:w-10 h-[1px] bg-gradient-to-l from-transparent via-[#B89352] to-[#B89352]/40"></div>
+</div>

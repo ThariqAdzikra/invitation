@@ -5,9 +5,10 @@ import FloralCorner from './botanical/FloralCorner.astro';
 import FloralBouquet from './botanical/FloralBouquet.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
+import SceneTitleCard from './cinematic/SceneTitleCard.astro';
 ---
 
-<section id="wishes" class="deck-section tone-wishes section-flow relative px-4 text-center overflow-hidden z-70" aria-label="Kirim Doa dan Ucapan">
+<section id="wishes" class="deck-section tone-wishes section-flow relative px-4 text-center overflow-hidden z-70 pt-16 pb-20" aria-label="Kirim Doa dan Ucapan">
   
   <TwinkleSparkles />
 
@@ -17,8 +18,9 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
       <FloralBouquet width={240} height={60} />
     </div>
 
-    <div class="editorial-badge mb-2">
-      <span>THE BENEDICTION</span>
+    <!-- Cinematic Scene Indicator Badge -->
+    <div class="mb-3">
+      <SceneTitleCard act="ACT VII" title="THE BENEDICTION" scene="SCENE 07" />
     </div>
 
     <p class="text-overline tracking-[0.25em]">

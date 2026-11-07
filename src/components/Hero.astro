@@ -1,5 +1,5 @@
 ---
-// Hero.astro — Botanical Hero Section with Crown Bouquet, Floral Corners, Monogram Crest & Twinkle Sparkles
+// Hero.astro — Cinematic Hero Section with Artistic Prewedding Couple Silhouette & Ken Burns Parallax Zoom
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralDivider from './botanical/FloralDivider.astro';
@@ -7,9 +7,11 @@ import FloralCorner from './botanical/FloralCorner.astro';
 import FloralBouquet from './botanical/FloralBouquet.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
+import SceneTitleCard from './cinematic/SceneTitleCard.astro';
+import CoupleHeroSilhouette from './cinematic/CoupleHeroSilhouette.astro';
 ---
 
-<section id="hero" class="deck-section tone-hero section-hero relative px-4 text-center overflow-hidden z-10" aria-label="Informasi Utama Pernikahan">
+<section id="hero" class="deck-section tone-hero section-hero relative px-4 text-center overflow-hidden z-10 pt-10 pb-16" aria-label="Informasi Utama Pernikahan">
   
   <!-- Twinkling Gold Sparkles Background -->
   <TwinkleSparkles />
@@ -33,20 +35,22 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 
   <div class="relative z-10 max-w-3xl w-full mx-auto flex flex-col items-center">
     
+    <!-- Cinematic Scene Indicator Badge -->
+    <div class="hero-badge mb-3 opacity-0">
+      <SceneTitleCard act="ACT I" title="THE UNION" scene="SCENE 01" />
+    </div>
+
     <!-- Royal Botanical Olive & Floral Crest -->
-    <div class="hero-crest mb-3 transform hover:scale-105 transition-transform duration-500 opacity-0">
-      <FloralWreath monogram="AD" size={110} />
+    <div class="hero-crest mb-2 transform hover:scale-105 transition-transform duration-500 opacity-0">
+      <FloralWreath monogram="AD" size={95} />
     </div>
 
-    <!-- Editorial Botanical Badge -->
-    <div class="hero-badge editorial-badge opacity-0">
-      <span>THE WEDDING OF</span>
-    </div>
-
-    <!-- Grand Headline with Crown Bouquet & Staggered Mask Reveal -->
+    <!-- Crown Bouquet -->
     <div class="my-1 scale-90 sm:scale-100">
-      <FloralBouquet width={260} height={65} />
+      <FloralBouquet width={240} height={55} />
     </div>
+
+    <!-- Grand Movie Title Headline with Staggered Reveal -->
     <div class="overflow-hidden my-1 sm:my-2">
       <h1 id="hero-headline" class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#2A3426] font-normal tracking-tight leading-tight translate-y-[110%] opacity-0 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
         {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1 sm:px-3">&amp;</span> {content.couple.bride.nickname}
@@ -56,6 +60,15 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
     <!-- Symmetrical Calligraphic Flourish Swash -->
     <div class="my-1">
       <FloralFlourish width={210} height={35} />
+    </div>
+
+    <!-- ARTISTIC PREWEDDING COUPLE SILHOUETTE (With Ken Burns Scroll Parallax Zoom) -->
+    <div id="hero-silhouette-container" class="my-4 relative opacity-0 transform transition-transform duration-700">
+      <div id="hero-silhouette-inner" class="will-change-transform">
+        <CoupleHeroSilhouette size={310} />
+      </div>
+      <!-- Soft Cinematic Ground Shadow -->
+      <div class="w-48 h-5 bg-[#263322]/15 rounded-full blur-md mx-auto -mt-2 pointer-events-none"></div>
     </div>
 
     <!-- Botanical Olive & Floral Divider -->
@@ -105,12 +118,17 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 
 <script>
   import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
 
   function initHero() {
     const guestNameEl = document.getElementById('guest-name-hero');
     const headline = document.getElementById('hero-headline');
     const crest = document.querySelector('.hero-crest');
     const badge = document.querySelector('.hero-badge');
+    const silhouette = document.getElementById('hero-silhouette-container');
+    const silhouetteInner = document.getElementById('hero-silhouette-inner');
     const divider = document.querySelector('.hero-divider');
     const meta = document.querySelector('.hero-meta');
     const guest = document.querySelector('.hero-guest');
@@ -133,10 +151,27 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
       tl.to(crest, { opacity: 1, scale: 1, duration: 1 })
         .to(badge, { opacity: 1, y: 0, duration: 0.6 }, '-=0.5')
         .to(headline, { opacity: 1, y: 0, duration: 1.1, ease: 'power4.out' }, '-=0.3')
+        .to(silhouette, { opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out' }, '-=0.6')
         .to(divider, { opacity: 1, scaleX: 1, duration: 0.8 }, '-=0.5')
         .to(meta, { opacity: 1, y: 0, duration: 0.8 }, '-=0.4')
         .to(guest, { opacity: 1, y: 0, duration: 0.9 }, '-=0.3')
         .to(scrollCue, { opacity: 1, y: 0, duration: 0.8 }, '-=0.2');
+
+      // Ken Burns Scroll Parallax Slow Zoom on Silhouette
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReducedMotion && silhouetteInner) {
+        gsap.to(silhouetteInner, {
+          scale: 1.18,
+          y: -25,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#hero',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.2
+          }
+        });
+      }
     }
 
     window.addEventListener('invitationOpened', revealHero, { once: true });

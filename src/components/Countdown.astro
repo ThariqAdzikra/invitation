@@ -4,9 +4,10 @@ import FloralDivider from './botanical/FloralDivider.astro';
 import FloralBouquet from './botanical/FloralBouquet.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
+import SceneTitleCard from './cinematic/SceneTitleCard.astro';
 ---
 
-<section id="countdown" class="deck-section tone-countdown section-flow relative px-4 overflow-hidden z-50" aria-label="Hitung Mundur Acara"
+<section id="countdown" class="deck-section tone-countdown section-flow relative px-4 overflow-hidden z-50 pt-16 pb-20" aria-label="Hitung Mundur Acara"
          data-date={content.event.date} data-time={content.event.akad.time.split(' ')[0]} data-timezone={content.event.timezone}>
   
   <TwinkleSparkles />
@@ -17,9 +18,12 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
       <div class="mb-2 scale-90">
         <FloralBouquet width={220} height={55} />
       </div>
-      <div class="editorial-badge">
-        <span>THE CHRONOMETER</span>
+      
+      <!-- Cinematic Scene Indicator Badge -->
+      <div class="mb-3">
+        <SceneTitleCard act="ACT V" title="THE CHRONOMETER" scene="SCENE 05" />
       </div>
+
       <p class="text-overline tracking-[0.25em]">
         MENGHITUNG HARI
       </p>
