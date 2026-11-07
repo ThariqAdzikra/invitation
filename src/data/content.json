@@ -3,6 +3,7 @@
     "groom": {
       "nickname": "Arya",
       "fullName": "Arya Wirayudha, S.T.",
+      "photo": "/assets/groom.jpg",
       "parents": "Putra dari Bapak H. Bambang Soedirman & Ibu Hj. Siti Rahayu",
       "quote": "Bagi saya, mencintaimu adalah ketenangan paling tulus yang dianugerahkan semesta.",
       "instagram": "@aryawira"
@@ -10,6 +11,7 @@
     "bride": {
       "nickname": "Dian",
       "fullName": "Dian Paramitha, S.Ds.",
+      "photo": "/assets/bride.jpg",
       "parents": "Putri dari Bapak Ir. H. Hendra Kusuma & Ibu Hj. Ratna Dewi",
       "quote": "Menemukanmu adalah jawaban dari setiap doa yang kupanjatkan dalam hening.",
       "instagram": "@dianparamitha"

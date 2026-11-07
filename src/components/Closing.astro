@@ -6,7 +6,6 @@ import FloralCorner from './botanical/FloralCorner.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 import SceneTitleCard from './cinematic/SceneTitleCard.astro';
-import ClosingSilhouette from './cinematic/ClosingSilhouette.astro';
 ---
 
 <section id="closing" class="deck-section tone-closing section-flow relative px-4 text-center pb-24 overflow-hidden z-80 pt-16" aria-label="Penutup Undangan">
@@ -34,9 +33,22 @@ import ClosingSilhouette from './cinematic/ClosingSilhouette.astro';
       <SceneTitleCard act="EPILOGUE" title="FOREVER AFTER" scene="FINALE" />
     </div>
 
-    <!-- ROMANTIC FINALE SILHOUETTE (Couple Holding Hands under Celestial Stars) -->
-    <div class="my-3 transform hover:scale-105 transition-transform duration-500">
-      <ClosingSilhouette size={240} />
+    <!-- ROMANTIC FINALE PORTRAIT (Golden Hour Couple Landscape) -->
+    <div class="my-4 w-full max-w-sm sm:max-w-md mx-auto group">
+      <div class="relative rounded-2xl p-1.5 bg-gradient-to-tr from-[#B89352]/40 via-[#566A4E]/30 to-[#B89352]/50 shadow-[0_16px_40px_rgba(42,52,38,0.14)]">
+        <div class="relative rounded-xl overflow-hidden aspect-[16/10] border border-white/80 bg-[#EDE8DC]">
+          <img 
+            src="/assets/prewedding-closing.jpg" 
+            alt="Foto Arya & Dian Menatap Masa Depan"
+            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" 
+            loading="lazy"
+            width="640"
+            height="400"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#263322]/40 via-transparent to-transparent pointer-events-none"></div>
+          <div class="absolute inset-1.5 rounded-lg border border-white/30 pointer-events-none"></div>
+        </div>
+      </div>
     </div>
 
     <p class="text-sm md:text-base text-[#566A4E] font-light leading-relaxed my-4 max-w-md">

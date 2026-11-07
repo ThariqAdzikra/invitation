@@ -1,5 +1,5 @@
 ---
-// Hero.astro — Cinematic Hero Section with Artistic Prewedding Couple Silhouette & Ken Burns Parallax Zoom
+// Hero.astro — Cinematic Hero Section with Authentic Editorial Prewedding Portrait & Ken Burns Parallax Zoom
 // Audited for Zero Collisions: Clean vertical cadence, balanced negative space, responsive corner scaling
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
@@ -8,7 +8,6 @@ import FloralCorner from './botanical/FloralCorner.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 import SceneTitleCard from './cinematic/SceneTitleCard.astro';
-import CoupleHeroSilhouette from './cinematic/CoupleHeroSilhouette.astro';
 ---
 
 <section id="hero" class="deck-section tone-hero section-hero relative px-4 text-center overflow-hidden z-10 pt-12 pb-20" aria-label="Informasi Utama Pernikahan">
@@ -57,13 +56,27 @@ import CoupleHeroSilhouette from './cinematic/CoupleHeroSilhouette.astro';
       <FloralFlourish width={200} height={32} />
     </div>
 
-    <!-- ARTISTIC PREWEDDING COUPLE SILHOUETTE (With Ken Burns Scroll Parallax Zoom) -->
-    <div id="hero-silhouette-container" class="my-3 relative opacity-0 transform transition-transform duration-700">
-      <div id="hero-silhouette-inner" class="will-change-transform">
-        <CoupleHeroSilhouette size={290} />
+    <!-- CINEMATIC EDITORIAL PREWEDDING PORTRAIT (Roman Arch Frame with Ken Burns Parallax Zoom) -->
+    <div id="hero-silhouette-container" class="my-4 relative opacity-0 transform transition-transform duration-700">
+      <div class="relative w-[260px] sm:w-[310px] md:w-[330px] rounded-t-[130px] sm:rounded-t-[155px] md:rounded-t-[165px] rounded-b-2xl p-1.5 sm:p-2 bg-gradient-to-b from-[#B89352]/50 via-[#EDE8DC] to-[#566A4E]/40 shadow-[0_20px_50px_rgba(42,52,38,0.18)]">
+        <div class="w-full aspect-[3/4] rounded-t-[125px] sm:rounded-t-[150px] md:rounded-t-[160px] rounded-b-xl overflow-hidden relative border border-[#FAF8F5]/90 bg-[#EDE8DC]">
+          <img 
+            id="hero-silhouette-inner"
+            src="/assets/prewedding-hero.jpg" 
+            alt="Foto Prewedding Arya & Dian" 
+            class="w-full h-full object-cover object-center will-change-transform scale-100 transition-transform duration-700" 
+            loading="eager"
+            width="640"
+            height="853"
+          />
+          <!-- Warm editorial cinema gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#263322]/40 via-transparent to-[#FAF8F5]/10 pointer-events-none"></div>
+          <!-- Inset hairline border -->
+          <div class="absolute inset-1.5 rounded-t-[120px] sm:rounded-t-[145px] md:rounded-t-[155px] rounded-b-lg border border-white/40 pointer-events-none"></div>
+        </div>
       </div>
       <!-- Soft Ground Shadow -->
-      <div class="w-44 h-4 bg-[#263322]/15 rounded-full blur-md mx-auto -mt-2 pointer-events-none"></div>
+      <div class="w-48 h-3.5 bg-[#263322]/15 rounded-full blur-md mx-auto mt-2 pointer-events-none"></div>
     </div>
 
     <!-- Botanical Olive & Floral Divider -->

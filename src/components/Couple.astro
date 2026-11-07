@@ -7,8 +7,6 @@ import FloralDivider from './botanical/FloralDivider.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 import SceneTitleCard from './cinematic/SceneTitleCard.astro';
-import GroomSilhouette from './cinematic/GroomSilhouette.astro';
-import BrideSilhouette from './cinematic/BrideSilhouette.astro';
 ---
 
 <section id="couple" class="deck-section tone-couple section-flow relative px-4 overflow-hidden z-30 pt-16 pb-20" aria-label="Profil Kedua Mempelai">
@@ -70,9 +68,21 @@ import BrideSilhouette from './cinematic/BrideSilhouette.astro';
 
             <div class="my-auto flex flex-col items-center relative z-10 w-full px-2 py-2">
               
-              <!-- Artistic Groom Silhouette Portrait -->
-              <div class="mb-2 transform hover:scale-105 transition-transform duration-500">
-                <GroomSilhouette size={125} />
+              <!-- Authentic Editorial Groom Portrait -->
+              <div class="relative mb-2.5 group">
+                <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-[#B89352] via-[#EDE8DC] to-[#566A4E] shadow-[0_8px_24px_rgba(74,93,67,0.18)]">
+                  <div class="w-full h-full rounded-full overflow-hidden border-2 border-[#FAF8F5] relative bg-[#EDE8DC]">
+                    <img 
+                      src={content.couple.groom.photo || "/assets/groom.jpg"} 
+                      alt={content.couple.groom.fullName}
+                      class="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-500 ease-out" 
+                      loading="lazy"
+                      width="256"
+                      height="256"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#263322]/20 via-transparent to-transparent pointer-events-none"></div>
+                  </div>
+                </div>
               </div>
 
               <p class="text-[0.62rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-0.5">Mempelai Pria</p>
@@ -160,9 +170,21 @@ import BrideSilhouette from './cinematic/BrideSilhouette.astro';
 
             <div class="my-auto flex flex-col items-center relative z-10 w-full px-2 py-2">
               
-              <!-- Artistic Bride Silhouette Portrait -->
-              <div class="mb-2 transform hover:scale-105 transition-transform duration-500">
-                <BrideSilhouette size={125} />
+              <!-- Authentic Editorial Bride Portrait -->
+              <div class="relative mb-2.5 group">
+                <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-[#566A4E] via-[#EDE8DC] to-[#B89352] shadow-[0_8px_24px_rgba(74,93,67,0.18)]">
+                  <div class="w-full h-full rounded-full overflow-hidden border-2 border-[#FAF8F5] relative bg-[#EDE8DC]">
+                    <img 
+                      src={content.couple.bride.photo || "/assets/bride.jpg"} 
+                      alt={content.couple.bride.fullName}
+                      class="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-500 ease-out" 
+                      loading="lazy"
+                      width="256"
+                      height="256"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#263322]/20 via-transparent to-transparent pointer-events-none"></div>
+                  </div>
+                </div>
               </div>
 
               <p class="text-[0.62rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-0.5">Mempelai Wanita</p>
