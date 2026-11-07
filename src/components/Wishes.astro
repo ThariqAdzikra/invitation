@@ -1,5 +1,6 @@
 ---
 // Wishes.astro — Botanical Digital Wishes via WhatsApp (Warm Cream & Olive Green)
+// Audited for Zero Collisions: Safe corner clearances, generous button tap target
 import FloralDivider from './botanical/FloralDivider.astro';
 import FloralCorner from './botanical/FloralCorner.astro';
 import FloralBouquet from './botanical/FloralBouquet.astro';
@@ -43,23 +44,23 @@ import SceneTitleCard from './cinematic/SceneTitleCard.astro';
     <div class="bg-white/95 border border-[#566A4E]/25 rounded-2xl p-6 sm:p-9 relative overflow-hidden shadow-[0_14px_40px_rgba(42,52,38,0.08)] hover:border-[#566A4E] transition-colors duration-300">
       
       <!-- Inset Gold Hairline Frame -->
-      <div class="absolute inset-3 border border-[#B89352]/30 rounded-xl pointer-events-none"></div>
+      <div class="absolute inset-2.5 sm:inset-3 border border-[#B89352]/30 rounded-xl pointer-events-none"></div>
 
-      <!-- 4 Floral Corners -->
-      <div class="absolute top-2 left-2 pointer-events-none">
-        <FloralCorner position="top-left" size={65} />
+      <!-- 4 Floral Corners (Scaled to 45px for safe clearances) -->
+      <div class="absolute top-2 left-2 pointer-events-none opacity-45">
+        <FloralCorner position="top-left" size={45} />
       </div>
-      <div class="absolute top-2 right-2 pointer-events-none">
-        <FloralCorner position="top-right" size={65} />
+      <div class="absolute top-2 right-2 pointer-events-none opacity-45">
+        <FloralCorner position="top-right" size={45} />
       </div>
-      <div class="absolute bottom-2 left-2 pointer-events-none">
-        <FloralCorner position="bottom-left" size={65} />
+      <div class="absolute bottom-2 left-2 pointer-events-none opacity-45">
+        <FloralCorner position="bottom-left" size={45} />
       </div>
-      <div class="absolute bottom-2 right-2 pointer-events-none">
-        <FloralCorner position="bottom-right" size={65} />
+      <div class="absolute bottom-2 right-2 pointer-events-none opacity-45">
+        <FloralCorner position="bottom-right" size={45} />
       </div>
       
-      <div class="flex flex-col items-center gap-4 relative z-10">
+      <div class="flex flex-col items-center gap-4 relative z-10 py-1">
         
         <!-- WhatsApp Minimalist Badge (Olive) -->
         <div class="w-12 h-12 rounded-full border border-[#566A4E]/30 bg-[#FAF8F3] flex items-center justify-center text-[#566A4E] shadow-sm">

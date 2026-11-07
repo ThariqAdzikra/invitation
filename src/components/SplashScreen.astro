@@ -1,8 +1,10 @@
 ---
 // SplashScreen.astro — Authentic 3D Classical Wedding Envelope Unboxing
-// 1. Amplop tertutup rapat menutupi isi di dalamnya.
-// 2. Saat segel lilin diketuk, flap membuka dan kartu undangan meluncur naik keluar dari amplop.
-// 3. Ketika pengguna melakukan scroll (atau swipe ke atas), layar bertransisi ultra-smooth masuk ke halaman utama.
+// Audited for Zero Visual Collisions:
+// - Stamp in top-right with no colliding corner flourish
+// - Wax seal and guest badge positioned with generous breathing room
+// - 100% opaque envelope pocket concealing inner card until open
+// - Slide-out card with silky smooth scroll-triggered transition
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralDivider from './botanical/FloralDivider.astro';
@@ -15,7 +17,7 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 
 <div
   id="envelope-screen"
-  class="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-4 bg-[#EDE8DC] select-none overflow-hidden transition-opacity duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+  class="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-3 sm:p-6 bg-[#EDE8DC] select-none overflow-hidden transition-opacity duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
   role="dialog"
   aria-modal="true"
   aria-label="Amplop Undangan Pernikahan"
@@ -29,7 +31,7 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
   <!-- 3D Perspective Scene Container -->
   <div
     id="envelope-scene"
-    class="relative w-full max-w-[480px] sm:max-w-[540px] aspect-[1.42/1] my-auto cursor-pointer"
+    class="relative w-full max-w-[460px] sm:max-w-[530px] aspect-[1.42/1] my-auto cursor-pointer"
     style="perspective: 1400px;"
   >
     <!-- Envelope Ambient Shadow on Surface -->
@@ -50,7 +52,7 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
         <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent"></div>
       </div>
 
-      <!-- LAYER 1: THE LETTER CARD (Initially hidden & tucked inside, emerges upwards on open) -->
+      <!-- LAYER 1: THE LETTER CARD (Tucked inside, emerges upwards on open) -->
       <div
         id="envelope-card"
         class="absolute left-[3%] right-[3%] top-[4%] h-[92%] bg-[#FAF8F5] rounded-xl shadow-[0_8px_25px_rgba(42,52,38,0.15)] border border-[#B89352]/40 p-4 sm:p-6 flex flex-col items-center justify-between text-center z-10 origin-center opacity-0 pointer-events-none"
@@ -58,18 +60,18 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
         <!-- Inset Gold Hairline Frame -->
         <div class="absolute inset-2 sm:inset-3 border border-[#B89352]/30 rounded-lg pointer-events-none"></div>
 
-        <!-- Mini Floral Corners on Card -->
-        <div class="absolute top-1.5 left-1.5 pointer-events-none opacity-50">
-          <FloralCorner position="top-left" size={38} />
+        <!-- Mini Floral Corners on Card (Size 34px for clean margins) -->
+        <div class="absolute top-1.5 left-1.5 pointer-events-none opacity-45">
+          <FloralCorner position="top-left" size={34} />
         </div>
-        <div class="absolute top-1.5 right-1.5 pointer-events-none opacity-50">
-          <FloralCorner position="top-right" size={38} />
+        <div class="absolute top-1.5 right-1.5 pointer-events-none opacity-45">
+          <FloralCorner position="top-right" size={34} />
         </div>
-        <div class="absolute bottom-1.5 left-1.5 pointer-events-none opacity-50">
-          <FloralCorner position="bottom-left" size={38} />
+        <div class="absolute bottom-1.5 left-1.5 pointer-events-none opacity-45">
+          <FloralCorner position="bottom-left" size={34} />
         </div>
-        <div class="absolute bottom-1.5 right-1.5 pointer-events-none opacity-50">
-          <FloralCorner position="bottom-right" size={38} />
+        <div class="absolute bottom-1.5 right-1.5 pointer-events-none opacity-45">
+          <FloralCorner position="bottom-right" size={34} />
         </div>
 
         <!-- Card Header -->
@@ -84,21 +86,21 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 
         <!-- Card Center Monogram & Couple -->
         <div class="my-auto flex flex-col items-center">
-          <div class="scale-75 sm:scale-90 mb-1">
-            <FloralWreath monogram="AD" size={72} />
+          <div class="scale-75 sm:scale-85 mb-0.5">
+            <FloralWreath monogram="AD" size={68} />
           </div>
-          <p class="text-[0.58rem] sm:text-[0.62rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold">
+          <p class="text-[0.55rem] sm:text-[0.6rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold">
             WALIMATUL 'URS
           </p>
           <h2 class="font-display text-2xl sm:text-3xl text-[#2A3426] font-normal my-0.5 tracking-tight">
             {content.couple.groom.nickname} <span class="italic text-[#B89352]">&amp;</span> {content.couple.bride.nickname}
           </h2>
-          <FloralFlourish width={140} height={22} className="scale-80 sm:scale-90" />
+          <FloralFlourish width={135} height={20} className="scale-75 sm:scale-85" />
         </div>
 
         <!-- Card Footer Meta -->
         <div class="pb-1">
-          <p class="text-[0.6rem] sm:text-[0.65rem] text-[#566A4E] tracking-[0.22em] uppercase font-medium">
+          <p class="text-[0.58rem] sm:text-[0.62rem] text-[#566A4E] tracking-[0.22em] uppercase font-medium">
             {content.event.dateFormatted} &bull; Banda Aceh
           </p>
         </div>
@@ -121,7 +123,7 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
         <div class="absolute inset-0 border-r border-b border-[#D6CDBC]/50"></div>
       </div>
 
-      <!-- Bottom Triangle Pocket Face (Solid, opaque cover) -->
+      <!-- Bottom Triangle Pocket Face -->
       <div
         id="envelope-pocket-bottom"
         class="absolute inset-0 bg-gradient-to-t from-[#F4EFE3] via-[#EFEAE0] to-[#E5DEC9] z-22 pointer-events-none rounded-2xl shadow-[0_-4px_12px_rgba(42,52,38,0.06)]"
@@ -134,44 +136,41 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
         ></div>
       </div>
 
-      <!-- LAYER 2.5: ELEMENTS FIXED ON THE FRONT OF CLOSED ENVELOPE -->
+      <!-- LAYER 2.5: ELEMENTS FIXED ON THE FRONT OF CLOSED ENVELOPE (ZERO COLLISIONS) -->
       <div id="envelope-front-decorations" class="absolute inset-0 z-25 pointer-events-none">
         
-        <!-- Vintage Postal Stamp in Top-Right Corner -->
+        <!-- Vintage Postal Stamp in Top-Right Corner (Alone in top-right, no collision!) -->
         <div class="absolute top-2.5 right-2.5 sm:top-3.5 sm:right-3.5 scale-75 sm:scale-85 origin-top-right">
           <BotanicalStamp />
         </div>
 
-        <!-- 4 Outer Corner Botanical Flourishes -->
-        <div class="absolute top-1 left-1 opacity-70">
-          <FloralCorner position="top-left" size={60} />
+        <!-- 3 Outer Corner Botanical Flourishes (Top-right intentionally omitted to prevent collision with stamp!) -->
+        <div class="absolute top-1 left-1 opacity-60">
+          <FloralCorner position="top-left" size={55} />
         </div>
-        <div class="absolute top-1 right-1 opacity-70">
-          <FloralCorner position="top-right" size={60} />
+        <div class="absolute bottom-1 left-1 opacity-60">
+          <FloralCorner position="bottom-left" size={55} />
         </div>
-        <div class="absolute bottom-1 left-1 opacity-70">
-          <FloralCorner position="bottom-left" size={60} />
-        </div>
-        <div class="absolute bottom-1 right-1 opacity-70">
-          <FloralCorner position="bottom-right" size={60} />
+        <div class="absolute bottom-1 right-1 opacity-60">
+          <FloralCorner position="bottom-right" size={55} />
         </div>
 
-        <!-- Recipient Guest Badge (Anchored on bottom pocket) -->
-        <div class="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%] max-w-xs py-2 px-3 sm:px-4 rounded-lg bg-white/95 border border-[#DCD5C5] shadow-sm text-center">
-          <p class="text-[0.55rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-[0.2em] font-medium mb-0.5">
+        <!-- Recipient Guest Badge (Positioned at bottom with safe clearance from wax seal) -->
+        <div class="absolute bottom-2.5 sm:bottom-3 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%] max-w-[270px] py-1.5 px-3 rounded-lg bg-white/95 border border-[#DCD5C5] shadow-sm text-center">
+          <p class="text-[0.52rem] sm:text-[0.58rem] text-[#566A4E] uppercase tracking-[0.2em] font-medium mb-0.5">
             Kepada Yth. Bapak/Ibu/Saudara/i:
           </p>
-          <p id="guest-name-splash" class="font-display text-base sm:text-lg text-[#2A3426] font-normal leading-tight truncate">
+          <p id="guest-name-splash" class="font-display text-sm sm:text-base text-[#2A3426] font-normal leading-tight truncate">
             Tamu Undangan Terhormat
           </p>
         </div>
 
       </div>
 
-      <!-- LAYER 3: TOP TRIANGULAR FLAP (Completely overlaps pocket when closed, flips 180° upwards) -->
+      <!-- LAYER 3: TOP TRIANGULAR FLAP (Overlaps pocket when closed, flips 180° upwards) -->
       <div
         id="envelope-top-flap"
-        class="absolute top-0 left-0 right-0 h-[60%] origin-top z-30 transition-shadow rounded-t-2xl pointer-events-none"
+        class="absolute top-0 left-0 right-0 h-[58%] origin-top z-30 transition-shadow rounded-t-2xl pointer-events-none"
         style="clip-path: polygon(0 0, 100% 0, 50% 100%); transform-style: preserve-3d; background: linear-gradient(to bottom, #F5F1E6, #EAE3D3);"
       >
         <!-- Flap Stitching / Gold Hairline Border -->
@@ -180,28 +179,28 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
           style="clip-path: polygon(3% 0, 97% 0, 50% 95%); border-bottom: 1.2px dashed rgba(184, 147, 82, 0.45);"
         ></div>
         <!-- Shadow Cast by Flap onto Bottom Pocket -->
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-36 h-6 bg-black/10 blur-sm rounded-full"></div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-5 bg-black/10 blur-sm rounded-full"></div>
       </div>
 
       <!-- LAYER 4: INTERACTIVE 3D OLIVE WAX SEAL (Centered at flap tip) -->
       <div
         id="wax-seal-container"
-        class="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto group transform transition-transform duration-300 hover:scale-108 active:scale-95"
+        class="absolute top-[57%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto group transform transition-transform duration-300 hover:scale-108 active:scale-95"
       >
         <div class="relative flex items-center justify-center">
           
           <!-- Left Mini Laurel Branch -->
-          <svg width="34" height="26" viewBox="0 0 50 40" fill="none" class="hidden xs:block absolute -left-7 opacity-75">
+          <svg width="30" height="24" viewBox="0 0 50 40" fill="none" class="hidden xs:block absolute -left-6 opacity-75">
             <path d="M45 35 C30 32, 10 20, 5 5" stroke="#566A4E" stroke-width="1.3" stroke-linecap="round" />
             <path d="M38 31 C32 26, 33 20, 39 19 C42 24, 42 29, 38 31 Z" fill="#6E8564" />
             <path d="M25 24 C18 20, 20 14, 26 13 C29 18, 28 23, 25 24 Z" fill="#4A5C43" />
             <circle cx="34" cy="27" r="1.8" fill="#B89352" />
           </svg>
 
-          <!-- 3D Organic Olive Wax Disc -->
+          <!-- 3D Organic Olive Wax Disc (Comfortable 52px on mobile, 60px on desktop) -->
           <div
             id="wax-seal"
-            class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#4A5D43] via-[#3B4C35] to-[#243120] shadow-[0_8px_20px_rgba(36,49,32,0.45),inset_0_2px_4px_rgba(255,255,255,0.3)] border-2 border-[#5C7253] flex items-center justify-center relative overflow-hidden"
+            class="w-13 h-13 sm:w-15 sm:h-15 w-[52px] h-[52px] sm:w-[60px] sm:h-[60px] rounded-full bg-gradient-to-br from-[#4A5D43] via-[#3B4C35] to-[#243120] shadow-[0_6px_18px_rgba(36,49,32,0.45),inset_0_2px_4px_rgba(255,255,255,0.3)] border-2 border-[#5C7253] flex items-center justify-center relative overflow-hidden"
           >
             <!-- Wax Rim Edge -->
             <div class="absolute inset-1.5 rounded-full border border-[#B89352]/40 border-dashed"></div>
@@ -216,7 +215,7 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
           </div>
 
           <!-- Right Mini Laurel Branch -->
-          <svg width="34" height="26" viewBox="0 0 50 40" fill="none" class="hidden xs:block absolute -right-7 opacity-75 transform scale-x-[-1]">
+          <svg width="30" height="24" viewBox="0 0 50 40" fill="none" class="hidden xs:block absolute -right-6 opacity-75 transform scale-x-[-1]">
             <path d="M45 35 C30 32, 10 20, 5 5" stroke="#566A4E" stroke-width="1.3" stroke-linecap="round" />
             <path d="M38 31 C32 26, 33 20, 39 19 C42 24, 42 29, 38 31 Z" fill="#6E8564" />
             <path d="M25 24 C18 20, 20 14, 26 13 C29 18, 28 23, 25 24 Z" fill="#4A5C43" />
@@ -233,15 +232,15 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
   </div>
 
   <!-- STATE A: Initial Tap Prompt (Shown when envelope is closed) -->
-  <div id="envelope-prompt" class="mt-6 flex flex-col items-center gap-2 cursor-pointer z-50 pointer-events-auto">
+  <div id="envelope-prompt" class="mt-5 flex flex-col items-center gap-2 cursor-pointer z-50 pointer-events-auto">
     <div class="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#566A4E]/10 border border-[#566A4E]/25 text-[#3E4C38] shadow-sm animate-bounce">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/>
         <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/>
         <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
         <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
       </svg>
-      <span class="text-[0.65rem] sm:text-xs tracking-[0.25em] uppercase font-semibold">
+      <span class="text-[0.62rem] sm:text-xs tracking-[0.25em] uppercase font-semibold">
         Ketuk Segel untuk Membuka Amplop
       </span>
     </div>
@@ -250,18 +249,18 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
   <!-- STATE B: Scroll Prompt (Revealed when card has emerged from envelope) -->
   <div
     id="envelope-scroll-cue"
-    class="mt-6 opacity-0 pointer-events-none flex flex-col items-center gap-1.5 z-50 transition-opacity duration-500"
+    class="mt-5 opacity-0 pointer-events-none flex flex-col items-center gap-1.5 z-50 transition-opacity duration-500"
   >
     <div class="flex items-center gap-2 px-5 py-2 rounded-full bg-white/95 border border-[#B89352]/40 text-[#2A3426] shadow-md animate-bounce cursor-pointer pointer-events-auto">
       <span class="text-xs text-[#B89352]">✦</span>
-      <span class="text-[0.68rem] sm:text-xs tracking-[0.25em] uppercase font-semibold text-[#3E4C38]">
+      <span class="text-[0.65rem] sm:text-xs tracking-[0.25em] uppercase font-semibold text-[#3E4C38]">
         Gulir ke Bawah untuk Membuka Undangan
       </span>
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-[#566A4E]">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-[#566A4E]">
         <path d="M12 5v14M19 12l-7 7-7-7"/>
       </svg>
     </div>
-    <span class="text-[0.58rem] sm:text-[0.62rem] text-[#7E8F77] tracking-widest uppercase font-mono">
+    <span class="text-[0.55rem] sm:text-[0.6rem] text-[#7E8F77] tracking-widest uppercase font-mono">
       Atau sentuh layar untuk melanjutkan
     </span>
   </div>
