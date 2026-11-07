@@ -82,9 +82,10 @@ body {
   position: relative;
 }
 
+html.is-locked,
 body.is-locked {
-  overflow: hidden;
-  height: 100vh;
+  overflow: hidden !important;
+  height: 100vh !important;
 }
 
 /* Subtle Organic Linen Paper Texture Overlay */

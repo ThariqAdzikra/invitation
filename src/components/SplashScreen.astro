@@ -298,6 +298,13 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
     let isReadyToScroll = false;
     let isTransitioningToHero = false;
 
+    // Strict Scroll Containment: Ensure initial scroll is locked at (0, 0)
+    window.scrollTo(0, 0);
+    if ((window as any).__lenis) {
+      (window as any).__lenis.stop();
+      (window as any).__lenis.scrollTo(0, { immediate: true });
+    }
+
     // 1. STAGE 1: Buka Amplop & Keluarkan Kartu Undangan
     function openEnvelope() {
       if (isEnvelopeOpened) return;
@@ -366,6 +373,13 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
       if (!isReadyToScroll || isTransitioningToHero) return;
       isTransitioningToHero = true;
 
+      // Hard clamp scroll to top
+      window.scrollTo(0, 0);
+      if ((window as any).__lenis) {
+        (window as any).__lenis.stop();
+        (window as any).__lenis.scrollTo(0, { immediate: true });
+      }
+
       playChimeSound();
 
       // Hilangkan scroll cue
@@ -373,7 +387,7 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
         gsap.to(scrollCue, { opacity: 0, duration: 0.3 });
       }
 
-      // Master smooth transition (Durasi 1.0s dengan power2.inOut yang super silky)
+      // Master smooth transition
       const tl = gsap.timeline();
 
       // Amplop dan kartu meluncur naik lembut & memudar
@@ -381,22 +395,28 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
         y: -140,
         scale: 0.94,
         opacity: 0,
-        duration: 1.0,
+        duration: 0.9,
         ease: 'power2.inOut'
       }, 0);
 
       tl.to(screen, {
         opacity: 0,
-        duration: 0.95,
+        duration: 0.85,
         ease: 'power2.inOut'
       }, 0.05);
 
-      // Selesai: Buka scroll kunci dan tampilkan Hero
+      // Selesai: Buka scroll kunci dan tampilkan Hero tepat di titik (0, 0)
       tl.add(() => {
         screen.style.display = 'none';
+        document.documentElement.classList.remove('is-locked');
         document.body.classList.remove('is-locked');
+        window.scrollTo(0, 0);
+        if ((window as any).__lenis) {
+          (window as any).__lenis.scrollTo(0, { immediate: true });
+          (window as any).__lenis.start();
+        }
         window.dispatchEvent(new CustomEvent('invitationOpened'));
-      }, 1.0);
+      }, 0.9);
     }
 
     // LISTENER 1: Klik untuk membuka amplop
@@ -421,15 +441,16 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
       tapPrompt.addEventListener('click', openEnvelope);
     }
 
-    // LISTENER 2: SCROLL DETECTIONS (Ketika di-scroll baru masuk ke halaman utama)
+    // LISTENER 2: SCROLL DETECTIONS (Strictly intercept scroll so it NEVER bleeds into body/Lenis)
     // A. Mouse Wheel Scroll
     window.addEventListener('wheel', (e) => {
-      if (isReadyToScroll && !isTransitioningToHero) {
-        if (e.deltaY > 5) {
+      if (screen && screen.style.display !== 'none') {
+        e.preventDefault(); // Stop wheel event from advancing background virtual scroll!
+        if (isReadyToScroll && !isTransitioningToHero && e.deltaY > 5) {
           enterMainInvitation();
         }
       }
-    }, { passive: true });
+    }, { passive: false });
 
     // B. Touch Swipe Up (Mobile touch scroll)
     let touchStartY = 0;
@@ -440,22 +461,30 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
     }, { passive: true });
 
     window.addEventListener('touchmove', (e) => {
-      if (isReadyToScroll && !isTransitioningToHero && e.touches.length > 0) {
-        const touchCurrentY = e.touches[0].clientY;
-        const deltaY = touchStartY - touchCurrentY;
-        // Swipe up by at least 20px
-        if (deltaY > 20) {
-          enterMainInvitation();
+      if (screen && screen.style.display !== 'none') {
+        if (isReadyToScroll && !isTransitioningToHero && e.touches.length > 0) {
+          const touchCurrentY = e.touches[0].clientY;
+          const deltaY = touchStartY - touchCurrentY;
+          if (deltaY > 20) {
+            e.preventDefault();
+            enterMainInvitation();
+            return;
+          }
         }
+        e.preventDefault(); // Stop background touch scroll
       }
-    }, { passive: true });
+    }, { passive: false });
 
     // C. Keyboard Scroll (Down arrow, PageDown, Space)
     window.addEventListener('keydown', (e) => {
-      if (isReadyToScroll && !isTransitioningToHero) {
-        if (['ArrowDown', 'PageDown', ' '].includes(e.key)) {
+      if (screen && screen.style.display !== 'none') {
+        if (['ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) {
           e.preventDefault();
-          enterMainInvitation();
+          if (!isEnvelopeOpened) {
+            openEnvelope();
+          } else if (isReadyToScroll && !isTransitioningToHero) {
+            enterMainInvitation();
+          }
         }
       }
     });
