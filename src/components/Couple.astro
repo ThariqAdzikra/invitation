@@ -1,7 +1,9 @@
 ---
-// Couple.astro — Editorial Dual Profile of Groom & Bride
+// Couple.astro — Editorial Dual Profile of Groom & Bride (Vector Portraits)
 import content from '../data/content.json';
 import FloralFlourish from './botanical/FloralFlourish.astro';
+import GroomVector from './vector/GroomVector.astro';
+import BrideVector from './vector/BrideVector.astro';
 ---
 
 <section id="couple" class="deck-section section-flow relative px-4 overflow-hidden z-30 pt-20 pb-24" aria-label="Profil Kedua Mempelai">
@@ -31,18 +33,9 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       <article class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
-        <!-- Portrait Frame -->
-        <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-tr from-[#B89352] via-[#EDE8DC] to-[#566A4E] shadow-[0_10px_25px_rgba(74,93,67,0.18)] mb-4">
-          <div class="w-full h-full rounded-full overflow-hidden border-2 border-[#FAF8F5] relative bg-[#EDE8DC]">
-            <img 
-              src={content.couple.groom.photo || "/assets/groom.jpg"} 
-              alt={content.couple.groom.fullName}
-              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500 ease-out" 
-              loading="lazy"
-              width="280"
-              height="280"
-            />
-          </div>
+        <!-- Groom Vector Portrait Frame -->
+        <div class="mb-4 transform hover:scale-105 transition-transform duration-500">
+          <GroomVector size={150} />
         </div>
 
         <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-1">Mempelai Pria</p>
@@ -79,18 +72,9 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       <article class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
-        <!-- Portrait Frame -->
-        <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-tr from-[#566A4E] via-[#EDE8DC] to-[#B89352] shadow-[0_10px_25px_rgba(74,93,67,0.18)] mb-4">
-          <div class="w-full h-full rounded-full overflow-hidden border-2 border-[#FAF8F5] relative bg-[#EDE8DC]">
-            <img 
-              src={content.couple.bride.photo || "/assets/bride.jpg"} 
-              alt={content.couple.bride.fullName}
-              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500 ease-out" 
-              loading="lazy"
-              width="280"
-              height="280"
-            />
-          </div>
+        <!-- Bride Vector Portrait Frame -->
+        <div class="mb-4 transform hover:scale-105 transition-transform duration-500">
+          <BrideVector size={150} />
         </div>
 
         <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-1">Mempelai Wanita</p>

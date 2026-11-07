@@ -28,7 +28,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     <div id="countdown-grid" class="grid grid-cols-4 gap-2.5 sm:gap-4 max-w-md mx-auto">
       
       <!-- Hari -->
-      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden">
+      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card" data-foil="true">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
         <span id="countdown-days" class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tabular-nums leading-none my-1">
           00
@@ -37,7 +37,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       </div>
 
       <!-- Jam -->
-      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden">
+      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card" data-foil="true">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
         <span id="countdown-hours" class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tabular-nums leading-none my-1">
           00
@@ -46,7 +46,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       </div>
 
       <!-- Menit -->
-      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden">
+      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card" data-foil="true">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
         <span id="countdown-minutes" class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tabular-nums leading-none my-1">
           00
@@ -55,7 +55,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       </div>
 
       <!-- Detik -->
-      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden">
+      <div class="countdown-box bg-white/95 border border-[#566A4E]/20 rounded-2xl p-3 sm:p-5 flex flex-col items-center shadow-[0_8px_25px_rgba(42,52,38,0.05)] relative overflow-hidden interactive-foil-card" data-foil="true">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
         <span id="countdown-seconds" class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tabular-nums leading-none my-1">
           00
@@ -63,6 +63,24 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
         <span class="text-[0.55rem] sm:text-xs text-[#566A4E] uppercase tracking-widest mt-1 font-medium">Detik</span>
       </div>
 
+    </div>
+
+    <!-- Calendar Reminder Action -->
+    <div class="mt-8 flex justify-center">
+      <a 
+        href={content.event.venue.calendarUrl} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-[#B89352]/40 text-[#4A5D43] bg-white/90 hover:bg-[#4A5D43] hover:text-white transition-all shadow-sm active:scale-95"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span>Ingatkan di Google Calendar</span>
+      </a>
     </div>
 
   </div>
@@ -107,10 +125,15 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-      if (daysEl) daysEl.innerText = d.toString().padStart(2, '0');
-      if (hoursEl) hoursEl.innerText = h.toString().padStart(2, '0');
-      if (minutesEl) minutesEl.innerText = m.toString().padStart(2, '0');
-      if (secondsEl) secondsEl.innerText = s.toString().padStart(2, '0');
+      const dStr = d.toString().padStart(2, '0');
+      const hStr = h.toString().padStart(2, '0');
+      const mStr = m.toString().padStart(2, '0');
+      const sStr = s.toString().padStart(2, '0');
+
+      if (daysEl && daysEl.innerText !== dStr) daysEl.innerText = dStr;
+      if (hoursEl && hoursEl.innerText !== hStr) hoursEl.innerText = hStr;
+      if (minutesEl && minutesEl.innerText !== mStr) minutesEl.innerText = mStr;
+      if (secondsEl && secondsEl.innerText !== sStr) secondsEl.innerText = sStr;
     }
 
     update();

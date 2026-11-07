@@ -1,0 +1,143 @@
+---
+// InteractiveCanvas.astro — Interactive Ambient Golden Sparkles & Magnetic Aura
+---
+
+<canvas
+  id="ambient-interactive-canvas"
+  class="fixed inset-0 w-full h-full pointer-events-none z-[3] opacity-60"
+  aria-hidden="true"
+></canvas>
+
+<script>
+  function initAmbientCanvas() {
+    const canvas = document.getElementById('ambient-interactive-canvas') as HTMLCanvasElement | null;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const mouse = { x: -1000, y: -1000, radius: 120 };
+
+    window.addEventListener('pointermove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    window.addEventListener('pointerleave', () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    });
+
+    interface Particle {
+      x: number;
+      y: number;
+      baseX: number;
+      baseY: number;
+      size: number;
+      speedY: number;
+      speedX: number;
+      alpha: number;
+      color: string;
+      pulse: number;
+      pulseSpeed: number;
+    }
+
+    const count = window.innerWidth < 640 ? 18 : 32;
+    const colors = ['#B89352', '#D4AF6E', '#8C703C', '#E5DEC9'];
+    const particles: Particle[] = [];
+
+    for (let i = 0; i < count; i++) {
+      const x = Math.random() * width;
+      const y = Math.random() * height;
+      particles.push({
+        x,
+        y,
+        baseX: x,
+        baseY: y,
+        size: Math.random() * 2 + 1,
+        speedY: Math.random() * 0.4 + 0.15,
+        speedX: (Math.random() - 0.5) * 0.3,
+        alpha: Math.random() * 0.6 + 0.2,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        pulse: Math.random() * Math.PI,
+        pulseSpeed: Math.random() * 0.02 + 0.01
+      });
+    }
+
+    function animate() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, width, height);
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        // Float downwards
+        p.y += p.speedY;
+        p.x += p.speedX;
+        p.pulse += p.pulseSpeed;
+
+        if (p.y > height) {
+          p.y = -10;
+          p.x = Math.random() * width;
+        }
+        if (p.x > width) p.x = 0;
+        if (p.x < 0) p.x = width;
+
+        // Mouse magnetic reaction
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < mouse.radius) {
+          const force = (1 - dist / mouse.radius) * 2;
+          p.x -= (dx / dist) * force;
+          p.y -= (dy / dist) * force;
+        }
+
+        const currentAlpha = Math.max(0.1, p.alpha * (0.7 + 0.3 * Math.sin(p.pulse)));
+
+        ctx.save();
+        ctx.globalAlpha = currentAlpha;
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Delicate star flare for larger particles
+        if (p.size > 2.2) {
+          ctx.strokeStyle = p.color;
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(p.x - p.size * 2, p.y);
+          ctx.lineTo(p.x + p.size * 2, p.y);
+          ctx.moveTo(p.x, p.y - p.size * 2);
+          ctx.lineTo(p.x, p.y + p.size * 2);
+          ctx.stroke();
+        }
+
+        ctx.restore();
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAmbientCanvas);
+  } else {
+    initAmbientCanvas();
+  }
+</script>

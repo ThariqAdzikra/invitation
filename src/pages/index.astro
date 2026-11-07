@@ -13,6 +13,7 @@ import Closing from '../components/Closing.astro';
 import AudioPlayer from '../components/AudioPlayer.astro';
 import ProgressBar from '../components/ProgressBar.astro';
 import Toast from '../components/Toast.astro';
+import InteractiveCanvas from '../components/InteractiveCanvas.astro';
 import content from '../data/content.json';
 ---
 
@@ -23,6 +24,9 @@ import content from '../data/content.json';
 >
   <!-- Background Layer: Ultra-light Organic Linen Paper Texture Overlay -->
   <div class="film-grain-overlay" aria-hidden="true"></div>
+
+  <!-- Interactive Ambient Magnetic Golden Sparkles Aura -->
+  <InteractiveCanvas />
 
   <!-- Luxury Wedding Envelope Reveal -->
   <SplashScreen />
@@ -48,4 +52,10 @@ import content from '../data/content.json';
 
   <!-- Luxury Global Toast Feedback -->
   <Toast />
+
+  <!-- Global Interactive Foil Sheen & Particle Burst Engine -->
+  <script>
+    import '../utils/interactiveFoil';
+    import '../utils/confetti';
+  </script>
 </Layout>

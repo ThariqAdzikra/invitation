@@ -110,11 +110,14 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     const copyAddrBtn = document.getElementById('btn-copy-address') as HTMLButtonElement | null;
 
     copyBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
         const num = btn.dataset.number;
         const bank = btn.dataset.bank || 'Bank';
         if (num) {
           navigator.clipboard.writeText(num).then(() => {
+            if ((window as any).triggerLuxuryConfetti) {
+              (window as any).triggerLuxuryConfetti(e.clientX, e.clientY);
+            }
             if ((window as any).showLuxuryToast) {
               (window as any).showLuxuryToast(`Nomor Rekening ${bank} berhasil disalin!`);
             }
@@ -124,10 +127,13 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     });
 
     if (copyAddrBtn) {
-      copyAddrBtn.addEventListener('click', () => {
+      copyAddrBtn.addEventListener('click', (e) => {
         const addr = copyAddrBtn.dataset.address;
         if (addr) {
           navigator.clipboard.writeText(addr).then(() => {
+            if ((window as any).triggerLuxuryConfetti) {
+              (window as any).triggerLuxuryConfetti(e.clientX, e.clientY);
+            }
             if ((window as any).showLuxuryToast) {
               (window as any).showLuxuryToast('Alamat pengiriman berhasil disalin!');
             }
