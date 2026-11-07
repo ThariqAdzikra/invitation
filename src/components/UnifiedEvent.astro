@@ -73,9 +73,23 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
         <h4 class="font-display text-xl sm:text-2xl md:text-3xl text-[#2A3426] font-normal mb-1">
           {content.event.venue.name}
         </h4>
-        <p class="text-xs sm:text-sm text-[#566A4E] font-light max-w-md mx-auto leading-relaxed">
+        <p class="text-xs sm:text-sm text-[#566A4E] font-light max-w-md mx-auto leading-relaxed mb-3">
           {content.event.venue.address}
         </p>
+
+        <!-- 1-Click Copy Address Pill -->
+        <button
+          type="button"
+          id="btn-copy-venue-address"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#566A4E]/20 text-[0.65rem] tracking-wider uppercase font-semibold text-[#566A4E] bg-[#FAF8F5] hover:bg-white hover:border-[#4A5D43] transition-all cursor-pointer shadow-sm active:scale-95"
+          data-address={content.event.venue.address}
+        >
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span>Salin Alamat Venue</span>
+        </button>
       </div>
 
       <!-- Clean Action Buttons -->
@@ -94,7 +108,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
         </a>
 
         <a 
-          href="https://calendar.google.com"
+          href={content.event.venue.calendarUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold border border-[#566A4E]/30 text-[#4A5D43] hover:border-[#4A5D43] hover:bg-[#FAF8F5] transition-colors"
@@ -121,6 +135,20 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
   gsap.registerPlugin(ScrollTrigger);
 
   function initEventSection() {
+    const copyVenueBtn = document.getElementById('btn-copy-venue-address') as HTMLButtonElement | null;
+    if (copyVenueBtn) {
+      copyVenueBtn.addEventListener('click', () => {
+        const addr = copyVenueBtn.dataset.address;
+        if (addr) {
+          navigator.clipboard.writeText(addr).then(() => {
+            if ((window as any).showLuxuryToast) {
+              (window as any).showLuxuryToast('Alamat venue berhasil disalin!');
+            }
+          });
+        }
+      });
+    }
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 

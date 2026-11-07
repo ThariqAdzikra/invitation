@@ -32,8 +32,9 @@
     },
     "venue": {
       "name": "Banda Aceh Convention Hall",
-      "address": "Jl. Prof. A. Majid Ibrahim No. 2, Banda Aceh",
-      "mapsUrl": "https://maps.google.com"
+      "address": "Jl. Prof. A. Majid Ibrahim No. 2, Lampaseh Kota, Kec. Kuta Raja, Kota Banda Aceh, Aceh",
+      "mapsUrl": "https://maps.google.com/?q=Banda+Aceh+Convention+Hall",
+      "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Arya+%26+Dian&dates=20261212T010000Z/20261212T100000Z&details=Pernikahan+Arya+Wirayudha+%26+Dian+Paramitha&location=Banda+Aceh+Convention+Hall"
     }
   },
   "opening": {
@@ -68,6 +69,29 @@
   "music": {
     "file": "/assets/music.mp3",
     "title": "Wedding Instrumental"
+  },
+  "gift": {
+    "title": "Tanda Kasih",
+    "subtitle": "Doa restu Anda merupakan karunia terindah bagi kami. Namun apabila Anda bermaksud memberikan tanda kasih, kami menyediakan nomor rekening dan alamat berikut:",
+    "accounts": [
+      {
+        "bank": "Bank Syariah Indonesia",
+        "code": "BSI",
+        "accountNumber": "7189201928",
+        "holder": "Arya Wirayudha"
+      },
+      {
+        "bank": "Bank Central Asia",
+        "code": "BCA",
+        "accountNumber": "0439182910",
+        "holder": "Dian Paramitha"
+      }
+    ],
+    "shipping": {
+      "recipient": "Arya Wirayudha & Dian Paramitha",
+      "address": "Jl. Teuku Umar No. 45, Setui, Kec. Baiturrahman, Kota Banda Aceh, Aceh 23243",
+      "phone": "0812-3456-7890"
+    }
   },
   "meta": {
     "title": "Undangan Pernikahan Arya & Dian",

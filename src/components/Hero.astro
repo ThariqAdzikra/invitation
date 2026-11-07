@@ -136,6 +136,21 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
           }
         });
       }
+
+      // Elegant gentle depth parallax on cursor move (Desktop)
+      if (!prefersReducedMotion && silhouette && window.matchMedia('(pointer: fine)').matches) {
+        window.addEventListener('mousemove', (e) => {
+          const moveX = (e.clientX / window.innerWidth - 0.5) * 6;
+          const moveY = (e.clientY / window.innerHeight - 0.5) * 6;
+          gsap.to(silhouette, {
+            x: moveX,
+            y: moveY,
+            duration: 1.2,
+            ease: 'power1.out',
+            overwrite: 'auto'
+          });
+        });
+      }
     }
 
     window.addEventListener('invitationOpened', revealHero, { once: true });

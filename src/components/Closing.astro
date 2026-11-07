@@ -35,9 +35,21 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
 
     <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-2">Hormat Kami yang Berbahagia</p>
     
-    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal mb-8 tracking-tight">
+    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal mb-6 tracking-tight">
       {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.bride.nickname}
     </h2>
+
+    <!-- Back to Top Button -->
+    <button
+      type="button"
+      id="btn-back-to-top"
+      class="mb-10 inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#566A4E]/25 text-[0.65rem] tracking-[0.25em] uppercase font-semibold text-[#4A5D43] bg-white/90 hover:bg-white hover:border-[#4A5D43] transition-all cursor-pointer shadow-sm active:scale-95"
+    >
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 15l-6-6-6 6"/>
+      </svg>
+      <span>Kembali ke Atas</span>
+    </button>
 
     <!-- End Title Credits Footer -->
     <footer class="w-full pt-6 border-t border-[#566A4E]/15">
@@ -59,6 +71,17 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
   gsap.registerPlugin(ScrollTrigger);
 
   function initClosing() {
+    const backToTopBtn = document.getElementById('btn-back-to-top');
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener('click', () => {
+        if ((window as any).__lenis) {
+          (window as any).__lenis.scrollTo(0, { duration: 1.5 });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    }
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 

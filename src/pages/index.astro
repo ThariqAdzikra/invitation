@@ -7,10 +7,12 @@ import Couple from '../components/Couple.astro';
 import UnifiedEvent from '../components/UnifiedEvent.astro';
 import Countdown from '../components/Countdown.astro';
 import LoveStory from '../components/LoveStory.astro';
+import DigitalGift from '../components/DigitalGift.astro';
 import Wishes from '../components/Wishes.astro';
 import Closing from '../components/Closing.astro';
 import AudioPlayer from '../components/AudioPlayer.astro';
 import ProgressBar from '../components/ProgressBar.astro';
+import Toast from '../components/Toast.astro';
 import content from '../data/content.json';
 ---
 
@@ -33,6 +35,7 @@ import content from '../data/content.json';
     <UnifiedEvent />
     <Countdown />
     <LoveStory />
+    <DigitalGift />
     <Wishes />
     <Closing />
   </main>
@@ -42,4 +45,7 @@ import content from '../data/content.json';
 
   <!-- Minimalist Floating Audio Control -->
   <AudioPlayer />
+
+  <!-- Luxury Global Toast Feedback -->
+  <Toast />
 </Layout>

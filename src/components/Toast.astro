@@ -1,0 +1,40 @@
+---
+// Toast.astro — Minimalist Luxury Toast Notification
+---
+
+<div
+  id="luxury-toast"
+  class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[9999] pointer-events-none opacity-0 translate-y-3 transition-all duration-300 flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2A3426] text-[#FAF8F5] shadow-xl border border-[#B89352]/30 text-xs tracking-wider"
+  role="status"
+  aria-live="polite"
+>
+  <span class="text-[#D4AF6E]">✓</span>
+  <span id="luxury-toast-message">Tersalin ke papan klip</span>
+</div>
+
+<script>
+  function initToast() {
+    const toast = document.getElementById('luxury-toast');
+    const toastMessage = document.getElementById('luxury-toast-message');
+    let timeoutId: number | null = null;
+
+    (window as any).showLuxuryToast = (msg: string) => {
+      if (!toast || !toastMessage) return;
+      toastMessage.textContent = msg;
+      toast.classList.remove('opacity-0', 'translate-y-3');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-3');
+      }, 2600);
+    };
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initToast);
+  } else {
+    initToast();
+  }
+</script>
