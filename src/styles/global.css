@@ -102,21 +102,13 @@ body.is-locked {
 }
 
 /* ==========================================================================
-   Cinematic Chapter Tones & Stacking Card Deck Physics (Cream & Olive Garden)
+   Unified Seamless Canvas (Warm Cream & Fine Stationery)
    ========================================================================== */
-.tone-hero { background-color: #FAF8F5; }
-.tone-opening { background-color: #F3F5EE; }
-.tone-couple { background-color: #FAF7F2; }
-.tone-events { background-color: #F1F4ED; }
-.tone-countdown { background-color: #FAF7F3; }
-.tone-story { background-color: #EDF1E8; }
-.tone-wishes { background-color: #FAF8F4; }
-.tone-closing { background-color: #F2F5ED; }
-
 .deck-section {
   position: relative;
   width: 100%;
   box-sizing: border-box;
+  background-color: transparent;
 }
 
 /* Editorial Flow Sections */
