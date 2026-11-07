@@ -1,6 +1,6 @@
 ---
-// SplashScreen.astro — Fullscreen Botanical Luxury Envelope Unboxing (Warm Cream & Olive Green)
-// Lavishly ornamented with Botanical Stamp, Floral Corners, Royal Wax Seal & Twinkling Sparkles
+// SplashScreen.astro — Authentic 3D Classical Wedding Envelope Unboxing
+// Realistic Golden-Ratio Envelope, Interactive Olive Wax Seal, Letter Card Slide-Out & Cinematic Zoom-In
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralDivider from './botanical/FloralDivider.astro';
@@ -13,197 +13,255 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 
 <div
   id="envelope-screen"
-  class="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6 bg-[#EDE9DF] cursor-pointer select-none overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+  class="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-4 bg-[#EDE8DC] select-none overflow-hidden transition-opacity duration-700 ease-out"
   role="dialog"
   aria-modal="true"
   aria-label="Amplop Undangan Pernikahan"
 >
   <!-- Ambient Botanical Linen Texture -->
-  <div class="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(#566A4E_1px,transparent_1px)] [background-size:24px_24px]" aria-hidden="true"></div>
+  <div class="absolute inset-0 pointer-events-none opacity-35 bg-[radial-gradient(#566A4E_1px,transparent_1px)] [background-size:20px_20px]" aria-hidden="true"></div>
 
   <!-- Twinkling Gold Sparkles Background -->
   <TwinkleSparkles />
 
-  <!-- Fullscreen Envelope Container (3D Perspective) -->
+  <!-- 3D Perspective Scene Container -->
   <div
-    id="envelope-body"
-    class="relative w-full max-w-xl h-[94vh] sm:h-[84vh] bg-[#FAF8F3] rounded-2xl shadow-[0_30px_70px_rgba(42,52,38,0.25)] border border-[#DCD5C5] flex flex-col justify-between p-6 sm:p-10 overflow-hidden transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+    id="envelope-scene"
+    class="relative w-full max-w-[500px] sm:max-w-[540px] aspect-[1.42/1] my-auto cursor-pointer"
+    style="perspective: 1400px;"
   >
-    <!-- 4 Botanical Corner Ornaments on Envelope -->
-    <div class="absolute top-2 left-2 z-20 pointer-events-none">
-      <FloralCorner position="top-left" size={85} />
-    </div>
-    <div class="absolute top-2 right-2 z-20 pointer-events-none">
-      <FloralCorner position="top-right" size={85} />
-    </div>
-    <div class="absolute bottom-2 left-2 z-20 pointer-events-none">
-      <FloralCorner position="bottom-left" size={85} />
-    </div>
-    <div class="absolute bottom-2 right-2 z-20 pointer-events-none">
-      <FloralCorner position="bottom-right" size={85} />
-    </div>
-
-    <!-- Vintage Botanical Postage Stamp in Top-Right Corner -->
-    <div class="absolute top-5 right-5 sm:top-7 sm:right-7 z-25 pointer-events-none hidden xs:block">
-      <BotanicalStamp />
-    </div>
-
-    <!-- Delicate Double Gold & Olive Border Inset -->
-    <div class="absolute inset-3 sm:inset-4 border border-[#B89352]/40 rounded-xl pointer-events-none"></div>
-    <div class="absolute inset-4 sm:inset-5 border border-[#566A4E]/25 rounded-lg pointer-events-none"></div>
-
-    <!-- 3D Envelope Flap (Top Triangle) -->
+    <!-- Envelope Shadow on Surface -->
     <div
-      id="envelope-flap"
-      class="absolute top-0 left-0 right-0 h-44 sm:h-52 bg-gradient-to-b from-[#F2EEE4] to-[#EAE4D6] border-b border-[#DCD5C5] shadow-md origin-top transition-transform duration-800 ease-[cubic-bezier(0.25,1,0.5,1)] z-30"
-      style="clip-path: polygon(0 0, 100% 0, 50% 100%);"
+      id="envelope-shadow"
+      class="absolute -inset-2 rounded-2xl bg-[#263322]/15 blur-xl pointer-events-none transform translate-y-6 transition-all duration-700"
+    ></div>
+
+    <!-- MAIN ENVELOPE BODY (Overflow visible so card and flap can emerge) -->
+    <div
+      id="envelope-body"
+      class="relative w-full h-full rounded-2xl shadow-[0_25px_60px_rgba(42,52,38,0.22)] border border-[#C8BEAA] bg-[#E3DAC7] overflow-visible"
     >
-      <!-- Flap Inner Stitching Line -->
-      <div class="absolute inset-0" style="clip-path: polygon(4% 0, 96% 0, 50% 93%); border-bottom: 1px dashed rgba(184, 147, 82, 0.45);"></div>
-      <!-- Subtle Flap Shadow -->
-      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black/5 blur-sm rounded-full"></div>
-    </div>
-
-    <!-- Top Header -->
-    <header class="relative z-20 text-center pt-2 sm:pt-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#566A4E]/10 border border-[#566A4E]/20 mb-1.5">
-        <span class="text-[0.6rem] text-[#B89352]">✦</span>
-        <span class="text-[0.58rem] sm:text-[0.65rem] text-[#3E4C38] tracking-[0.3em] uppercase font-semibold">
-          THE WEDDING INVITATION
-        </span>
-        <span class="text-[0.6rem] text-[#B89352]">✦</span>
-      </div>
-      <p class="font-arabic text-xl sm:text-2xl text-[#3E4C38] tracking-wider mt-1 drop-shadow-sm" dir="rtl" lang="ar">
-        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-      </p>
-    </header>
-
-    <!-- Center Monogram Crest & Couple Names with Abundant Pemanis -->
-    <main class="relative z-20 flex flex-col items-center text-center my-auto py-1">
-      
-      <!-- Crown Bouquet Above Monogram -->
-      <div class="mb-1 scale-80 sm:scale-90">
-        <FloralBouquet width={200} height={50} />
+      <!-- LAYER 0: Inside Pocket Lining Pattern -->
+      <div class="absolute inset-0 rounded-2xl overflow-hidden bg-[#E1D7C3] pointer-events-none">
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#4A5D43_1.5px,transparent_1.5px)] [background-size:16px_16px]"></div>
+        <!-- Inner Bottom Shadow (depth illusion inside pocket) -->
+        <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-black/15 to-transparent"></div>
       </div>
 
-      <!-- Botanical Wreath Monogram -->
-      <div class="mb-2 transform hover:scale-105 transition-transform duration-500">
-        <FloralWreath monogram="AD" size={100} />
+      <!-- LAYER 1: THE LETTER CARD (Tucked inside, emerges upwards on click) -->
+      <div
+        id="envelope-card"
+        class="absolute left-[3%] right-[3%] top-[4%] h-[92%] bg-[#FAF8F5] rounded-xl shadow-[0_4px_16px_rgba(42,52,38,0.12)] border border-[#B89352]/40 p-4 sm:p-6 flex flex-col items-center justify-between text-center z-10 origin-center transition-shadow"
+      >
+        <!-- Inset Gold Hairline Frame -->
+        <div class="absolute inset-2 sm:inset-3 border border-[#B89352]/30 rounded-lg pointer-events-none"></div>
+
+        <!-- Mini Floral Corners on Card -->
+        <div class="absolute top-1.5 left-1.5 pointer-events-none opacity-50">
+          <FloralCorner position="top-left" size={38} />
+        </div>
+        <div class="absolute top-1.5 right-1.5 pointer-events-none opacity-50">
+          <FloralCorner position="top-right" size={38} />
+        </div>
+        <div class="absolute bottom-1.5 left-1.5 pointer-events-none opacity-50">
+          <FloralCorner position="bottom-left" size={38} />
+        </div>
+        <div class="absolute bottom-1.5 right-1.5 pointer-events-none opacity-50">
+          <FloralCorner position="bottom-right" size={38} />
+        </div>
+
+        <!-- Card Header -->
+        <div class="pt-1">
+          <p class="text-[0.55rem] sm:text-[0.62rem] text-[#566A4E] uppercase tracking-[0.3em] font-semibold">
+            THE WEDDING INVITATION
+          </p>
+          <p class="font-arabic text-base sm:text-lg text-[#3E4C38] tracking-wider mt-0.5" dir="rtl" lang="ar">
+            بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+          </p>
+        </div>
+
+        <!-- Card Center Monogram & Couple -->
+        <div class="my-auto flex flex-col items-center">
+          <div class="scale-75 sm:scale-90 mb-1">
+            <FloralWreath monogram="AD" size={72} />
+          </div>
+          <p class="text-[0.58rem] sm:text-[0.62rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold">
+            WALIMATUL 'URS
+          </p>
+          <h2 class="font-display text-2xl sm:text-3xl text-[#2A3426] font-normal my-0.5 tracking-tight">
+            {content.couple.groom.nickname} <span class="italic text-[#B89352]">&amp;</span> {content.couple.bride.nickname}
+          </h2>
+          <FloralFlourish width={140} height={22} className="scale-80 sm:scale-90" />
+        </div>
+
+        <!-- Card Footer Meta -->
+        <div class="pb-1">
+          <p class="text-[0.6rem] sm:text-[0.65rem] text-[#566A4E] tracking-[0.22em] uppercase font-medium">
+            {content.event.dateFormatted} &bull; Banda Aceh
+          </p>
+        </div>
       </div>
 
-      <p class="text-[0.65rem] sm:text-[0.7rem] tracking-[0.3em] text-[#B89352] uppercase font-semibold">
-        WALIMATUL 'URS
-      </p>
-
-      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-[#2A3426] font-normal tracking-tight my-1.5 drop-shadow-sm">
-        {content.couple.groom.nickname} <span class="italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.bride.nickname}
-      </h1>
-
-      <!-- Symmetrical Calligraphic Flourish Swash -->
-      <FloralFlourish width={190} height={32} className="my-1 scale-90 sm:scale-100" />
-
-      <!-- Personalized Recipient Label on Envelope -->
-      <div class="mt-3 py-2.5 px-5 sm:px-7 rounded-xl bg-white/85 border border-[#DCD5C5] max-w-xs w-full shadow-sm relative overflow-hidden">
-        <!-- Gold Accent Top Bar -->
-        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
-        <p class="text-[0.6rem] sm:text-[0.65rem] text-[#566A4E] uppercase tracking-[0.22em] font-medium mb-0.5">
-          Kepada Yth. Bapak/Ibu/Saudara/i:
-        </p>
-        <p id="guest-name-splash" class="font-display text-lg sm:text-xl text-[#2A3426] font-normal leading-snug">
-          Tamu Undangan Terhormat
-        </p>
+      <!-- LAYER 2: FRONT ENVELOPE POCKET (Covers bottom half of the card) -->
+      <!-- Left Triangle Fold -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[#ECE6D8] to-[#E3DCCB] z-20 pointer-events-none rounded-2xl"
+        style="clip-path: polygon(0 0, 50% 50%, 0 100%);"
+      >
+        <div class="absolute inset-0 border-l border-b border-[#D6CDBC]/50"></div>
       </div>
 
-    </main>
+      <!-- Right Triangle Fold -->
+      <div
+        class="absolute inset-0 bg-gradient-to-l from-[#ECE6D8] to-[#E3DCCB] z-20 pointer-events-none rounded-2xl"
+        style="clip-path: polygon(100% 0, 50% 50%, 100% 100%);"
+      >
+        <div class="absolute inset-0 border-r border-b border-[#D6CDBC]/50"></div>
+      </div>
 
-    <!-- Interactive Olive Wax Seal Button & Tap Cue with Laurel Sprigs -->
-    <footer class="relative z-40 flex flex-col items-center pb-2 sm:pb-4">
-      
-      <!-- Symmetrical Laurel Sprigs Flanking Wax Seal -->
-      <div class="relative flex items-center justify-center gap-3">
+      <!-- Bottom Triangle Pocket Face -->
+      <div
+        id="envelope-pocket-bottom"
+        class="absolute inset-0 bg-gradient-to-t from-[#F4EFE3] via-[#EFEAE0] to-[#E7E0D0] z-22 pointer-events-none rounded-2xl shadow-[0_-4px_12px_rgba(42,52,38,0.06)]"
+        style="clip-path: polygon(0 100%, 100% 100%, 50% 46%);"
+      >
+        <!-- Subtle gold stitch line along the bottom pocket edge -->
+        <div
+          class="absolute inset-0"
+          style="clip-path: polygon(2% 100%, 98% 100%, 50% 48%); border-top: 1px dashed rgba(184, 147, 82, 0.4);"
+        ></div>
+      </div>
+
+      <!-- LAYER 2.5: ELEMENTS FIXED ON THE FRONT OF CLOSED ENVELOPE -->
+      <div id="envelope-front-decorations" class="absolute inset-0 z-25 pointer-events-none">
         
-        <!-- Left Laurel Branch -->
-        <svg width="45" height="35" viewBox="0 0 50 40" fill="none" class="hidden sm:block opacity-75">
-          <path d="M45 35 C30 32, 10 20, 5 5" stroke="#566A4E" stroke-width="1.2" stroke-linecap="round" />
-          <path d="M38 31 C32 26, 33 20, 39 19 C42 24, 42 29, 38 31 Z" fill="#6E8564" />
-          <path d="M25 24 C18 20, 20 14, 26 13 C29 18, 28 23, 25 24 Z" fill="#4A5C43" />
-          <path d="M14 16 C9 12, 11 6, 17 6 C19 11, 17 15, 14 16 Z" fill="#6E8564" />
-          <circle cx="34" cy="27" r="1.8" fill="#B89352" />
-          <circle cx="21" cy="18" r="1.8" fill="#B89352" />
-        </svg>
+        <!-- Vintage Postal Stamp in Top-Right Corner -->
+        <div class="absolute top-2.5 right-2.5 sm:top-3.5 sm:right-3.5 scale-75 sm:scale-85 origin-top-right">
+          <BotanicalStamp />
+        </div>
 
-        <!-- 3D Olive Wax Seal with Gold Monogram -->
-        <div id="wax-seal" class="relative group cursor-pointer transform transition-transform duration-300 hover:scale-108 active:scale-95">
+        <!-- 4 Outer Corner Botanical Flourishes -->
+        <div class="absolute top-1 left-1 opacity-70">
+          <FloralCorner position="top-left" size={60} />
+        </div>
+        <div class="absolute top-1 right-1 opacity-70">
+          <FloralCorner position="top-right" size={60} />
+        </div>
+        <div class="absolute bottom-1 left-1 opacity-70">
+          <FloralCorner position="bottom-left" size={60} />
+        </div>
+        <div class="absolute bottom-1 right-1 opacity-70">
+          <FloralCorner position="bottom-right" size={60} />
+        </div>
+
+        <!-- Recipient Guest Badge (Anchored on bottom pocket) -->
+        <div class="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 w-[85%] sm:w-[75%] max-w-xs py-2 px-3 sm:px-4 rounded-lg bg-white/90 border border-[#DCD5C5] shadow-sm text-center">
+          <p class="text-[0.55rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-[0.2em] font-medium mb-0.5">
+            Kepada Yth. Bapak/Ibu/Saudara/i:
+          </p>
+          <p id="guest-name-splash" class="font-display text-base sm:text-lg text-[#2A3426] font-normal leading-tight truncate">
+            Tamu Undangan Terhormat
+          </p>
+        </div>
+
+      </div>
+
+      <!-- LAYER 3: TOP TRIANGULAR FLAP (Rotates 180deg upwards) -->
+      <div
+        id="envelope-top-flap"
+        class="absolute top-0 left-0 right-0 h-[58%] origin-top z-30 transition-shadow rounded-t-2xl pointer-events-none"
+        style="clip-path: polygon(0 0, 100% 0, 50% 100%); transform-style: preserve-3d; background: linear-gradient(to bottom, #F5F1E6, #EAE3D3);"
+      >
+        <!-- Flap Stitching / Gold Hairline Border -->
+        <div
+          class="absolute inset-0"
+          style="clip-path: polygon(3% 0, 97% 0, 50% 95%); border-bottom: 1.2px dashed rgba(184, 147, 82, 0.45);"
+        ></div>
+        <!-- Shadow Cast by Flap onto Bottom Pocket -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black/10 blur-sm rounded-full"></div>
+      </div>
+
+      <!-- LAYER 4: INTERACTIVE 3D OLIVE WAX SEAL (Centered at flap tip) -->
+      <div
+        id="wax-seal-container"
+        class="absolute top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto group transform transition-transform duration-300 hover:scale-108 active:scale-95"
+      >
+        <div class="relative flex items-center justify-center">
           
-          <!-- Wax Seal Outer Organic Disc -->
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-[#4A5D43] via-[#3B4C35] to-[#263322] shadow-[0_10px_25px_rgba(38,51,34,0.45),inset_0_2px_4px_rgba(255,255,255,0.3)] border-2 border-[#5C7253] flex items-center justify-center relative overflow-hidden">
-            
-            <!-- Wax Inner Rim Ring -->
+          <!-- Left Mini Laurel Branch -->
+          <svg width="34" height="26" viewBox="0 0 50 40" fill="none" class="hidden xs:block absolute -left-7 opacity-75">
+            <path d="M45 35 C30 32, 10 20, 5 5" stroke="#566A4E" stroke-width="1.3" stroke-linecap="round" />
+            <path d="M38 31 C32 26, 33 20, 39 19 C42 24, 42 29, 38 31 Z" fill="#6E8564" />
+            <path d="M25 24 C18 20, 20 14, 26 13 C29 18, 28 23, 25 24 Z" fill="#4A5C43" />
+            <circle cx="34" cy="27" r="1.8" fill="#B89352" />
+          </svg>
+
+          <!-- 3D Organic Olive Wax Disc -->
+          <div
+            id="wax-seal"
+            class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#4A5D43] via-[#3B4C35] to-[#243120] shadow-[0_8px_20px_rgba(36,49,32,0.45),inset_0_2px_4px_rgba(255,255,255,0.3)] border-2 border-[#5C7253] flex items-center justify-center relative overflow-hidden"
+          >
+            <!-- Wax Rim Edge -->
             <div class="absolute inset-1.5 rounded-full border border-[#B89352]/40 border-dashed"></div>
             
             <!-- Gold Monogram Emboss -->
             <div class="flex flex-col items-center">
-              <span class="font-display text-sm sm:text-base text-[#F4E5C7] tracking-widest pl-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
+              <span class="font-display text-xs sm:text-sm text-[#F4E5C7] tracking-widest pl-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
                 AD
               </span>
-              <div class="w-4 h-[1px] bg-[#B89352]/70 mt-0.5"></div>
+              <div class="w-3.5 h-[1px] bg-[#B89352]/70 mt-0.5"></div>
             </div>
           </div>
 
-          <!-- Golden Pulse Aura -->
-          <div class="absolute inset-0 rounded-full bg-[#B89352]/25 animate-ping pointer-events-none opacity-50"></div>
+          <!-- Right Mini Laurel Branch -->
+          <svg width="34" height="26" viewBox="0 0 50 40" fill="none" class="hidden xs:block absolute -right-7 opacity-75 transform scale-x-[-1]">
+            <path d="M45 35 C30 32, 10 20, 5 5" stroke="#566A4E" stroke-width="1.3" stroke-linecap="round" />
+            <path d="M38 31 C32 26, 33 20, 39 19 C42 24, 42 29, 38 31 Z" fill="#6E8564" />
+            <path d="M25 24 C18 20, 20 14, 26 13 C29 18, 28 23, 25 24 Z" fill="#4A5C43" />
+            <circle cx="34" cy="27" r="1.8" fill="#B89352" />
+          </svg>
+
+          <!-- Golden Pulse Ping Aura -->
+          <div class="absolute inset-0 rounded-full bg-[#B89352]/30 animate-ping pointer-events-none opacity-40"></div>
+
         </div>
-
-        <!-- Right Laurel Branch -->
-        <svg width="45" height="35" viewBox="0 0 50 40" fill="none" class="hidden sm:block opacity-75 transform scale-x-[-1]">
-          <path d="M45 35 C30 32, 10 20, 5 5" stroke="#566A4E" stroke-width="1.2" stroke-linecap="round" />
-          <path d="M38 31 C32 26, 33 20, 39 19 C42 24, 42 29, 38 31 Z" fill="#6E8564" />
-          <path d="M25 24 C18 20, 20 14, 26 13 C29 18, 28 23, 25 24 Z" fill="#4A5C43" />
-          <path d="M14 16 C9 12, 11 6, 17 6 C19 11, 17 15, 14 16 Z" fill="#6E8564" />
-          <circle cx="34" cy="27" r="1.8" fill="#B89352" />
-          <circle cx="21" cy="18" r="1.8" fill="#B89352" />
-        </svg>
-
       </div>
 
-      <!-- Tap Prompt with Animated Hand / Touch Cue -->
-      <div class="mt-2.5 flex items-center gap-1.5 text-[#566A4E] animate-bounce">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/>
-          <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/>
-          <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
-          <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
-        </svg>
-        <p class="text-[0.62rem] sm:text-[0.68rem] tracking-[0.25em] uppercase font-semibold text-[#3E4C38]">
-          Buka Amplop Undangan
-        </p>
-      </div>
-
-    </footer>
-
+    </div>
   </div>
+
+  <!-- Animated Tap Prompt Beneath the Envelope -->
+  <div id="envelope-prompt" class="mt-6 flex flex-col items-center gap-2 cursor-pointer z-50 pointer-events-auto">
+    <div class="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#566A4E]/10 border border-[#566A4E]/25 text-[#3E4C38] shadow-sm animate-bounce">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/>
+        <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/>
+        <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
+        <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
+      </svg>
+      <span class="text-[0.65rem] sm:text-xs tracking-[0.25em] uppercase font-semibold">
+        Ketuk Segel untuk Membuka Amplop
+      </span>
+    </div>
+  </div>
+
 </div>
 
-<style>
-  #envelope-flap {
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-  }
-  .flap-open {
-    transform: rotateX(180deg);
-  }
-</style>
-
 <script>
-  import { playChimeSound } from './reactbits/SoundEffects';
+  import gsap from 'gsap';
+  import { playWaxSealSound, playCardFlipSound } from './reactbits/SoundEffects';
 
-  function initEnvelopeScreen() {
+  function initClassicEnvelope() {
     const screen = document.getElementById('envelope-screen');
+    const scene = document.getElementById('envelope-scene');
     const envelopeBody = document.getElementById('envelope-body');
-    const flap = document.getElementById('envelope-flap');
-    const waxSeal = document.getElementById('wax-seal');
+    const topFlap = document.getElementById('envelope-top-flap');
+    const letterCard = document.getElementById('envelope-card');
+    const waxSealContainer = document.getElementById('wax-seal-container');
+    const promptEl = document.getElementById('envelope-prompt');
     const guestSplash = document.getElementById('guest-name-splash');
-    if (!screen) return;
+
+    if (!screen || !topFlap || !letterCard) return;
 
     // Parse guest name from URL ?to=
     const urlParams = new URLSearchParams(window.location.search);
@@ -221,48 +279,104 @@ import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
       if (isOpened) return;
       isOpened = true;
 
-      playChimeSound();
+      // 1. Play tactile wax seal sound
+      playWaxSealSound();
 
-      // 1. 3D Flap opens upwards
-      if (flap) {
-        flap.classList.add('flap-open');
-      }
-
-      // 2. Wax seal gently pops
-      if (waxSeal) {
-        waxSeal.style.transform = 'scale(1.2)';
-        waxSeal.style.opacity = '0';
-        waxSeal.style.transition = 'all 0.5s ease-out';
-      }
-
-      // 3. Trigger invitationOpening event
+      // Trigger invitationOpening immediately so background music initiates on user gesture
       window.dispatchEvent(new CustomEvent('invitationOpening'));
 
-      // 4. Envelope expands & dissolves, uncovering the invitation
-      setTimeout(() => {
-        if (envelopeBody) {
-          envelopeBody.style.transform = 'translateY(-20px) scale(1.05)';
-          envelopeBody.style.opacity = '0';
-        }
-        screen.style.opacity = '0';
-        screen.style.pointerEvents = 'none';
-      }, 500);
+      // Fade out tap prompt
+      if (promptEl) {
+        gsap.to(promptEl, { opacity: 0, y: 15, duration: 0.3 });
+      }
 
-      // 5. Complete removal and scroll unlock
-      setTimeout(() => {
+      // Create master GSAP unboxing timeline (~2.3s total)
+      const tl = gsap.timeline();
+
+      // Step A (0.0s - 0.35s): Wax seal cracks & pops
+      if (waxSealContainer) {
+        tl.to(waxSealContainer, {
+          scale: 1.35,
+          opacity: 0,
+          duration: 0.35,
+          ease: 'power2.out'
+        }, 0);
+      }
+
+      // Step B (0.15s - 0.75s): Top Flap flips UP 180° in 3D
+      tl.to(topFlap, {
+        rotateX: 180,
+        duration: 0.65,
+        ease: 'power2.inOut',
+        onUpdate: function() {
+          // Halfway through rotation (past 90°), drop flap z-index behind the card
+          if (this.progress() > 0.48) {
+            topFlap.style.zIndex = '5';
+          }
+        }
+      }, 0.15);
+
+      // Step C (0.65s - 1.45s): Letter Card glides UP out of the pocket
+      tl.add(() => {
+        playCardFlipSound();
+      }, 0.65);
+
+      tl.to(letterCard, {
+        y: '-78%',
+        boxShadow: '0 25px 50px rgba(42, 52, 38, 0.25)',
+        duration: 0.8,
+        ease: 'power3.out'
+      }, 0.65);
+
+      // Step D (1.45s - 2.25s): Cinematic Camera Zoom-In to card & seamless cross-fade to Hero
+      tl.to(letterCard, {
+        scale: 2.8,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.inOut'
+      }, 1.45);
+
+      tl.to(envelopeBody, {
+        y: 40,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power2.in'
+      }, 1.45);
+
+      tl.to(screen, {
+        opacity: 0,
+        duration: 0.75,
+        ease: 'power2.inOut'
+      }, 1.5);
+
+      // Step E (2.25s): Complete unlock & reveal
+      tl.add(() => {
         screen.style.display = 'none';
         document.body.classList.remove('is-locked');
         window.dispatchEvent(new CustomEvent('invitationOpened'));
-      }, 1200);
+      }, 2.25);
     }
 
-    screen.addEventListener('click', openEnvelope);
-    screen.addEventListener('touchend', openEnvelope, { passive: true });
+    // Attach click listeners to wax seal and prompt
+    if (waxSealContainer) {
+      waxSealContainer.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openEnvelope();
+      });
+    }
+
+    if (scene) {
+      scene.addEventListener('click', openEnvelope);
+    }
+
+    if (promptEl) {
+      promptEl.addEventListener('click', openEnvelope);
+    }
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initEnvelopeScreen);
+    document.addEventListener('DOMContentLoaded', initClassicEnvelope);
   } else {
-    initEnvelopeScreen();
+    initClassicEnvelope();
   }
 </script>
