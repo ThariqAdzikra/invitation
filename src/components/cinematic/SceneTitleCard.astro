@@ -3,11 +3,10 @@
 interface Props {
   act: string;
   title: string;
-  scene?: string;
   className?: string;
 }
 
-const { act, title, scene = "SCENE 01", className = "" } = Astro.props;
+const { act, title, className = "" } = Astro.props;
 ---
 
 <div class={`inline-flex items-center gap-3 select-none pointer-events-none ${className}`} aria-hidden="true">

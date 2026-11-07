@@ -65,7 +65,7 @@ import content from '../data/content.json';
     function setAudioState(playing: boolean) {
       isPlaying = playing;
       if (playing) {
-        btn.setAttribute('aria-label', 'Matikan Musik');
+        btn?.setAttribute('aria-label', 'Matikan Musik');
         if (iconOff) iconOff.classList.add('hidden');
         if (equalizer) equalizer.classList.remove('hidden');
         if (pill) {
@@ -74,7 +74,7 @@ import content from '../data/content.json';
           setTimeout(() => { if (pill) pill.style.opacity = '0'; }, 2400);
         }
       } else {
-        btn.setAttribute('aria-label', 'Nyalakan Musik');
+        btn?.setAttribute('aria-label', 'Nyalakan Musik');
         if (iconOff) iconOff.classList.remove('hidden');
         if (equalizer) equalizer.classList.add('hidden');
         if (pill) {

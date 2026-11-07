@@ -239,7 +239,7 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
         rotateX: 180,
         duration: 0.65,
         onUpdate: function() {
-          if (this.progress() > 0.48) {
+          if (this.progress() > 0.48 && topFlap) {
             topFlap.style.zIndex = '5';
           }
         }
@@ -277,7 +277,7 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
 
       // 5. Complete reveal at exact top (0, 0)
       tl.add(() => {
-        screen.style.display = 'none';
+        if (screen) screen.style.display = 'none';
         document.documentElement.classList.remove('is-locked');
         document.body.classList.remove('is-locked');
         window.scrollTo(0, 0);

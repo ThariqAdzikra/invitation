@@ -87,7 +87,6 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
   function initTimeline() {
     const timelineContainer = document.getElementById('timeline-container');
     const progressLine = document.getElementById('timeline-progress-line');
-    const nodes = document.querySelectorAll<HTMLElement>('.story-node');
 
     if (!timelineContainer || !progressLine) return;
 
@@ -106,7 +105,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     });
 
     // Animate each story item & highlight active node
-    gsap.utils.toArray<HTMLElement>('.story-item').forEach((item, idx) => {
+    gsap.utils.toArray<HTMLElement>('.story-item').forEach((item) => {
       const node = item.querySelector<HTMLElement>('.story-node');
       const innerNode = item.querySelector<HTMLElement>('.node-inner');
 
