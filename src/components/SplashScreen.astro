@@ -1,10 +1,9 @@
 ---
 // SplashScreen.astro — Haute-Couture Wedding Stationery Envelope Unboxing
-// Real Euro-Flap Cotton Stock, Poured Olive Wax Seal, & Cinematic Seamless Zoom Transition into Hero
+// Real Euro-Flap Cotton Stock with Gold Tailored Stitching, Poured Olive Wax Seal, & Seamless Cinematic Zoom Transition
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
-import BotanicalStamp from './botanical/BotanicalStamp.astro';
 ---
 
 <div
@@ -32,23 +31,17 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
     <!-- MAIN PHYSICAL ENVELOPE RIG -->
     <div
       id="envelope-body"
-      class="relative w-full h-full rounded-2xl shadow-[0_25px_60px_rgba(42,52,38,0.18),0_4px_12px_rgba(42,52,38,0.08)] bg-[#EFEADF] border border-[#D8D0BF] overflow-visible"
+      class="relative w-full h-full rounded-2xl shadow-[0_25px_60px_rgba(42,52,38,0.18),0_4px_12px_rgba(42,52,38,0.08)] bg-[#F5F1E8] border border-[#D8D0BF] overflow-visible"
       style="transform-style: preserve-3d;"
     >
-      <!-- LAYER 0: INSIDE LINING (Revealed when flap opens: Warm Cream with Gilded Olive Sprig Pattern) -->
-      <div class="absolute inset-0 rounded-2xl overflow-hidden bg-[#FAF6EE] pointer-events-none z-0">
-        <!-- Botanical Gilded Pattern -->
-        <svg class="absolute inset-0 w-full h-full opacity-18" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
-          <pattern id="olive-lining-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M15 30 C20 15, 35 15, 45 30 C35 35, 20 35, 15 30 Z" fill="#B89352" />
-            <path d="M45 30 C40 45, 25 45, 15 30" stroke="#4A5D43" stroke-width="0.8" />
-            <path d="M30 45 C35 30, 50 30, 60 45 C50 50, 35 50, 30 45 Z" fill="#B89352" />
-            <circle cx="30" cy="30" r="1.5" fill="#4A5D43" />
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#olive-lining-pattern)" />
+      <!-- LAYER 0: INSIDE POCKET LINING (Revealed when flap opens: Clean Warm Ivory Cotton Stock) -->
+      <div class="absolute inset-0 rounded-2xl overflow-hidden bg-gradient-to-b from-[#FAF7F0] via-[#F2EDE2] to-[#E5DFCFC] pointer-events-none z-0">
+        <!-- Delicate Inset Gold Stitching Line Inside -->
+        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 68" preserveAspectRatio="none">
+          <rect x="2.5" y="2" width="95" height="64" rx="2" fill="none" stroke="#B89352" stroke-width="0.4" stroke-dasharray="1.8 1.2" opacity="0.3" />
         </svg>
         <!-- Inner Pocket Depth Shadow -->
-        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#2A3426]/20 via-[#2A3426]/05 to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#2A3426]/15 via-[#2A3426]/04 to-transparent"></div>
       </div>
 
       <!-- LAYER 1: THE LETTER CARD (Tucked inside, emerges upwards, then seamlessly zooms into Hero) -->
@@ -56,9 +49,9 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
         id="envelope-card"
         class="absolute left-[3.5%] right-[3.5%] top-[4%] h-[92%] bg-[#FAF8F5] rounded-xl shadow-[0_12px_35px_rgba(42,52,38,0.14)] border border-[#B89352]/40 p-5 sm:p-7 flex flex-col items-center justify-between text-center z-10 opacity-0 pointer-events-none will-change-transform"
       >
-        <!-- Double Gold Hairline Inset Frame -->
+        <!-- Double Gold Hairline Inset Frame with Stitching -->
         <div class="absolute inset-2 sm:inset-3 border border-[#B89352]/30 rounded-lg pointer-events-none"></div>
-        <div class="absolute inset-2.5 sm:inset-3.5 border border-[#566A4E]/15 rounded-md pointer-events-none"></div>
+        <div class="absolute inset-2.5 sm:inset-3.5 border border-dashed border-[#566A4E]/20 rounded-md pointer-events-none"></div>
 
         <!-- Header -->
         <div class="pt-1 relative z-10">
@@ -92,58 +85,61 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
         </div>
       </div>
 
-      <!-- LAYER 2: FRONT ENVELOPE POCKET FOLDS (Realistic Layered Paper with Drop Shadows) -->
-      
-      <!-- Left Side Flap -->
-      <div 
-        class="absolute inset-0 z-20 pointer-events-none rounded-2xl overflow-hidden"
-        style="clip-path: polygon(0 0, 52% 51%, 0 100%);"
-      >
-        <div class="w-full h-full bg-gradient-to-r from-[#E8E2D2] via-[#EFEAE0] to-[#E3DCCB] shadow-[2px_0_8px_rgba(42,52,38,0.08)]"></div>
-      </div>
-
-      <!-- Right Side Flap -->
-      <div 
-        class="absolute inset-0 z-20 pointer-events-none rounded-2xl overflow-hidden"
-        style="clip-path: polygon(100% 0, 48% 51%, 100% 100%);"
-      >
-        <div class="w-full h-full bg-gradient-to-l from-[#E8E2D2] via-[#EFEAE0] to-[#E3DCCB] shadow-[-2px_0_8px_rgba(42,52,38,0.08)]"></div>
-      </div>
-
-      <!-- Bottom Pocket Face (Rising to meet center with gentle V curve) -->
-      <div 
-        id="envelope-pocket-bottom"
-        class="absolute inset-0 z-22 pointer-events-none rounded-2xl overflow-hidden filter drop-shadow-[0_-5px_10px_rgba(42,52,38,0.06)]"
-        style="clip-path: polygon(0 100%, 100% 100%, 50% 48%);"
-      >
-        <div class="w-full h-full bg-gradient-to-t from-[#F8F5EE] via-[#F1ECE1] to-[#E5DFCFC] relative">
-          <!-- Subtle gold hairline trim on bottom fold edge -->
-          <div class="absolute inset-0 border-t border-[#B89352]/30" style="clip-path: polygon(0 100%, 100% 100%, 50% 48%);"></div>
-        </div>
-      </div>
-
-      <!-- LAYER 2.5: FRONT ENVELOPE EMBELLISHMENTS (Postal Stamp & Luxury Guest Badge) -->
-      <div id="envelope-front-decorations" class="absolute inset-0 z-25 pointer-events-none">
+      <!-- LAYER 2: FRONT ENVELOPE SOLID POCKET (100% Opaque Cotton Stock with Tailored Gold Stitching) -->
+      <div class="absolute inset-0 z-20 pointer-events-none rounded-2xl overflow-hidden">
         
-        <!-- Vintage Botanical Postal Stamp -->
-        <div class="absolute top-3 right-3 sm:top-4 sm:right-4 scale-75 sm:scale-85 origin-top-right">
-          <BotanicalStamp />
-        </div>
+        <!-- Base Solid Pocket Background (Completely blocks anything from bleeding through) -->
+        <div class="absolute inset-0 bg-[#EFEADF]"></div>
 
-        <!-- Luxury Guest Calligraphy Nameplate (Centered on lower third) -->
-        <div class="absolute bottom-4 sm:bottom-5 left-1/2 -translate-x-1/2 w-[85%] sm:w-[76%] max-w-[280px] py-2.5 px-4 rounded-xl bg-white/95 border border-[#B89352]/35 shadow-[0_4px_16px_rgba(42,52,38,0.06)] text-center relative overflow-hidden">
-          <div class="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
-          <p class="text-[0.52rem] text-[#7E8F77] uppercase tracking-[0.24em] font-semibold mb-0.5">
+        <!-- Left Side Flap Fold -->
+        <div 
+          class="absolute inset-0"
+          style="clip-path: polygon(0 0, 50% 50%, 0 100%); background: linear-gradient(135deg, #F3EEE4 0%, #E7E0D2 100%);"
+        ></div>
+
+        <!-- Right Side Flap Fold -->
+        <div 
+          class="absolute inset-0"
+          style="clip-path: polygon(100% 0, 50% 50%, 100% 100%); background: linear-gradient(225deg, #F3EEE4 0%, #E7E0D2 100%);"
+        ></div>
+
+        <!-- Bottom Triangle Pocket (Rising with crisp paper crease & subtle shadow) -->
+        <div 
+          class="absolute inset-0 filter drop-shadow-[0_-5px_12px_rgba(42,52,38,0.07)]"
+          style="clip-path: polygon(0 100%, 100% 100%, 50% 50%); background: linear-gradient(180deg, #FAF7F0 0%, #F1ECE2 50%, #E8E2D4 100%);"
+        ></div>
+
+        <!-- Bespoke Gold Stitching Lines along Seams (Pola Jahitan Rapi) -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 68" preserveAspectRatio="none">
+          <!-- Perimeter Stitching -->
+          <rect x="2" y="1.5" width="96" height="65" rx="3" fill="none" stroke="#B89352" stroke-width="0.5" stroke-dasharray="2 1.5" opacity="0.45" />
+          
+          <!-- Bottom V-fold Stitching -->
+          <path d="M1 67 L50 34.5 L99 67" fill="none" stroke="#B89352" stroke-width="0.7" stroke-dasharray="2 1.5" opacity="0.75" />
+          
+          <!-- Diagonal Side Flap Stitching -->
+          <path d="M1 1 L50 34.5" fill="none" stroke="#B89352" stroke-width="0.5" stroke-dasharray="2 1.5" opacity="0.5" />
+          <path d="M99 1 L50 34.5" fill="none" stroke="#B89352" stroke-width="0.5" stroke-dasharray="2 1.5" opacity="0.5" />
+        </svg>
+
+      </div>
+
+      <!-- LAYER 2.5: LUXURY GUEST CALLIGRAPHY NAMEPLATE (Centered on lower pocket) -->
+      <div class="absolute bottom-3.5 sm:bottom-4 left-1/2 -translate-x-1/2 w-[82%] sm:w-[72%] max-w-[270px] z-25 pointer-events-none">
+        <div class="py-2 px-3.5 rounded-xl bg-white/95 border border-[#B89352]/40 shadow-[0_4px_16px_rgba(42,52,38,0.06)] text-center relative overflow-hidden">
+          <!-- Inset Gold Stitching Frame -->
+          <div class="absolute inset-1 border border-dashed border-[#B89352]/35 rounded-lg pointer-events-none"></div>
+          
+          <p class="text-[0.52rem] text-[#7E8F77] uppercase tracking-[0.24em] font-semibold mb-0.5 relative z-10">
             Kepada Yth. Bapak/Ibu/Saudara/i:
           </p>
-          <p id="guest-name-splash" class="font-display text-sm sm:text-base text-[#2A3426] font-normal leading-tight truncate">
+          <p id="guest-name-splash" class="font-display text-xs sm:text-sm text-[#2A3426] font-normal leading-tight truncate relative z-10">
             Tamu Undangan Terhormat
           </p>
         </div>
-
       </div>
 
-      <!-- LAYER 3: 3D EURO TOP FLAP (Deep V with Gold Contour & Realistic 3D Unfold) -->
+      <!-- LAYER 3: 3D EURO TOP FLAP (Deep V with Gold Contour & Gold Stitching) -->
       <div
         id="envelope-top-flap-container"
         class="absolute top-0 left-0 right-0 h-[58%] origin-top z-30 pointer-events-none"
@@ -155,30 +151,28 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
           class="relative w-full h-full origin-top will-change-transform"
           style="transform-style: preserve-3d; transform-origin: top center;"
         >
-          <!-- Flap Front Face (Visible When Closed: Deep Euro V Pointing Down) -->
+          <!-- Flap Front Face (Visible When Closed: Deep Euro V Pointing Down with Gold Stitching) -->
           <div
             class="absolute inset-0 rounded-t-2xl filter drop-shadow-[0_8px_16px_rgba(42,52,38,0.12)]"
-            style="clip-path: polygon(0 0, 100% 0, 50% 100%); background: linear-gradient(180deg, #F9F6EE 0%, #F1ECE0 60%, #E7E0D0 100%); backface-visibility: hidden; -webkit-backface-visibility: hidden;"
+            style="clip-path: polygon(0 0, 100% 0, 50% 100%); background: linear-gradient(180deg, #FAF7F0 0%, #F1ECE2 60%, #E7E0D0 100%); backface-visibility: hidden; -webkit-backface-visibility: hidden;"
           >
-            <!-- Inset Gold Stitching Contour Line -->
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 58" preserveAspectRatio="none">
-              <path d="M2 1 L50 56 L98 1" fill="none" stroke="#B89352" stroke-width="0.8" stroke-dasharray="2 1.5" opacity="0.6" />
-              <path d="M0 0 L50 58 L100 0" fill="none" stroke="#D5CCBC" stroke-width="0.6" opacity="0.8" />
+            <!-- Inset Gold Stitching Contour Line along Flap Edge -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 58" preserveAspectRatio="none">
+              <!-- Stitching line following the V -->
+              <path d="M2.5 1 L50 55.5 L97.5 1" fill="none" stroke="#B89352" stroke-width="0.75" stroke-dasharray="2 1.5" opacity="0.8" />
+              <!-- Hairline border -->
+              <path d="M0 0 L50 58 L100 0" fill="none" stroke="#D5CCBC" stroke-width="0.5" opacity="0.7" />
             </svg>
           </div>
 
-          <!-- Flap Back Face (Visible When Flipped Open 180°: Shows Matching Inner Olive Lining) -->
+          <!-- Flap Back Face (Visible When Flipped Open 180°: Clean Satin Cream with Gold Stitching) -->
           <div
             class="absolute inset-0 rounded-t-2xl overflow-hidden"
-            style="clip-path: polygon(0 0, 100% 0, 50% 100%); background: #FAF6EE; transform: rotateX(180deg); backface-visibility: hidden; -webkit-backface-visibility: hidden;"
+            style="clip-path: polygon(0 0, 100% 0, 50% 100%); background: linear-gradient(180deg, #F8F5EE 0%, #EDE7DB 100%); transform: rotateX(180deg); backface-visibility: hidden; -webkit-backface-visibility: hidden;"
           >
-            <!-- Gilded Pattern on Inside of Flap -->
-            <svg class="absolute inset-0 w-full h-full opacity-18" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
-              <pattern id="flap-inner-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
-                <path d="M15 30 C20 15, 35 15, 45 30 C35 35, 20 35, 15 30 Z" fill="#B89352" />
-                <path d="M30 45 C35 30, 50 30, 60 45 C50 50, 35 50, 30 45 Z" fill="#B89352" />
-              </pattern>
-              <rect width="100%" height="100%" fill="url(#flap-inner-pattern)" />
+            <!-- Inset Gold Stitching on inside of flap -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 58" preserveAspectRatio="none">
+              <path d="M3.5 1.5 L50 55 L96.5 1.5" fill="none" stroke="#B89352" stroke-width="0.65" stroke-dasharray="2 1.5" opacity="0.6" />
             </svg>
             <div class="absolute inset-0 border-t-2 border-[#B89352]/40"></div>
           </div>
@@ -188,14 +182,14 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
       <!-- LAYER 4: AUTHENTIC POURED OLIVE WAX SEAL (Centered at Flap V-Tip) -->
       <div
         id="wax-seal-container"
-        class="absolute top-[57%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto transform transition-transform duration-200 active:scale-95"
+        class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto transform transition-transform duration-200 active:scale-95"
       >
         <div class="relative flex items-center justify-center group">
           <!-- Ambient Gold Glow Halo -->
           <div id="wax-seal-halo" class="absolute -inset-2 rounded-full bg-[#B89352]/20 blur-md opacity-60 group-hover:opacity-100 transition-opacity"></div>
 
           <!-- Poured Molten Wax Seal Disc (Organic 8-Lobed Shape) -->
-          <svg width="64" height="64" viewBox="0 0 100 100" class="filter drop-shadow-[0_8px_18px_rgba(36,49,32,0.4)]">
+          <svg width="60" height="60" viewBox="0 0 100 100" class="filter drop-shadow-[0_8px_18px_rgba(36,49,32,0.4)]">
             <!-- Organic Molten Wax Outline -->
             <path
               d="M50 5 
@@ -323,7 +317,7 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
         tl.to(promptContainer, { opacity: 0, y: 12, duration: 0.3 }, 0);
       }
 
-      // PHASE 2: Euro flap flips open 180° in 3D revealing golden lining
+      // PHASE 2: Euro flap flips open 180° in 3D revealing clean satin interior
       tl.to(topFlap, {
         rotateX: 180,
         duration: 0.75,
