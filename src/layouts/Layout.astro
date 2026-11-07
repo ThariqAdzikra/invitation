@@ -95,21 +95,25 @@ const {
         });
       });
 
-      // Layered Card Elevation: Hero gently recedes as user scrolls towards Opening
-      const hero = document.getElementById('hero');
-      if (hero) {
-        gsap.to(hero, {
-          scale: 0.94,
-          opacity: 0.55,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '#opening',
-            start: 'top bottom',
-            end: 'top 25%',
-            scrub: true
-          }
-        });
-      }
+      // Cinematic Card Deck Stacking Physics: Each section recedes as the next section slides over it
+      const deckSections = gsap.utils.toArray<HTMLElement>('.deck-section');
+      deckSections.forEach((section, idx) => {
+        if (idx < deckSections.length - 1) {
+          const nextSection = deckSections[idx + 1];
+          gsap.to(section, {
+            scale: 0.94,
+            opacity: 0.5,
+            filter: 'brightness(0.65)',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: nextSection,
+              start: 'top bottom',
+              end: 'top top',
+              scrub: true
+            }
+          });
+        }
+      });
 
       // Recalculate triggers after splashscreen is unlocked
       window.addEventListener('invitationOpened', () => {
