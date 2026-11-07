@@ -1,0 +1,69 @@
+---
+// BotanicalStamp.astro — Vintage Postal Stamp with Botanical Engraving & Postmark Cancellation
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`relative select-none pointer-events-none ${className}`} aria-hidden="true">
+  <!-- Perforated Stamp Base -->
+  <div class="relative w-20 h-24 sm:w-24 sm:h-28 bg-[#FAF6EE] border-2 border-dashed border-[#C5BBA5] p-1.5 shadow-[0_4px_12px_rgba(42,52,38,0.12)] rotate-3 flex flex-col justify-between">
+    
+    <!-- Inner Golden Border -->
+    <div class="h-full w-full border border-[#B89352]/40 p-1 flex flex-col items-center justify-between bg-[#F5F1E6]">
+      <p class="text-[0.5rem] tracking-[0.25em] text-[#566A4E] uppercase font-bold text-center">
+        POSTAGE
+      </p>
+
+      <!-- Center Engraving: Rose & Olive Sprig -->
+      <svg width="44" height="44" viewBox="0 0 50 50" fill="none" class="my-auto">
+        <circle cx="25" cy="25" r="22" stroke="#B89352" stroke-width="0.8" stroke-dasharray="2 1" />
+        <!-- Rose Blossom Center -->
+        <circle cx="25" cy="23" r="7" fill="#FAF6EE" stroke="#566A4E" stroke-width="0.9" />
+        <circle cx="25" cy="23" r="3" fill="#B89352" />
+        <!-- Olive Sprig Leaves -->
+        <path d="M25 30 C20 34, 15 36, 12 36" stroke="#566A4E" stroke-width="1" />
+        <path d="M25 30 C30 34, 35 36, 38 36" stroke="#566A4E" stroke-width="1" />
+        <path d="M18 32 C15 30, 16 27, 20 28 Z" fill="#6E8564" />
+        <path d="M32 32 C35 30, 34 27, 30 28 Z" fill="#6E8564" />
+      </svg>
+
+      <div class="flex items-center justify-between w-full px-1 text-[0.48rem] text-[#B89352] font-semibold">
+        <span>AD</span>
+        <span>2026</span>
+      </div>
+    </div>
+
+    <!-- Postal Ink Cancellation Stamp Overlay -->
+    <div class="absolute -top-3 -left-4 w-28 h-28 pointer-events-none opacity-45 transform -rotate-12">
+      <svg viewBox="0 0 100 100" fill="none" class="w-full h-full">
+        <!-- Postmark Double Rings -->
+        <circle cx="50" cy="50" r="38" stroke="#3E4C38" stroke-width="1.2" />
+        <circle cx="50" cy="50" r="34" stroke="#3E4C38" stroke-width="0.6" stroke-dasharray="3 2" />
+        
+        <!-- Postmark Horizontal Wavy Waves -->
+        <path d="M85 45 Q95 42 105 45 Q115 48 125 45" stroke="#3E4C38" stroke-width="1" />
+        <path d="M85 50 Q95 47 105 50 Q115 53 125 50" stroke="#3E4C38" stroke-width="1" />
+        <path d="M85 55 Q95 52 105 55 Q115 58 125 55" stroke="#3E4C38" stroke-width="1" />
+
+        <!-- Postmark Text -->
+        <text font-size="6.5" font-weight="bold" fill="#3E4C38" letter-spacing="1.5">
+          <textPath href="#postmark-arc" startOffset="50%" text-anchor="middle">
+            WALIMATUL 'URS
+          </textPath>
+        </text>
+        <path id="postmark-arc" d="M 20 50 A 30 30 0 0 1 80 50" fill="none" />
+        
+        <text x="50" y="52" font-size="6" font-weight="bold" fill="#3E4C38" text-anchor="middle" letter-spacing="1">
+          12.12.2026
+        </text>
+        <text x="50" y="62" font-size="5" fill="#566A4E" text-anchor="middle" letter-spacing="1">
+          BANDA ACEH
+        </text>
+      </svg>
+    </div>
+
+  </div>
+</div>

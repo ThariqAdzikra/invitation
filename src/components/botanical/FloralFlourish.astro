@@ -1,0 +1,47 @@
+---
+// FloralFlourish.astro — Symmetrical Calligraphic Botanical Swash with Blooming Center & Leaves
+interface Props {
+  className?: string;
+  width?: number;
+  height?: number;
+}
+
+const { className = "", width = 200, height = 40 } = Astro.props;
+---
+
+<div class={`flex items-center justify-center select-none pointer-events-none ${className}`} aria-hidden="true">
+  <svg width={width} height={height} viewBox="0 0 200 40" fill="none" class="w-full h-auto max-w-[200px]">
+    <!-- Center Sparkling Star -->
+    <path
+      d="M100 14 Q100 20 95 20 Q100 20 100 26 Q100 20 105 20 Q100 20 100 14 Z"
+      fill="#B89352"
+    />
+    <circle cx="100" cy="20" r="1.5" fill="#FAF8F5" />
+
+    <!-- Left Symmetrical Swash -->
+    <path
+      d="M90 20 C70 20, 50 12, 30 24 C20 30, 10 26, 12 18 C14 10, 24 14, 28 20"
+      stroke="#566A4E"
+      stroke-width="1.2"
+      stroke-linecap="round"
+    />
+    <!-- Left Flourish Leaflets -->
+    <path d="M72 17 C68 11, 60 12, 58 17 C61 19, 69 19, 72 17 Z" fill="#6E8564" />
+    <path d="M48 16 C42 22, 34 21, 32 16 C35 14, 43 14, 48 16 Z" fill="#4A5C43" />
+    <circle cx="28" cy="20" r="2" fill="#B89352" />
+    <circle cx="64" cy="22" r="1.6" fill="#B89352" />
+
+    <!-- Right Symmetrical Swash -->
+    <path
+      d="M110 20 C130 20, 150 12, 170 24 C180 30, 190 26, 188 18 C186 10, 176 14, 172 20"
+      stroke="#566A4E"
+      stroke-width="1.2"
+      stroke-linecap="round"
+    />
+    <!-- Right Flourish Leaflets -->
+    <path d="M128 17 C132 11, 140 12, 142 17 C139 19, 131 19, 128 17 Z" fill="#6E8564" />
+    <path d="M152 16 C158 22, 166 21, 168 16 C165 14, 157 14, 152 16 Z" fill="#4A5C43" />
+    <circle cx="172" cy="20" r="2" fill="#B89352" />
+    <circle cx="136" cy="22" r="1.6" fill="#B89352" />
+  </svg>
+</div>

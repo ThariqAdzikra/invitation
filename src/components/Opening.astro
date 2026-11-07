@@ -1,16 +1,22 @@
 ---
+// Opening.astro — Botanical Opening Section with Sacred Verse & Floral Framing
 import content from '../data/content.json';
 import FloralDivider from './botanical/FloralDivider.astro';
 import FloralCorner from './botanical/FloralCorner.astro';
 import FloralBouquet from './botanical/FloralBouquet.astro';
+import FloralFlourish from './botanical/FloralFlourish.astro';
+import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 ---
 
 <section id="opening" class="deck-section tone-opening section-flow relative px-4 text-center overflow-hidden z-20" aria-label="Kata Pembuka dan Doa">
+  
+  <TwinkleSparkles />
+
   <div class="max-w-2xl mx-auto text-center flex flex-col items-center relative z-10">
     
     <!-- Crown Botanical Bouquet -->
     <div class="opening-divider mb-3 scale-90">
-      <FloralBouquet width={220} height={55} />
+      <FloralBouquet width={240} height={60} />
     </div>
 
     <!-- Editorial Botanical Badge -->
@@ -18,19 +24,29 @@ import FloralBouquet from './botanical/FloralBouquet.astro';
       <span>THE SACRED COVENANT</span>
     </div>
 
-    <!-- Sacred Bismillah -->
-    <p class="opening-bismillah font-arabic text-3xl sm:text-4xl text-[#3E4C38] mb-6" dir="rtl" lang="ar">
+    <!-- Sacred Bismillah with Golden Halo -->
+    <p class="opening-bismillah font-arabic text-3xl sm:text-4xl text-[#3E4C38] mb-5 drop-shadow-sm" dir="rtl" lang="ar">
       {content.opening.bismillah}
     </p>
 
-    <!-- Ayat Suci QS Ar-Rum 21 Card with Floral Corner Accents -->
-    <div class="opening-item w-full bg-white/80 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-9 shadow-sm relative overflow-hidden my-3">
+    <!-- Ayat Suci QS Ar-Rum 21 Card with 4 Floral Corner Accents & Inset Frame -->
+    <div class="opening-item w-full bg-white/90 border border-[#566A4E]/25 rounded-2xl p-6 sm:p-9 shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden my-3">
+      <!-- 4 Floral Corner Flourishes -->
       <div class="absolute top-2 left-2 pointer-events-none">
-        <FloralCorner position="top-left" size={60} />
+        <FloralCorner position="top-left" size={65} />
+      </div>
+      <div class="absolute top-2 right-2 pointer-events-none">
+        <FloralCorner position="top-right" size={65} />
+      </div>
+      <div class="absolute bottom-2 left-2 pointer-events-none">
+        <FloralCorner position="bottom-left" size={65} />
       </div>
       <div class="absolute bottom-2 right-2 pointer-events-none">
-        <FloralCorner position="bottom-right" size={60} />
+        <FloralCorner position="bottom-right" size={65} />
       </div>
+
+      <!-- Inset Gold Hairline Frame -->
+      <div class="absolute inset-3 border border-[#B89352]/30 rounded-xl pointer-events-none"></div>
 
       <blockquote lang="ar" dir="rtl" class="font-arabic text-xl sm:text-2xl text-[#2A3426] leading-loose max-w-xl mx-auto relative z-10">
         {content.opening.verse}
@@ -40,7 +56,11 @@ import FloralBouquet from './botanical/FloralBouquet.astro';
         &ldquo;{content.opening.translation}&rdquo;
       </p>
 
-      <p class="text-[0.68rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mt-3 relative z-10">
+      <div class="my-2 relative z-10">
+        <FloralFlourish width={160} height={28} />
+      </div>
+
+      <p class="text-[0.68rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mt-2 relative z-10">
         {content.opening.source}
       </p>
     </div>
@@ -52,7 +72,7 @@ import FloralBouquet from './botanical/FloralBouquet.astro';
 
     <!-- Botanical Floral Divider Bottom -->
     <div class="opening-divider mt-6 scale-x-0">
-      <FloralDivider width={240} height={32} />
+      <FloralDivider width={260} height={34} />
     </div>
 
   </div>
@@ -98,7 +118,7 @@ import FloralBouquet from './botanical/FloralBouquet.astro';
       '.opening-item',
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: 0.85, stagger: 0.1, ease: 'power3.out' },
-      '-=0.5'
+      '-=0.7'
     );
   }
 

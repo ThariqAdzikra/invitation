@@ -1,0 +1,50 @@
+---
+// TwinkleSparkles.astro — Gentle cinematic gold sparkles (pure CSS, lightweight)
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`absolute inset-0 pointer-events-none overflow-hidden select-none ${className}`} aria-hidden="true">
+  <!-- Sparkle 1 -->
+  <span class="twinkle-star star-1 top-[15%] left-[12%] text-[#B89352] text-xs">✦</span>
+  <!-- Sparkle 2 -->
+  <span class="twinkle-star star-2 top-[22%] right-[14%] text-[#D4AF37] text-sm">✦</span>
+  <!-- Sparkle 3 -->
+  <span class="twinkle-star star-3 top-[50%] left-[8%] text-[#B89352] text-[10px]">✦</span>
+  <!-- Sparkle 4 -->
+  <span class="twinkle-star star-4 top-[65%] right-[10%] text-[#D4AF37] text-xs">✦</span>
+  <!-- Sparkle 5 -->
+  <span class="twinkle-star star-5 top-[82%] left-[18%] text-[#B89352] text-sm">✦</span>
+  <!-- Sparkle 6 -->
+  <span class="twinkle-star star-6 top-[88%] right-[20%] text-[#D4AF37] text-[10px]">✦</span>
+</div>
+
+<style>
+  .twinkle-star {
+    position: absolute;
+    display: inline-block;
+    filter: drop-shadow(0 0 3px rgba(184, 147, 82, 0.6));
+    animation: twinkle-pulse 4s ease-in-out infinite;
+  }
+
+  .star-1 { animation-delay: 0s; }
+  .star-2 { animation-delay: 1.3s; }
+  .star-3 { animation-delay: 2.6s; }
+  .star-4 { animation-delay: 0.8s; }
+  .star-5 { animation-delay: 2.1s; }
+  .star-6 { animation-delay: 3.4s; }
+
+  @keyframes twinkle-pulse {
+    0%, 100% {
+      opacity: 0.15;
+      transform: scale(0.6) rotate(0deg);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.15) rotate(45deg);
+    }
+  }
+</style>

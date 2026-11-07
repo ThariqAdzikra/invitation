@@ -1,11 +1,13 @@
 ---
+// FloralCorner.astro — Exquisite Luxury Botanical Corner Filigree with Olive Leaves, Rosebuds & Gold Berries
 interface Props {
   position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
   size?: number;
   className?: string;
+  colorTheme?: "olive" | "gold" | "sage";
 }
 
-const { position = "top-left", size = 80, className = "" } = Astro.props;
+const { position = "top-left", size = 90, className = "" } = Astro.props;
 
 let transform = "";
 if (position === "top-right") transform = "scaleX(-1)";
@@ -13,24 +15,104 @@ if (position === "bottom-left") transform = "scaleY(-1)";
 if (position === "bottom-right") transform = "scale(-1, -1)";
 ---
 
-<div class={`pointer-events-none select-none opacity-60 ${className}`} style={`width: ${size}px; height: ${size}px; transform: ${transform};`} aria-hidden="true">
-  <svg width={size} height={size} viewBox="0 0 100 100" fill="none" class="w-full h-full">
-    <!-- Corner Stem -->
-    <path d="M10 90 C12 50, 40 20, 90 10" stroke="#566A4E" stroke-width="1.2" stroke-linecap="round" />
+<div
+  class={`pointer-events-none select-none transition-transform duration-500 ${className}`}
+  style={`width: ${size}px; height: ${size}px; transform: ${transform};`}
+  aria-hidden="true"
+>
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 120 120"
+    fill="none"
+    class="w-full h-full drop-shadow-[0_1px_2px_rgba(42,52,38,0.06)]"
+  >
+    <!-- Outer Ornamental Filigree Vine Curve -->
+    <path
+      d="M12 110 C14 62, 50 20, 110 12"
+      stroke="#566A4E"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      opacity="0.9"
+    />
     
-    <!-- Leaves along the stem -->
-    <path d="M22 65 C18 58, 20 50, 26 48 C28 53, 27 60, 22 65 Z" fill="#6E8564" />
-    <path d="M35 48 C30 40, 32 33, 38 31 C40 36, 40 43, 35 48 Z" fill="#4A5C43" />
-    <path d="M50 35 C48 27, 53 20, 59 20 C59 26, 56 32, 50 35 Z" fill="#718B67" />
-    <path d="M68 24 C68 16, 75 12, 80 14 C78 19, 73 24, 68 24 Z" fill="#5E7455" />
+    <!-- Secondary Delicate Inner Tendril -->
+    <path
+      d="M20 95 C22 55, 52 26, 95 20"
+      stroke="#B89352"
+      stroke-width="0.9"
+      stroke-dasharray="3 2"
+      stroke-linecap="round"
+      opacity="0.65"
+    />
+
+    <!-- Swirling Vine Flourish Tip -->
+    <path
+      d="M12 110 C10 114, 6 114, 5 110 C4 104, 10 102, 14 105"
+      stroke="#566A4E"
+      stroke-width="1.2"
+      fill="none"
+      stroke-linecap="round"
+    />
+    <path
+      d="M110 12 C114 10, 114 6, 110 5 C104 4, 102 10, 105 14"
+      stroke="#566A4E"
+      stroke-width="1.2"
+      fill="none"
+      stroke-linecap="round"
+    />
+
+    <!-- Corner Blooming Rosebud Blossom -->
+    <g transform="translate(32, 32)">
+      <circle cx="12" cy="12" r="8" fill="#FAF7F0" stroke="#B89352" stroke-width="1.2" />
+      <path d="M12 5 C16 5, 19 9, 18 13 C17 17, 13 19, 12 19 C11 19, 7 17, 6 13 C5 9, 8 5, 12 5 Z" fill="#EAE5D8" opacity="0.8" />
+      <path d="M12 8 C14 8, 16 11, 15 13 C14 15, 12 16, 12 16 C12 16, 10 15, 9 13 C8 11, 10 8, 12 8 Z" fill="#566A4E" opacity="0.3" />
+      <circle cx="12" cy="12" r="2.2" fill="#B89352" />
+      <!-- Calyx Leaflets -->
+      <path d="M7 16 C5 19, 3 22, 5 24 C7 24, 9 20, 9 17 Z" fill="#5E7455" />
+      <path d="M17 16 C19 19, 21 22, 19 24 C17 24, 15 20, 15 17 Z" fill="#5E7455" />
+    </g>
+
+    <!-- Olive Leaves along Main Stem -->
+    <!-- Leaf 1 (Near Base Left) -->
+    <path d="M16 85 C10 77, 11 67, 18 64 C23 70, 22 79, 16 85 Z" fill="#4A5C43" opacity="0.9" />
+    <path d="M17 83 Q15 74 18 66" stroke="#FAF8F5" stroke-width="0.5" opacity="0.6" />
+
+    <!-- Leaf 2 (Mid-Left) -->
+    <path d="M25 65 C20 56, 23 48, 30 46 C34 52, 32 60, 25 65 Z" fill="#6E8564" opacity="0.9" />
+    <path d="M26 63 Q24 54 29 48" stroke="#FAF8F5" stroke-width="0.5" opacity="0.6" />
+
+    <!-- Leaf 3 (Center Arch) -->
+    <path d="M52 35 C48 26, 54 20, 61 20 C63 26, 59 34, 52 35 Z" fill="#566A4E" opacity="0.95" />
+    <path d="M53 33 Q54 25 60 22" stroke="#FAF8F5" stroke-width="0.5" opacity="0.6" />
+
+    <!-- Leaf 4 (Mid-Right) -->
+    <path d="M65 25 C56 20, 48 23, 46 30 C52 34, 60 32, 65 25 Z" fill="#718B67" opacity="0.9" />
     
-    <!-- Secondary leafy sprig -->
-    <path d="M35 48 C42 55, 48 58, 55 58" stroke="#566A4E" stroke-width="0.8" stroke-linecap="round" />
-    <path d="M48 58 C52 54, 57 56, 58 60 C55 61, 50 61, 48 58 Z" fill="#6E8564" />
-    
-    <!-- Little Gold Berries -->
-    <circle cx="28" cy="50" r="2" fill="#B89352" />
-    <circle cx="56" cy="28" r="2" fill="#B89352" />
-    <circle cx="78" cy="18" r="2" fill="#B89352" />
+    <!-- Leaf 5 (Near Base Right) -->
+    <path d="M85 16 C77 10, 67 11, 64 18 C70 23, 79 22, 85 16 Z" fill="#4A5C43" opacity="0.9" />
+    <path d="M83 17 Q74 15 66 18" stroke="#FAF8F5" stroke-width="0.5" opacity="0.6" />
+
+    <!-- Secondary Vine Branches with Berries -->
+    <path d="M26 62 C34 68, 42 70, 48 70" stroke="#566A4E" stroke-width="0.9" stroke-linecap="round" />
+    <path d="M42 70 C46 65, 52 67, 52 72 C48 74, 44 73, 42 70 Z" fill="#6E8564" />
+
+    <path d="M62 26 C68 34, 70 42, 70 48" stroke="#566A4E" stroke-width="0.9" stroke-linecap="round" />
+    <path d="M70 42 C65 46, 67 52, 72 52 C74 48, 73 44, 70 42 Z" fill="#6E8564" />
+
+    <!-- Golden Olive Berries & Sparkle Beads -->
+    <circle cx="21" cy="72" r="2.5" fill="#B89352" />
+    <circle cx="34" cy="52" r="2.2" fill="#B89352" />
+    <circle cx="52" cy="34" r="2.2" fill="#B89352" />
+    <circle cx="72" cy="21" r="2.5" fill="#B89352" />
+    <circle cx="94" cy="15" r="2" fill="#B89352" />
+    <circle cx="15" cy="94" r="2" fill="#B89352" />
+
+    <!-- Delicate 4-Point Star Sparkle -->
+    <path
+      d="M26 26 Q29 26 29 23 Q29 26 32 26 Q29 26 29 29 Q29 26 26 26 Z"
+      fill="#B89352"
+      opacity="0.85"
+    />
   </svg>
 </div>

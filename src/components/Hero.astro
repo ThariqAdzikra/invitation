@@ -1,13 +1,19 @@
 ---
+// Hero.astro — Botanical Hero Section with Crown Bouquet, Floral Corners, Monogram Crest & Twinkle Sparkles
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralDivider from './botanical/FloralDivider.astro';
 import FloralCorner from './botanical/FloralCorner.astro';
 import FloralBouquet from './botanical/FloralBouquet.astro';
+import FloralFlourish from './botanical/FloralFlourish.astro';
+import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 ---
 
 <section id="hero" class="deck-section tone-hero section-hero relative px-4 text-center overflow-hidden z-10" aria-label="Informasi Utama Pernikahan">
   
+  <!-- Twinkling Gold Sparkles Background -->
+  <TwinkleSparkles />
+
   <!-- Botanical Corner Floral Ornaments in 4 Corners -->
   <div class="absolute top-4 left-4 sm:top-8 sm:left-8 pointer-events-none">
     <FloralCorner position="top-left" size={110} />
@@ -39,12 +45,17 @@ import FloralBouquet from './botanical/FloralBouquet.astro';
 
     <!-- Grand Headline with Crown Bouquet & Staggered Mask Reveal -->
     <div class="my-1 scale-90 sm:scale-100">
-      <FloralBouquet width={240} height={60} />
+      <FloralBouquet width={260} height={65} />
     </div>
     <div class="overflow-hidden my-1 sm:my-2">
       <h1 id="hero-headline" class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#2A3426] font-normal tracking-tight leading-tight translate-y-[110%] opacity-0 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
         {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1 sm:px-3">&amp;</span> {content.couple.bride.nickname}
       </h1>
+    </div>
+
+    <!-- Symmetrical Calligraphic Flourish Swash -->
+    <div class="my-1">
+      <FloralFlourish width={210} height={35} />
     </div>
 
     <!-- Botanical Olive & Floral Divider -->
@@ -62,10 +73,20 @@ import FloralBouquet from './botanical/FloralBouquet.astro';
       </p>
     </div>
 
-    <!-- Personalized Guest Welcoming Card (Botanical Linen) -->
-    <div class="hero-guest mt-8 py-5 px-6 sm:px-8 rounded-xl border border-[#566A4E]/25 bg-white/90 max-w-sm w-full mx-auto opacity-0 shadow-[0_12px_36px_rgba(42,52,38,0.08)] relative overflow-hidden">
+    <!-- Personalized Guest Welcoming Card (Botanical Linen) with Corner Ornaments -->
+    <div class="hero-guest mt-8 py-5 px-6 sm:px-8 rounded-xl border border-[#566A4E]/25 bg-white/95 max-w-sm w-full mx-auto opacity-0 shadow-[0_12px_36px_rgba(42,52,38,0.08)] relative overflow-hidden">
+      <!-- Top Gold Line -->
       <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
-      <p class="text-[0.65rem] sm:text-[0.7rem] text-[#566A4E] font-light tracking-[0.22em] uppercase mb-1.5">
+      
+      <!-- Mini Floral Corners on Guest Card -->
+      <div class="absolute top-1 left-1 pointer-events-none opacity-40">
+        <FloralCorner position="top-left" size={35} />
+      </div>
+      <div class="absolute bottom-1 right-1 pointer-events-none opacity-40">
+        <FloralCorner position="bottom-right" size={35} />
+      </div>
+
+      <p class="text-[0.65rem] sm:text-[0.7rem] text-[#566A4E] font-medium tracking-[0.22em] uppercase mb-1.5">
         Kepada Yth. Bapak/Ibu/Saudara/i:
       </p>
       <h2 id="guest-name-hero" class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal leading-snug">
@@ -98,86 +119,27 @@ import FloralBouquet from './botanical/FloralBouquet.astro';
     // Parse & sanitize ?to= parameter
     const urlParams = new URLSearchParams(window.location.search);
     const rawTo = urlParams.get('to');
-    let sanitizedGuestName = 'Tamu Undangan Terhormat';
-
-    if (rawTo) {
-      let decoded = '';
+    if (rawTo && guestNameEl) {
       try {
-        decoded = decodeURIComponent(rawTo.replace(/\+/g, ' '));
-      } catch (e) {
-        decoded = rawTo.replace(/\+/g, ' ');
-      }
-      const stripped = decoded.replace(/<[^>]*>/g, '');
-      const sanitized = stripped.replace(/[<>'"/\\`~^;={}[\]|]/g, '').trim().substring(0, 75);
-      if (sanitized.length > 0) {
-        sanitizedGuestName = sanitized;
-      }
+        const decoded = decodeURIComponent(rawTo.replace(/\+/g, ' ')).replace(/<[^>]*>/g, '').trim().substring(0, 50);
+        if (decoded) guestNameEl.textContent = decoded;
+      } catch (e) {}
     }
 
-    if (guestNameEl) {
-      if (sanitizedGuestName.length > 26) {
-        guestNameEl.style.fontSize = 'clamp(1.15rem, 3.5vw, 1.5rem)';
-      }
-      guestNameEl.textContent = sanitizedGuestName;
+    // Play reveal animation on invitationOpened event
+    function revealHero() {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      tl.to(crest, { opacity: 1, scale: 1, duration: 1 })
+        .to(badge, { opacity: 1, y: 0, duration: 0.6 }, '-=0.5')
+        .to(headline, { opacity: 1, y: 0, duration: 1.1, ease: 'power4.out' }, '-=0.3')
+        .to(divider, { opacity: 1, scaleX: 1, duration: 0.8 }, '-=0.5')
+        .to(meta, { opacity: 1, y: 0, duration: 0.8 }, '-=0.4')
+        .to(guest, { opacity: 1, y: 0, duration: 0.9 }, '-=0.3')
+        .to(scrollCue, { opacity: 1, y: 0, duration: 0.8 }, '-=0.2');
     }
 
-    function animateHeroEntrance() {
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion) {
-        if (headline) { headline.style.transform = 'none'; headline.style.opacity = '1'; }
-        if (crest) (crest as HTMLElement).style.opacity = '1';
-        if (badge) (badge as HTMLElement).style.opacity = '1';
-        if (divider) { (divider as HTMLElement).style.opacity = '1'; (divider as HTMLElement).style.transform = 'none'; }
-        if (meta) (meta as HTMLElement).style.opacity = '1';
-        if (guest) (guest as HTMLElement).style.opacity = '1';
-        if (scrollCue) (scrollCue as HTMLElement).style.opacity = '1';
-        return;
-      }
-
-      const tl = gsap.timeline({ delay: 0.15 });
-
-      tl.to([crest, badge], {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power3.out'
-      });
-
-      tl.to(headline, {
-        y: 0,
-        opacity: 1,
-        duration: 1.1,
-        ease: 'power3.out'
-      }, '-=0.5');
-
-      tl.to(divider, {
-        scaleX: 1,
-        opacity: 1,
-        duration: 0.8,
-        ease: 'power2.out'
-      }, '-=0.7');
-
-      tl.to([meta, guest], {
-        opacity: 1,
-        y: 0,
-        duration: 0.9,
-        stagger: 0.15,
-        ease: 'power3.out'
-      }, '-=0.5');
-
-      tl.to(scrollCue, {
-        opacity: 0.8,
-        duration: 0.8,
-        ease: 'power2.out'
-      }, '-=0.3');
-    }
-
-    window.addEventListener('invitationOpening', animateHeroEntrance);
-
-    if (!document.body.classList.contains('is-locked')) {
-      animateHeroEntrance();
-    }
+    window.addEventListener('invitationOpened', revealHero, { once: true });
   }
 
   if (document.readyState === 'loading') {

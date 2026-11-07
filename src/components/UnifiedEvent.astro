@@ -3,15 +3,20 @@ import content from '../data/content.json';
 import FloralDivider from './botanical/FloralDivider.astro';
 import FloralCorner from './botanical/FloralCorner.astro';
 import FloralBouquet from './botanical/FloralBouquet.astro';
+import FloralFlourish from './botanical/FloralFlourish.astro';
+import TwinkleSparkles from './botanical/TwinkleSparkles.astro';
 ---
 
 <section id="events" class="deck-section tone-events section-flow relative px-4 overflow-hidden z-40" aria-label="Rangkaian Acara Pernikahan">
+  
+  <TwinkleSparkles />
+
   <div class="max-w-3xl mx-auto w-full relative z-10">
     
     <!-- Section Header with Crown Bouquet -->
     <div class="text-center mb-8 md:mb-12 event-header">
       <div class="mb-2 scale-90">
-        <FloralBouquet width={220} height={55} />
+        <FloralBouquet width={240} height={60} />
       </div>
       <div class="editorial-badge">
         <span>THE CEREMONY</span>
@@ -22,43 +27,49 @@ import FloralBouquet from './botanical/FloralBouquet.astro';
       <h2 class="font-display text-2xl sm:text-3xl md:text-4xl text-[#2A3426] font-normal mt-1.5">
         Waktu &amp; Tempat
       </h2>
+      <div class="my-1.5">
+        <FloralFlourish width={180} height={30} />
+      </div>
     </div>
 
     <!-- Modern Botanical Event Card -->
-    <article id="master-event-card" class="event-card-modern relative overflow-hidden">
+    <article id="master-event-card" class="event-card-modern relative overflow-hidden bg-white/95 rounded-2xl border border-[#566A4E]/25 p-8 sm:p-12 text-center shadow-[0_16px_45px_rgba(42,52,38,0.08)]">
       
-      <!-- Botanical Corner Flourishes -->
+      <!-- Inset Gold Hairline Frame -->
+      <div class="absolute inset-3 border border-[#B89352]/30 rounded-xl pointer-events-none"></div>
+
+      <!-- 4 Botanical Corner Flourishes -->
       <div class="absolute top-3 left-3 pointer-events-none">
-        <FloralCorner position="top-left" size={70} />
+        <FloralCorner position="top-left" size={75} />
       </div>
       <div class="absolute top-3 right-3 pointer-events-none">
-        <FloralCorner position="top-right" size={70} />
+        <FloralCorner position="top-right" size={75} />
       </div>
       <div class="absolute bottom-3 left-3 pointer-events-none">
-        <FloralCorner position="bottom-left" size={70} />
+        <FloralCorner position="bottom-left" size={75} />
       </div>
       <div class="absolute bottom-3 right-3 pointer-events-none">
-        <FloralCorner position="bottom-right" size={70} />
+        <FloralCorner position="bottom-right" size={75} />
       </div>
 
-      <!-- Minimalist Olive Rings Monoline Icon -->
-      <div class="w-12 h-12 rounded-full border border-[#566A4E]/30 mx-auto flex items-center justify-center text-[#566A4E] mb-5 bg-[#FAF8F3]">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <!-- Intertwined Gold & Olive Wedding Rings Emblem -->
+      <div class="w-14 h-14 rounded-full border border-[#B89352]/40 mx-auto flex items-center justify-center text-[#B89352] mb-5 bg-[#FAF8F3] shadow-sm relative">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="9" cy="12" r="5.5"></circle>
           <circle cx="15" cy="12" r="5.5"></circle>
         </svg>
       </div>
 
       <!-- Tanggal Utama -->
-      <p class="text-[0.68rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold">
+      <p class="text-[0.68rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold">
         HARI &amp; TANGGAL
       </p>
-      <h3 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal mt-2 mb-4 tracking-tight">
+      <h3 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal mt-2 mb-3 tracking-tight">
         {content.event.dateFormatted}
       </h3>
 
       <div class="flex justify-center mb-6">
-        <FloralDivider width={200} height={26} />
+        <FloralDivider width={220} height={28} />
       </div>
 
       <!-- Dual Session Symmetrical Grid (Akad & Resepsi) -->
@@ -97,28 +108,39 @@ import FloralBouquet from './botanical/FloralBouquet.astro';
         </p>
       </div>
 
+      <div class="my-3 flex justify-center">
+        <FloralFlourish width={160} height={28} />
+      </div>
+
       <!-- Tombol Aksi Minimalis Botanical -->
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-        
-        <!-- Google Maps -->
-        <a href={content.event.venue.mapsUrl} target="_blank" rel="noopener noreferrer" class="btn-gold-solid w-full sm:w-auto">
-          <span>Buka Google Maps</span>
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 12L12 4M12 4H6M12 4V10"/>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
+        <a 
+          href={content.event.mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-olive-solid w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl text-xs uppercase tracking-widest font-semibold transition-all duration-300 shadow-sm"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
           </svg>
+          <span>Buka Google Maps</span>
         </a>
 
-        <!-- Kalender -->
-        <button id="btn-save-calendar" class="btn-gold-outline w-full sm:w-auto">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <a 
+          href={content.event.calendarUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-olive-outline w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl text-xs uppercase tracking-widest font-semibold transition-all duration-300"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
             <line x1="16" y1="2" x2="16" y2="6"></line>
             <line x1="8" y1="2" x2="8" y2="6"></line>
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
           <span>Simpan ke Kalender</span>
-        </button>
-
+        </a>
       </div>
 
     </article>
@@ -129,84 +151,33 @@ import FloralBouquet from './botanical/FloralBouquet.astro';
 <script>
   import gsap from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  import { playChimeSound } from './reactbits/SoundEffects';
 
   gsap.registerPlugin(ScrollTrigger);
 
-  function initUnifiedEvent() {
-    const btnCal = document.getElementById('btn-save-calendar');
-    if (btnCal) {
-      btnCal.addEventListener('click', () => {
-        playChimeSound();
-        const icsContent = [
-          'BEGIN:VCALENDAR',
-          'VERSION:2.0',
-          'PRODID:-//Undangan Pernikahan Arya & Dian//ID',
-          'CALSCALE:GREGORIAN',
-          'METHOD:PUBLISH',
-          'BEGIN:VEVENT',
-          'SUMMARY:Pernikahan Arya Pratama & Dian Anggraini',
-          'DESCRIPTION:Walimatul Urs Arya & Dian. Bertempat di Hermes Palace Hotel Banda Aceh.',
-          'LOCATION:Hermes Palace Hotel, Jl. T. Panglima Nyak Makam, Banda Aceh',
-          'DTSTART:20261212T013000Z',
-          'DTEND:20261212T090000Z',
-          'STATUS:CONFIRMED',
-          'END:VEVENT',
-          'END:VCALENDAR'
-        ].join('\r\n');
-
-        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'Pernikahan-Arya-dan-Dian.ics';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      });
-    }
-
+  function initEventAnimation() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion) {
-      gsap.fromTo(
-        '.event-header',
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '#events',
-            start: 'top 80%',
-            once: true
-          }
-        }
-      );
+    if (prefersReducedMotion) return;
 
-      gsap.fromTo(
-        '#master-event-card',
-        { opacity: 0, y: 35, scale: 0.97 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.0,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '#events',
-            start: 'top 75%',
-            once: true
-          }
+    gsap.fromTo(
+      '#master-event-card',
+      { opacity: 0, y: 35 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.0,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#events',
+          start: 'top 80%',
+          once: true
         }
-      );
-    }
+      }
+    );
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initUnifiedEvent);
+    document.addEventListener('DOMContentLoaded', initEventAnimation);
   } else {
-    initUnifiedEvent();
+    initEventAnimation();
   }
 </script>
