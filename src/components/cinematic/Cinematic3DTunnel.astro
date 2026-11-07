@@ -330,56 +330,158 @@ import FloralCorner from '../botanical/FloralCorner.astro';
 
           </div>
 
-          <!-- THE MERGED MINIMALIST LINE HEART OVERLAY -->
+          <!-- THE MERGED STYLIZED CALLIGRAPHIC BOTANICAL LOVE HEART OVERLAY -->
           <div 
             id="couple-love-fusion" 
             class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 will-change-transform z-30"
           >
-            <!-- Minimalist Line Heart Container -->
-            <div class="relative flex items-center justify-center w-[300px] h-[270px] sm:w-[380px] sm:h-[340px]">
+            <!-- Stylized Heart Emblem Container (Responsive Proportions) -->
+            <div class="relative flex items-center justify-center w-[310px] h-[290px] sm:w-[410px] sm:h-[385px]">
               
               <!-- Soft Subtle Warm Ambient Glow -->
-              <div class="absolute -inset-6 bg-[radial-gradient(circle,rgba(184,147,82,0.18)_0%,transparent_65%)] blur-2xl pointer-events-none"></div>
+              <div class="absolute -inset-8 bg-[radial-gradient(circle,rgba(184,147,82,0.18)_0%,transparent_65%)] blur-2xl pointer-events-none"></div>
 
-              <!-- Pure Minimalist Single-Line Gold Heart SVG (Transparent, No Heavy Fill) -->
+              <!-- Stylized Calligraphic Botanical Ribbon Heart SVG -->
               <svg 
                 id="love-heart-svg"
-                class="w-full h-full drop-shadow-[0_4px_16px_rgba(184,147,82,0.22)]" 
-                viewBox="0 0 140 120" 
+                class="w-full h-full drop-shadow-[0_4px_20px_rgba(184,147,82,0.22)] select-none" 
+                viewBox="0 0 200 190" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <!-- Clean Minimalist Continuous Heart Line -->
+                <defs>
+                  <!-- Antique Gold Gradient for Calligraphic Stems -->
+                  <linearGradient id="heart-gold-couture" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#D8BA7A" />
+                    <stop offset="25%" stop-color="#C5A059" />
+                    <stop offset="60%" stop-color="#B89352" />
+                    <stop offset="85%" stop-color="#D4AF37" />
+                    <stop offset="100%" stop-color="#9A7836" />
+                  </linearGradient>
+
+                  <filter id="heart-stem-shadow" x="-10%" y="-10%" width="120%" height="120%">
+                    <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#2A3426" flood-opacity="0.08" />
+                  </filter>
+                </defs>
+
+                <!-- 1. Inner Concentric Gilded Dotted Halo (Letterpress / Fine Jewelry Echo) -->
                 <path 
-                  id="love-heart-path"
-                  d="M70 102 C32 75 10 52 10 32 C10 16 22 6 38 6 C50 6 62 13 70 23 C78 13 90 6 102 6 C118 6 130 16 130 32 C130 52 108 75 70 102 Z" 
+                  d="M 100 42 
+                     C 88 28, 62 24, 44 38 
+                     C 24 54, 24 82, 38 108 
+                     C 54 132, 82 148, 100 156 
+                     C 118 148, 146 132, 162 108 
+                     C 176 82, 176 54, 156 38 
+                     C 138 24, 112 28, 100 42 Z" 
                   stroke="#B89352" 
-                  stroke-width="1.6" 
-                  stroke-linecap="round" 
-                  stroke-linejoin="round" 
+                  stroke-width="0.75" 
+                  stroke-dasharray="2.5 3.5" 
+                  opacity="0.45" 
+                  fill="none" 
                 />
+
+                <!-- 2. Main Calligraphic Left Stem & Flourish Swash -->
+                <path 
+                  id="love-heart-path-left"
+                  d="M 100 32 
+                     C 85 14, 52 10, 32 28 
+                     C 10 48, 10 82, 28 114 
+                     C 46 142, 80 160, 100 167 
+                     C 108 170, 118 172, 126 170" 
+                  stroke="url(#heart-gold-couture)" 
+                  stroke-width="1.7" 
+                  stroke-linecap="round" 
+                  fill="none" 
+                  filter="url(#heart-stem-shadow)"
+                />
+
+                <!-- 3. Main Calligraphic Right Stem & Flourish Swash -->
+                <path 
+                  id="love-heart-path-right"
+                  d="M 100 32 
+                     C 115 14, 148 10, 168 28 
+                     C 190 48, 190 82, 172 114 
+                     C 154 142, 120 160, 100 167 
+                     C 92 170, 82 172, 74 170" 
+                  stroke="url(#heart-gold-couture)" 
+                  stroke-width="1.7" 
+                  stroke-linecap="round" 
+                  fill="none" 
+                  filter="url(#heart-stem-shadow)"
+                />
+
+                <!-- 4. Top Cleft Calligraphic Arch & Crown Sparkle Star -->
+                <path 
+                  d="M 96 28 C 98 22, 102 22, 104 28" 
+                  stroke="url(#heart-gold-couture)" 
+                  stroke-width="1.2" 
+                  stroke-linecap="round" 
+                  fill="none" 
+                />
+                <path 
+                  d="M 100 24 Q 100 29 97 29 Q 100 29 100 34 Q 100 29 103 29 Q 100 29 100 24 Z" 
+                  fill="#B89352" 
+                />
+                <circle cx="100" cy="29" r="1.1" fill="#FAF8F5" />
+
+                <!-- 5. Organic Botanical Olive Leaflets & Gilded Berries -->
+                <!-- Left Shoulder Leaflets -->
+                <path d="M 54 13 C 48 7, 40 10, 40 15 C 44 17, 50 16, 54 13 Z" fill="#6E8564" />
+                <path d="M 36 21 C 28 17, 24 24, 26 30 C 30 29, 34 25, 36 21 Z" fill="#4A5C43" />
+                <circle cx="44" cy="16" r="1.5" fill="#B89352" />
+
+                <!-- Left Flank Leaflets -->
+                <path d="M 10 66 C 3 68, 4 76, 10 78 C 11 73, 11 69, 10 66 Z" fill="#6E8564" />
+                <path d="M 16 88 C 10 92, 13 99, 19 100 C 20 95, 18 91, 16 88 Z" fill="#4A5C43" />
+                <circle cx="9" cy="74" r="1.5" fill="#B89352" />
+
+                <!-- Right Shoulder Leaflets -->
+                <path d="M 146 13 C 152 7, 160 10, 160 15 C 156 17, 150 16, 146 13 Z" fill="#6E8564" />
+                <path d="M 164 21 C 172 17, 176 24, 174 30 C 170 29, 166 25, 164 21 Z" fill="#4A5C43" />
+                <circle cx="156" cy="16" r="1.5" fill="#B89352" />
+
+                <!-- Right Flank Leaflets -->
+                <path d="M 190 66 C 197 68, 196 76, 190 78 C 189 73, 189 69, 190 66 Z" fill="#6E8564" />
+                <path d="M 184 88 C 190 92, 187 99, 181 100 C 180 95, 182 91, 184 88 Z" fill="#4A5C43" />
+                <circle cx="191" cy="74" r="1.5" fill="#B89352" />
+
+                <!-- 6. Bottom Flourish Swash Ending Droplets -->
+                <circle cx="126" cy="170" r="1.7" fill="#B89352" />
+                <circle cx="74" cy="170" r="1.7" fill="#B89352" />
               </svg>
 
-              <!-- Center Content: Symmetrical Twin Avatars & Clean Names -->
-              <div id="love-center-crest" class="absolute inset-0 flex flex-col items-center justify-center text-center z-10 pointer-events-none">
+              <!-- Center Content: Harmonious Twin Portraits & Regal Typography -->
+              <div id="love-center-crest" class="absolute inset-0 flex flex-col items-center justify-center text-center z-10 pointer-events-none pb-4 sm:pb-6">
                 
-                <!-- Twin Portraits Sitting Side-by-Side with Clean Breathing Room -->
-                <div class="flex items-center justify-center gap-3 sm:gap-4 mb-2">
+                <!-- Twin Portraits Sitting Side-by-Side with Gold Hairline Frames -->
+                <div class="flex items-center justify-center gap-2.5 sm:gap-3.5 mb-1.5 sm:mb-2">
                   <!-- Arya Avatar -->
-                  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-0.5 border border-[#B89352]/50 bg-white/90 shadow-sm overflow-hidden">
+                  <div class="w-15 h-15 sm:w-19 sm:h-19 rounded-full p-0.5 border-1.5 border-[#B89352]/65 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
                     <img src="/assets/vector-groom.jpg" alt="Arya" class="w-full h-full object-cover rounded-full" />
+                  </div>
+
+                  <!-- Delicate Gilded Heart Pin Clasp -->
+                  <div class="flex items-center justify-center">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(184,147,82,0.18)" stroke="#B89352" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="drop-shadow-xs">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
                   </div>
                   
                   <!-- Dian Avatar -->
-                  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-0.5 border border-[#B89352]/50 bg-white/90 shadow-sm overflow-hidden">
+                  <div class="w-15 h-15 sm:w-19 sm:h-19 rounded-full p-0.5 border-1.5 border-[#B89352]/65 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
                     <img src="/assets/vector-bride.jpg" alt="Dian" class="w-full h-full object-cover rounded-full" />
                   </div>
                 </div>
 
-                <!-- Clean Editorial Name -->
-                <h3 class="font-display text-xl sm:text-2xl text-[#2A3426] tracking-wide font-normal leading-none mt-1">
+                <!-- Regal Typography in font-display -->
+                <h3 class="font-display text-xl sm:text-2xl text-[#2A3426] tracking-wide font-normal leading-tight">
                   Arya <span class="font-display italic text-[#B89352] font-normal px-0.5">&amp;</span> Dian
                 </h3>
+
+                <!-- Subtle Gilded Wedding Date -->
+                <div class="text-[0.58rem] sm:text-[0.62rem] tracking-[0.32em] text-[#B89352] uppercase font-semibold mt-1">
+                  12 · 12 · 2026
+                </div>
 
               </div>
 
