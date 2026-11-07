@@ -4,6 +4,7 @@ import content from '../../data/content.json';
 import FloralWreath from '../botanical/FloralWreath.astro';
 import FloralFlourish from '../botanical/FloralFlourish.astro';
 import FlyingDoves from '../botanical/FlyingDoves.astro';
+import FloralCorner from '../botanical/FloralCorner.astro';
 ---
 
 <div id="cinematic-tunnel-container" class="relative w-full min-h-[350vh] z-20">
@@ -54,7 +55,23 @@ import FlyingDoves from '../botanical/FlyingDoves.astro';
         style="transform: translate3d(0, 0, 0px); transform-style: preserve-3d;"
         aria-label="Cover Undangan Pernikahan"
       >
-        <div class="max-w-lg w-full mx-auto flex flex-col items-center justify-between h-[84svh] max-h-[720px] my-auto">
+        <!-- Haute-Couture Botanical Corner Filigree Framing (The Royal Stationery Frame) -->
+        <div id="hero-corner-frame" class="absolute inset-1 sm:inset-4 pointer-events-none z-0 overflow-hidden opacity-75 transition-opacity duration-700">
+          <div class="absolute top-0 left-0">
+            <FloralCorner position="top-left" size={90} className="sm:scale-125 origin-top-left" />
+          </div>
+          <div class="absolute top-0 right-0">
+            <FloralCorner position="top-right" size={90} className="sm:scale-125 origin-top-right" />
+          </div>
+          <div class="absolute bottom-0 left-0">
+            <FloralCorner position="bottom-left" size={90} className="sm:scale-125 origin-bottom-left" />
+          </div>
+          <div class="absolute bottom-0 right-0">
+            <FloralCorner position="bottom-right" size={90} className="sm:scale-125 origin-bottom-right" />
+          </div>
+        </div>
+
+        <div class="max-w-lg w-full mx-auto flex flex-col items-center justify-between h-[84svh] max-h-[720px] my-auto relative z-10">
           
           <!-- TOP BLOCK: Crest, Tagline, & Symmetrical Headline -->
           <div id="hero-top-block" class="flex flex-col items-center pt-1 will-change-transform">
@@ -83,27 +100,37 @@ import FlyingDoves from '../botanical/FlyingDoves.astro';
             </div>
           </div>
 
-          <!-- CENTER BLOCK: Haute-Couture Vector Illustration in Roman Arch (Clean & Isolated) -->
-          <div id="hero-arch-block" class="my-auto py-1 will-change-transform">
-            <div 
-              class="relative w-44 sm:w-52 aspect-[3/4] mx-auto rounded-t-full border border-[#B89352]/40 p-1.5 bg-gradient-to-b from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-[0_14px_35px_rgba(42,52,38,0.1)] interactive-foil-card overflow-hidden group"
-              data-foil="true"
-            >
-              <div class="w-full h-full rounded-t-full overflow-hidden border border-[#566A4E]/20 relative bg-[#FAF8F5]">
-                <img 
-                  src="/assets/vector-hero.jpg" 
-                  alt="Ilustrasi Mempelai Arya & Dian" 
-                  class="w-full h-full object-cover"
-                  loading="eager"
-                  fetchpriority="high"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#2A3426]/15 via-transparent to-transparent pointer-events-none"></div>
+          <!-- CENTER BLOCK: Haute-Couture Vector Illustration in Roman Arch (Double Arch & Ambient Halo) -->
+          <div id="hero-arch-block" class="my-auto py-1 relative will-change-transform">
+            <!-- Radiant Warm Gold Halo Behind Arch -->
+            <div class="absolute -inset-10 bg-[radial-gradient(ellipse_at_center,rgba(184,147,82,0.22)_0%,rgba(74,93,67,0.05)_45%,transparent_70%)] blur-2xl pointer-events-none -z-10"></div>
+
+            <!-- Concentric Outer Architectural Hairline Arch -->
+            <div class="relative p-1.5 sm:p-2 rounded-t-full border border-[#B89352]/30 bg-white/40 shadow-[0_18px_45px_rgba(42,52,38,0.1)] backdrop-blur-[0.5px]">
+              
+              <!-- Inner Roman Arch with Golden Edge -->
+              <div 
+                class="relative w-44 sm:w-52 aspect-[3/4] mx-auto rounded-t-full border border-[#B89352]/40 p-1 bg-gradient-to-b from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-inner interactive-foil-card overflow-hidden group"
+                data-foil="true"
+              >
+                <div class="w-full h-full rounded-t-full overflow-hidden border border-[#566A4E]/20 relative bg-[#FAF8F5]">
+                  <img 
+                    src="/assets/vector-hero.jpg" 
+                    alt="Ilustrasi Mempelai Arya & Dian" 
+                    class="w-full h-full object-cover"
+                    loading="eager"
+                    fetchpriority="high"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#2A3426]/15 via-transparent to-transparent pointer-events-none"></div>
+                </div>
               </div>
             </div>
-            <div class="w-36 h-2 bg-[#263322]/10 rounded-full blur-sm mx-auto mt-1 pointer-events-none"></div>
+
+            <!-- Arch Base Floating Soft Shadow -->
+            <div class="w-40 sm:w-48 h-2.5 bg-[#263322]/10 rounded-full blur-sm mx-auto mt-1 pointer-events-none"></div>
           </div>
 
-          <!-- BOTTOM BLOCK: Date, Venue, & Clean Guest Welcoming Pill -->
+          <!-- BOTTOM BLOCK: Date, Venue, & Stitched Guest Welcoming Plaque -->
           <div id="hero-bottom-block" class="flex flex-col items-center gap-1.5 pb-2 w-full will-change-transform">
             <p class="text-[0.68rem] sm:text-xs text-[#4A5D43] tracking-[0.24em] uppercase font-semibold">
               {content.event.dateFormatted} &bull; {content.event.timezone}
@@ -112,10 +139,17 @@ import FlyingDoves from '../botanical/FlyingDoves.astro';
               {content.event.venue.name} &bull; Banda Aceh
             </p>
 
-            <!-- Personalized Guest Welcoming Pill -->
-            <div class="mt-2 py-1.5 px-4 rounded-full border border-[#566A4E]/20 bg-white/95 shadow-sm inline-flex items-center gap-2">
-              <span class="text-[0.52rem] tracking-[0.2em] uppercase text-[#7E8F77] font-semibold">Tamu Terhormat:</span>
-              <span id="hero-guest-name" class="font-display text-xs text-[#2A3426] font-normal">Tamu Undangan</span>
+            <!-- Personalized Guest Welcoming Plaque (Haute-Couture Stitched Badge) -->
+            <div class="mt-2 py-2 px-5 sm:px-6 rounded-xl border border-[#B89352]/40 bg-white/95 shadow-[0_4px_18px_rgba(42,52,38,0.06)] relative overflow-hidden inline-flex flex-col items-center max-w-[270px] sm:max-w-[300px]">
+              <!-- Gold Stitched Inset Border -->
+              <div class="absolute inset-1 border border-dashed border-[#B89352]/35 rounded-lg pointer-events-none"></div>
+              
+              <span class="text-[0.52rem] tracking-[0.24em] uppercase text-[#7E8F77] font-semibold mb-0.5 relative z-10">
+                Kepada Yth. Bapak/Ibu/Saudara/i:
+              </span>
+              <span id="hero-guest-name" class="font-display text-xs sm:text-sm text-[#2A3426] font-normal relative z-10 truncate max-w-[230px]">
+                Tamu Undangan Terhormat
+              </span>
             </div>
           </div>
 
@@ -358,6 +392,7 @@ import FlyingDoves from '../botanical/FlyingDoves.astro';
     const heroTop = document.getElementById('hero-top-block');
     const heroArch = document.getElementById('hero-arch-block');
     const heroBottom = document.getElementById('hero-bottom-block');
+    const heroCorners = document.getElementById('hero-corner-frame');
     const verseBismillah = document.getElementById('verse-bismillah');
     const verseCard = document.getElementById('verse-card');
     const verseGreeting = document.getElementById('verse-greeting');
@@ -433,6 +468,14 @@ import FlyingDoves from '../botanical/FlyingDoves.astro';
         y: -90,
         opacity: 0,
         duration: 0.32,
+        ease: 'power1.inOut'
+      }, 0);
+    }
+    if (heroCorners) {
+      tl.to(heroCorners, {
+        opacity: 0,
+        scale: 1.08,
+        duration: 0.28,
         ease: 'power1.inOut'
       }, 0);
     }
