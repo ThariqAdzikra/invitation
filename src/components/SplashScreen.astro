@@ -262,7 +262,7 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
 
 <script>
   import gsap from 'gsap';
-  import { playWaxSealSound, playCardFlipSound, playChimeSound } from './reactbits/SoundEffects';
+  import { playWaxSealSound, playCardFlipSound } from './reactbits/SoundEffects';
 
   function initLuxuryEnvelope() {
     const screen = document.getElementById('envelope-screen');
@@ -388,10 +388,6 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
       // PHASE 4: PAUSE & APPRECIATE (2.15s -> 2.85s) — Surat tampil utuh di depan layar!
 
       // PHASE 5: BARU TRANSISI HALUS KE HALAMAN UTAMA (2.85s -> 3.75s)
-      tl.add(() => {
-        playChimeSound();
-      }, 2.85);
-
       // Camera smoothly zooms in directly onto the letter card
       tl.to(scene, {
         scale: 2.1,

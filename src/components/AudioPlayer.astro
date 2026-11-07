@@ -52,7 +52,6 @@ import content from '../data/content.json';
 
 <script>
   import gsap from 'gsap';
-  import { playChimeSound } from './reactbits/SoundEffects';
 
   function initAudioPlayer() {
     const btn = document.getElementById('audio-toggle');
@@ -64,6 +63,7 @@ import content from '../data/content.json';
     if (!btn || !audio) return;
 
     let isPlaying = false;
+    let userPaused = false;
     let pillTimer: any = null;
 
     function showPill(text: string, duration = 3500) {
@@ -91,11 +91,11 @@ import content from '../data/content.json';
       }
     }
 
-    function play(fadeIn = false) {
+    function play(fadeIn = false, targetVol = 0.60) {
       if (!audio) return;
       
-      // Ensure exact start at 0:00 intro if stopped
-      if (audio.paused && audio.currentTime === 0) {
+      // Ensure exact start at 0:00 acoustic intro if beginning from start
+      if (audio.paused && (audio.currentTime === 0 || !audio.currentTime)) {
         audio.currentTime = 0;
       }
 
@@ -103,7 +103,7 @@ import content from '../data/content.json';
         audio.volume = 0;
         audio.play().then(() => {
           setAudioState(true);
-          gsap.to(audio, { volume: 0.70, duration: 2.5, ease: 'power1.out' });
+          gsap.to(audio, { volume: targetVol, duration: 2.0, ease: 'power1.out' });
         }).catch((e) => {
           console.warn('Audio autoplay restricted:', e);
           setAudioState(false);
@@ -111,16 +111,16 @@ import content from '../data/content.json';
       } else {
         audio.play().then(() => {
           setAudioState(true);
-          gsap.to(audio, { volume: 0.70, duration: 0.8, ease: 'power1.out' });
+          gsap.to(audio, { volume: targetVol, duration: 0.6, ease: 'power1.out' });
         }).catch(() => setAudioState(false));
       }
     }
 
-    function pause() {
+    function pause(duration = 0.5) {
       if (!audio) return;
       gsap.to(audio, {
         volume: 0,
-        duration: 0.6,
+        duration: duration,
         ease: 'power1.in',
         onComplete: () => {
           audio.pause();
@@ -129,23 +129,47 @@ import content from '../data/content.json';
       });
     }
 
+    // Manual user button toggle
     btn.addEventListener('click', () => {
-      playChimeSound();
       if (isPlaying) {
-        pause();
+        userPaused = true;
+        pause(0.4);
       } else {
-        play(false);
+        userPaused = false;
+        play(false, 0.60);
       }
     });
 
-    // Auto-play cleanly from 0:00 when invitation envelope opens
-    window.addEventListener('invitationOpening', () => {
-      play(true);
+    // Smart Tab Pause: politely pause when tab is hidden/minimized, resume on return
+    document.addEventListener('visibilitychange', () => {
+      if (!audio) return;
+      if (document.hidden) {
+        if (isPlaying) {
+          gsap.to(audio, {
+            volume: 0,
+            duration: 0.4,
+            ease: 'power1.in',
+            onComplete: () => {
+              audio.pause();
+              setAudioState(false);
+            }
+          });
+        }
+      } else {
+        // Only resume if user did NOT explicitly pause the audio themselves
+        if (!userPaused && audio.paused && !document.documentElement.classList.contains('is-locked')) {
+          audio.play().then(() => {
+            setAudioState(true);
+            gsap.to(audio, { volume: 0.60, duration: 1.2, ease: 'power1.out' });
+          }).catch(() => {});
+        }
+      }
     });
 
+    // Auto-play cleanly from 0:00 ONLY when envelope has fully opened & transitioned to Hero
     window.addEventListener('invitationOpened', () => {
-      if (!isPlaying) {
-        play(true);
+      if (!isPlaying && !userPaused) {
+        play(true, 0.60);
       }
     });
   }
