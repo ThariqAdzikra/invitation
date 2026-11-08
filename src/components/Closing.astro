@@ -4,68 +4,14 @@ import content from '../data/content.json';
 import RomanticSwans from './botanical/RomanticSwans.astro';
 ---
 
-<section id="closing" class="deck-section section-flow relative text-center pb-24 overflow-hidden z-30 pt-12 sm:pt-16" aria-label="Penutup Undangan">
+<section id="closing" class="deck-section section-flow relative px-4 text-center pb-24 overflow-hidden z-30 pt-16 sm:pt-24" aria-label="Penutup Undangan">
   
-  <!-- FULL-BLEED SEAMLESS SUNSET HORIZON (TRUE 100vw EDGE-TO-EDGE, NO BOUNDARIES) -->
-  <div id="sunset-scenery-stage" class="w-full relative min-h-[460px] sm:min-h-[540px] flex flex-col justify-end items-center my-2 overflow-visible">
-    
-    <!-- Ambient Golden Hour Radial Flare behind horizon -->
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,rgba(245,175,70,0.32)_0%,rgba(220,135,50,0.14)_45%,transparent_75%)] pointer-events-none -z-10"></div>
-
-    <!-- LAYER 1: Full-Bleed Distant & Mid Rolling Hills (SVG Edge-to-Edge) -->
-    <svg class="absolute bottom-0 left-0 right-0 w-full h-48 sm:h-64 pointer-events-none z-10" viewBox="0 0 1440 320" preserveAspectRatio="none" fill="none">
-      <!-- Distant Ridge with Golden Rim -->
-      <path d="M0 190 Q360 110 720 155 T1440 120 L1440 320 L0 320 Z" fill="url(#distant-ridge-grad)" opacity="0.65" />
-      
-      <!-- Mid-distance Warm Olive Rolling Hills -->
-      <path d="M0 220 Q420 160 840 200 T1440 170 L1440 320 L0 320 Z" fill="url(#mid-ridge-grad)" opacity="0.88" />
-      
-      <!-- Foreground Lush Meadow Slope where Difa & Zharkasi stand -->
-      <path d="M0 255 Q520 205 1020 240 T1440 225 L1440 320 L0 320 Z" fill="url(#fore-ridge-grad)" />
-
-      <!-- Gradient Definitions matching Haute-Couture Olive & Gold -->
-      <defs>
-        <linearGradient id="distant-ridge-grad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#C59B4B" />
-          <stop offset="100%" stop-color="#556C4D" />
-        </linearGradient>
-        <linearGradient id="mid-ridge-grad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#556C4D" />
-          <stop offset="100%" stop-color="#384833" />
-        </linearGradient>
-        <linearGradient id="fore-ridge-grad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#384833" />
-          <stop offset="100%" stop-color="#232E1F" />
-        </linearGradient>
-      </defs>
-    </svg>
-
-    <!-- GOLDEN MIST: Atmospheric Radial Sheen at the Foot of the Ridge -->
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-full max-w-4xl h-36 bg-[radial-gradient(ellipse_at_center,rgba(255,215,120,0.42)_0%,rgba(240,165,70,0.22)_40%,transparent_75%)] blur-2xl pointer-events-none z-15"></div>
-
-    <!-- LAYER 2: Transparent Cutout Couple (Enlarged 1.4x, Standing Majestic at Sunset) -->
-    <div class="relative z-20 w-72 sm:w-88 md:w-[420px] max-w-[90vw] pb-1 sm:pb-2 filter drop-shadow-[0_16px_36px_rgba(20,30,15,0.42)] drop-shadow-[0_0_28px_rgba(245,175,70,0.25)]">
-      <img 
-        src="/assets/vector-couple-cutout.png" 
-        alt="Difa & Zharkasi Berdiri Bersama Menatap Senja" 
-        class="w-full h-auto object-contain select-none pointer-events-none"
-        loading="lazy"
-      />
-    </div>
-
-    <!-- Subtle Grounding Horizon Sheen under the Couple -->
-    <div class="w-64 sm:w-80 h-3 bg-[#1A2317]/25 rounded-full blur-md mx-auto -mt-2 z-22 pointer-events-none"></div>
-
-    <!-- Seamless Gradient Mask to Ground (Blends Smoothly to Cream Background) -->
-    <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent via-[#FAF8F5]/40 to-[#FAF8F5] pointer-events-none z-25"></div>
-  </div>
-
   <!-- CLOSING CONTENT (Centered & Padded) -->
-  <div class="max-w-2xl sm:max-w-3xl mx-auto px-4 flex flex-col items-center w-full relative z-10 closing-content">
+  <div class="max-w-2xl sm:max-w-3xl mx-auto flex flex-col items-center w-full relative z-10 closing-content">
 
-    <!-- Romantic Quote Below Landscape -->
+    <!-- Romantic Quote -->
     <div class="my-4 text-center max-w-lg mx-auto relative z-30">
-      <div class="inline-flex items-center justify-center gap-2 mb-1.5 opacity-70">
+      <div class="inline-flex items-center justify-center gap-2 mb-2 opacity-70">
         <span class="h-[1px] w-8 bg-[#B89352]"></span>
         <span class="text-[#B89352] text-xs">❦</span>
         <span class="h-[1px] w-8 bg-[#B89352]"></span>
@@ -76,13 +22,13 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
     </div>
 
     <!-- Heartfelt Closing Words -->
-    <p class="text-xs sm:text-sm md:text-base text-[#4A5D43] font-light leading-relaxed my-5 max-w-lg mx-auto">
+    <p class="text-xs sm:text-sm md:text-base text-[#4A5D43] font-light leading-relaxed my-4 max-w-md mx-auto">
       Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.
     </p>
 
     <!-- Romantic Swans Emblem (Symbolizing Eternal Devotion & Monogamy) -->
-    <div class="my-4 flex justify-center">
-      <RomanticSwans size={150} />
+    <div class="my-6 flex justify-center transform transition-transform hover:scale-105 duration-500">
+      <RomanticSwans size={160} />
     </div>
 
     <!-- Family Closing Sign-off -->
@@ -203,16 +149,9 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
       });
 
       closingTl.fromTo(
-        '#closing .group',
-        { opacity: 0, y: 40, scale: 0.96 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out' }
-      );
-
-      closingTl.fromTo(
-        '#closing p, #closing .my-4',
+        '#closing p, #closing .my-4, #closing .my-6',
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out' },
-        '-=0.4'
+        { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out' }
       );
     }
   }
