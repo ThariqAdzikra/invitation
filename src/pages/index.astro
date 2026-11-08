@@ -10,6 +10,7 @@ import ProgressBar from '../components/ProgressBar.astro';
 import Toast from '../components/Toast.astro';
 import InteractiveCanvas from '../components/InteractiveCanvas.astro';
 import CelestialSunStage from '../components/cinematic/CelestialSunStage.astro';
+import TerrestrialLandscape from '../components/cinematic/TerrestrialLandscape.astro';
 import content from '../data/content.json';
 ---
 
@@ -37,6 +38,9 @@ import content from '../data/content.json';
 
     <!-- Phase 2: Grounded Terrestrial Stage (Waktu & Jadwal, Lokasi, & Sunset Closing) -->
     <div id="interactive-stage" class="relative z-20">
+      <!-- Living Landscape: Misty Minangkabau Mountains, Meandering Riverway & Sunset Lake -->
+      <TerrestrialLandscape />
+
       <UnifiedEvent />
       <Countdown />
       <Closing />
