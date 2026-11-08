@@ -148,14 +148,32 @@ const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogIm
 
       // Cleanly resume scroll & recalculate triggers after splashscreen is unlocked
       window.addEventListener('invitationOpened', () => {
-        window.scrollTo(0, 0);
-        if (lenis) {
-          lenis.scrollTo(0, { immediate: true });
-          lenis.start();
+        const urlParams = new URLSearchParams(window.location.search);
+        const scrollTarget = urlParams.get('scroll');
+        if (scrollTarget) {
+          const sY = parseInt(scrollTarget, 10);
+          if (lenis) {
+            lenis.start();
+            setTimeout(() => {
+              lenis.scrollTo(sY, { immediate: true });
+              ScrollTrigger.refresh();
+            }, 150);
+          } else {
+            setTimeout(() => {
+              window.scrollTo(0, sY);
+              ScrollTrigger.refresh();
+            }, 150);
+          }
+        } else {
+          window.scrollTo(0, 0);
+          if (lenis) {
+            lenis.scrollTo(0, { immediate: true });
+            lenis.start();
+          }
+          setTimeout(() => {
+            ScrollTrigger.refresh();
+          }, 120);
         }
-        setTimeout(() => {
-          ScrollTrigger.refresh();
-        }, 120);
       });
     }
   </script>

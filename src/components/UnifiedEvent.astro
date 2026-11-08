@@ -3,7 +3,6 @@
 import content from '../data/content.json';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 import FloralCorner from './botanical/FloralCorner.astro';
-import MinangkabauCornerAccents from './thematic/MinangkabauCornerAccents.astro';
 
 // Calendar math for December 2026:
 // Dec 1, 2026 is Tuesday (day index 2 with Sunday = 0)
@@ -33,9 +32,7 @@ const calendarCells = [
   data-time={content.event.akad.time.split(' ')[0]}
   data-timezone={content.event.timezone}
 >
-  <!-- THEMATIC MINANGKABAU SONGKET CORNER ACCENTS (Padang, Sumatera Barat) -->
-  <MinangkabauCornerAccents />
-  
+
   <div id="event-editorial-stele" class="max-w-xl lg:max-w-4xl mx-auto w-full relative z-10 text-center will-change-transform">
     
     <!-- The Single Master Architectural Event Pavilion Card -->
@@ -371,25 +368,7 @@ const calendarCells = [
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    // 1. Minangkabau Songket Pucuk Rebung Gold Corner Accents Scroll Animation
-    gsap.fromTo(
-      '#minang-bracket-tl, #minang-bracket-tr, #minang-bracket-bl, #minang-bracket-br',
-      { opacity: 0, scale: 0.72 },
-      {
-        opacity: 0.75,
-        scale: 1,
-        duration: 0.85,
-        stagger: 0.08,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '#events',
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      }
-    );
-
-    // 2. Master Card Entrance Animation
+    // Master Card Entrance Animation
     gsap.fromTo(
       '#master-event-card',
       { opacity: 0, y: 35, scale: 0.97 },

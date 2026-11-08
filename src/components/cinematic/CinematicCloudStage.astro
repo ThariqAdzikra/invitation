@@ -1,0 +1,129 @@
+---
+// CinematicCloudStage.astro — Ethereal Heavenly Clouds & Golden Dawn Mist
+// 100% Responsive, GPU-accelerated atmospheric cloud transitions
+// Features realistic painterly cloud banks (upper & lower wings) with golden dawn radiance and stardust.
+// Pre-configured with distinct IDs for GSAP ScrollTrigger timeline choreography.
+---
+
+<div id="cinematic-cloud-stage" class="absolute inset-0 pointer-events-none z-10 overflow-hidden select-none" aria-hidden="true">
+
+  <!-- 1. AMBIENT GOLDEN DAWN HAZE (Center Horizon Warmth) -->
+  <div 
+    id="cloud-ambient-haze" 
+    class="absolute inset-0 flex items-center justify-center opacity-70 will-change-transform pointer-events-none"
+  >
+    <div class="w-[720px] h-[720px] sm:w-[980px] sm:h-[980px] rounded-full bg-[radial-gradient(circle,rgba(248,220,180,0.35)_0%,rgba(243,205,150,0.18)_35%,rgba(184,147,82,0.05)_65%,transparent_80%)] blur-3xl pointer-events-none"></div>
+  </div>
+
+  <!-- 2. TOP-LEFT CELESTIAL CLOUD BANK (GSAP target: #cloud-bank-tl) -->
+  <div 
+    id="cloud-bank-tl" 
+    class="absolute -top-[12vw] sm:-top-[8vw] lg:-top-[6vw] -left-[8vw] sm:-left-[5vw] w-[60vw] sm:w-[46vw] lg:w-[38vw] max-w-[640px] opacity-85 will-change-transform pointer-events-none"
+  >
+    <img 
+      src="/assets/cloud-upper-left.webp" 
+      alt="" 
+      class="w-full h-auto object-contain object-left-top select-none pointer-events-none" 
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
+  <!-- 3. TOP-RIGHT CELESTIAL CLOUD BANK (GSAP target: #cloud-bank-tr) -->
+  <div 
+    id="cloud-bank-tr" 
+    class="absolute -top-[12vw] sm:-top-[8vw] lg:-top-[6vw] -right-[8vw] sm:-right-[5vw] w-[60vw] sm:w-[46vw] lg:w-[38vw] max-w-[640px] opacity-85 will-change-transform pointer-events-none"
+  >
+    <img 
+      src="/assets/cloud-upper-right.webp" 
+      alt="" 
+      class="w-full h-auto object-contain object-right-top select-none pointer-events-none" 
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
+  <!-- 4. BOTTOM-LEFT ROLLING CLOUD HORIZON (GSAP target: #cloud-bank-bl) -->
+  <div 
+    id="cloud-bank-bl" 
+    class="absolute -bottom-[14vw] sm:-bottom-[10vw] lg:-bottom-[8vw] -left-[8vw] sm:-left-[5vw] w-[64vw] sm:w-[48vw] lg:w-[40vw] max-w-[680px] opacity-80 will-change-transform pointer-events-none"
+  >
+    <img 
+      src="/assets/cloud-lower-left.webp" 
+      alt="" 
+      class="w-full h-auto object-contain object-left-bottom select-none pointer-events-none" 
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
+  <!-- 5. BOTTOM-RIGHT ROLLING CLOUD HORIZON (GSAP target: #cloud-bank-br) -->
+  <div 
+    id="cloud-bank-br" 
+    class="absolute -bottom-[14vw] sm:-bottom-[10vw] lg:-bottom-[8vw] -right-[8vw] sm:-right-[5vw] w-[64vw] sm:w-[48vw] lg:w-[40vw] max-w-[680px] opacity-80 will-change-transform pointer-events-none"
+  >
+    <img 
+      src="/assets/cloud-lower-right.webp" 
+      alt="" 
+      class="w-full h-auto object-contain object-right-bottom select-none pointer-events-none" 
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
+  <!-- 6. FLOATING GOLDEN STARDUST & SUN MOTES -->
+  <div id="cloud-stardust-layer" class="absolute inset-0 pointer-events-none will-change-transform">
+    <!-- Starburst Sparkle 1 (Upper Left) -->
+    <div class="cloud-mote absolute top-[16%] left-[12%] sm:left-[16%] opacity-65">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 0 Q12 12 0 12 Q12 12 12 24 Q12 12 24 12 Q12 12 12 0 Z" fill="#D4AF37" />
+        <circle cx="12" cy="12" r="2.5" fill="#FFF8E7" />
+      </svg>
+    </div>
+
+    <!-- Starburst Sparkle 2 (Upper Right) -->
+    <div class="cloud-mote absolute top-[18%] right-[14%] sm:right-[18%] opacity-65">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M12 0 Q12 12 0 12 Q12 12 12 24 Q12 12 24 12 Q12 12 12 0 Z" fill="#D4AF37" />
+        <circle cx="12" cy="12" r="3" fill="#FFF8E7" />
+      </svg>
+    </div>
+
+    <!-- Starburst Sparkle 3 (Mid Left Horizon) -->
+    <div class="cloud-mote absolute top-[52%] left-[8%] sm:left-[12%] opacity-60">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+        <path d="M12 0 Q12 12 0 12 Q12 12 12 24 Q12 12 24 12 Q12 12 12 0 Z" fill="#D4AF37" />
+      </svg>
+    </div>
+
+    <!-- Starburst Sparkle 4 (Mid Right Horizon) -->
+    <div class="cloud-mote absolute top-[54%] right-[10%] sm:right-[14%] opacity-60">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M12 0 Q12 12 0 12 Q12 12 12 24 Q12 12 24 12 Q12 12 12 0 Z" fill="#D4AF37" />
+        <circle cx="12" cy="12" r="2" fill="#FFF8E7" />
+      </svg>
+    </div>
+
+    <!-- Starburst Sparkle 5 (Lower Left) -->
+    <div class="cloud-mote absolute bottom-[14%] left-[15%] sm:left-[22%] opacity-55">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M12 0 Q12 12 0 12 Q12 12 12 24 Q12 12 24 12 Q12 12 12 0 Z" fill="#D4AF37" />
+      </svg>
+    </div>
+
+    <!-- Starburst Sparkle 6 (Lower Right) -->
+    <div class="cloud-mote absolute bottom-[15%] right-[16%] sm:right-[24%] opacity-55">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 0 Q12 12 0 12 Q12 12 12 24 Q12 12 24 12 Q12 12 12 0 Z" fill="#D4AF37" />
+        <circle cx="12" cy="12" r="2.5" fill="#FFF8E7" />
+      </svg>
+    </div>
+
+    <!-- Golden Dust Particles (Ambient Motes) -->
+    <div class="absolute top-[32%] left-[22%] w-1.5 h-1.5 rounded-full bg-[#E8C97A] shadow-[0_0_6px_#D4AF37] opacity-60"></div>
+    <div class="absolute top-[38%] right-[20%] w-2 h-2 rounded-full bg-[#E8C97A] shadow-[0_0_8px_#D4AF37] opacity-65"></div>
+    <div class="absolute top-[65%] left-[26%] w-1.5 h-1.5 rounded-full bg-[#E8C97A] shadow-[0_0_6px_#D4AF37] opacity-55"></div>
+    <div class="absolute top-[70%] right-[24%] w-2 h-2 rounded-full bg-[#E8C97A] shadow-[0_0_8px_#D4AF37] opacity-60"></div>
+  </div>
+
+</div>
