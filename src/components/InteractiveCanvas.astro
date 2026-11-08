@@ -22,31 +22,31 @@
     if (prefersReducedMotion) return;
 
     // =========================================================================
-    // LAYER 0: FALLING MAPLE LEAVES (powered by npm 'falling-leaves')
-    // Authentic botanical maple leaves that sway, spin, and tumble in the breeze
+    // LAYER 0: FALLING GINKGO & OLIVE LEAVES (powered by npm 'falling-leaves')
+    // Symbolic eternal love & blessed peace: delicate ginkgo fan & tapered olive leaves
     // =========================================================================
     try {
       const leaves = new FallingLeaves({
-        shapes: ['maple'],
-        count: window.innerWidth < 640 ? 24 : 36,
-        size: [16, 32],
-        speed: [0.65, 1.45],
-        wind: [-0.3, 0.75],
-        sway: [0.5, 1.6],
-        rotationSpeed: [-1.6, 1.6],
-        opacity: 0.88,
+        shapes: ['ginkgo', 'oval'],
+        count: window.innerWidth < 640 ? 16 : 26,
+        size: [14, 26],
+        speed: [0.50, 1.15],
+        wind: [-0.2, 0.60],
+        sway: [0.6, 1.8],
+        rotationSpeed: [-1.2, 1.2],
+        opacity: 0.85,
         zIndex: 35,
         respectReducedMotion: true,
         autoStart: true,
         colors: [
-          '#d9480f', // Autumn maple vermilion
-          '#e8590c', // Bright maple orange
-          '#f08c00', // Warm amber gold
-          '#c92a2a', // Deep crimson maple
-          '#a61e4d', // Ruby burgundy
-          '#b5651d', // Autumn russet bronze
-          '#b89352', // Luxury wedding antique gold
-          '#d4af37'  // Radiant golden sunlight
+          '#4A5D43', // Deep botanical olive
+          '#566A4E', // Royal olive green (matching Zharkasi suit)
+          '#7E8F77', // Soft sage green
+          '#384833', // Muted forest olive
+          '#B89352', // Luxury wedding antique gold
+          '#D4AF37', // Radiant sunlight gold
+          '#E5C378', // Sparkling champagne gold
+          '#F3DE98'  // Delicate gilded ivory sheen
         ]
       });
 
