@@ -1440,11 +1440,11 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
       }
     }, 3.22);
 
-    // The 4 cloud banks billow inward to meet and close over the camera
-    if (cloudBankTL) tl.to(cloudBankTL, { x: 140, y: 100, scale: 1.35, opacity: 0.95, duration: 0.20, ease: 'power2.inOut' }, 3.22);
-    if (cloudBankTR) tl.to(cloudBankTR, { x: -140, y: 100, scale: 1.35, opacity: 0.95, duration: 0.20, ease: 'power2.inOut' }, 3.22);
-    if (cloudBankBL) tl.to(cloudBankBL, { x: 160, y: -100, scale: 1.40, opacity: 0.95, duration: 0.20, ease: 'power2.inOut' }, 3.22);
-    if (cloudBankBR) tl.to(cloudBankBR, { x: -160, y: -100, scale: 1.40, opacity: 0.95, duration: 0.20, ease: 'power2.inOut' }, 3.22);
+    // The 4 cloud banks billow purely in vertical depth (ZERO horizontal sliding!)
+    if (cloudBankTL) tl.to(cloudBankTL, { y: 60, scale: 1.30, opacity: 0.95, duration: 0.20, ease: 'power2.inOut' }, 3.22);
+    if (cloudBankTR) tl.to(cloudBankTR, { y: 60, scale: 1.30, opacity: 0.95, duration: 0.20, ease: 'power2.inOut' }, 3.22);
+    if (cloudBankBL) tl.to(cloudBankBL, { y: -60, scale: 1.35, opacity: 0.95, duration: 0.20, ease: 'power2.inOut' }, 3.22);
+    if (cloudBankBR) tl.to(cloudBankBR, { y: -60, scale: 1.35, opacity: 0.95, duration: 0.20, ease: 'power2.inOut' }, 3.22);
 
     // Dense cloud mist veil rises to 100% opacity (viewer is submerged inside clouds)
     if (cloudDescentVeil) tl.to(cloudDescentVeil, { opacity: 1, duration: 0.20, ease: 'power2.inOut' }, 3.22);
