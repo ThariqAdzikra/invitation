@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title?: string;
   description?: string;
@@ -44,9 +46,6 @@ const {
   <!-- Preconnect Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!-- Global Stylesheet -->
-  <link rel="stylesheet" href="/src/styles/global.css" />
 </head>
 <body class="is-locked">
   <slot />
