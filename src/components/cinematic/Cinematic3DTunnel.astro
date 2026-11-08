@@ -215,13 +215,19 @@ import FloralCorner from '../botanical/FloralCorner.astro';
           <div id="couple-profiles-wrap" class="w-full flex flex-col items-center mt-1 relative z-10 will-change-transform">
             
             <!-- Dual Floating Portraits with Central Ampersand Flourish -->
-            <div class="flex items-center justify-center gap-3 sm:gap-8 md:gap-12 w-full max-w-lg mx-auto">
+            <div id="couple-cards-container" class="flex items-center justify-center gap-3 sm:gap-8 md:gap-12 w-full max-w-lg mx-auto relative">
               
+              <!-- Golden Fusion Spark Element (activates when avatars touch) -->
+              <div 
+                id="couple-merge-spark" 
+                class="absolute left-1/2 top-10 sm:top-12 -translate-x-1/2 -translate-y-1/2 w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[radial-gradient(circle,rgba(216,186,122,0.7)_0%,rgba(184,147,82,0.3)_45%,transparent_70%)] blur-md pointer-events-none opacity-0 will-change-transform z-20"
+              ></div>
+
               <!-- Zharkasi (Groom) -->
-              <div id="couple-groom-profile" class="flex flex-col items-center text-center will-change-transform flex-1 max-w-[190px]">
-                <div class="relative mb-1.5 sm:mb-2 group">
-                  <div class="absolute -inset-2 rounded-full bg-[radial-gradient(circle,rgba(184,147,82,0.22)_0%,transparent_70%)] blur-md pointer-events-none"></div>
-                  <div class="w-16 h-16 sm:w-22 sm:h-22 rounded-full p-1 border-2 border-[#B89352]/50 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-[0_6px_18px_rgba(42,52,38,0.08)] relative overflow-hidden">
+              <div id="couple-groom-profile" class="flex flex-col items-center text-center will-change-transform flex-1 max-w-[200px]">
+                <div id="couple-groom-avatar" class="relative mb-1.5 sm:mb-2 group will-change-transform">
+                  <div class="absolute -inset-2.5 rounded-full bg-[radial-gradient(circle,rgba(184,147,82,0.22)_0%,transparent_70%)] blur-md pointer-events-none"></div>
+                  <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-[#B89352]/50 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-[0_6px_18px_rgba(42,52,38,0.08)] relative overflow-hidden">
                     <img 
                       src="/assets/vector-groom.jpg" 
                       alt={content.couple.groom.fullName} 
@@ -231,45 +237,47 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                   </div>
                 </div>
 
-                <p class="text-[0.52rem] sm:text-[0.62rem] tracking-[0.26em] text-[#B89352] uppercase font-semibold mb-0.5">
-                  Mempelai Pria
-                </p>
-                <h3 class="font-display text-xs sm:text-base md:text-lg text-[#2A3426] font-normal leading-snug">
-                  {content.couple.groom.fullName}
-                </h3>
-                <p class="text-[0.55rem] sm:text-[0.65rem] text-[#566A4E] font-light mt-0.5 italic">
-                  {content.couple.groom.parents}
-                </p>
+                <div id="couple-groom-details" class="flex flex-col items-center text-center will-change-transform">
+                  <p class="text-[0.52rem] sm:text-[0.62rem] tracking-[0.26em] text-[#B89352] uppercase font-semibold mb-0.5">
+                    Mempelai Pria
+                  </p>
+                  <h3 class="font-display text-xs sm:text-base md:text-lg text-[#2A3426] font-normal leading-snug">
+                    {content.couple.groom.fullName}
+                  </h3>
+                  <p class="text-[0.55rem] sm:text-[0.65rem] text-[#566A4E] font-light mt-0.5 italic">
+                    {content.couple.groom.parents}
+                  </p>
 
-                <p class="font-display italic text-[0.65rem] sm:text-xs text-[#4A5D43] leading-relaxed mt-1.5 px-1 max-w-[200px]">
-                  &ldquo;Bagi saya, mencintaimu adalah ketenangan paling tulus yang dianugerahkan semesta.&rdquo;
-                </p>
+                  <p class="font-display italic text-[0.65rem] sm:text-xs text-[#4A5D43] leading-relaxed mt-1.5 px-1 max-w-[200px]">
+                    &ldquo;Bagi saya, mencintaimu adalah ketenangan paling tulus yang dianugerahkan semesta.&rdquo;
+                  </p>
 
-                <a 
-                  href={`https://instagram.com/${content.couple.groom.instagram.replace('@', '')}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  class="inline-flex items-center gap-1 text-[0.5rem] sm:text-[0.58rem] text-[#7E8F77] hover:text-[#B89352] tracking-wider uppercase font-medium mt-1.5 transition-colors"
-                >
-                  <span>{content.couple.groom.instagram}</span>
-                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-                  </svg>
-                </a>
+                  <a 
+                    href={`https://instagram.com/${content.couple.groom.instagram.replace('@', '')}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="inline-flex items-center gap-1 text-[0.5rem] sm:text-[0.58rem] text-[#7E8F77] hover:text-[#B89352] tracking-wider uppercase font-medium mt-1.5 transition-colors"
+                  >
+                    <span>{content.couple.groom.instagram}</span>
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
 
               <!-- Center Calligraphic Link -->
-              <div class="flex flex-col items-center justify-center px-1 opacity-80 select-none">
+              <div id="couple-center-link" class="flex flex-col items-center justify-center px-1 opacity-80 select-none will-change-transform">
                 <span class="h-4 sm:h-6 w-[1px] bg-[#B89352]/40 mb-1"></span>
                 <span class="font-display italic text-xl sm:text-3xl text-[#B89352]">&amp;</span>
                 <span class="h-4 sm:h-6 w-[1px] bg-[#B89352]/40 mt-1"></span>
               </div>
 
               <!-- Difa (Bride) -->
-              <div id="couple-bride-profile" class="flex flex-col items-center text-center will-change-transform flex-1 max-w-[210px]">
-                <div class="relative mb-2 group">
-                  <div class="absolute -inset-2 rounded-full bg-[radial-gradient(circle,rgba(184,147,82,0.22)_0%,transparent_70%)] blur-md pointer-events-none"></div>
-                  <div class="w-18 h-18 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-[#B89352]/50 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-[0_6px_18px_rgba(42,52,38,0.08)] relative overflow-hidden">
+              <div id="couple-bride-profile" class="flex flex-col items-center text-center will-change-transform flex-1 max-w-[200px]">
+                <div id="couple-bride-avatar" class="relative mb-1.5 sm:mb-2 group will-change-transform">
+                  <div class="absolute -inset-2.5 rounded-full bg-[radial-gradient(circle,rgba(184,147,82,0.22)_0%,transparent_70%)] blur-md pointer-events-none"></div>
+                  <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-[#B89352]/50 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-[0_6px_18px_rgba(42,52,38,0.08)] relative overflow-hidden">
                     <img 
                       src="/assets/vector-bride.jpg" 
                       alt={content.couple.bride.fullName} 
@@ -279,31 +287,33 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                   </div>
                 </div>
 
-                <p class="text-[0.52rem] sm:text-[0.62rem] tracking-[0.26em] text-[#B89352] uppercase font-semibold mb-0.5">
-                  Mempelai Wanita
-                </p>
-                <h3 class="font-display text-sm sm:text-base md:text-lg text-[#2A3426] font-normal leading-snug">
-                  {content.couple.bride.fullName}
-                </h3>
-                <p class="text-[0.55rem] sm:text-[0.65rem] text-[#566A4E] font-light mt-0.5 italic">
-                  {content.couple.bride.parents}
-                </p>
+                <div id="couple-bride-details" class="flex flex-col items-center text-center will-change-transform">
+                  <p class="text-[0.52rem] sm:text-[0.62rem] tracking-[0.26em] text-[#B89352] uppercase font-semibold mb-0.5">
+                    Mempelai Wanita
+                  </p>
+                  <h3 class="font-display text-xs sm:text-base md:text-lg text-[#2A3426] font-normal leading-snug">
+                    {content.couple.bride.fullName}
+                  </h3>
+                  <p class="text-[0.55rem] sm:text-[0.65rem] text-[#566A4E] font-light mt-0.5 italic">
+                    {content.couple.bride.parents}
+                  </p>
 
-                <p class="font-display italic text-[0.65rem] sm:text-xs text-[#4A5D43] leading-relaxed mt-1.5 px-1 max-w-[200px]">
-                  &ldquo;Menemukanmu adalah jawaban dari setiap doa yang kupanjatkan dalam hening.&rdquo;
-                </p>
+                  <p class="font-display italic text-[0.65rem] sm:text-xs text-[#4A5D43] leading-relaxed mt-1.5 px-1 max-w-[200px]">
+                    &ldquo;Menemukanmu adalah jawaban dari setiap doa yang kupanjatkan dalam hening.&rdquo;
+                  </p>
 
-                <a 
-                  href={`https://instagram.com/${content.couple.bride.instagram.replace('@', '')}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  class="inline-flex items-center gap-1 text-[0.5rem] sm:text-[0.58rem] text-[#7E8F77] hover:text-[#B89352] tracking-wider uppercase font-medium mt-1.5 transition-colors"
-                >
-                  <span>{content.couple.bride.instagram}</span>
-                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-                  </svg>
-                </a>
+                  <a 
+                    href={`https://instagram.com/${content.couple.bride.instagram.replace('@', '')}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="inline-flex items-center gap-1 text-[0.5rem] sm:text-[0.58rem] text-[#7E8F77] hover:text-[#B89352] tracking-wider uppercase font-medium mt-1.5 transition-colors"
+                  >
+                    <span>{content.couple.bride.instagram}</span>
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
 
             </div>
@@ -321,10 +331,10 @@ import FloralCorner from '../botanical/FloralCorner.astro';
               <!-- Soft Subtle Warm Ambient Glow -->
               <div class="absolute -inset-8 bg-[radial-gradient(circle,rgba(184,147,82,0.18)_0%,transparent_65%)] blur-2xl pointer-events-none"></div>
 
-              <!-- Stylized Calligraphic Botanical Ribbon Heart SVG -->
+              <!-- Stylized Haute-Couture Calligraphic Ribbon Heart SVG -->
               <svg 
                 id="love-heart-svg"
-                class="w-full h-full drop-shadow-[0_4px_20px_rgba(184,147,82,0.22)] select-none" 
+                class="w-full h-full drop-shadow-[0_4px_22px_rgba(184,147,82,0.25)] select-none" 
                 viewBox="0 0 200 190" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
@@ -332,29 +342,30 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                 <defs>
                   <!-- Antique Gold Gradient for Calligraphic Stems -->
                   <linearGradient id="heart-gold-couture" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#D8BA7A" />
-                    <stop offset="25%" stop-color="#C5A059" />
-                    <stop offset="60%" stop-color="#B89352" />
-                    <stop offset="85%" stop-color="#D4AF37" />
+                    <stop offset="0%" stop-color="#E2CA92" />
+                    <stop offset="25%" stop-color="#D4AF37" />
+                    <stop offset="55%" stop-color="#B89352" />
+                    <stop offset="85%" stop-color="#C5A059" />
                     <stop offset="100%" stop-color="#9A7836" />
                   </linearGradient>
 
                   <filter id="heart-stem-shadow" x="-10%" y="-10%" width="120%" height="120%">
-                    <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#2A3426" flood-opacity="0.08" />
+                    <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#2A3426" flood-opacity="0.08" />
                   </filter>
                 </defs>
 
-                <!-- 1. Inner Concentric Gilded Dotted Halo (Letterpress / Fine Jewelry Echo) -->
+                <!-- 1. Inner Concentric Gilded Dotted Filigree Echo (Jewelry / Fine Stationery) -->
                 <path 
-                  d="M 100 42 
-                     C 88 28, 62 24, 44 38 
-                     C 24 54, 24 82, 38 108 
-                     C 54 132, 82 148, 100 156 
-                     C 118 148, 146 132, 162 108 
-                     C 176 82, 176 54, 156 38 
-                     C 138 24, 112 28, 100 42 Z" 
+                  id="love-heart-inner-echo"
+                  d="M 100 44 
+                     C 86 28, 58 24, 40 40 
+                     C 22 56, 22 84, 38 110 
+                     C 54 134, 82 150, 100 160 
+                     C 118 150, 146 134, 162 110 
+                     C 178 84, 178 56, 160 40 
+                     C 142 24, 114 28, 100 44 Z" 
                   stroke="#B89352" 
-                  stroke-width="0.75" 
+                  stroke-width="0.85" 
                   stroke-dasharray="2.5 3.5" 
                   opacity="0.45" 
                   fill="none" 
@@ -363,13 +374,13 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                 <!-- 2. Main Calligraphic Left Stem & Flourish Swash -->
                 <path 
                   id="love-heart-path-left"
-                  d="M 100 32 
-                     C 85 14, 52 10, 32 28 
-                     C 10 48, 10 82, 28 114 
-                     C 46 142, 80 160, 100 167 
-                     C 108 170, 118 172, 126 170" 
+                  d="M 100 34 
+                     C 82 14, 46 10, 26 32 
+                     C 4 54, 6 88, 26 120 
+                     C 46 148, 80 166, 100 172 
+                     C 107 174, 115 174, 122 171" 
                   stroke="url(#heart-gold-couture)" 
-                  stroke-width="1.7" 
+                  stroke-width="1.8" 
                   stroke-linecap="round" 
                   fill="none" 
                   filter="url(#heart-stem-shadow)"
@@ -378,56 +389,28 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                 <!-- 3. Main Calligraphic Right Stem & Flourish Swash -->
                 <path 
                   id="love-heart-path-right"
-                  d="M 100 32 
-                     C 115 14, 148 10, 168 28 
-                     C 190 48, 190 82, 172 114 
-                     C 154 142, 120 160, 100 167 
-                     C 92 170, 82 172, 74 170" 
+                  d="M 100 34 
+                     C 118 14, 154 10, 174 32 
+                     C 196 54, 194 88, 174 120 
+                     C 154 148, 120 166, 100 172 
+                     C 93 174, 85 174, 78 171" 
                   stroke="url(#heart-gold-couture)" 
-                  stroke-width="1.7" 
+                  stroke-width="1.8" 
                   stroke-linecap="round" 
                   fill="none" 
                   filter="url(#heart-stem-shadow)"
                 />
 
-                <!-- 4. Top Cleft Calligraphic Arch & Crown Sparkle Star -->
+                <!-- 4. Top Cleft Royal Star Accent (✦) -->
                 <path 
-                  d="M 96 28 C 98 22, 102 22, 104 28" 
-                  stroke="url(#heart-gold-couture)" 
-                  stroke-width="1.2" 
-                  stroke-linecap="round" 
-                  fill="none" 
-                />
-                <path 
-                  d="M 100 24 Q 100 29 97 29 Q 100 29 100 34 Q 100 29 103 29 Q 100 29 100 24 Z" 
+                  d="M 100 22 Q 100 27 96 27 Q 100 27 100 32 Q 100 27 104 27 Q 100 27 100 22 Z" 
                   fill="#B89352" 
                 />
-                <circle cx="100" cy="29" r="1.1" fill="#FAF8F5" />
+                <circle cx="100" cy="27" r="1.1" fill="#FAF8F5" />
 
-                <!-- 5. Organic Botanical Olive Leaflets & Gilded Berries -->
-                <!-- Left Shoulder Leaflets -->
-                <path d="M 54 13 C 48 7, 40 10, 40 15 C 44 17, 50 16, 54 13 Z" fill="#6E8564" />
-                <path d="M 36 21 C 28 17, 24 24, 26 30 C 30 29, 34 25, 36 21 Z" fill="#4A5C43" />
-                <circle cx="44" cy="16" r="1.5" fill="#B89352" />
-
-                <!-- Left Flank Leaflets -->
-                <path d="M 10 66 C 3 68, 4 76, 10 78 C 11 73, 11 69, 10 66 Z" fill="#6E8564" />
-                <path d="M 16 88 C 10 92, 13 99, 19 100 C 20 95, 18 91, 16 88 Z" fill="#4A5C43" />
-                <circle cx="9" cy="74" r="1.5" fill="#B89352" />
-
-                <!-- Right Shoulder Leaflets -->
-                <path d="M 146 13 C 152 7, 160 10, 160 15 C 156 17, 150 16, 146 13 Z" fill="#6E8564" />
-                <path d="M 164 21 C 172 17, 176 24, 174 30 C 170 29, 166 25, 164 21 Z" fill="#4A5C43" />
-                <circle cx="156" cy="16" r="1.5" fill="#B89352" />
-
-                <!-- Right Flank Leaflets -->
-                <path d="M 190 66 C 197 68, 196 76, 190 78 C 189 73, 189 69, 190 66 Z" fill="#6E8564" />
-                <path d="M 184 88 C 190 92, 187 99, 181 100 C 180 95, 182 91, 184 88 Z" fill="#4A5C43" />
-                <circle cx="191" cy="74" r="1.5" fill="#B89352" />
-
-                <!-- 6. Bottom Flourish Swash Ending Droplets -->
-                <circle cx="126" cy="170" r="1.7" fill="#B89352" />
-                <circle cx="74" cy="170" r="1.7" fill="#B89352" />
+                <!-- 5. Delicate Bottom Ribbon End Droplets -->
+                <circle cx="122" cy="171" r="1.6" fill="#B89352" />
+                <circle cx="78" cy="171" r="1.6" fill="#B89352" />
               </svg>
 
               <!-- Center Content: Harmonious Twin Portraits & Regal Typography -->
@@ -435,31 +418,31 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                 
                 <!-- Twin Portraits Sitting Side-by-Side with Gold Hairline Frames -->
                 <div class="flex items-center justify-center gap-2.5 sm:gap-3.5 mb-1.5 sm:mb-2">
-                  <!-- Groom Avatar -->
-                  <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full p-0.5 border-1.5 border-[#B89352]/65 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
+                  <!-- Groom Avatar (Zharkasi) -->
+                  <div class="w-14 h-14 sm:w-18 sm:h-18 rounded-full p-0.5 border-1.5 border-[#B89352]/70 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
                     <img src="/assets/vector-groom.jpg" alt={content.couple.groom.nickname} class="w-full h-full object-cover rounded-full" />
                   </div>
 
                   <!-- Delicate Gilded Heart Pin Clasp -->
-                  <div class="flex items-center justify-center">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(184,147,82,0.18)" stroke="#B89352" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="drop-shadow-xs">
+                  <div class="flex items-center justify-center px-0.5">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(184,147,82,0.2)" stroke="#B89352" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="drop-shadow-xs">
                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                     </svg>
                   </div>
                   
-                  <!-- Bride Avatar -->
-                  <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full p-0.5 border-1.5 border-[#B89352]/65 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
+                  <!-- Bride Avatar (Difa) -->
+                  <div class="w-14 h-14 sm:w-18 sm:h-18 rounded-full p-0.5 border-1.5 border-[#B89352]/70 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
                     <img src="/assets/vector-bride.jpg" alt={content.couple.bride.nickname} class="w-full h-full object-cover rounded-full" />
                   </div>
                 </div>
 
-                <!-- Regal Typography in font-display -->
-                <h3 class="font-display text-xl sm:text-2xl text-[#2A3426] tracking-wide font-normal leading-tight">
-                  {content.couple.bride.nickname} <span class="font-display italic text-[#B89352] font-normal px-0.5">&amp;</span> {content.couple.groom.nickname}
+                <!-- Regal Typography: Zharkasi & Difa -->
+                <h3 id="love-fusion-names" class="font-display text-xl sm:text-2xl text-[#2A3426] tracking-wide font-normal leading-tight">
+                  {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.bride.nickname}
                 </h3>
 
                 <!-- Subtle Gilded Wedding Date -->
-                <div class="text-[0.58rem] sm:text-[0.62rem] tracking-[0.32em] text-[#B89352] uppercase font-semibold mt-1">
+                <div class="text-[0.58rem] sm:text-[0.62rem] tracking-[0.34em] text-[#B89352] uppercase font-semibold mt-1">
                   26 · 12 · 2026
                 </div>
 
@@ -670,6 +653,15 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     const coupleHeader = document.getElementById('couple-header-block');
     const groomProfile = document.getElementById('couple-groom-profile');
     const brideProfile = document.getElementById('couple-bride-profile');
+    const coupleGroomAvatar = document.getElementById('couple-groom-avatar');
+    const coupleBrideAvatar = document.getElementById('couple-bride-avatar');
+    const coupleGroomDetails = document.getElementById('couple-groom-details');
+    const coupleBrideDetails = document.getElementById('couple-bride-details');
+    const coupleCenterLink = document.getElementById('couple-center-link');
+    const coupleMergeSpark = document.getElementById('couple-merge-spark');
+    const loveFusion = document.getElementById('couple-love-fusion');
+    const loveHeartSvg = document.getElementById('love-heart-svg');
+    const loveFusionNames = document.getElementById('love-fusion-names');
 
     const asmaralokaHeader = document.getElementById('asmaraloka-header');
     const asmaralokaHalo = document.getElementById('asmaraloka-ambient-halo');
@@ -876,57 +868,109 @@ import FloralCorner from '../botanical/FloralCorner.astro';
       );
     }
 
-    // GENEROUS READING PLATEAU (0.88 -> 1.25): Calm, steady, and readable
-    tl.to(sceneCouple, { z: 0, duration: 0.37 }, 0.88);
+    // READING PLATEAU (0.88 -> 1.16): Calm, steady, and readable
+    tl.to(sceneCouple, { z: 0, duration: 0.28 }, 0.88);
 
     // =========================================================================
-    // STEP 4: THE LOVE FUSION & HEART MORPH (1.25 -> 1.68)
-    // 1. Text & profiles soften gently
-    // 2. Stylized Calligraphic Love Heart blooms serenely in center
-    // 3. Heart dissolves into Scene 4
+    // STEP 4: "MELEBUR JADI SATU" CONVERGENCE & ROYAL LOVE CREST (1.16 -> 1.68)
+    // 1. Text info fades away cleanly, leaving only the two floating avatars
+    // 2. Avatars glide inward toward each other into the center
+    // 3. Golden spark flares at collision point as they merge
+    // 4. Haute-couture calligraphic gold heart blooms around the united couple
+    // 5. Majestic reading plateau for Zharkasi & Difa crest
+    // 6. Crest diffuses smoothly into Scene 4 (Asmaraloka)
     // =========================================================================
     
-    // Hide header
-    if (coupleHeader) {
-      tl.to(coupleHeader, {
-        y: -20,
+    // 1. Hide header, center ampersand, and text details below avatars
+    const fadeOutTexts = [coupleHeader, coupleGroomDetails, coupleBrideDetails, coupleCenterLink].filter(Boolean);
+    if (fadeOutTexts.length) {
+      tl.to(fadeOutTexts, {
+        y: -12,
         opacity: 0,
         duration: 0.10,
         ease: 'power2.in'
-      }, 1.25);
+      }, 1.16);
     }
 
-    // Profiles fade smoothly
-    if (groomProfile && brideProfile) {
-      tl.to([groomProfile, brideProfile], {
-        opacity: 0,
-        scale: 0.9,
-        duration: 0.12,
+    // 2. The two avatars glide inward toward each other to merge ("melebur jadi satu")
+    if (coupleGroomAvatar && coupleBrideAvatar) {
+      tl.to(coupleGroomAvatar, {
+        x: 60,
+        scale: 0.94,
+        duration: 0.14,
         ease: 'power2.inOut'
-      }, 1.27);
+      }, 1.20);
+
+      tl.to(coupleBrideAvatar, {
+        x: -60,
+        scale: 0.94,
+        duration: 0.14,
+        ease: 'power2.inOut'
+      }, 1.20);
     }
 
-    // Stylized Calligraphic Love Heart blooms cleanly in the center!
-    const loveFusion = document.getElementById('couple-love-fusion');
+    // 3. Golden collision spark flares at meeting point
+    if (coupleMergeSpark) {
+      tl.fromTo(coupleMergeSpark,
+        { scale: 0.3, opacity: 0 },
+        { scale: 1.2, opacity: 0.9, duration: 0.08, ease: 'power2.out' },
+        1.28
+      );
+      tl.to(coupleMergeSpark, {
+        scale: 1.6,
+        opacity: 0,
+        duration: 0.08,
+        ease: 'power1.out'
+      }, 1.36);
+    }
+
+    // 4. Stylized Calligraphic Love Heart Crest blooms right out from the fusion point!
     if (loveFusion) {
       tl.fromTo(loveFusion,
-        { opacity: 0, scale: 0.88 },
-        { opacity: 1, scale: 1, duration: 0.14, ease: 'power2.out' },
-        1.34
+        { opacity: 0, scale: 0.82 },
+        { opacity: 1, scale: 1.0, duration: 0.13, ease: 'power2.out' },
+        1.32
       );
 
-      // Heart rests cleanly and serenely in center
-      tl.to(loveFusion, {
-        scale: 1.02,
-        duration: 0.14,
-        ease: 'none'
-      }, 1.48);
+      // Smooth crossfade: outward gliding avatars dissolve as the docked heart avatars emerge
+      if (coupleGroomAvatar && coupleBrideAvatar) {
+        tl.to([coupleGroomAvatar, coupleBrideAvatar], {
+          opacity: 0,
+          duration: 0.06,
+          ease: 'power1.out'
+        }, 1.33);
+      }
 
-      // Heart gently fades out
+      // Pulse / glow on the luxury gold heart
+      if (loveHeartSvg) {
+        tl.fromTo(loveHeartSvg,
+          { scale: 0.88, filter: 'drop-shadow(0 0 16px rgba(216,186,122,0.6))' },
+          { scale: 1.0, filter: 'drop-shadow(0 4px 22px rgba(184,147,82,0.25))', duration: 0.14, ease: 'power2.out' },
+          1.33
+        );
+      }
+
+      // Names "Zharkasi & Difa" float up softly
+      if (loveFusionNames) {
+        tl.fromTo(loveFusionNames,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.12, ease: 'power2.out' },
+          1.36
+        );
+      }
+
+      // 5. Stable reading plateau for the Love Heart Crest
+      tl.to(loveFusion, {
+        scale: 1.01,
+        duration: 0.16,
+        ease: 'none'
+      }, 1.44);
+
+      // 6. Heart gently diffuses into Asmaraloka
       tl.to(loveFusion, {
         scale: 1.08,
         opacity: 0,
-        filter: 'blur(3px)',
+        filter: 'blur(4px)',
         duration: 0.08,
         ease: 'power1.out'
       }, 1.60);
