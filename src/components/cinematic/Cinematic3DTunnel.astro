@@ -154,51 +154,94 @@ import FloralCorner from '../botanical/FloralCorner.astro';
           <!-- Royal Mihrab Cathedral Archway Container -->
           <div 
             id="verse-arch-card" 
-            class="relative w-full max-w-md sm:max-w-lg rounded-t-[140px] sm:rounded-t-[180px] rounded-b-3xl border border-[#B89352]/35 bg-gradient-to-b from-[#FAF8F5]/94 via-[#FAF8F5]/90 to-[#FAF8F5]/96 backdrop-blur-md shadow-[0_16px_48px_rgba(42,52,38,0.07)] p-6 sm:p-8 pt-8 sm:pt-10 flex flex-col items-center text-center will-change-transform overflow-hidden"
+            class="relative w-full max-w-md sm:max-w-lg rounded-t-[160px] sm:rounded-t-[200px] rounded-b-[28px] border-2 border-[#B89352]/40 bg-gradient-to-b from-[#FFFDF9]/96 via-[#FAF8F5]/93 to-[#F7F3EC]/96 backdrop-blur-md shadow-[0_20px_60px_rgba(42,52,38,0.08),0_4px_16px_rgba(184,147,82,0.12)] p-6 sm:p-9 pt-8 sm:pt-11 flex flex-col items-center text-center will-change-transform overflow-hidden"
           >
-            <!-- Inner Concentric Gilded Arch Inset Line -->
-            <div class="absolute inset-1.5 sm:inset-2 rounded-t-[132px] sm:rounded-t-[172px] rounded-b-[20px] border border-[#B89352]/20 pointer-events-none"></div>
+            <!-- 1. Inner Concentric Tailored Arch Inset Line -->
+            <div class="absolute inset-2 sm:inset-3 rounded-t-[148px] sm:rounded-t-[188px] rounded-b-[20px] border border-[#B89352]/30 pointer-events-none"></div>
+            <!-- 2. Second Fine Jewelry Dotted Contour Line -->
+            <div class="absolute inset-3.5 sm:inset-5 rounded-t-[136px] sm:rounded-t-[176px] rounded-b-[14px] border border-dashed border-[#B89352]/20 pointer-events-none"></div>
 
-            <!-- Arch Apex Finial Star & Whispered Rays -->
-            <div class="flex items-center justify-center gap-2 mb-2 sm:mb-3 opacity-80">
-              <span class="w-8 sm:w-12 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]/60"></span>
-              <span class="text-[0.65rem] text-[#B89352]">✦</span>
-              <span class="w-8 sm:w-12 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]/60"></span>
+            <!-- Botanical Corner Ginkgo Sprigs at Lower Base -->
+            <FloralCorner position="bottom-left" size={68} className="absolute bottom-1 left-1 opacity-40 pointer-events-none hidden sm:block" />
+            <FloralCorner position="bottom-right" size={68} className="absolute bottom-1 right-1 opacity-40 pointer-events-none hidden sm:block" />
+
+            <!-- Arch Crown: Overline & Gilded Botanical Finial -->
+            <div class="flex flex-col items-center justify-center mb-2 relative z-10">
+              <span class="text-overline tracking-[0.34em] text-[0.55rem] sm:text-[0.62rem] text-[#B89352] uppercase font-semibold mb-1">
+                AYAT SUCI AL-QUR'AN
+              </span>
+              
+              <!-- Royal Architectural Crown Finial SVG -->
+              <svg class="w-36 h-9 text-[#B89352] mb-1 drop-shadow-xs" viewBox="0 0 160 36" fill="none">
+                <!-- Center Star Crest (✦) -->
+                <path d="M 80 4 Q 80 14 74 14 Q 80 14 80 24 Q 80 14 86 14 Q 80 14 80 4 Z" fill="url(#crownGoldGrad)" />
+                <circle cx="80" cy="14" r="1.5" fill="#FAF8F5" />
+                
+                <!-- Left Arching Foliage Swash -->
+                <path d="M 72 14 C 54 14, 38 8, 20 18 C 12 23, 4 19, 6 13 C 8 7, 16 10, 20 15" stroke="url(#crownGoldGrad)" stroke-width="1.3" stroke-linecap="round" />
+                <path d="M 58 12 C 54 7, 46 8, 44 12 C 47 14, 55 14, 58 12 Z" fill="#6E8564" />
+                <path d="M 36 12 C 30 17, 24 16, 22 12 C 25 10, 31 10, 36 12 Z" fill="#4A5C43" />
+                <circle cx="20" cy="15" r="1.6" fill="#B89352" />
+                <circle cx="50" cy="16" r="1.3" fill="#B89352" />
+
+                <!-- Right Arching Foliage Swash -->
+                <path d="M 88 14 C 106 14, 122 8, 140 18 C 148 23, 156 19, 154 13 C 152 7, 144 10, 140 15" stroke="url(#crownGoldGrad)" stroke-width="1.3" stroke-linecap="round" />
+                <path d="M 102 12 C 106 7, 114 8, 116 12 C 113 14, 105 14, 102 12 Z" fill="#6E8564" />
+                <path d="M 124 12 C 130 17, 136 16, 138 12 C 135 10, 129 10, 124 12 Z" fill="#4A5C43" />
+                <circle cx="140" cy="15" r="1.6" fill="#B89352" />
+                <circle cx="110" cy="16" r="1.3" fill="#B89352" />
+
+                <defs>
+                  <linearGradient id="crownGoldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#9A7836" />
+                    <stop offset="25%" stop-color="#D4AF37" />
+                    <stop offset="50%" stop-color="#F0D698" />
+                    <stop offset="75%" stop-color="#D4AF37" />
+                    <stop offset="100%" stop-color="#9A7836" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </div>
 
-            <!-- Sacred Bismillah -->
-            <p id="verse-bismillah" class="font-arabic text-2xl sm:text-3xl text-[#3E4C38] mb-3 drop-shadow-xs will-change-transform" dir="rtl" lang="ar">
+            <!-- Sacred Bismillah in Rich Royal Emerald-Olive -->
+            <p id="verse-bismillah" class="font-arabic text-2xl sm:text-3xl text-[#2F3D2A] mb-3 sm:mb-4 drop-shadow-xs will-change-transform relative z-10" dir="rtl" lang="ar">
               {content.opening.bismillah}
             </p>
 
             <!-- Sacred Arabic Verse -->
-            <div id="verse-content-block" class="w-full flex flex-col items-center text-center px-2 sm:px-4 will-change-transform">
-              <blockquote lang="ar" dir="rtl" class="font-arabic text-xl sm:text-2xl sm:leading-[2.5] text-[#242F21] leading-loose max-w-lg mx-auto drop-shadow-xs selection:bg-[#B89352]/20">
-                {content.opening.verse}
+            <div id="verse-content-block" class="w-full flex flex-col items-center text-center px-1 sm:px-3 will-change-transform relative z-10">
+              <blockquote lang="ar" dir="rtl" class="font-arabic text-xl sm:text-2xl md:text-[1.65rem] sm:leading-[2.4] md:leading-[2.5] text-[#1E261A] leading-loose max-w-lg mx-auto drop-shadow-xs selection:bg-[#B89352]/20">
+                {content.opening.verse} <span class="inline-block text-[#B89352] text-sm sm:text-base mr-1 select-none font-serif">۝</span>
               </blockquote>
 
               <!-- Whispered Floral Flourish Divider -->
-              <div class="my-3.5 sm:my-4 flex items-center justify-center opacity-70">
-                <FloralFlourish width={130} height={16} />
+              <div class="my-3.5 sm:my-4 flex items-center justify-center opacity-85">
+                <FloralFlourish width={150} height={18} />
               </div>
 
               <!-- Indonesian Translation -->
-              <p class="text-xs sm:text-[0.82rem] text-[#4A5D43] font-light leading-relaxed max-w-md mx-auto italic font-serif">
+              <p class="text-xs sm:text-[0.84rem] text-[#3F5237] font-light leading-relaxed max-w-md mx-auto italic font-serif px-1">
                 &ldquo;{content.opening.translation}&rdquo;
               </p>
 
-              <!-- Classical Surah Citation Badge -->
-              <div class="inline-flex items-center gap-1.5 px-3.5 py-0.5 rounded-full border border-[#B89352]/35 bg-[#B89352]/8 text-[0.58rem] sm:text-[0.64rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mt-3">
-                <span>{content.opening.source}</span>
+              <!-- Classical Surah Citation -->
+              <div class="mt-3.5 flex items-center justify-center gap-2.5">
+                <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]/60"></span>
+                <span class="font-display tracking-[0.32em] text-[0.62rem] sm:text-[0.68rem] text-[#B89352] uppercase font-semibold">
+                  {content.opening.source}
+                </span>
+                <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]/60"></span>
               </div>
             </div>
 
-          </div>
+            <!-- Editorial Greeting Sentence (Elegantly Integrated into Pedestal) -->
+            <div class="mt-4 sm:mt-5 pt-3.5 border-t border-[#B89352]/25 max-w-sm sm:max-w-md mx-auto relative z-10">
+              <p id="verse-greeting" class="text-[0.65rem] sm:text-[0.72rem] text-[#6E8564] font-light leading-relaxed italic will-change-transform">
+                {content.opening.greeting}
+              </p>
+            </div>
 
-          <!-- Editorial Greeting Sentence (Positioned as Pedestal Foundation) -->
-          <p id="verse-greeting" class="text-[0.68rem] sm:text-[0.74rem] text-[#7E8F77] mt-4 font-light max-w-md leading-relaxed will-change-transform">
-            {content.opening.greeting}
-          </p>
+          </div>
 
         </div>
       </section>
