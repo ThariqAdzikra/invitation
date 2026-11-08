@@ -63,28 +63,17 @@ const calendarCells = [
     <!-- The Single Master Architectural Event Pavilion Card -->
     <div 
       id="master-event-card"
-      class="relative w-full mx-auto pt-10 sm:pt-14 pb-8 sm:pb-10 px-5 sm:px-8 lg:px-10 rounded-t-[100px] sm:rounded-t-[120px] rounded-b-2xl border border-[#B89352]/35 bg-gradient-to-b from-[#FAF8F5]/96 via-[#FAF8F5]/92 to-[#FAF8F5]/96 backdrop-blur-md shadow-[0_12px_40px_rgba(42,52,38,0.07)]"
+      class="relative w-full mx-auto pt-10 sm:pt-14 pb-8 sm:pb-10 px-5 sm:px-8 lg:px-10 rounded-t-[100px] sm:rounded-t-[120px] rounded-b-2xl border border-[#B89352]/35 bg-gradient-to-b from-[#FFFDF9] via-[#FAF8F5] to-[#F7F3EC] shadow-[0_20px_50px_rgba(42,52,38,0.10),0_4px_16px_rgba(184,147,82,0.10)]"
     >
-      <!-- Authentic Watercolor Floral Crown Garland (Matches Hero Archway Theme) -->
-      <div class="absolute -top-12 sm:-top-16 lg:-top-20 inset-x-0 flex justify-center pointer-events-none select-none z-20">
-        <img 
-          src="/assets/floral-top-garland.png" 
-          alt="" 
-          class="w-60 sm:w-76 lg:w-92 max-w-[420px] h-auto drop-shadow-[0_8px_20px_rgba(42,52,38,0.14)]" 
-          loading="eager"
-          decoding="async"
-        />
-      </div>
-
       <!-- Inset Classical Dashed Arch Hairline -->
       <div class="absolute inset-2 sm:inset-3 rounded-t-[92px] sm:rounded-t-[112px] rounded-b-xl border border-dashed border-[#B89352]/30 pointer-events-none"></div>
 
-      <!-- Authentic Watercolor Botanical Corners with Gilded Accents -->
-      <div class="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 w-24 sm:w-32 lg:w-36 pointer-events-none select-none z-20">
-        <img src="/assets/floral-corner-bottom.png" alt="" class="w-full h-auto drop-shadow-md" loading="lazy" decoding="async" />
+      <!-- Authentic Watercolor Botanical Corners with Gilded Accents (Neatly Hugging the Corners) -->
+      <div class="absolute -bottom-4 -left-4 sm:-bottom-5 sm:-left-5 w-20 sm:w-26 lg:w-28 pointer-events-none select-none z-20">
+        <img src="/assets/floral-corner-bottom.png" alt="" class="w-full h-auto drop-shadow-sm" loading="lazy" decoding="async" />
       </div>
-      <div class="absolute -bottom-6 -right-6 sm:-bottom-8 sm:-right-8 w-24 sm:w-32 lg:w-36 pointer-events-none select-none z-20 scale-x-[-1]">
-        <img src="/assets/floral-corner-bottom.png" alt="" class="w-full h-auto drop-shadow-md" loading="lazy" decoding="async" />
+      <div class="absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5 w-20 sm:w-26 lg:w-28 pointer-events-none select-none z-20 scale-x-[-1]">
+        <img src="/assets/floral-corner-bottom.png" alt="" class="w-full h-auto drop-shadow-sm" loading="lazy" decoding="async" />
       </div>
 
       <!-- Arch Crown: Intertwined Rings with Gilded Laurel Garland & Starburst -->
@@ -460,8 +449,8 @@ const calendarCells = [
         stagger: 0.06,
         ease: 'back.out(1.2)',
         scrollTrigger: {
-          trigger: '#countdown-grid',
-          start: 'top 88%',
+          trigger: '#events',
+          start: 'top 70%',
           once: true
         }
       }

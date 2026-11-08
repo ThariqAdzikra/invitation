@@ -11,10 +11,10 @@
        ========================================================================= -->
   <div 
     id="landscape-mountains-wrap" 
-    class="absolute top-0 inset-x-0 h-[85vh] min-h-[520px] max-h-[880px] opacity-80 will-change-transform pointer-events-none overflow-hidden flex items-start justify-center"
+    class="absolute top-0 inset-x-0 h-[85vh] min-h-[520px] max-h-[880px] opacity-75 will-change-transform pointer-events-none overflow-hidden flex items-start justify-center"
   >
     <!-- Soft Mist Gradient blending into top -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/0 via-[#F5EFE6]/30 to-[#FAF8F5] pointer-events-none z-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/0 via-[#F5EFE6]/25 to-[#FAF8F5] pointer-events-none z-10"></div>
 
     <img 
       src="/assets/watercolor-valley-mountains.webp" 
@@ -44,16 +44,17 @@
 
   <!-- =========================================================================
        LAYER 1: AUTHENTIC WATERCOLOR OVERHANGING BOTANICAL CANOPY
-       Romantic weeping willow, olive branches, and blush roses framing the top
+       Romantic weeping willow, olive branches, and blush roses framing the top edges
+       Pushed up to gracefully frame the screen without cluttering the center card
        ========================================================================= -->
   <div 
     id="landscape-trees-wrap" 
-    class="absolute -top-10 sm:-top-16 inset-x-0 w-full flex justify-center opacity-85 will-change-transform pointer-events-none z-10"
+    class="absolute -top-32 sm:-top-48 md:-top-60 lg:-top-72 inset-x-0 w-full flex justify-center opacity-85 will-change-transform pointer-events-none z-10"
   >
     <img 
       src="/assets/watercolor-overhanging-trees.webp" 
       alt="" 
-      class="w-full max-w-7xl h-auto object-contain object-top drop-shadow-md select-none pointer-events-none" 
+      class="w-full max-w-[1500px] h-auto object-contain object-top drop-shadow-md select-none pointer-events-none" 
       loading="eager"
       decoding="async"
     />
@@ -61,8 +62,8 @@
 
   <!-- =========================================================================
        LAYER 2: THE SHIMMERING SACRED RIVERWAY (Aliran Sungai Suci Lembah Asri)
-       Organic meandering river flowing from the mountain valley past the 
-       event pavilions and into the sunset lake!
+       Organic meandering river flowing gracefully along the landscape margins
+       past the event pavilions and opening into the sunset lake!
        ========================================================================= -->
   <div 
     id="landscape-riverway-wrap" 
@@ -72,16 +73,16 @@
       <defs>
         <!-- Shimmering River Stream Gradient (Jade Emerald, Mountain Spring & Golden Sunlight Caustics) -->
         <linearGradient id="riverStreamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#8DB094" stop-opacity="0.45" />
-          <stop offset="30%" stop-color="#E5C778" stop-opacity="0.60" />
-          <stop offset="65%" stop-color="#70967C" stop-opacity="0.45" />
-          <stop offset="100%" stop-color="#E28E46" stop-opacity="0.60" />
+          <stop offset="0%" stop-color="#8DB094" stop-opacity="0.35" />
+          <stop offset="30%" stop-color="#E5C778" stop-opacity="0.50" />
+          <stop offset="65%" stop-color="#70967C" stop-opacity="0.40" />
+          <stop offset="100%" stop-color="#E28E46" stop-opacity="0.55" />
         </linearGradient>
 
         <linearGradient id="riverShimmerLine" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.85" />
-          <stop offset="50%" stop-color="#F3DE98" stop-opacity="0.80" />
-          <stop offset="100%" stop-color="#FED7AA" stop-opacity="0.90" />
+          <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.80" />
+          <stop offset="50%" stop-color="#F3DE98" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#FED7AA" stop-opacity="0.85" />
         </linearGradient>
 
         <linearGradient id="lakeWaterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -91,42 +92,41 @@
         </linearGradient>
       </defs>
 
-      <!-- Main Meandering River Channel: Weaves gently behind the cards -->
+      <!-- Main Meandering River Channel: Flows gracefully along the left landscape margin -->
       <path 
         id="river-channel"
-        d="M 280 150 
-           C 220 400, 480 650, 360 950 
-           C 240 1250, 1180 1500, 1020 1850 
-           C 860 2150, 480 2300, 720 2600" 
+        d="M 120 120 
+           C 50 380, 180 620, 100 880 
+           C 50 1140, 260 1380, 180 1620 
+           C 120 1860, 480 2080, 720 2360" 
         stroke="url(#riverStreamGrad)" 
-        stroke-width="110" 
+        stroke-width="48" 
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="filter blur-md"
+        class="filter blur-sm"
       />
 
       <!-- Glimmering Center River Current Line (Glittering Stream) -->
       <path 
         id="river-current-glimmer"
-        d="M 280 150 
-           C 220 400, 480 650, 360 950 
-           C 240 1250, 1180 1500, 1020 1850 
-           C 860 2150, 480 2300, 720 2600" 
+        d="M 120 120 
+           C 50 380, 180 620, 100 880 
+           C 50 1140, 260 1380, 180 1620 
+           C 120 1860, 480 2080, 720 2360" 
         stroke="url(#riverShimmerLine)" 
-        stroke-width="2.5" 
+        stroke-width="2.2" 
         stroke-linecap="round"
-        stroke-dasharray="16 24"
+        stroke-dasharray="14 22"
         opacity="0.75"
       />
 
-      <!-- Riverbank Pebbles & Delicate Water Lily Lotus Pads -->
-      <circle cx="210" cy="540" r="14" fill="#6A805E" opacity="0.3" />
-      <circle cx="230" cy="555" r="10" fill="#8FA885" opacity="0.35" />
-      <ellipse cx="225" cy="530" rx="18" ry="8" fill="#566A4E" opacity="0.25" />
+      <!-- Riverbank Pebbles & Delicate Water Lily Lotus Pads along margin -->
+      <circle cx="140" cy="480" r="10" fill="#6A805E" opacity="0.3" />
+      <circle cx="160" cy="500" r="8" fill="#8FA885" opacity="0.35" />
+      <ellipse cx="145" cy="465" rx="14" ry="6" fill="#566A4E" opacity="0.25" />
 
-      <ellipse cx="1140" cy="1580" rx="22" ry="10" fill="#566A4E" opacity="0.28" />
-      <circle cx="1165" cy="1600" r="12" fill="#7E8F77" opacity="0.3" />
-      <ellipse cx="1120" cy="1610" rx="16" ry="7" fill="#8FA885" opacity="0.25" />
+      <ellipse cx="210" cy="1480" rx="16" ry="8" fill="#566A4E" opacity="0.28" />
+      <circle cx="230" cy="1500" r="10" fill="#7E8F77" opacity="0.3" />
 
       <!-- Expanding Sunset Lake Basin at Bottom (Closing Sanctuary Basin) -->
       <path 
