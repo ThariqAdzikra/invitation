@@ -379,131 +379,228 @@ import FloralCorner from '../botanical/FloralCorner.astro';
 
           </div>
 
-          <!-- THE MERGED STYLIZED CALLIGRAPHIC BOTANICAL LOVE HEART OVERLAY -->
+          <!-- THE MERGED ROYAL BOTANICAL LAUREL WREATH & MATRIMONIAL CREST OVERLAY -->
           <div 
             id="couple-love-fusion" 
             class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 will-change-transform z-30"
           >
-            <!-- Stylized Heart Emblem Container (Responsive Proportions) -->
-            <div class="relative flex items-center justify-center w-[310px] h-[290px] sm:w-[410px] sm:h-[385px]">
+            <!-- Crest Container (Responsive Dimensions) -->
+            <div class="relative flex items-center justify-center w-[330px] h-[310px] sm:w-[450px] sm:h-[420px]">
               
-              <!-- Soft Subtle Warm Ambient Glow -->
-              <div class="absolute -inset-8 bg-[radial-gradient(circle,rgba(184,147,82,0.18)_0%,transparent_65%)] blur-2xl pointer-events-none"></div>
+              <!-- Soft Subtle Warm Ambient Radial Gold Aura -->
+              <div class="absolute -inset-10 bg-[radial-gradient(ellipse_at_center,rgba(216,186,122,0.22)_0%,rgba(184,147,82,0.08)_45%,transparent_70%)] blur-2xl pointer-events-none"></div>
 
-              <!-- Stylized Haute-Couture Calligraphic Ribbon Heart SVG -->
+              <!-- Haute-Couture Botanical Laurel Wreath SVG (Organic Heart Silhouette) -->
               <svg 
                 id="love-heart-svg"
-                class="w-full h-full drop-shadow-[0_4px_22px_rgba(184,147,82,0.25)] select-none" 
-                viewBox="0 0 200 190" 
+                class="w-full h-full drop-shadow-[0_4px_24px_rgba(184,147,82,0.22)] select-none" 
+                viewBox="0 0 460 420" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <defs>
-                  <!-- Antique Gold Gradient for Calligraphic Stems -->
-                  <linearGradient id="heart-gold-couture" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#E2CA92" />
+                  <linearGradient id="wreath-gold-luxe" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#F0DFB6" />
                     <stop offset="25%" stop-color="#D4AF37" />
-                    <stop offset="55%" stop-color="#B89352" />
-                    <stop offset="85%" stop-color="#C5A059" />
-                    <stop offset="100%" stop-color="#9A7836" />
+                    <stop offset="60%" stop-color="#B89352" />
+                    <stop offset="100%" stop-color="#8E6E32" />
                   </linearGradient>
-
-                  <filter id="heart-stem-shadow" x="-10%" y="-10%" width="120%" height="120%">
-                    <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#2A3426" flood-opacity="0.08" />
-                  </filter>
+                  <linearGradient id="leaf-sage-light" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#7E9675" />
+                    <stop offset="100%" stop-color="#5E7455" />
+                  </linearGradient>
+                  <linearGradient id="leaf-sage-deep" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#566A4E" />
+                    <stop offset="100%" stop-color="#384833" />
+                  </linearGradient>
                 </defs>
 
-                <!-- 1. Inner Concentric Gilded Dotted Filigree Echo (Jewelry / Fine Stationery) -->
+                <!-- 1. Inner Concentric Filigree Halo (Haute Stationery) -->
                 <path 
-                  id="love-heart-inner-echo"
-                  d="M 100 44 
-                     C 86 28, 58 24, 40 40 
-                     C 22 56, 22 84, 38 110 
-                     C 54 134, 82 150, 100 160 
-                     C 118 150, 146 134, 162 110 
-                     C 178 84, 178 56, 160 40 
-                     C 142 24, 114 28, 100 44 Z" 
+                  d="M 230 358 C 165 344, 82 276, 82 188 C 82 114, 134 65, 204 54 C 213 52, 222 51, 230 51 C 238 51, 247 52, 256 54 C 326 65, 378 114, 378 188 C 378 276, 295 344, 230 358 Z" 
                   stroke="#B89352" 
                   stroke-width="0.85" 
                   stroke-dasharray="2.5 3.5" 
-                  opacity="0.45" 
+                  opacity="0.4" 
                   fill="none" 
                 />
 
-                <!-- 2. Main Calligraphic Left Stem & Flourish Swash -->
+                <!-- 2. Left Botanical Stem -->
                 <path 
-                  id="love-heart-path-left"
-                  d="M 100 34 
-                     C 82 14, 46 10, 26 32 
-                     C 4 54, 6 88, 26 120 
-                     C 46 148, 80 166, 100 172 
-                     C 107 174, 115 174, 122 171" 
-                  stroke="url(#heart-gold-couture)" 
-                  stroke-width="1.8" 
+                  d="M 230 380 C 145 365, 45 285, 45 185 C 45 95, 115 42, 205 32" 
+                  stroke="#4A5C43" 
+                  stroke-width="1.4" 
                   stroke-linecap="round" 
                   fill="none" 
-                  filter="url(#heart-stem-shadow)"
                 />
 
-                <!-- 3. Main Calligraphic Right Stem & Flourish Swash -->
+                <!-- Left Botanical Leaves -->
+                <!-- Cluster 1 (Base) -->
+                <path d="M 216 380 C 196 385, 186 374, 192 367 C 200 367, 210 372, 216 380 Z" fill="url(#leaf-sage-deep)" />
+                <path d="M 218 368 C 204 362, 202 350, 211 346 C 217 350, 221 359, 218 368 Z" fill="url(#leaf-sage-light)" />
+                <circle cx="204" cy="365" r="2.6" fill="#B89352" />
+
+                <!-- Cluster 2 (Lower Flank) -->
+                <path d="M 162 355 C 140 358, 128 344, 136 336 C 145 338, 154 345, 162 355 Z" fill="url(#leaf-sage-light)" />
+                <path d="M 150 336 C 132 325, 133 312, 144 310 C 150 316, 153 327, 150 336 Z" fill="url(#leaf-sage-deep)" />
+                <circle cx="142" cy="330" r="2.6" fill="#D4AF37" />
+
+                <!-- Cluster 3 (Mid-Lower Flank) -->
+                <path d="M 108 316 C 88 312, 78 296, 88 288 C 97 292, 105 303, 108 316 Z" fill="url(#leaf-sage-deep)" />
+                <path d="M 94 288 C 76 276, 80 260, 92 262 C 98 268, 100 279, 94 288 Z" fill="url(#leaf-sage-light)" />
+                <circle cx="90" cy="284" r="2.8" fill="#B89352" />
+
+                <!-- Cluster 4 (Mid Flank) -->
+                <path d="M 65 250 C 46 242, 44 225, 56 220 C 63 226, 68 238, 65 250 Z" fill="url(#leaf-sage-light)" />
+                <path d="M 55 220 C 38 206, 42 192, 54 192 C 59 199, 61 210, 55 220 Z" fill="url(#leaf-sage-deep)" />
+                <circle cx="52" cy="214" r="2.6" fill="#D4AF37" />
+
+                <!-- Cluster 5 (Upper Flank) -->
+                <path d="M 48 172 C 32 158, 38 142, 50 144 C 55 152, 55 163, 48 172 Z" fill="url(#leaf-sage-deep)" />
+                <path d="M 54 142 C 42 125, 54 112, 65 116 C 68 126, 64 136, 54 142 Z" fill="url(#leaf-sage-light)" />
+                <circle cx="48" cy="136" r="2.8" fill="#B89352" />
+
+                <!-- Cluster 6 (Shoulder) -->
+                <path d="M 74 110 C 62 92, 78 80, 88 86 C 90 96, 84 105, 74 110 Z" fill="url(#leaf-sage-light)" />
+                <path d="M 88 84 C 82 66, 98 56, 108 64 C 108 74, 101 82, 88 84 Z" fill="url(#leaf-sage-deep)" />
+                <circle cx="84" cy="78" r="2.8" fill="#D4AF37" />
+
+                <!-- Cluster 7 (Upper Inward Arch) -->
+                <path d="M 122 62 C 118 44, 135 35, 144 43 C 141 53, 133 60, 122 62 Z" fill="url(#leaf-sage-deep)" />
+                <path d="M 148 42 C 148 24, 166 18, 174 27 C 169 35, 159 41, 148 42 Z" fill="url(#leaf-sage-light)" />
+                <circle cx="146" cy="36" r="2.6" fill="#B89352" />
+
+                <!-- Cluster 8 (Apex Tip) -->
+                <path d="M 184 32 C 187 18, 201 16, 204 25 C 198 30, 191 32, 184 32 Z" fill="url(#leaf-sage-light)" />
+                <circle cx="202" cy="28" r="2.4" fill="#B89352" />
+
+                <!-- 3. Right Botanical Stem -->
                 <path 
-                  id="love-heart-path-right"
-                  d="M 100 34 
-                     C 118 14, 154 10, 174 32 
-                     C 196 54, 194 88, 174 120 
-                     C 154 148, 120 166, 100 172 
-                     C 93 174, 85 174, 78 171" 
-                  stroke="url(#heart-gold-couture)" 
-                  stroke-width="1.8" 
+                  d="M 230 380 C 315 365, 415 285, 415 185 C 415 95, 345 42, 255 32" 
+                  stroke="#4A5C43" 
+                  stroke-width="1.4" 
                   stroke-linecap="round" 
                   fill="none" 
-                  filter="url(#heart-stem-shadow)"
                 />
 
-                <!-- 4. Top Cleft Royal Star Accent (✦) -->
-                <path 
-                  d="M 100 22 Q 100 27 96 27 Q 100 27 100 32 Q 100 27 104 27 Q 100 27 100 22 Z" 
-                  fill="#B89352" 
-                />
-                <circle cx="100" cy="27" r="1.1" fill="#FAF8F5" />
+                <!-- Right Botanical Leaves (Mirrored at x=460-x) -->
+                <!-- Cluster 1 (Base) -->
+                <path d="M 244 380 C 264 385, 274 374, 268 367 C 260 367, 250 372, 244 380 Z" fill="url(#leaf-sage-deep)" />
+                <path d="M 242 368 C 256 362, 258 350, 249 346 C 243 350, 239 359, 242 368 Z" fill="url(#leaf-sage-light)" />
+                <circle cx="256" cy="365" r="2.6" fill="#B89352" />
 
-                <!-- 5. Delicate Bottom Ribbon End Droplets -->
-                <circle cx="122" cy="171" r="1.6" fill="#B89352" />
-                <circle cx="78" cy="171" r="1.6" fill="#B89352" />
+                <!-- Cluster 2 (Lower Flank) -->
+                <path d="M 298 355 C 320 358, 332 344, 324 336 C 315 338, 306 345, 298 355 Z" fill="url(#leaf-sage-light)" />
+                <path d="M 310 336 C 328 325, 327 312, 316 310 C 310 316, 307 327, 310 336 Z" fill="url(#leaf-sage-deep)" />
+                <circle cx="318" cy="330" r="2.6" fill="#D4AF37" />
+
+                <!-- Cluster 3 (Mid-Lower Flank) -->
+                <path d="M 352 316 C 372 312, 382 296, 372 288 C 363 292, 355 303, 352 316 Z" fill="url(#leaf-sage-deep)" />
+                <path d="M 366 288 C 384 276, 380 260, 368 262 C 362 268, 360 279, 366 288 Z" fill="url(#leaf-sage-light)" />
+                <circle cx="370" cy="284" r="2.8" fill="#B89352" />
+
+                <!-- Cluster 4 (Mid Flank) -->
+                <path d="M 395 250 C 414 242, 416 225, 404 220 C 397 226, 392 238, 395 250 Z" fill="url(#leaf-sage-light)" />
+                <path d="M 405 220 C 422 206, 418 192, 406 192 C 401 199, 399 210, 405 220 Z" fill="url(#leaf-sage-deep)" />
+                <circle cx="408" cy="214" r="2.6" fill="#D4AF37" />
+
+                <!-- Cluster 5 (Upper Flank) -->
+                <path d="M 412 172 C 428 158, 422 142, 410 144 C 405 152, 405 163, 412 172 Z" fill="url(#leaf-sage-deep)" />
+                <path d="M 406 142 C 418 125, 406 112, 395 116 C 392 126, 396 136, 406 142 Z" fill="url(#leaf-sage-light)" />
+                <circle cx="412" cy="136" r="2.8" fill="#B89352" />
+
+                <!-- Cluster 6 (Shoulder) -->
+                <path d="M 386 110 C 398 92, 382 80, 372 86 C 370 96, 376 105, 386 110 Z" fill="url(#leaf-sage-light)" />
+                <path d="M 372 84 C 378 66, 362 56, 352 64 C 352 74, 359 82, 372 84 Z" fill="url(#leaf-sage-deep)" />
+                <circle cx="376" cy="78" r="2.8" fill="#D4AF37" />
+
+                <!-- Cluster 7 (Upper Inward Arch) -->
+                <path d="M 338 62 C 342 44, 325 35, 316 43 C 319 53, 327 60, 338 62 Z" fill="url(#leaf-sage-deep)" />
+                <path d="M 312 42 C 312 24, 294 18, 286 27 C 291 35, 301 41, 312 42 Z" fill="url(#leaf-sage-light)" />
+                <circle cx="314" cy="36" r="2.6" fill="#B89352" />
+
+                <!-- Cluster 8 (Apex Tip) -->
+                <path d="M 276 32 C 273 18, 259 16, 256 25 C 262 30, 269 32, 276 32 Z" fill="url(#leaf-sage-light)" />
+                <circle cx="258" cy="28" r="2.4" fill="#B89352" />
+
+                <!-- 4. Top Apex Royal Monogram Medallion (ZD) -->
+                <g id="crest-apex-seal">
+                  <!-- Subtle Backing Glow -->
+                  <circle cx="230" cy="28" r="16" fill="#FAF8F5" stroke="url(#wreath-gold-luxe)" stroke-width="1.4" />
+                  <circle cx="230" cy="28" r="13.5" fill="none" stroke="#B89352" stroke-width="0.6" stroke-dasharray="1.5 1.5" opacity="0.7" />
+                  <!-- Monogram letters -->
+                  <text x="230" y="32.5" text-anchor="middle" font-family="Cinzel, serif" font-size="8.5" font-weight="600" fill="#2A3426" letter-spacing="0.8">ZD</text>
+                  <!-- Royal Apex Star ✦ -->
+                  <path d="M 230 6 Q 230 10 227 10 Q 230 10 230 14 Q 230 10 233 10 Q 230 10 230 6 Z" fill="#B89352" />
+                  <circle cx="230" cy="10" r="1" fill="#FAF8F5" />
+                </g>
+
+                <!-- 5. Bottom Royal Ribbon Clasp -->
+                <g id="crest-base-ribbon">
+                  <path d="M 220 380 C 224 374, 236 374, 240 380 C 246 384, 238 392, 230 395 C 222 392, 214 384, 220 380 Z" fill="url(#wreath-gold-luxe)" />
+                  <circle cx="230" cy="383" r="2.2" fill="#FAF8F5" stroke="#B89352" stroke-width="0.8" />
+                  <!-- Ribbon Tail Left -->
+                  <path d="M 224 388 C 218 396, 210 402, 202 406" stroke="#B89352" stroke-width="1.1" stroke-linecap="round" fill="none" opacity="0.8" />
+                  <circle cx="202" cy="406" r="1.4" fill="#B89352" />
+                  <!-- Ribbon Tail Right -->
+                  <path d="M 236 388 C 242 396, 250 402, 258 406" stroke="#B89352" stroke-width="1.1" stroke-linecap="round" fill="none" opacity="0.8" />
+                  <circle cx="258" cy="406" r="1.4" fill="#B89352" />
+                </g>
               </svg>
 
-              <!-- Center Content: Harmonious Twin Portraits & Regal Typography -->
-              <div id="love-center-crest" class="absolute inset-0 flex flex-col items-center justify-center text-center z-10 pointer-events-none pb-4 sm:pb-6">
+              <!-- Center Content: Harmonious Twin Portraits & Regal Matrimonial Monogram -->
+              <div id="love-center-crest" class="absolute inset-0 flex flex-col items-center justify-center text-center z-10 pointer-events-none pt-4 sm:pt-6 pb-2">
                 
-                <!-- Twin Portraits Sitting Side-by-Side with Gold Hairline Frames -->
-                <div class="flex items-center justify-center gap-2.5 sm:gap-3.5 mb-1.5 sm:mb-2">
+                <!-- Twin Portraits Sitting Side-by-Side in Haute-Jewelry Frames -->
+                <div class="flex items-center justify-center gap-3 sm:gap-4 mb-1.5 sm:mb-2">
                   <!-- Groom Avatar (Zharkasi) -->
-                  <div class="w-14 h-14 sm:w-18 sm:h-18 rounded-full p-0.5 border-1.5 border-[#B89352]/70 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
-                    <img src="/assets/vector-groom.jpg" alt={content.couple.groom.nickname} class="w-full h-full object-cover rounded-full" />
+                  <div class="flex flex-col items-center">
+                    <div class="w-18 h-18 sm:w-22 sm:h-22 rounded-full p-1 border-2 border-[#B89352]/75 bg-gradient-to-tr from-[#FAF8F5] via-white to-[#F3EEE5] shadow-[0_6px_20px_rgba(42,52,38,0.12)] overflow-hidden">
+                      <img src="/assets/vector-groom.jpg" alt={content.couple.groom.nickname} class="w-full h-full object-cover rounded-full" />
+                    </div>
                   </div>
 
-                  <!-- Delicate Gilded Heart Pin Clasp -->
-                  <div class="flex items-center justify-center px-0.5">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(184,147,82,0.2)" stroke="#B89352" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="drop-shadow-xs">
-                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                    </svg>
+                  <!-- Interlocking Fine Jewelry Ampersand Clasp -->
+                  <div class="flex flex-col items-center justify-center px-0.5 sm:px-1 select-none">
+                    <span class="text-[#B89352] text-[0.6rem] sm:text-xs">✦</span>
+                    <span class="font-display italic text-lg sm:text-2xl text-[#B89352] font-normal my-0.5">&amp;</span>
+                    <span class="text-[#B89352] text-[0.6rem] sm:text-xs">✦</span>
                   </div>
                   
                   <!-- Bride Avatar (Difa) -->
-                  <div class="w-14 h-14 sm:w-18 sm:h-18 rounded-full p-0.5 border-1.5 border-[#B89352]/70 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
-                    <img src="/assets/vector-bride.jpg" alt={content.couple.bride.nickname} class="w-full h-full object-cover rounded-full" />
+                  <div class="flex flex-col items-center">
+                    <div class="w-18 h-18 sm:w-22 sm:h-22 rounded-full p-1 border-2 border-[#B89352]/75 bg-gradient-to-tr from-[#FAF8F5] via-white to-[#F3EEE5] shadow-[0_6px_20px_rgba(42,52,38,0.12)] overflow-hidden">
+                      <img src="/assets/vector-bride.jpg" alt={content.couple.bride.nickname} class="w-full h-full object-cover rounded-full" />
+                    </div>
                   </div>
                 </div>
 
+                <!-- Overline Badge -->
+                <p class="text-[0.52rem] sm:text-[0.6rem] tracking-[0.34em] text-[#B89352] uppercase font-semibold">
+                  IKRAR PENYATUAN DUA HATI
+                </p>
+
                 <!-- Regal Typography: Zharkasi & Difa -->
-                <h3 id="love-fusion-names" class="font-display text-xl sm:text-2xl text-[#2A3426] tracking-wide font-normal leading-tight">
+                <h3 id="love-fusion-names" class="font-display text-2xl sm:text-3xl md:text-4xl text-[#2A3426] tracking-wide font-normal leading-tight mt-0.5">
                   {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.bride.nickname}
                 </h3>
 
-                <!-- Subtle Gilded Wedding Date -->
-                <div class="text-[0.58rem] sm:text-[0.62rem] tracking-[0.34em] text-[#B89352] uppercase font-semibold mt-1">
-                  26 · 12 · 2026
+                <!-- Fine Star Hairline Divider -->
+                <div class="flex items-center justify-center gap-2 my-1 opacity-75">
+                  <span class="h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent to-[#B89352]"></span>
+                  <span class="text-[0.5rem] sm:text-[0.58rem] text-[#B89352]">✦</span>
+                  <span class="h-[1px] w-6 sm:w-10 bg-gradient-to-l from-transparent to-[#B89352]"></span>
                 </div>
+
+                <!-- Sacred Wedding Date & Location -->
+                <div class="text-[0.56rem] sm:text-[0.64rem] tracking-[0.28em] text-[#566A4E] uppercase font-medium">
+                  SABTU, 26 DESEMBER 2026 · PADANG
+                </div>
+
+                <!-- Romantic Epilogue Quote -->
+                <p class="font-display italic text-[0.68rem] sm:text-[0.8rem] text-[#4A5D43]/90 leading-relaxed max-w-xs sm:max-w-sm mt-1 px-2">
+                  &ldquo;Dua insan, satu jiwa, melangkah bersama menuju keabadian cinta.&rdquo;
+                </p>
 
               </div>
 
