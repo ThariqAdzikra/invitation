@@ -145,39 +145,42 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         style="transform: translate3d(0, 0, -850px); transform-style: preserve-3d;"
         aria-label="Ayat Suci Al-Qur'an"
       >
-        <div class="max-w-xl w-full mx-auto flex flex-col items-center justify-center my-auto">
+        <div class="max-w-xl w-full mx-auto flex flex-col items-center justify-center my-auto relative">
+          <!-- Ethereal Celestial Golden Halo Blooming Behind the Sacred Words -->
+          <div class="absolute -inset-8 sm:-inset-16 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.22)_0%,rgba(184,147,82,0.10)_45%,transparent_75%)] blur-2xl pointer-events-none -z-10"></div>
           
           <!-- Sacred Bismillah -->
           <p id="verse-bismillah" class="font-arabic text-2xl sm:text-3xl text-[#3E4C38] mb-3 drop-shadow-sm will-change-transform" dir="rtl" lang="ar">
             {content.opening.bismillah}
           </p>
 
-          <!-- Ayat Suci Card with Refined Proportions -->
-          <div 
-            id="verse-card"
-            class="w-full bg-white/95 border border-[#566A4E]/25 rounded-2xl p-5 sm:p-8 shadow-[0_16px_40px_rgba(42,52,38,0.08)] relative overflow-hidden my-2 interactive-foil-card will-change-transform"
-            data-foil="true"
-          >
-            <div class="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
-
-            <blockquote lang="ar" dir="rtl" class="font-arabic text-lg sm:text-2xl text-[#2A3426] leading-loose max-w-lg mx-auto relative z-10">
+          <!-- Pure Editorial Sacred Typography Block (No Card Box, No Borders, No Drop Shadow) -->
+          <div id="verse-content-block" class="w-full flex flex-col items-center text-center px-2 sm:px-6 will-change-transform">
+            <!-- Sacred Arabic Verse -->
+            <blockquote lang="ar" dir="rtl" class="font-arabic text-xl sm:text-2xl sm:leading-[2.4] text-[#2A3426] leading-loose max-w-lg mx-auto drop-shadow-sm">
               {content.opening.verse}
             </blockquote>
 
-            <p class="text-[0.72rem] sm:text-xs text-[#566A4E] font-light leading-relaxed my-3 max-w-md mx-auto italic relative z-10">
+            <!-- Whispered Minimalist Hairline Divider with Diamond Star (✦) -->
+            <div class="my-4 sm:my-5 flex items-center justify-center gap-3 opacity-70">
+              <span class="w-12 sm:w-20 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]/50"></span>
+              <span class="text-[0.6rem] text-[#B89352]">✦</span>
+              <span class="w-12 sm:w-20 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]/50"></span>
+            </div>
+
+            <!-- Indonesian Translation -->
+            <p class="text-xs sm:text-sm text-[#566A4E] font-light leading-relaxed max-w-md mx-auto italic font-serif">
               &ldquo;{content.opening.translation}&rdquo;
             </p>
 
-            <div class="my-1.5 relative z-10 opacity-70 flex justify-center">
-              <FloralFlourish width={130} height={20} />
-            </div>
-
-            <p class="text-[0.62rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mt-1 relative z-10">
+            <!-- Classical Surah Citation -->
+            <p class="text-[0.62rem] sm:text-[0.68rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mt-3">
               {content.opening.source}
             </p>
           </div>
 
-          <p id="verse-greeting" class="text-xs text-[#4A5D43] mt-3 font-normal max-w-md leading-relaxed will-change-transform">
+          <!-- Editorial Greeting Sentence -->
+          <p id="verse-greeting" class="text-[0.72rem] sm:text-xs text-[#7E8F77] mt-5 font-light max-w-md leading-relaxed will-change-transform">
             {content.opening.greeting}
           </p>
 
@@ -662,7 +665,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     const heroArch = document.getElementById('hero-arch-block');
     const heroBottom = document.getElementById('hero-bottom-block');
     const verseBismillah = document.getElementById('verse-bismillah');
-    const verseCard = document.getElementById('verse-card');
+    const verseContent = document.getElementById('verse-content-block');
     const verseGreeting = document.getElementById('verse-greeting');
     const coupleHeader = document.getElementById('couple-header-block');
     const groomProfile = document.getElementById('couple-groom-profile');
@@ -796,36 +799,36 @@ import FloralCorner from '../botanical/FloralCorner.astro';
 
     if (verseBismillah) {
       tl.fromTo(verseBismillah, 
-        { y: -25, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.18, ease: 'power2.out' },
+        { y: -30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.20, ease: 'power2.out' },
         0.26
       );
     }
-    if (verseCard) {
-      tl.fromTo(verseCard,
-        { scale: 0.92, y: 30 },
-        { scale: 1, y: 0, duration: 0.22, ease: 'power2.out' },
-        0.25
+    if (verseContent) {
+      tl.fromTo(verseContent,
+        { scale: 0.94, y: 25, opacity: 0 },
+        { scale: 1, y: 0, opacity: 1, duration: 0.24, ease: 'power2.out' },
+        0.26
       );
     }
     if (verseGreeting) {
       tl.fromTo(verseGreeting,
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.18, ease: 'power2.out' },
-        0.30
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.20, ease: 'power2.out' },
+        0.32
       );
     }
 
     // Comfortable reading plateau for Ayat Suci (0.44 -> 0.58)
     tl.to(sceneVerse, { z: 0, duration: 0.14 }, 0.44);
 
-    // Verse scene ascends & clears the stage (0.58 -> 0.74)
+    // Verse scene ascends & flies past camera in 3D Z-space (0.58 -> 0.74)
     tl.to(sceneVerse, {
-      z: 450,
-      scale: 1.25,
+      z: 480,
+      scale: 1.30,
       opacity: 0,
       filter: 'blur(8px)',
-      y: -60,
+      y: -50,
       duration: 0.16,
       ease: 'power1.in',
       onComplete: () => {
