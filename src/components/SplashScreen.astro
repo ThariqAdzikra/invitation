@@ -492,6 +492,12 @@ import FloralCorner from './botanical/FloralCorner.astro';
       screen.style.display = 'none';
       document.documentElement.classList.remove('is-locked');
       document.body.classList.remove('is-locked');
+      const scrollY = urlParams.get('scroll');
+      if (scrollY) {
+        setTimeout(() => {
+          window.scrollTo(0, parseInt(scrollY, 10));
+        }, 150);
+      }
       return;
     }
 
