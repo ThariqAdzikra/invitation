@@ -267,7 +267,8 @@ import FloralCorner from './botanical/FloralCorner.astro';
 
     // =========================================================================
     // CINEMATIC SEQUENTIAL UNBOXING:
-    // FLAP OPENS -> CARD EMERGES -> ENVELOPE DISSOLVES CLEANLY -> PRISTINE CARD RESTS IN CENTER
+    // VELVETY FLAP OPENING -> SMOOTH CARD EMERGENCE -> ENVELOPE DISSOLVES ->
+    // CARD RESTS IN READING PLATEAU -> SILKY CINEMATIC CROSS-DISSOLVE TO HERO
     // =========================================================================
     function openInvitation() {
       if (isOpened) return;
@@ -279,68 +280,66 @@ import FloralCorner from './botanical/FloralCorner.astro';
 
       const tl = gsap.timeline();
 
-      // PHASE 1: Wax seal lifts & dissolves; Header and surrounding borders fade softly
+      // PHASE 1: Wax seal lifts & dissolves softly; Header and nameplate float away
       if (waxSealContainer) {
         tl.to(waxSealContainer, {
           scale: 1.15,
           y: -8,
           opacity: 0,
-          duration: 0.28,
+          duration: 0.35,
           ease: 'power2.out'
         }, 0);
       }
 
       if (editorialHeader) {
-        tl.to(editorialHeader, { opacity: 0, y: -12, duration: 0.35, ease: 'power2.out' }, 0.05);
+        tl.to(editorialHeader, { opacity: 0, y: -16, duration: 0.60, ease: 'power2.out' }, 0.05);
+      }
+
+      if (envelopeNameplate) {
+        tl.to(envelopeNameplate, { opacity: 0, y: 16, duration: 0.50, ease: 'power2.out' }, 0.05);
       }
 
       const botanicalCorners = document.querySelectorAll('.splash-botanical-corners');
-      if (botanicalCorners.length) {
-        tl.to(botanicalCorners, { opacity: 0, scale: 0.95, duration: 0.45, ease: 'power2.out' }, 0.05);
-      }
 
-      // PHASE 2: Euro flap flips open 180° in 3D (0.08s -> 0.65s)
+      // PHASE 2: Euro flap flips open 180° in 3D with authentic paper inertia (0.20s -> 1.15s)
       tl.to(topFlap, {
         rotateX: 180,
-        duration: 0.58,
+        duration: 0.95,
         ease: 'power2.inOut',
         onUpdate: function() {
           if (this.progress() > 0.45 && topFlapContainer) {
             topFlapContainer.style.zIndex = '2';
           }
         }
-      }, 0.08);
+      }, 0.20);
 
-      // PHASE 3: Surat ditarik PENUH keluar dari saku amplop (0.30s -> 0.90s)
+      // PHASE 3: Surat ditarik meluncur anggun keluar dari saku amplop (0.65s -> 1.75s)
       tl.to(letterCard, {
         opacity: 1,
         y: '-92%',
         scale: 1.02,
-        duration: 0.60,
-        ease: 'power2.out'
-      }, 0.30);
+        duration: 1.10,
+        ease: 'power3.out'
+      }, 0.65);
 
-      // AS THE CARD EMERGES: FADE OUT AND DISSOLVE THE ENVELOPE (ZERO COLLISION)
-      // All envelope parts (top flap, pocket, lining, nameplate, shadow, body)
-      // sink down and dissolve cleanly to 0 opacity
+      // AS THE CARD EMERGES: FADE OUT AND DISSOLVE THE ENVELOPE BASE (ZERO COLLISION)
+      // All envelope parts sink down softly and melt into the background (1.15s -> 1.85s)
       const envelopeDissolveTargets = [
         topFlapContainer,
         envelopePocket,
         envelopeLining,
-        envelopeNameplate,
         envelopeShadow,
         envelopeBody
       ].filter(Boolean);
 
       tl.to(envelopeDissolveTargets, {
         opacity: 0,
-        y: 30,
-        duration: 0.38,
+        y: 40,
+        duration: 0.70,
         ease: 'power2.out'
-      }, 0.48);
+      }, 1.15);
 
-      // 0.90s: Saat amplop sudah larut sempurna, posisikan surat di layer teratas
-      // dan picu suara kertas serta semburan kelopak emas confetti
+      // 1.75s: Layer surat diposisikan di paling depan & semburan kelopak emas confetti
       tl.add(() => {
         if (letterCard) {
           letterCard.style.zIndex = '50';
@@ -350,12 +349,12 @@ import FloralCorner from './botanical/FloralCorner.astro';
 
         // Haute-Couture Gold Leaf, Olive & Ivory Confetti Burst
         confetti({
-          particleCount: 50,
-          spread: 70,
-          origin: { x: 0.5, y: 0.45 },
+          particleCount: 55,
+          spread: 75,
+          origin: { x: 0.5, y: 0.42 },
           colors: ['#B89352', '#D4AF6E', '#F4E5C7', '#566A4E', '#3E4C38', '#FFFFFF'],
-          ticks: 180,
-          gravity: 0.85,
+          ticks: 200,
+          gravity: 0.75,
           scalar: 1.15,
           shapes: ['circle', 'square'],
           zIndex: 999999
@@ -363,57 +362,74 @@ import FloralCorner from './botanical/FloralCorner.astro';
 
         setTimeout(() => {
           confetti({
-            particleCount: 25,
+            particleCount: 28,
             angle: 60,
-            spread: 50,
-            origin: { x: 0.35, y: 0.45 },
+            spread: 55,
+            origin: { x: 0.35, y: 0.42 },
             colors: ['#D4AF6E', '#B89352', '#FAF8F5'],
             gravity: 0.65,
             scalar: 0.95,
             zIndex: 999999
           });
           confetti({
-            particleCount: 25,
+            particleCount: 28,
             angle: 120,
-            spread: 50,
-            origin: { x: 0.65, y: 0.45 },
+            spread: 55,
+            origin: { x: 0.65, y: 0.42 },
             colors: ['#D4AF6E', '#566A4E', '#FAF8F5'],
             gravity: 0.65,
             scalar: 0.95,
             zIndex: 999999
           });
-        }, 150);
-      }, 0.90);
+        }, 180);
+      }, 1.75);
 
-      // PHASE 4: Surat meluncur anggun ke posisi tengah membaca di kanvas yang BERSIH & MURNI (0.92s -> 1.50s)
-      // Tidak ada amplop belakang, tidak ada segitiga flap, tidak beradu sama sekali!
+      // PHASE 4: Surat meluncur turun anggun ke posisi tengah membaca di kanvas yang BERSIH (1.80s -> 2.85s)
       tl.to(letterCard, {
         y: '0%',
-        scale: 1.06,
-        boxShadow: '0 24px 70px rgba(42, 52, 38, 0.22)',
-        duration: 0.58,
-        ease: 'power2.out'
-      }, 0.92);
-
-      // PHASE 5: Jeda membaca yang tenang & natural (1.50s -> 1.80s)
-
-      // PHASE 6: BARU TRANSISI HALUS KE HALAMAN UTAMA (1.80s -> 2.50s)
-      // Camera smoothly zooms in directly onto the pristine letter card
-      tl.to(scene, {
-        scale: 2.1,
-        y: 40,
-        duration: 0.70,
-        ease: 'power2.inOut'
+        scale: 1.05,
+        boxShadow: '0 25px 70px rgba(42, 52, 38, 0.20)',
+        duration: 1.05,
+        ease: 'power3.out'
       }, 1.80);
 
-      // Splash screen dissolves smoothly into the waiting Hero section directly underneath
+      // PHASE 5: Reading Plateau yang tenang & nyaman (2.85s -> 4.80s)
+      // Memberikan waktu bagi tamu untuk membaca isi kartu undangan dengan tenang
+      // User juga dapat mengetuk layar kapan saja pada fase ini untuk langsung melanjutkan
+      const skipReading = () => {
+        if (tl.time() >= 2.5 && tl.time() < 4.8) {
+          tl.seek(4.8);
+        }
+      };
+      screen.addEventListener('click', skipReading, { once: true });
+
+      // PHASE 6: SILKY-SMOOTH CINEMATIC DISSOLVE KE HALAMAN UTAMA (4.80s -> 6.00s)
+      // Surat mengapung lembut ke atas, sementara splash screen larut halus ke Hero di baliknya
+      tl.to(scene, {
+        scale: 1.10,
+        y: -30,
+        opacity: 0,
+        duration: 1.20,
+        ease: 'power2.inOut'
+      }, 4.80);
+
+      if (botanicalCorners.length) {
+        tl.to(botanicalCorners, {
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.90,
+          ease: 'power2.inOut'
+        }, 4.90);
+      }
+
+      // Splash screen larut dengan halus menampilkan section Hero
       tl.to(screen, {
         opacity: 0,
-        duration: 0.60,
+        duration: 1.10,
         ease: 'power2.inOut'
-      }, 1.90);
+      }, 4.90);
 
-      // PHASE 7: Transition Complete — Enable Lenis Scroll & Clean Screen (2.55s)
+      // PHASE 7: Transition Complete — Enable Lenis Scroll & Clean Screen (6.05s)
       tl.add(() => {
         if (screen) screen.style.display = 'none';
         document.documentElement.classList.remove('is-locked');
@@ -424,7 +440,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
           (window as any).__lenis.start();
         }
         window.dispatchEvent(new CustomEvent('invitationOpened'));
-      }, 2.55);
+      }, 6.05);
     }
 
     // Event listeners: Klik wax seal atau amplop langsung membuka
