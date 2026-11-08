@@ -480,8 +480,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
       </section>
 
       <!-- ===================================================================
-           SCENE 4: KISAH ASMARALOKA (DEDICATED SPOTLIGHT POETRY THEATER)
-           (Z: -750 -> 0 -> Spotlight Stanzas 01, 02, 03 -> Climax)
+           SCENE 4: KISAH ASMARALOKA (DRAMATIC 3D CINEMATIC Z-SPACE FLY-THROUGH)
            =================================================================== -->
       <section 
         id="scene-asmaraloka" 
@@ -489,98 +488,120 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         style="transform: translate3d(0, 0, -750px); transform-style: preserve-3d;"
         aria-label="Kisah Asmaraloka"
       >
-        <!-- Luminous Twilight Amber Spotlight & Stardust Aura -->
+        <!-- Luminous Twilight Amber Spotlight & Celestial Aura -->
         <div class="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden">
-          <div id="asmaraloka-ambient-halo" class="w-[520px] h-[520px] sm:w-[680px] sm:h-[680px] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.22)_0%,rgba(238,175,115,0.14)_35%,rgba(74,93,67,0.03)_65%,transparent_85%)] blur-3xl opacity-80 pointer-events-none transition-all duration-700"></div>
+          <div id="asmaraloka-ambient-halo" class="w-[520px] h-[520px] sm:w-[720px] sm:h-[720px] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.25)_0%,rgba(238,175,115,0.16)_35%,rgba(74,93,67,0.03)_65%,transparent_85%)] blur-3xl opacity-80 pointer-events-none transition-all duration-700"></div>
         </div>
 
         <div class="max-w-xl md:max-w-2xl lg:max-w-3xl w-full mx-auto flex flex-col items-center justify-center my-auto relative z-10 px-4 sm:px-6">
           
           <!-- Asmaraloka Header -->
-          <div id="asmaraloka-header" class="flex flex-col items-center mb-5 sm:mb-8 will-change-transform">
-            <span class="text-[0.6rem] sm:text-[0.68rem] tracking-[0.38em] text-[#B89352] uppercase font-semibold mb-1">
+          <div id="asmaraloka-header" class="flex flex-col items-center mb-6 sm:mb-10 will-change-transform">
+            <span class="text-[0.62rem] sm:text-[0.68rem] tracking-[0.4em] text-[#B89352] uppercase font-semibold mb-1.5">
               KISAH PERJALANAN CINTA
             </span>
             <div class="flex items-center justify-center gap-3">
-              <span class="h-[1px] w-8 sm:w-16 bg-gradient-to-r from-transparent via-[#B89352] to-[#B89352]"></span>
+              <span class="h-[1px] w-10 sm:w-20 bg-gradient-to-r from-transparent via-[#B89352] to-[#B89352]"></span>
               <span class="text-[#B89352] text-xs">❦</span>
               <h2 class="font-display italic text-3xl sm:text-4xl md:text-5xl text-[#2A3426] tracking-wide font-normal">
                 Asmaraloka
               </h2>
               <span class="text-[#B89352] text-xs">❦</span>
-              <span class="h-[1px] w-8 sm:w-16 bg-gradient-to-l from-transparent via-[#B89352] to-[#B89352]"></span>
+              <span class="h-[1px] w-10 sm:w-20 bg-gradient-to-l from-transparent via-[#B89352] to-[#B89352]"></span>
             </div>
-            <p class="text-[0.62rem] sm:text-xs text-[#7E8F77] font-light tracking-widest mt-1.5">
+            <p class="text-[0.58rem] sm:text-[0.65rem] text-[#7E8F77] font-light tracking-[0.28em] uppercase mt-2">
               TIGA BABAK MENUJU SATU MUARA
             </p>
           </div>
 
-          <!-- Stanza Spotlight Theater Container (Stacked in 3D Center) -->
-          <div id="asmaraloka-theater" class="relative w-full flex items-center justify-center min-h-[210px] sm:min-h-[240px]">
+          <!-- Stanza 3D Cinema Stage (Perspective Space for Continuous Camera Dolly) -->
+          <div 
+            id="asmaraloka-theater" 
+            class="relative w-full flex items-center justify-center min-h-[220px] sm:min-h-[260px]"
+            style="perspective: 1200px; transform-style: preserve-3d;"
+          >
             
-            <!-- STANZA 1: AWAL CERITA -->
-            <div id="stanza-1" class="stanza-card absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-center will-change-transform">
-              <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#B89352]/50 bg-white/85 shadow-xs mb-3">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#B89352]"></span>
-                <span class="text-[0.58rem] sm:text-[0.65rem] tracking-[0.26em] text-[#B89352] uppercase font-semibold">
-                  01 &bull; Awal Cerita
+            <!-- BABAK 1: AWAL CERITA -->
+            <div 
+              id="stanza-1" 
+              class="stanza-card absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-center will-change-transform"
+              style="transform-style: preserve-3d;"
+            >
+              <!-- Fine Editorial Roman Chapter Marker (NO PILL!) -->
+              <div class="flex items-center justify-center gap-2.5 mb-3 sm:mb-4">
+                <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]/60"></span>
+                <span class="text-[0.58rem] sm:text-[0.65rem] tracking-[0.34em] text-[#B89352] uppercase font-semibold">
+                  BABAK I &bull; AWAL CERITA
                 </span>
+                <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]/60"></span>
               </div>
-              <p class="font-display italic text-lg sm:text-2xl md:text-3xl text-[#2A3426] leading-relaxed max-w-xl mx-auto px-2">
+
+              <!-- Romantic Poetry Verse -->
+              <blockquote class="font-display italic text-lg sm:text-2xl md:text-3xl text-[#2A3426] leading-relaxed sm:leading-loose max-w-xl mx-auto px-2">
                 &ldquo;Tidak semua awal perlu diceritakan panjang, karena yang bertahan akan selalu menemukan jalannya. Bukan karena semuanya sempurna, melainkan karena kami terus belajar untuk tumbuh bersama.&rdquo;
-              </p>
-              <div class="mt-4 flex items-center justify-center gap-2 opacity-60">
-                <span class="w-12 h-[1px] bg-[#B89352]/40"></span>
-                <span class="text-[0.6rem] text-[#B89352]">&hearts;</span>
-                <span class="w-12 h-[1px] bg-[#B89352]/40"></span>
+              </blockquote>
+
+              <div class="mt-4 flex items-center justify-center gap-2 opacity-50">
+                <span class="w-10 h-[1px] bg-[#B89352]/40"></span>
+                <span class="text-[0.55rem] text-[#B89352]">❧</span>
+                <span class="w-10 h-[1px] bg-[#B89352]/40"></span>
               </div>
             </div>
 
-            <!-- STANZA 2: TITIK TEMU -->
-            <div id="stanza-2" class="stanza-card absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-center will-change-transform opacity-0 pointer-events-none">
-              <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#B89352]/50 bg-white/85 shadow-xs mb-3">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#B89352]"></span>
-                <span class="text-[0.58rem] sm:text-[0.65rem] tracking-[0.26em] text-[#B89352] uppercase font-semibold">
-                  02 &bull; Titik Temu
+            <!-- BABAK 2: TITIK TEMU -->
+            <div 
+              id="stanza-2" 
+              class="stanza-card absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-center will-change-transform opacity-0 pointer-events-none"
+              style="transform-style: preserve-3d;"
+            >
+              <!-- Fine Editorial Roman Chapter Marker (NO PILL!) -->
+              <div class="flex items-center justify-center gap-2.5 mb-3 sm:mb-4">
+                <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]/60"></span>
+                <span class="text-[0.58rem] sm:text-[0.65rem] tracking-[0.34em] text-[#B89352] uppercase font-semibold">
+                  BABAK II &bull; TITIK TEMU
                 </span>
+                <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]/60"></span>
               </div>
-              <p class="font-display italic text-lg sm:text-2xl md:text-3xl text-[#2A3426] leading-relaxed max-w-xl mx-auto px-2">
+
+              <!-- Romantic Poetry Verse -->
+              <blockquote class="font-display italic text-lg sm:text-2xl md:text-3xl text-[#2A3426] leading-relaxed sm:leading-loose max-w-xl mx-auto px-2">
                 &ldquo;Kami percaya, tidak ada pertemuan yang benar-benar kebetulan. Ada doa yang diam-diam dikabulkan, ada langkah yang diarahkan tanpa kita sadari. Dan Allah SWT, dengan cara-Nya yang paling tenang, menuntun kami sampai di titik ini.&rdquo;
-              </p>
-              <div class="mt-4 flex items-center justify-center gap-2 opacity-60">
-                <span class="w-12 h-[1px] bg-[#B89352]/40"></span>
-                <span class="text-[0.6rem] text-[#B89352]">&hearts;</span>
-                <span class="w-12 h-[1px] bg-[#B89352]/40"></span>
+              </blockquote>
+
+              <div class="mt-4 flex items-center justify-center gap-2 opacity-50">
+                <span class="w-10 h-[1px] bg-[#B89352]/40"></span>
+                <span class="text-[0.55rem] text-[#B89352]">❧</span>
+                <span class="w-10 h-[1px] bg-[#B89352]/40"></span>
               </div>
             </div>
 
-            <!-- STANZA 3: SATU MUARA -->
-            <div id="stanza-3" class="stanza-card absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-center will-change-transform opacity-0 pointer-events-none">
-              <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#B89352]/50 bg-white/85 shadow-xs mb-3">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#B89352]"></span>
-                <span class="text-[0.58rem] sm:text-[0.65rem] tracking-[0.26em] text-[#B89352] uppercase font-semibold">
-                  03 &bull; Satu Muara
+            <!-- BABAK 3: SATU MUARA -->
+            <div 
+              id="stanza-3" 
+              class="stanza-card absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-center will-change-transform opacity-0 pointer-events-none"
+              style="transform-style: preserve-3d;"
+            >
+              <!-- Fine Editorial Roman Chapter Marker (NO PILL!) -->
+              <div class="flex items-center justify-center gap-2.5 mb-3 sm:mb-4">
+                <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]/60"></span>
+                <span class="text-[0.58rem] sm:text-[0.65rem] tracking-[0.34em] text-[#B89352] uppercase font-semibold">
+                  BABAK III &bull; SATU MUARA
                 </span>
+                <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]/60"></span>
               </div>
-              <p class="font-display italic text-lg sm:text-2xl md:text-3xl text-[#2A3426] leading-relaxed max-w-xl mx-auto px-2">
+
+              <!-- Romantic Poetry Verse -->
+              <blockquote class="font-display italic text-lg sm:text-2xl md:text-3xl text-[#2A3426] leading-relaxed sm:leading-loose max-w-xl mx-auto px-2">
                 &ldquo;Hingga pada waktunya, segala yang telah kami lewati bermuara pada satu keputusan yang sama. Dengan penuh syukur, kami memilih untuk saling menetap dalam ikatan yang diridhai oleh-Nya. Semoga perjalanan ini selalu diliputi ketenangan dan dipelihara dalam kebaikan yang panjang.&rdquo;
-              </p>
-              <div class="mt-4 flex items-center justify-center gap-2 opacity-60">
-                <span class="w-12 h-[1px] bg-[#B89352]/40"></span>
-                <span class="text-[0.6rem] text-[#B89352]">&hearts;</span>
-                <span class="w-12 h-[1px] bg-[#B89352]/40"></span>
+              </blockquote>
+
+              <div class="mt-4 flex items-center justify-center gap-2 opacity-50">
+                <span class="w-10 h-[1px] bg-[#B89352]/40"></span>
+                <span class="text-[0.55rem] text-[#B89352]">❧</span>
+                <span class="w-10 h-[1px] bg-[#B89352]/40"></span>
               </div>
             </div>
 
-          </div>
-
-          <!-- Stanza Dot Stepper Indicator -->
-          <div id="asmaraloka-stepper" class="mt-5 sm:mt-7 flex items-center gap-3">
-            <div id="step-dot-1" class="w-2.5 h-2.5 rounded-full bg-[#B89352] shadow-[0_0_8px_rgba(184,147,82,0.8)] scale-110 transition-all duration-300"></div>
-            <div class="w-6 h-[1px] bg-[#B89352]/30"></div>
-            <div id="step-dot-2" class="w-2 h-2 rounded-full bg-[#7E8F77]/40 scale-100 transition-all duration-300"></div>
-            <div class="w-6 h-[1px] bg-[#B89352]/30"></div>
-            <div id="step-dot-3" class="w-2 h-2 rounded-full bg-[#7E8F77]/40 scale-100 transition-all duration-300"></div>
           </div>
 
         </div>
@@ -662,14 +683,11 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     const stanza1 = document.getElementById('stanza-1');
     const stanza2 = document.getElementById('stanza-2');
     const stanza3 = document.getElementById('stanza-3');
-    const stepDot1 = document.getElementById('step-dot-1');
-    const stepDot2 = document.getElementById('step-dot-2');
-    const stepDot3 = document.getElementById('step-dot-3');
 
-    // Initialize stanzas initial visibility
-    if (stanza1) gsap.set(stanza1, { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', pointerEvents: 'auto' });
-    if (stanza2) gsap.set(stanza2, { opacity: 0, y: 30, scale: 0.96, filter: 'blur(8px)', pointerEvents: 'none' });
-    if (stanza3) gsap.set(stanza3, { opacity: 0, y: 30, scale: 0.96, filter: 'blur(8px)', pointerEvents: 'none' });
+    // Initialize stanzas initial 3D positions in Z-space
+    if (stanza1) gsap.set(stanza1, { z: 0, scale: 1, opacity: 1, filter: 'blur(0px)', pointerEvents: 'auto' });
+    if (stanza2) gsap.set(stanza2, { z: -350, scale: 0.75, opacity: 0, filter: 'blur(12px)', pointerEvents: 'none' });
+    if (stanza3) gsap.set(stanza3, { z: -350, scale: 0.75, opacity: 0, filter: 'blur(12px)', pointerEvents: 'none' });
 
     const pip1 = document.getElementById('pip-1');
     const pip2 = document.getElementById('pip-2');
@@ -932,8 +950,8 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     }, 1.66);
 
     // =========================================================================
-    // STEP 5: SCENE 4 — KISAH ASMARALOKA SPOTLIGHT SCRUB (1.68 -> 2.95)
-    // Bait demi bait menyala bergantian dengan aura emas temaram
+    // STEP 5: SCENE 4 — KISAH ASMARALOKA 3D CONTINUOUS FLY-THROUGH (1.68 -> 3.02)
+    // Saling meluncur melewati kamera dalam ruang 3D (Z-space depth dolly)
     // =========================================================================
     tl.to(sceneAsmaraloka, {
       z: 0,
@@ -949,151 +967,123 @@ import FloralCorner from '../botanical/FloralCorner.astro';
 
     if (asmaralokaHeader) {
       tl.fromTo(asmaralokaHeader,
-        { y: -25, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.18, ease: 'power2.out' },
-        1.72
+        { y: -30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.20, ease: 'power2.out' },
+        1.70
       );
     }
 
     if (asmaralokaHalo) {
       tl.fromTo(asmaralokaHalo,
-        { scale: 0.82, opacity: 0 },
-        { scale: 1, opacity: 0.85, duration: 0.24, ease: 'power2.out' },
+        { scale: 0.80, opacity: 0 },
+        { scale: 1, opacity: 0.85, duration: 0.25, ease: 'power2.out' },
         1.70
       );
     }
 
-    // Stanza 1 Reading Plateau (1.88 -> 2.14)
-    tl.to(sceneAsmaraloka, { z: 0, duration: 0.26 }, 1.88);
+    // BABAK 1: READING PLATEAU (1.88 -> 2.15)
+    tl.to(sceneAsmaraloka, { z: 0, duration: 0.27 }, 1.88);
 
-    // Stanza 1 Dims & Stanza 2 Illuminates (2.14 -> 2.26)
+    // TRANSITION 1 -> 2: BABAK 1 FLIES PAST CAMERA & BABAK 2 EMERGES (2.15 -> 2.32)
     if (stanza1 && stanza2) {
+      // Stanza 1 rushes forward past the camera in 3D into memory
       tl.to(stanza1, {
-        y: -25,
+        z: 420,
+        scale: 1.35,
         opacity: 0,
-        filter: 'blur(8px)',
-        duration: 0.12,
+        filter: 'blur(16px)',
+        duration: 0.16,
         ease: 'power2.in',
         onComplete: () => {
           if (stanza1) stanza1.style.pointerEvents = 'none';
         }
-      }, 2.14);
+      }, 2.15);
 
-      if (stepDot1 && stepDot2) {
-        tl.to(stepDot1, {
-          backgroundColor: '#7E8F77',
-          opacity: 0.4,
-          scale: 1,
-          boxShadow: 'none',
-          duration: 0.12
-        }, 2.14);
-
-        tl.to(stepDot2, {
-          backgroundColor: '#B89352',
-          opacity: 1,
-          scale: 1.15,
-          boxShadow: '0 0 10px rgba(184,147,82,0.8)',
-          duration: 0.12
-        }, 2.20);
-      }
-
+      // Stanza 2 glides in from the deep golden background to focal plane
       tl.fromTo(stanza2,
-        { y: 25, opacity: 0, filter: 'blur(8px)' },
+        { z: -350, scale: 0.75, opacity: 0, filter: 'blur(12px)' },
         { 
-          y: 0, 
+          z: 0, 
+          scale: 1.0, 
           opacity: 1, 
           filter: 'blur(0px)', 
-          duration: 0.16, 
+          duration: 0.20, 
           ease: 'power2.out',
           onStart: () => {
             if (stanza2) stanza2.style.pointerEvents = 'auto';
           }
         },
-        2.20
+        2.18
       );
 
       if (asmaralokaHalo) {
         tl.to(asmaralokaHalo, {
-          scale: 1.12,
-          opacity: 0.92,
-          duration: 0.16
-        }, 2.20);
+          scale: 1.15,
+          opacity: 0.95,
+          duration: 0.20
+        }, 2.18);
       }
     }
 
-    // Stanza 2 Reading Plateau (2.26 -> 2.50)
-    tl.to(sceneAsmaraloka, { z: 0, duration: 0.24 }, 2.26);
+    // BABAK 2: READING PLATEAU (2.32 -> 2.58)
+    tl.to(sceneAsmaraloka, { z: 0, duration: 0.26 }, 2.32);
 
-    // Stanza 2 Dims & Stanza 3 Illuminates (2.50 -> 2.62)
+    // TRANSITION 2 -> 3: BABAK 2 FLIES PAST CAMERA & BABAK 3 EMERGES (2.58 -> 2.75)
     if (stanza2 && stanza3) {
+      // Stanza 2 rushes forward past the camera in 3D
       tl.to(stanza2, {
-        y: -25,
+        z: 420,
+        scale: 1.35,
         opacity: 0,
-        filter: 'blur(8px)',
-        duration: 0.12,
+        filter: 'blur(16px)',
+        duration: 0.16,
         ease: 'power2.in',
         onComplete: () => {
           if (stanza2) stanza2.style.pointerEvents = 'none';
         }
-      }, 2.50);
+      }, 2.58);
 
-      if (stepDot2 && stepDot3) {
-        tl.to(stepDot2, {
-          backgroundColor: '#7E8F77',
-          opacity: 0.4,
-          scale: 1,
-          boxShadow: 'none',
-          duration: 0.12
-        }, 2.50);
-
-        tl.to(stepDot3, {
-          backgroundColor: '#B89352',
-          opacity: 1,
-          scale: 1.15,
-          boxShadow: '0 0 10px rgba(184,147,82,0.8)',
-          duration: 0.12
-        }, 2.56);
-      }
-
+      // Stanza 3 glides forward into radiant emotional clarity
       tl.fromTo(stanza3,
-        { y: 25, opacity: 0, filter: 'blur(8px)' },
+        { z: -350, scale: 0.75, opacity: 0, filter: 'blur(12px)' },
         { 
-          y: 0, 
+          z: 0, 
+          scale: 1.02, 
           opacity: 1, 
           filter: 'blur(0px)', 
-          duration: 0.16, 
+          duration: 0.20, 
           ease: 'power2.out',
           onStart: () => {
             if (stanza3) stanza3.style.pointerEvents = 'auto';
           }
         },
-        2.56
+        2.61
       );
 
       if (asmaralokaHalo) {
         tl.to(asmaralokaHalo, {
-          scale: 1.22,
+          scale: 1.30,
           opacity: 1.0,
-          duration: 0.16
-        }, 2.56);
+          duration: 0.20
+        }, 2.61);
       }
     }
 
-    // Stanza 3 Reading Plateau (The Sacred Vow) (2.62 -> 2.82)
-    tl.to(sceneAsmaraloka, { z: 0, duration: 0.20 }, 2.62);
+    // BABAK 3: CLIMAX SACRED VOW READING PLATEAU (2.75 -> 2.92)
+    tl.to(sceneAsmaraloka, { z: 0, duration: 0.17 }, 2.75);
 
-    // Climax Ascend & Section Transition (2.82 -> 2.95)
+    // Climax Ascend & Section Transition to UnifiedEvent (2.92 -> 3.05)
     tl.to(sceneAsmaraloka, {
-      y: -50,
-      scale: 1.06,
+      y: -60,
+      scale: 1.08,
       opacity: 0,
-      filter: 'blur(6px)',
+      filter: 'blur(8px)',
       duration: 0.13,
       ease: 'power1.in',
       onComplete: () => {
         if (sceneAsmaraloka) sceneAsmaraloka.style.pointerEvents = 'none';
       }
-    }, 2.82);
+    }, 2.92);
 
     // Ensure ScrollTrigger recalculates after invitation envelope is unboxed
     window.addEventListener('invitationOpened', () => {
