@@ -60,33 +60,18 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         style="transform: translate3d(0, 0, 0px); transform-style: preserve-3d;"
         aria-label="Cover Undangan Pernikahan"
       >
-        <!-- Haute-Couture Botanical Corner Filigree Framing (The Royal Stationery Frame) -->
-        <div id="hero-corner-frame" class="absolute inset-1 sm:inset-4 pointer-events-none z-0 overflow-hidden opacity-75 transition-opacity duration-700">
-          <div class="absolute top-0 left-0">
-            <FloralCorner position="top-left" size={90} className="sm:scale-125 origin-top-left" />
-          </div>
-          <div class="absolute top-0 right-0">
-            <FloralCorner position="top-right" size={90} className="sm:scale-125 origin-top-right" />
-          </div>
-          <div class="absolute bottom-0 left-0">
-            <FloralCorner position="bottom-left" size={90} className="sm:scale-125 origin-bottom-left" />
-          </div>
-          <div class="absolute bottom-0 right-0">
-            <FloralCorner position="bottom-right" size={90} className="sm:scale-125 origin-bottom-right" />
-          </div>
-        </div>
-
         <div class="max-w-lg w-full mx-auto flex flex-col items-center justify-between h-[84svh] max-h-[720px] my-auto relative z-10">
           
           <!-- TOP BLOCK: Crest, Tagline, & Symmetrical Headline -->
-          <div id="hero-top-block" class="flex flex-col items-center pt-1 will-change-transform">
-            <!-- Monogram Crest -->
-            <div class="mb-1.5">
-              <FloralWreath monogram="ZD" size={62} />
+          <div id="hero-top-block" class="flex flex-col items-center pt-2 sm:pt-3 will-change-transform">
+            <!-- Monogram Crest with Soft Gold Aura -->
+            <div class="mb-2 relative">
+              <div class="absolute -inset-2 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.2)_0%,transparent_70%)] blur-sm pointer-events-none"></div>
+              <FloralWreath monogram="ZD" size={54} />
             </div>
 
             <!-- Overline -->
-            <p class="text-[0.62rem] sm:text-xs tracking-[0.34em] text-[#B89352] uppercase font-semibold mb-1">
+            <p class="text-[0.62rem] sm:text-xs tracking-[0.38em] text-[#B89352] uppercase font-semibold mb-1">
               WALIMATUL 'URS
             </p>
 
@@ -95,29 +80,27 @@ import FloralCorner from '../botanical/FloralCorner.astro';
               {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.bride.nickname}
             </h1>
 
-            <div class="my-1.5 opacity-75">
-              <FloralFlourish width={140} height={18} />
-            </div>
-
-            <!-- Flying White Doves Carrying Olive Sprigs -->
-            <div class="my-1 flex justify-center opacity-90">
-              <FlyingDoves width={250} height={42} />
+            <!-- Whispered Minimalist Hairline Divider -->
+            <div class="mt-2 mb-1 flex items-center justify-center gap-2.5 opacity-70">
+              <span class="w-10 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]/50"></span>
+              <span class="text-[0.55rem] text-[#B89352]">✦</span>
+              <span class="w-10 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]/50"></span>
             </div>
           </div>
 
-          <!-- CENTER BLOCK: Frameless Organic Fine-Art Portal with Ethereal Golden Glow -->
-          <div id="hero-arch-block" class="my-auto py-1 relative will-change-transform flex flex-col items-center justify-center">
+          <!-- CENTER BLOCK: Royal Arch Portal with Ethereal Golden Glow -->
+          <div id="hero-arch-block" class="my-auto py-2 relative will-change-transform flex flex-col items-center justify-center">
             <!-- Ethereal Sunrise Golden Aura Blooming Naturally Behind Art -->
-            <div class="absolute -inset-10 sm:-inset-14 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.26)_0%,rgba(184,147,82,0.14)_40%,rgba(74,93,67,0.03)_65%,transparent_80%)] blur-2xl pointer-events-none -z-10"></div>
+            <div class="absolute -inset-10 sm:-inset-16 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.28)_0%,rgba(184,147,82,0.15)_40%,rgba(74,93,67,0.03)_65%,transparent_80%)] blur-2xl pointer-events-none -z-10"></div>
 
-            <!-- Single Refined Hairline Arch Contour (Frameless Haute-Couture) -->
-            <div class="relative w-44 sm:w-52 aspect-[3/4] mx-auto rounded-t-full p-1 overflow-hidden group">
+            <!-- Harmonious Royal Arch Proportion (w-48 sm:w-56 aspect-[3/4]) -->
+            <div class="relative w-48 sm:w-56 aspect-[3/4] mx-auto rounded-t-full p-1 overflow-hidden group shadow-[0_12px_35px_rgba(42,52,38,0.10)]">
               <!-- Dual Whispering Hairlines -->
-              <div class="absolute inset-0 rounded-t-full border border-[#B89352]/35 pointer-events-none z-10"></div>
+              <div class="absolute inset-0 rounded-t-full border border-[#B89352]/40 pointer-events-none z-10"></div>
               <div class="absolute inset-1.5 rounded-t-full border border-[#B89352]/20 pointer-events-none z-10"></div>
 
               <!-- Organic Artwork Canvas -->
-              <div class="w-full h-full rounded-t-full overflow-hidden relative">
+              <div class="w-full h-full rounded-t-full overflow-hidden relative bg-[#FAF8F5]">
                 <img 
                   src="/assets/vector-hero.jpg" 
                   alt={`Ilustrasi Mempelai ${content.couple.groom.nickname} & ${content.couple.bride.nickname}`} 
@@ -127,31 +110,36 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                 />
                 <!-- Soft Feathered Dissolve at Base into Linen Canvas -->
                 <div class="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#FAF8F5] via-[#FAF8F5]/40 to-transparent pointer-events-none"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-[#2A3426]/08 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#2A3426]/06 via-transparent to-transparent pointer-events-none"></div>
               </div>
             </div>
           </div>
 
-          <!-- BOTTOM BLOCK: Date, Venue, & Stitched Guest Welcoming Plaque -->
-          <div id="hero-bottom-block" class="flex flex-col items-center gap-1.5 pb-2 w-full will-change-transform">
-            <p class="text-[0.68rem] sm:text-xs text-[#4A5D43] tracking-[0.24em] uppercase font-semibold">
-              {content.event.dateFormatted} &bull; {content.event.timezone}
-            </p>
-            <p class="text-[0.62rem] text-[#7E8F77] font-light tracking-wider">
-              {content.event.venue.name} &bull; Padang
+          <!-- BOTTOM BLOCK: Minimalist Editorial Date, Venue & Guest Welcoming -->
+          <div id="hero-bottom-block" class="flex flex-col items-center gap-1 pb-2 sm:pb-3 w-full will-change-transform">
+            <!-- Event Meta -->
+            <div class="flex items-center justify-center gap-2 text-[0.62rem] sm:text-[0.7rem] text-[#4A5D43] tracking-[0.24em] uppercase font-semibold">
+              <span>{content.event.dateFormatted}</span>
+              <span class="text-[#B89352] text-[0.55rem]">&bull;</span>
+              <span>Padang</span>
+            </div>
+            
+            <p class="text-[0.58rem] sm:text-[0.62rem] text-[#7E8F77] font-light tracking-wider">
+              {content.event.venue.name}
             </p>
 
-            <!-- Personalized Guest Welcoming Plaque (Haute-Couture Stitched Badge) -->
-            <div class="mt-2 py-2 px-5 sm:px-6 rounded-xl border border-[#B89352]/40 bg-white/95 shadow-[0_4px_18px_rgba(42,52,38,0.06)] relative overflow-hidden inline-flex flex-col items-center max-w-[270px] sm:max-w-[300px]">
-              <!-- Gold Inset Border -->
-              <div class="absolute inset-1 border border-[#B89352]/25 rounded-lg pointer-events-none"></div>
-              
-              <span class="text-[0.52rem] tracking-[0.24em] uppercase text-[#7E8F77] font-semibold mb-0.5 relative z-10">
+            <!-- Minimalist Editorial Guest Welcoming Line (Clean, No Bulky Card) -->
+            <div class="mt-2.5 flex flex-col items-center">
+              <span class="text-[0.52rem] tracking-[0.3em] uppercase text-[#7E8F77] font-semibold mb-0.5">
                 Kepada Yth. Bapak/Ibu/Saudara/i:
               </span>
-              <span id="hero-guest-name" class="font-display text-xs sm:text-sm text-[#2A3426] font-normal relative z-10 truncate max-w-[230px]">
-                Tamu Undangan Terhormat
-              </span>
+              <div class="relative inline-flex items-center justify-center px-4 py-0.5">
+                <span class="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-[1px] bg-[#B89352]/40"></span>
+                <span id="hero-guest-name" class="font-display italic text-sm sm:text-base text-[#2A3426] font-normal px-2 truncate max-w-[240px] sm:max-w-[320px]">
+                  Tamu Undangan Terhormat
+                </span>
+                <span class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-[1px] bg-[#B89352]/40"></span>
+              </div>
             </div>
           </div>
 
@@ -662,7 +650,6 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     const heroTop = document.getElementById('hero-top-block');
     const heroArch = document.getElementById('hero-arch-block');
     const heroBottom = document.getElementById('hero-bottom-block');
-    const heroCorners = document.getElementById('hero-corner-frame');
     const verseBismillah = document.getElementById('verse-bismillah');
     const verseCard = document.getElementById('verse-card');
     const verseGreeting = document.getElementById('verse-greeting');
@@ -752,14 +739,6 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         y: -90,
         opacity: 0,
         duration: 0.30,
-        ease: 'power1.inOut'
-      }, 0);
-    }
-    if (heroCorners) {
-      tl.to(heroCorners, {
-        opacity: 0,
-        scale: 1.08,
-        duration: 0.26,
         ease: 'power1.inOut'
       }, 0);
     }
