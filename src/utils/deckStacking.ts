@@ -119,6 +119,67 @@ export function initSectionTransitions() {
     );
   }
 
+  // =========================================================================
+  // MULTI-PLANE PARALLAX 3D: NATURE DESCENT STAGE CHOREOGRAPHY
+  // Canopy Boughs (1.35x speed), River Stream (1.25x speed), Sunset Lake (0.85x)
+  // =========================================================================
+  const natureStage = document.getElementById('nature-descent-stage');
+  const canopyLayer = document.getElementById('nature-canopy-layer');
+  const riverLayer = document.getElementById('nature-river-layer');
+  const lakeLayer = document.getElementById('nature-lake-layer');
+
+  if (natureStage) {
+    // 1. Canopy Boughs Parallax: Emerges as user leaves the sky tunnel, gliding down at 1.35x speed
+    if (canopyLayer && eventsSec) {
+      gsap.to(canopyLayer, {
+        y: 160,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: eventsSec,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.8,
+        }
+      });
+    }
+
+    // 2. Meandering River Stream: Courses down smoothly with natural multi-plane depth
+    if (riverLayer && eventsSec && closingSec) {
+      gsap.fromTo(riverLayer,
+        { y: -60 },
+        {
+          y: 90,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: eventsSec,
+            start: 'top bottom',
+            endTrigger: closingSec,
+            end: 'bottom bottom',
+            scrub: 1.0,
+          }
+        }
+      );
+    }
+
+    // 3. Sunset Lake Surface: Rises gently to meet the sun and romantic swans in #closing
+    if (lakeLayer && closingSec) {
+      gsap.fromTo(lakeLayer,
+        { y: 70, opacity: 0.65 },
+        {
+          y: 0,
+          opacity: 1,
+          ease: 'power1.out',
+          scrollTrigger: {
+            trigger: closingSec,
+            start: 'top 85%',
+            end: 'bottom bottom',
+            scrub: 1.2,
+          }
+        }
+      );
+    }
+  }
+
   // Secondary handling for any other .section-flow elements
   const otherSections = gsap.utils.toArray<HTMLElement>('.section-flow');
   otherSections.forEach((sec, i) => {

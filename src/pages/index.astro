@@ -10,6 +10,7 @@ import ProgressBar from '../components/ProgressBar.astro';
 import Toast from '../components/Toast.astro';
 import InteractiveCanvas from '../components/InteractiveCanvas.astro';
 import CelestialSunStage from '../components/cinematic/CelestialSunStage.astro';
+import NatureDescentStage from '../components/nature/NatureDescentStage.astro';
 import content from '../data/content.json';
 ---
 
@@ -37,6 +38,9 @@ import content from '../data/content.json';
 
     <!-- Phase 2: Grounded Interactive 3D Stage (Jadwal, Countdown, & Penutup) -->
     <div id="interactive-stage" class="relative z-30">
+      <!-- 4-Stage Natural Descent Atmosphere (Canopy -> River -> Sunset Lake) -->
+      <NatureDescentStage />
+
       <UnifiedEvent />
       <Countdown />
       <Closing />
