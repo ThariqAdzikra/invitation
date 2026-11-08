@@ -18,6 +18,22 @@ import FloralCorner from './botanical/FloralCorner.astro';
   <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_45%,rgba(212,175,55,0.12)_0%,rgba(250,248,245,0.45)_50%,rgba(238,231,219,0.92)_100%)]" aria-hidden="true"></div>
   <div class="absolute inset-0 pointer-events-none opacity-30 bg-[radial-gradient(rgba(184,147,82,0.14)_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
+  <!-- FLAT-LAY ENVELOPE WATERCOLOR BOTANICAL CORNERS (Visible ONLY on envelope screen; completely dissolves when unboxed) -->
+  <div class="splash-botanical-corners absolute inset-0 pointer-events-none z-10 transition-opacity duration-700 overflow-hidden">
+    <div class="absolute top-0 left-0">
+      <img src="/assets/floral-corner-top.png" alt="" class="w-28 sm:w-44 md:w-56 h-auto opacity-85 block" />
+    </div>
+    <div class="absolute top-0 right-0">
+      <img src="/assets/floral-corner-top.png" alt="" class="w-28 sm:w-44 md:w-56 h-auto opacity-85 block scale-x-[-1]" />
+    </div>
+    <div class="absolute bottom-0 left-0">
+      <img src="/assets/floral-corner-bottom.png" alt="" class="w-32 sm:w-48 md:w-60 h-auto opacity-85 block" />
+    </div>
+    <div class="absolute bottom-0 right-0">
+      <img src="/assets/floral-corner-bottom.png" alt="" class="w-32 sm:w-48 md:w-60 h-auto opacity-85 block scale-x-[-1]" />
+    </div>
+  </div>
+
   <!-- EDITORIAL HEADER (Unopened Letter Invitation Header — No Spoilers) -->
   <div id="splash-editorial-header" class="flex flex-col items-center text-center mb-3 sm:mb-5 pointer-events-none relative z-10 transition-all duration-500">
     <!-- Small Monogram Wreath Crest -->
