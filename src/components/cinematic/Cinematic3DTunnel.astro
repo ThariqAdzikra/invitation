@@ -574,8 +574,8 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         <div class="max-w-xl md:max-w-2xl lg:max-w-3xl w-full mx-auto flex flex-col items-center justify-center my-auto relative z-10 px-4 sm:px-6">
           
           <!-- Asmaraloka Header -->
-          <div id="asmaraloka-header" class="flex flex-col items-center mb-6 sm:mb-8 will-change-transform">
-            <span class="text-[0.62rem] sm:text-[0.68rem] tracking-[0.4em] text-[#B89352] uppercase font-semibold mb-1.5">
+          <div id="asmaraloka-header" class="flex flex-col items-center mb-3 sm:mb-4 will-change-transform">
+            <span class="text-[0.62rem] sm:text-[0.68rem] tracking-[0.4em] text-[#B89352] uppercase font-semibold mb-1">
               KISAH PERJALANAN CINTA
             </span>
             <div class="flex items-center justify-center gap-3">
@@ -587,12 +587,12 @@ import FloralCorner from '../botanical/FloralCorner.astro';
               <span class="text-[#B89352] text-xs">❦</span>
               <span class="h-[1px] w-10 sm:w-20 bg-gradient-to-l from-transparent via-[#B89352] to-[#B89352]"></span>
             </div>
-            <p class="text-[0.58rem] sm:text-[0.65rem] text-[#7E8F77] font-light tracking-[0.28em] uppercase mt-2">
+            <p class="text-[0.56rem] sm:text-[0.62rem] text-[#7E8F77] font-light tracking-[0.28em] uppercase mt-1.5">
               TIGA BABAK MENUJU SATU MUARA
             </p>
 
             <!-- Minimalist Roman Chapter Indicator (I · II · III) -->
-            <div id="asmaraloka-chapter-pips" class="flex items-center justify-center gap-3.5 mt-3 select-none">
+            <div id="asmaraloka-chapter-pips" class="flex items-center justify-center gap-3 mt-2 select-none">
               <div id="chapter-pip-1" class="chapter-pip flex items-center gap-1.5 transition-all duration-300 opacity-100">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#B89352] shadow-[0_0_8px_rgba(184,147,82,0.6)]"></span>
                 <span class="font-serif text-[0.65rem] sm:text-xs text-[#2A3426] font-semibold tracking-widest">I</span>
@@ -610,32 +610,32 @@ import FloralCorner from '../botanical/FloralCorner.astro';
             </div>
           </div>
 
-          <!-- Stanza Literary Theater (Clean Vertical Parallax Stage) -->
+          <!-- Stanza Literary Theater (Clean Natural Grid Overlay) -->
           <div 
             id="asmaraloka-theater" 
-            class="relative w-full flex items-center justify-center min-h-[220px] sm:min-h-[260px]"
+            class="relative w-full grid grid-cols-1 grid-rows-1 place-items-center mt-2 sm:mt-3"
           >
             
             <!-- BABAK 1: AWAL CERITA -->
             <div 
               id="stanza-1" 
-              class="stanza-card absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-center will-change-transform"
+              class="stanza-card col-start-1 row-start-1 w-full flex flex-col items-center justify-center text-center will-change-transform"
             >
               <!-- Fine Editorial Roman Chapter Marker -->
-              <div class="flex items-center justify-center gap-2.5 mb-3 sm:mb-4">
+              <div class="flex items-center justify-center gap-2 mb-2 sm:mb-2.5">
                 <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]/60"></span>
-                <span class="text-[0.58rem] sm:text-[0.65rem] tracking-[0.34em] text-[#B89352] uppercase font-semibold">
+                <span class="text-[0.58rem] sm:text-[0.64rem] tracking-[0.34em] text-[#B89352] uppercase font-semibold">
                   BABAK I &bull; AWAL CERITA
                 </span>
                 <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]/60"></span>
               </div>
 
               <!-- Romantic Poetry Verse -->
-              <blockquote class="font-display italic text-lg sm:text-2xl md:text-3xl text-[#2A3426] leading-relaxed sm:leading-loose max-w-xl mx-auto px-2">
+              <blockquote class="font-display italic text-base sm:text-xl md:text-2xl text-[#2A3426] leading-relaxed max-w-lg sm:max-w-xl mx-auto px-4">
                 &ldquo;Tidak semua awal perlu diceritakan panjang, karena yang bertahan akan selalu menemukan jalannya. Bukan karena semuanya sempurna, melainkan karena kami terus belajar untuk tumbuh bersama.&rdquo;
               </blockquote>
 
-              <div class="mt-4 flex items-center justify-center gap-2 opacity-50">
+              <div class="mt-3 flex items-center justify-center gap-2 opacity-50">
                 <span class="w-10 h-[1px] bg-[#B89352]/40"></span>
                 <span class="text-[0.55rem] text-[#B89352]">❧</span>
                 <span class="w-10 h-[1px] bg-[#B89352]/40"></span>
@@ -645,23 +645,23 @@ import FloralCorner from '../botanical/FloralCorner.astro';
             <!-- BABAK 2: TITIK TEMU -->
             <div 
               id="stanza-2" 
-              class="stanza-card absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-center will-change-transform opacity-0 pointer-events-none"
+              class="stanza-card col-start-1 row-start-1 w-full flex flex-col items-center justify-center text-center will-change-transform opacity-0 pointer-events-none"
             >
               <!-- Fine Editorial Roman Chapter Marker -->
-              <div class="flex items-center justify-center gap-2.5 mb-3 sm:mb-4">
+              <div class="flex items-center justify-center gap-2 mb-2 sm:mb-2.5">
                 <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]/60"></span>
-                <span class="text-[0.58rem] sm:text-[0.65rem] tracking-[0.34em] text-[#B89352] uppercase font-semibold">
+                <span class="text-[0.58rem] sm:text-[0.64rem] tracking-[0.34em] text-[#B89352] uppercase font-semibold">
                   BABAK II &bull; TITIK TEMU
                 </span>
                 <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]/60"></span>
               </div>
 
               <!-- Romantic Poetry Verse -->
-              <blockquote class="font-display italic text-lg sm:text-2xl md:text-3xl text-[#2A3426] leading-relaxed sm:leading-loose max-w-xl mx-auto px-2">
+              <blockquote class="font-display italic text-base sm:text-xl md:text-2xl text-[#2A3426] leading-relaxed max-w-lg sm:max-w-xl mx-auto px-4">
                 &ldquo;Kami percaya, tidak ada pertemuan yang benar-benar kebetulan. Ada doa yang diam-diam dikabulkan, ada langkah yang diarahkan tanpa kita sadari. Dan Allah SWT, dengan cara-Nya yang paling tenang, menuntun kami sampai di titik ini.&rdquo;
               </blockquote>
 
-              <div class="mt-4 flex items-center justify-center gap-2 opacity-50">
+              <div class="mt-3 flex items-center justify-center gap-2 opacity-50">
                 <span class="w-10 h-[1px] bg-[#B89352]/40"></span>
                 <span class="text-[0.55rem] text-[#B89352]">❧</span>
                 <span class="w-10 h-[1px] bg-[#B89352]/40"></span>
@@ -671,23 +671,23 @@ import FloralCorner from '../botanical/FloralCorner.astro';
             <!-- BABAK 3: SATU MUARA -->
             <div 
               id="stanza-3" 
-              class="stanza-card absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-center will-change-transform opacity-0 pointer-events-none"
+              class="stanza-card col-start-1 row-start-1 w-full flex flex-col items-center justify-center text-center will-change-transform opacity-0 pointer-events-none"
             >
               <!-- Fine Editorial Roman Chapter Marker -->
-              <div class="flex items-center justify-center gap-2.5 mb-3 sm:mb-4">
+              <div class="flex items-center justify-center gap-2 mb-2 sm:mb-2.5">
                 <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]/60"></span>
-                <span class="text-[0.58rem] sm:text-[0.65rem] tracking-[0.34em] text-[#B89352] uppercase font-semibold">
+                <span class="text-[0.58rem] sm:text-[0.64rem] tracking-[0.34em] text-[#B89352] uppercase font-semibold">
                   BABAK III &bull; SATU MUARA
                 </span>
                 <span class="w-8 sm:w-14 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]/60"></span>
               </div>
 
               <!-- Romantic Poetry Verse -->
-              <blockquote class="font-display italic text-lg sm:text-2xl md:text-3xl text-[#2A3426] leading-relaxed sm:leading-loose max-w-xl mx-auto px-2">
+              <blockquote class="font-display italic text-base sm:text-xl md:text-2xl text-[#2A3426] leading-relaxed max-w-lg sm:max-w-xl mx-auto px-4">
                 &ldquo;Hingga pada waktunya, segala yang telah kami lewati bermuara pada satu keputusan yang sama. Dengan penuh syukur, kami memilih untuk saling menetap dalam ikatan yang diridhai oleh-Nya. Semoga perjalanan ini selalu diliputi ketenangan dan dipelihara dalam kebaikan yang panjang.&rdquo;
               </blockquote>
 
-              <div class="mt-4 flex items-center justify-center gap-2 opacity-50">
+              <div class="mt-3 flex items-center justify-center gap-2 opacity-50">
                 <span class="w-10 h-[1px] bg-[#B89352]/40"></span>
                 <span class="text-[0.55rem] text-[#B89352]">❧</span>
                 <span class="w-10 h-[1px] bg-[#B89352]/40"></span>
