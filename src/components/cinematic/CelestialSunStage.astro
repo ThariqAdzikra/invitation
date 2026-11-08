@@ -88,38 +88,59 @@
       const windowH = window.innerHeight;
       const isMobile = windowW < 640;
 
-      // Phase 1: Sunrise (Appears in Kedua Mempelai: centered royal morning sunrise crown)
-      const pSunrise = {
-        x: windowW * 0.50,
-        y: isMobile ? windowH * 0.12 : windowH * 0.14,
-        scale: isMobile ? 0.85 : 0.95
+      // 0. Dawn / Eastern Horizon: Low below the eastern horizon, concealed in morning mist
+      const pDawn = {
+        x: windowW * (isMobile ? 0.22 : 0.18),
+        y: windowH * (isMobile ? 0.80 : 0.86),
+        scale: isMobile ? 0.70 : 0.80
       };
 
-      // Phase 2: Midday (high-zenith, centered)
+      // 1. Sunrise: Dawning & ascending dramatically from eastern horizon into morning sky (Kedua Mempelai)
+      const pSunrise = {
+        x: windowW * (isMobile ? 0.32 : 0.30),
+        y: windowH * (isMobile ? 0.18 : 0.20),
+        scale: isMobile ? 0.88 : 0.96
+      };
+
+      // 2. Midday Zenith: Reaches high noon in the center sky above heavenly clouds (Asmaraloka)
       const pMidday = {
         x: windowW * 0.50,
-        y: isMobile ? windowH * 0.10 : windowH * 0.12,
-        scale: isMobile ? 1.0 : 1.1
+        y: isMobile ? windowH * 0.08 : windowH * 0.09,
+        scale: isMobile ? 1.05 : 1.18
       };
 
-      // Phase 3: Sunset (Centered behind Romantic Swans in Closing)
+      // 3. Afternoon Golden Hour: Begins westward arc as user descends to earth (Waktu & Jadwal)
+      const pAfternoon = {
+        x: windowW * (isMobile ? 0.65 : 0.68),
+        y: windowH * (isMobile ? 0.18 : 0.20),
+        scale: isMobile ? 1.00 : 1.10
+      };
+
+      // 4. Pre-Sunset: Descends towards western horizon in golden amber light (Lokasi Acara)
+      const pPreSunset = {
+        x: windowW * (isMobile ? 0.58 : 0.60),
+        y: windowH * (isMobile ? 0.30 : 0.32),
+        scale: isMobile ? 1.05 : 1.15
+      };
+
+      // 5. Sunset Finale: Sinks gracefully into the sunset lake directly behind the Romantic Swans (Closing)
       const pSunset = {
         x: windowW * 0.50,
-        y: isMobile ? windowH * 0.40 : windowH * 0.42,
-        scale: isMobile ? 0.95 : 1.10
+        y: isMobile ? windowH * 0.38 : windowH * 0.42,
+        scale: isMobile ? 1.12 : 1.25
       };
 
-      return { pSunrise, pMidday, pSunset, windowW, windowH };
+      return { pDawn, pSunrise, pMidday, pAfternoon, pPreSunset, pSunset, windowW, windowH };
     }
 
     let coords = calculateCoordinates();
 
     // STRICT REQUIREMENT 1: Sun is 100% HIDDEN at the beginning (Hero & Verse)!
     gsap.set(sunWrapper, {
-      x: coords.pSunrise.x,
-      y: coords.pSunrise.y, // Placed safely at top zenith
-      scale: coords.pSunrise.scale,
-      opacity: 0 // Zero opacity at start!
+      x: coords.pDawn.x,
+      y: coords.pDawn.y,
+      scale: coords.pDawn.scale,
+      opacity: 0 // Hidden below eastern horizon at start!
     });
 
     if (skySunrise) gsap.set(skySunrise, { opacity: 0 });
@@ -129,11 +150,12 @@
 
     // =========================================================================
     // MASTER SCROLL-DRIVEN CELESTIAL TIMELINE (Synchronized to Narrative Flow)
-    // 0.00 -> 0.24: Hero & Verse (Sun COMPLETELY HIDDEN, Opacity 0)
-    // 0.25 -> 0.40: KEDUA MEMPELAI (Sunrise! Sun rises gracefully from horizon)
-    // 0.40 -> 0.76: ASMARALOKA & WAKTU & JADWAL (Midday zenith, champagne golden daylight)
-    // 0.76 -> 0.86: LOKASI ACARA (Golden Hour, afternoon sun begins gentle descent)
-    // 0.86 -> 1.00: CLOSING FINALE (Sunset! Sinks behind romantic swans in rich terracotta dusk)
+    // 0.00 -> 0.18: Hero & Verse (Sun hidden below eastern horizon)
+    // 0.18 -> 0.38: KEDUA MEMPELAI (Sunrise! Ascends dramatically from horizon)
+    // 0.38 -> 0.64: ASMARALOKA (Midday zenith, high noon champagne golden daylight)
+    // 0.64 -> 0.78: WAKTU & JADWAL (Early afternoon, arcs towards western sky)
+    // 0.78 -> 0.88: LOKASI ACARA (Golden Hour, afternoon sun descends towards dusk)
+    // 0.88 -> 1.00: CLOSING FINALE (Sunset! Sinks behind romantic swans in rich terracotta dusk)
     // =========================================================================
     const sunTL = gsap.timeline({
       scrollTrigger: {
@@ -144,80 +166,97 @@
       }
     });
 
-    // 1. Hero & Verse: Sun stays at opacity 0 (NO SUN AT START!)
+    // 1. Hero & Verse: Sun stays hidden below horizon
     sunTL.to(sunWrapper, {
       opacity: 0,
-      duration: 0.24
+      x: () => calculateCoordinates().pDawn.x,
+      y: () => calculateCoordinates().pDawn.y,
+      duration: 0.18
     }, 0);
 
-    // 2. SUNRISE: Enters at Kedua Mempelai (0.25 -> 0.38)
-    // Sun dawns gracefully at the top center with warm celestial aura
+    // 2. SUNRISE: Dawns and rises from eastern horizon into morning sky (0.18 -> 0.38)
     sunTL.to(sunWrapper, {
-      opacity: 0.85,
+      opacity: 0.90,
       x: () => calculateCoordinates().pSunrise.x,
       y: () => calculateCoordinates().pSunrise.y,
       scale: () => calculateCoordinates().pSunrise.scale,
-      duration: 0.14,
-      ease: 'power2.out'
-    }, 0.25);
+      duration: 0.20,
+      ease: 'power1.out'
+    }, 0.18);
 
-    // Soft Sunrise blush fades in at Kedua Mempelai
     if (skySunrise) {
       sunTL.to(skySunrise, {
         opacity: 0.85,
-        duration: 0.14,
-        ease: 'power2.out'
-      }, 0.25);
+        duration: 0.20,
+        ease: 'power1.out'
+      }, 0.18);
     }
 
-    // 3. MIDDAY: Asmaraloka & Waktu & Jadwal (0.40 -> 0.76)
-    // Sun ascends to high noon at zenith with radiant daylight
+    // 3. MIDDAY ZENITH: Ascends to highest noon zenith in Asmaraloka (0.38 -> 0.64)
     sunTL.to(sunWrapper, {
       x: () => calculateCoordinates().pMidday.x,
       y: () => calculateCoordinates().pMidday.y,
       scale: () => calculateCoordinates().pMidday.scale,
-      duration: 0.32,
+      duration: 0.26,
       ease: 'power1.inOut'
-    }, 0.40);
+    }, 0.38);
 
-    // Sunrise sky transitions to Midday champagne brightness
     if (skySunrise && skyMidday) {
-      sunTL.to(skySunrise, { opacity: 0, duration: 0.16, ease: 'power1.inOut' }, 0.42);
-      sunTL.to(skyMidday, { opacity: 0.80, duration: 0.20, ease: 'power1.inOut' }, 0.44);
+      sunTL.to(skySunrise, { opacity: 0, duration: 0.15, ease: 'power1.inOut' }, 0.40);
+      sunTL.to(skyMidday, { opacity: 0.85, duration: 0.22, ease: 'power1.inOut' }, 0.42);
     }
 
-    // 4. GOLDEN HOUR & SUNSET: Lokasi -> Closing (0.76 -> 1.00)
-    // Sun descends toward the lake horizon directly behind the romantic swans
+    // 4. AFTERNOON GOLDEN HOUR: Arcs westward as user descends to earth (0.64 -> 0.78)
+    sunTL.to(sunWrapper, {
+      x: () => calculateCoordinates().pAfternoon.x,
+      y: () => calculateCoordinates().pAfternoon.y,
+      scale: () => calculateCoordinates().pAfternoon.scale,
+      duration: 0.14,
+      ease: 'power1.inOut'
+    }, 0.64);
+
+    // 5. PRE-SUNSET: Descends towards western dusk horizon in Lokasi (0.78 -> 0.88)
+    sunTL.to(sunWrapper, {
+      x: () => calculateCoordinates().pPreSunset.x,
+      y: () => calculateCoordinates().pPreSunset.y,
+      scale: () => calculateCoordinates().pPreSunset.scale,
+      duration: 0.10,
+      ease: 'power1.inOut'
+    }, 0.78);
+
+    if (skyMidday && skySunset) {
+      sunTL.to(skyMidday, { opacity: 0, duration: 0.10, ease: 'power1.inOut' }, 0.78);
+      sunTL.to(skySunset, { opacity: 0.75, duration: 0.10, ease: 'power1.inOut' }, 0.78);
+    }
+
+    if (sunSunsetOverlay) {
+      sunTL.to(sunSunsetOverlay, { opacity: 0.60, duration: 0.10 }, 0.78);
+    }
+
+    // 6. SUNSET FINALE: Sinks gracefully behind Romantic Swans into the lake (0.88 -> 1.00)
     sunTL.to(sunWrapper, {
       x: () => calculateCoordinates().pSunset.x,
       y: () => calculateCoordinates().pSunset.y,
       scale: () => calculateCoordinates().pSunset.scale,
-      duration: 0.24,
-      ease: 'power1.inOut'
-    }, 0.76);
+      duration: 0.12,
+      ease: 'power2.out'
+    }, 0.88);
 
-    // Midday sky transitions to warm amber terracotta Sunset glow in Closing
-    if (skyMidday && skySunset) {
-      sunTL.to(skyMidday, { opacity: 0, duration: 0.12, ease: 'power1.inOut' }, 0.78);
-      sunTL.to(skySunset, { opacity: 1, duration: 0.20, ease: 'power2.out' }, 0.80);
+    if (skySunset) {
+      sunTL.to(skySunset, { opacity: 1.0, duration: 0.12, ease: 'power2.out' }, 0.88);
     }
 
-    // Sunset color shift on sun sphere & outer bloom
     if (sunSunsetOverlay) {
-      sunTL.to(sunSunsetOverlay, {
-        opacity: 1,
-        duration: 0.20,
-        ease: 'power2.out'
-      }, 0.80);
+      sunTL.to(sunSunsetOverlay, { opacity: 1.0, duration: 0.12, ease: 'power2.out' }, 0.88);
     }
 
     if (sunGlow) {
       sunTL.to(sunGlow, {
-        scale: 1.25,
+        scale: 1.35,
         opacity: 0.95,
-        duration: 0.20,
+        duration: 0.12,
         ease: 'power2.out'
-      }, 0.80);
+      }, 0.88);
     }
 
     // Handle viewport resize gracefully
