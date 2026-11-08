@@ -1,5 +1,5 @@
 ---
-// CelestialSunStage.astro — Photorealistic Celestial Sun with Concentric Halos & Cinematic Bokeh Orbs
+// CelestialSunStage.astro — Soft-Blurred Dreamy Celestial Sun & Three-Phase Atmospheric Sky
 ---
 
 <div id="celestial-stage" class="fixed inset-0 pointer-events-none z-[4] overflow-hidden" aria-hidden="true">
@@ -12,7 +12,7 @@
   <div 
     id="sky-sunrise" 
     class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out will-change-opacity"
-    style="background: radial-gradient(circle at 18% 70%, rgba(247, 218, 198, 0.45) 0%, rgba(245, 230, 215, 0.22) 40%, transparent 75%);"
+    style="background: radial-gradient(circle at 22% 40%, rgba(247, 218, 198, 0.50) 0%, rgba(245, 230, 215, 0.25) 45%, transparent 75%);"
   ></div>
 
   <!-- Phase 2: Midday Sky (Radiant Champagne Sunlight & Pristine Daylight from Zenith) -->
@@ -26,79 +26,62 @@
   <div 
     id="sky-sunset" 
     class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out will-change-opacity"
-    style="background: radial-gradient(ellipse at 50% 30%, rgba(238, 175, 115, 0.38) 0%, rgba(215, 140, 85, 0.18) 45%, rgba(184, 147, 82, 0.06) 70%, transparent 95%);"
+    style="background: radial-gradient(ellipse at 50% 35%, rgba(238, 175, 115, 0.42) 0%, rgba(215, 140, 85, 0.20) 45%, rgba(184, 147, 82, 0.08) 70%, transparent 95%);"
   ></div>
 
   <!-- =========================================================================
-       THE CELESTIAL RADIANT SUN (Photorealistic Luminous Core + Bokeh Orbs)
+       THE CELESTIAL RADIANT SUN (Soft-Blurred Luminous Core + Dreamy Bokeh Orbs)
+       Hidden at start (Hero & Verse), Rises in Kedua Mempelai (Sunrise)
        ========================================================================= -->
   <div 
     id="celestial-sun-wrapper" 
     class="fixed top-0 left-0 w-36 h-36 sm:w-48 sm:h-48 -translate-x-1/2 -translate-y-1/2 opacity-0 pointer-events-none z-[5] will-change-transform flex items-center justify-center"
   >
-    <!-- 1. Ambient Volumetric Golden Glow (Wide Soft Atmosphere) -->
+    <!-- 1. Ambient Volumetric Atmospheric Bloom (Wide, Soft, Blurred) -->
     <div 
       id="sun-outer-glow" 
-      class="absolute -inset-16 sm:-inset-24 rounded-full transition-all duration-700 ease-out pointer-events-none"
-      style="background: radial-gradient(circle, rgba(255, 215, 110, 0.35) 0%, rgba(245, 165, 60, 0.15) 40%, rgba(230, 130, 40, 0.05) 60%, transparent 75%); filter: blur(12px);"
+      class="absolute -inset-20 sm:-inset-28 rounded-full transition-all duration-700 ease-out pointer-events-none filter blur-2xl sm:blur-3xl"
+      style="background: radial-gradient(circle, rgba(255, 215, 110, 0.45) 0%, rgba(245, 160, 60, 0.18) 45%, rgba(230, 120, 35, 0.05) 65%, transparent 80%);"
     ></div>
 
-    <!-- 2. Concentric Ethereal Corona Rings ("Bulatan-Bulatan Pendaran Cahaya") -->
-    <!-- Outermost Atmospheric Ring -->
-    <div class="sun-ring sun-ring-3 absolute w-[240%] h-[240%] rounded-full border border-[#E68A2E]/20 bg-[radial-gradient(circle,rgba(255,200,90,0.08)_0%,transparent_70%)] animate-[pulse_6s_ease-in-out_infinite]"></div>
-    
-    <!-- Mid Concentric Solar Halo Ring -->
-    <div class="sun-ring sun-ring-2 absolute w-[180%] h-[180%] rounded-full border border-[#F5B842]/30 shadow-[0_0_25px_rgba(245,184,66,0.15)] animate-[pulse_4s_ease-in-out_infinite_0.5s]"></div>
-    
-    <!-- Inner Fine Gold Corona Ring -->
-    <div class="sun-ring sun-ring-1 absolute w-[130%] h-[130%] rounded-full border border-[#FFF8E7]/55 shadow-[0_0_15px_rgba(255,248,231,0.3)]"></div>
-
-    <!-- 3. Cinematic Optical Bokeh Bubbles ("Bulatan-Bulatan Bokeh Lensa Kamera") -->
-    <!-- Bokeh Orb 1: Upper-Right Floating Luminous Sphere -->
+    <!-- 2. Mid Atmospheric Corona (Warm Diffused Aura, NO SHARP BORDERS) -->
     <div 
-      class="bokeh-orb absolute -top-8 -right-8 w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-white/45 bg-gradient-to-tr from-white/20 via-[#FFE6A0]/15 to-transparent backdrop-blur-[1px] shadow-[0_0_20px_rgba(255,230,160,0.25)] animate-[floatSlow_7s_ease-in-out_infinite_alternate]"
+      class="absolute -inset-10 sm:-inset-14 rounded-full pointer-events-none filter blur-xl"
+      style="background: radial-gradient(circle, rgba(255, 230, 140, 0.55) 0%, rgba(245, 175, 70, 0.22) 50%, transparent 75%);"
     ></div>
 
-    <!-- Bokeh Orb 2: Lower-Left Amber Glow Bubble -->
+    <!-- 3. Soft Dreamy Bokeh Orbs ("Bulatan-Bulatan Bokeh Optik yang Lembut & Blur") -->
+    <!-- Bokeh Orb 1: Upper-Right Floating Luminous Sphere (Soft Focus) -->
     <div 
-      class="bokeh-orb absolute -bottom-6 -left-7 w-9 h-9 sm:w-12 sm:h-12 rounded-full border border-[#F5B842]/35 bg-[#E68A2E]/10 backdrop-blur-[1px] shadow-[0_0_15px_rgba(230,138,46,0.2)] animate-[floatSlow_5s_ease-in-out_infinite_alternate_1s]"
+      class="bokeh-orb absolute -top-10 -right-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full pointer-events-none filter blur-[3px] animate-[floatSlow_8s_ease-in-out_infinite_alternate]"
+      style="background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 230, 160, 0.22) 45%, rgba(245, 180, 70, 0.08) 65%, transparent 80%);"
     ></div>
 
-    <!-- Bokeh Orb 3: Distant Micro-Light Flare Dot -->
+    <!-- Bokeh Orb 2: Lower-Left Amber Warm Glow Bubble (Soft Focus) -->
     <div 
-      class="bokeh-orb absolute -top-12 left-10 w-4 h-4 rounded-full bg-white/70 shadow-[0_0_12px_rgba(255,255,255,0.8)] animate-pulse"
+      class="bokeh-orb absolute -bottom-8 -left-10 w-12 h-12 sm:w-16 sm:h-16 rounded-full pointer-events-none filter blur-[4px] animate-[floatSlow_6s_ease-in-out_infinite_alternate_1s]"
+      style="background: radial-gradient(circle, rgba(255, 215, 120, 0.45) 0%, rgba(235, 145, 50, 0.18) 50%, transparent 75%);"
     ></div>
 
-    <!-- Bokeh Orb 4: Soft Rose-Gold Secondary Lens Ring -->
+    <!-- Bokeh Orb 3: Micro Soft Light Flare (Dreamy Light Spec) -->
     <div 
-      class="bokeh-orb absolute bottom-8 -right-12 w-10 h-10 sm:w-14 sm:h-14 rounded-full border border-[#E69A48]/30 bg-gradient-to-br from-[#FFD580]/15 to-transparent animate-[floatSlow_6s_ease-in-out_infinite_alternate_2s]"
+      class="bokeh-orb absolute -top-14 left-6 w-6 h-6 rounded-full pointer-events-none filter blur-[2px] bg-white/75 animate-pulse"
     ></div>
 
-    <!-- 4. Soft Golden Sun Rays (Feathered Celestial Diffraction Spikes) -->
-    <svg 
-      id="sun-rays"
-      class="absolute -inset-6 sm:-inset-10 w-[calc(100%+3rem)] sm:w-[calc(100%+5rem)] h-[calc(100%+3rem)] sm:h-[calc(100%+5rem)] text-[#EAA845]/25 animate-[spin_90s_linear_infinite] pointer-events-none" 
-      viewBox="0 0 100 100" 
-      fill="none"
-    >
-      <line x1="50" y1="2" x2="50" y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-      <line x1="50" y1="80" x2="50" y2="98" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-      <line x1="2" y1="50" x2="20" y2="50" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-      <line x1="80" y1="50" x2="98" y2="50" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-      <line x1="16" y1="16" x2="28" y2="28" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
-      <line x1="72" y1="72" x2="84" y2="84" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
-      <line x1="16" y1="84" x2="28" y2="72" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
-      <line x1="72" y1="28" x2="84" y2="16" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
-    </svg>
+    <!-- Bokeh Orb 4: Rose-Gold Secondary Sheen Bubble (Soft Focus) -->
+    <div 
+      class="bokeh-orb absolute bottom-4 -right-14 w-14 h-14 sm:w-18 sm:h-18 rounded-full pointer-events-none filter blur-[5px] animate-[floatSlow_7s_ease-in-out_infinite_alternate_2s]"
+      style="background: radial-gradient(circle, rgba(255, 210, 140, 0.38) 0%, rgba(240, 160, 70, 0.12) 50%, transparent 75%);"
+    ></div>
 
-    <!-- 5. Photorealistic Luminous Solar Core (Feathered Light Dissipation, NO HARSH EDGES) -->
+    <!-- 4. Luminous Soft-Blurred Sun Core (Dreamy Optical Glow, NO HARSH EDGES) -->
     <div 
       id="sun-sphere" 
-      class="w-20 h-20 sm:w-28 sm:h-28 rounded-full relative transition-all duration-700 ease-out"
-      style="background: radial-gradient(circle at 40% 40%, #FFFFFF 0%, #FFF8E0 25%, #FFD27D 50%, #F5A623 75%, rgba(230, 138, 46, 0) 100%); filter: drop-shadow(0 0 35px rgba(245, 170, 50, 0.85)) blur(0.5px);"
+      class="w-24 h-24 sm:w-32 sm:h-32 rounded-full relative transition-all duration-700 ease-out filter blur-[6px] sm:blur-[7px]"
+      style="background: radial-gradient(circle at 45% 45%, #FFFFFF 0%, #FFF8E7 22%, #FFD685 48%, #F5A623 72%, rgba(230, 138, 46, 0) 100%);"
     >
       <!-- Intense Pure-White Solar Flare Center -->
-      <div class="absolute inset-3 sm:inset-4 rounded-full bg-white/90 blur-[3px]"></div>
+      <div class="absolute inset-4 rounded-full bg-white/95 filter blur-[6px]"></div>
     </div>
   </div>
 
@@ -110,7 +93,7 @@
       transform: translate(0, 0) scale(1);
     }
     100% {
-      transform: translate(6px, -8px) scale(1.08);
+      transform: translate(8px, -10px) scale(1.08);
     }
   }
 </style>
@@ -135,70 +118,55 @@
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    let isUnlocked = !document.documentElement.classList.contains('is-locked');
-
-    // Reveal Sun smoothly once envelope unboxing completes
-    function revealCelestialSun() {
-      isUnlocked = true;
-      gsap.to(sunWrapper, {
-        opacity: 0.95,
-        duration: 1.8,
-        ease: 'power2.out'
-      });
-      // Start with soft Sunrise blush
-      if (skySunrise) {
-        gsap.to(skySunrise, { opacity: 0.85, duration: 2.0, ease: 'power2.out' });
-      }
-    }
-
-    if (isUnlocked) {
-      revealCelestialSun();
-    } else {
-      window.addEventListener('invitationOpened', revealCelestialSun, { once: true });
-    }
-
-    // =========================================================================
-    // PARABOLIC CELESTIAL SUN TRAJECTORY & ATMOSPHERE INTERPOLATION
-    // Sunrise (Fajar) -> Midday (Siang) -> Sunset (Senja)
-    // =========================================================================
     function calculateCoordinates() {
       const windowW = window.innerWidth;
       const windowH = window.innerHeight;
 
-      // Phase 1: Sunrise (bottom-left)
+      // Phase 1: Sunrise (Appears in Kedua Mempelai: soft left-flank morning sunrise)
       const pSunrise = {
-        x: windowW * 0.16,
-        y: windowH * 0.62,
-        scale: 0.82
+        x: windowW * 0.22,
+        y: windowH * 0.40,
+        scale: 0.90
       };
 
-      // Phase 2: Midday (high-zenith, slightly right of center for organic arc)
+      // Phase 2: Midday (high-zenith, centered)
       const pMidday = {
-        x: windowW * 0.52,
+        x: windowW * 0.50,
         y: windowH * 0.12,
-        scale: 1.0
+        scale: 1.05
       };
 
-      // Phase 3: Sunset (Centered on the horizon behind the rolling hills and Arya & Dian)
+      // Phase 3: Sunset (Centered on horizon behind rolling hills & couple)
       const pSunset = {
         x: windowW * 0.50,
         y: windowH * 0.36,
         scale: 1.45
       };
 
-      return { pSunrise, pMidday, pSunset };
+      return { pSunrise, pMidday, pSunset, windowW, windowH };
     }
 
-    let { pSunrise, pMidday, pSunset } = calculateCoordinates();
+    let coords = calculateCoordinates();
 
-    // Set initial position
+    // STRICT REQUIREMENT 1: Sun is 100% HIDDEN at the beginning (Hero & Verse)!
     gsap.set(sunWrapper, {
-      x: pSunrise.x,
-      y: pSunrise.y,
-      scale: pSunrise.scale
+      x: coords.pSunrise.x,
+      y: coords.windowH * 0.78, // waiting below horizon
+      scale: 0.75,
+      opacity: 0 // Zero opacity at start!
     });
 
-    // Create Master Scroll-driven Celestial Timeline
+    if (skySunrise) gsap.set(skySunrise, { opacity: 0 });
+    if (skyMidday) gsap.set(skyMidday, { opacity: 0 });
+    if (skySunset) gsap.set(skySunset, { opacity: 0 });
+
+    // =========================================================================
+    // MASTER SCROLL-DRIVEN CELESTIAL TIMELINE
+    // 0.00 -> 0.24: Hero & Verse (Sun COMPLETELY HIDDEN, Opacity 0)
+    // 0.25 -> 0.44: KEDUA MEMPELAI (Sunrise! Sun rises gracefully from horizon)
+    // 0.45 -> 0.74: Acara, Countdown, LoveStory (Midday zenith, champagne golden light)
+    // 0.75 -> 1.00: Wishes & Closing (Sunset! Sinks behind rolling hills and couple)
+    // =========================================================================
     const sunTL = gsap.timeline({
       scrollTrigger: {
         trigger: document.body,
@@ -208,50 +176,72 @@
       }
     });
 
-    // 0.0 -> 0.45: Sunrise rising to Midday
+    // 1. Hero & Verse: Sun stays at opacity 0 (NO SUN AT START!)
+    sunTL.to(sunWrapper, {
+      opacity: 0,
+      duration: 0.24
+    }, 0);
+
+    // 2. SUNRISE: Enters at Kedua Mempelai (0.25 -> 0.38)
+    // Sun rises up from below horizon and fades in smoothly
+    sunTL.to(sunWrapper, {
+      opacity: 0.95,
+      x: () => calculateCoordinates().pSunrise.x,
+      y: () => calculateCoordinates().pSunrise.y,
+      scale: () => calculateCoordinates().pSunrise.scale,
+      duration: 0.14,
+      ease: 'power2.out'
+    }, 0.25);
+
+    // Soft Sunrise blush fades in at Kedua Mempelai
+    if (skySunrise) {
+      sunTL.to(skySunrise, {
+        opacity: 0.85,
+        duration: 0.14,
+        ease: 'power2.out'
+      }, 0.25);
+    }
+
+    // 3. MIDDAY: Kedua Mempelai -> Acara & Countdown (0.42 -> 0.65)
+    // Sun ascends to high noon at zenith
     sunTL.to(sunWrapper, {
       x: () => calculateCoordinates().pMidday.x,
       y: () => calculateCoordinates().pMidday.y,
       scale: () => calculateCoordinates().pMidday.scale,
-      ease: 'power1.out',
-      duration: 0.45
-    }, 0);
+      duration: 0.24,
+      ease: 'power1.inOut'
+    }, 0.42);
 
-    // Sunrise sky fades down, Midday sky fades up
+    // Sunrise sky transitions to Midday champagne brightness
     if (skySunrise && skyMidday) {
-      sunTL.to(skySunrise, { opacity: 0.1, duration: 0.35, ease: 'power1.inOut' }, 0.1);
-      sunTL.to(skyMidday, { opacity: 0.75, duration: 0.35, ease: 'power1.inOut' }, 0.15);
+      sunTL.to(skySunrise, { opacity: 0, duration: 0.20, ease: 'power1.inOut' }, 0.44);
+      sunTL.to(skyMidday, { opacity: 0.80, duration: 0.20, ease: 'power1.inOut' }, 0.46);
     }
 
-    // 0.45 -> 1.0: Midday descending into Sunset
+    // 4. SUNSET: Wishes -> Closing (0.75 -> 1.00)
+    // Sun descends toward the horizon behind the rolling hills and couple
     sunTL.to(sunWrapper, {
       x: () => calculateCoordinates().pSunset.x,
       y: () => calculateCoordinates().pSunset.y,
       scale: () => calculateCoordinates().pSunset.scale,
-      ease: 'power1.inOut',
-      duration: 0.55
-    }, 0.45);
+      duration: 0.25,
+      ease: 'power1.inOut'
+    }, 0.75);
 
-    // Midday sky fades down, Sunset sky blooms warmly
+    // Midday sky transitions to warm amber terracotta Sunset glow
     if (skyMidday && skySunset) {
-      sunTL.to(skyMidday, { opacity: 0, duration: 0.3, ease: 'power1.inOut' }, 0.48);
-      sunTL.to(skySunset, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0.55);
+      sunTL.to(skyMidday, { opacity: 0, duration: 0.15, ease: 'power1.inOut' }, 0.75);
+      sunTL.to(skySunset, { opacity: 1, duration: 0.22, ease: 'power2.out' }, 0.78);
     }
 
-    // Deepen sun sphere glow into rich golden hour & terracotta
+    // Sunset glow bloom
     if (sunSphere && sunGlow) {
-      sunTL.to(sunSphere, {
-        filter: 'drop-shadow(0 0 55px rgba(235, 130, 40, 0.95)) blur(0.5px)',
-        duration: 0.45,
-        ease: 'power2.out'
-      }, 0.55);
-
       sunTL.to(sunGlow, {
-        scale: 1.45,
+        scale: 1.5,
         opacity: 1,
-        duration: 0.45,
+        duration: 0.22,
         ease: 'power2.out'
-      }, 0.55);
+      }, 0.78);
     }
 
     // Handle viewport resize gracefully
