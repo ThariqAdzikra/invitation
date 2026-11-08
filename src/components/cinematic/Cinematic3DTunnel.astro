@@ -100,34 +100,31 @@ import FloralCorner from '../botanical/FloralCorner.astro';
             </div>
           </div>
 
-          <!-- CENTER BLOCK: Haute-Couture Vector Illustration in Roman Arch (Double Arch & Ambient Halo) -->
-          <div id="hero-arch-block" class="my-auto py-1 relative will-change-transform">
-            <!-- Radiant Warm Gold Halo Behind Arch -->
-            <div class="absolute -inset-10 bg-[radial-gradient(ellipse_at_center,rgba(184,147,82,0.22)_0%,rgba(74,93,67,0.05)_45%,transparent_70%)] blur-2xl pointer-events-none -z-10"></div>
+          <!-- CENTER BLOCK: Frameless Organic Fine-Art Portal with Ethereal Golden Glow -->
+          <div id="hero-arch-block" class="my-auto py-1 relative will-change-transform flex flex-col items-center justify-center">
+            <!-- Ethereal Sunrise Golden Aura Blooming Naturally Behind Art -->
+            <div class="absolute -inset-10 sm:-inset-14 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.26)_0%,rgba(184,147,82,0.14)_40%,rgba(74,93,67,0.03)_65%,transparent_80%)] blur-2xl pointer-events-none -z-10"></div>
 
-            <!-- Concentric Outer Architectural Hairline Arch -->
-            <div class="relative p-1.5 sm:p-2 rounded-t-full border border-[#B89352]/30 bg-white/40 shadow-[0_18px_45px_rgba(42,52,38,0.1)] backdrop-blur-[0.5px]">
-              
-              <!-- Inner Roman Arch with Golden Edge -->
-              <div 
-                class="relative w-44 sm:w-52 aspect-[3/4] mx-auto rounded-t-full border border-[#B89352]/40 p-1 bg-gradient-to-b from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-inner interactive-foil-card overflow-hidden group"
-                data-foil="true"
-              >
-                <div class="w-full h-full rounded-t-full overflow-hidden border border-[#566A4E]/20 relative bg-[#FAF8F5]">
-                  <img 
-                    src="/assets/vector-hero.jpg" 
-                    alt={`Ilustrasi Mempelai ${content.couple.groom.nickname} & ${content.couple.bride.nickname}`} 
-                    class="w-full h-full object-cover"
-                    loading="eager"
-                    fetchpriority="high"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#2A3426]/15 via-transparent to-transparent pointer-events-none"></div>
-                </div>
+            <!-- Single Refined Hairline Arch Contour (Frameless Haute-Couture) -->
+            <div class="relative w-44 sm:w-52 aspect-[3/4] mx-auto rounded-t-full p-1 overflow-hidden group">
+              <!-- Dual Whispering Hairlines -->
+              <div class="absolute inset-0 rounded-t-full border border-[#B89352]/35 pointer-events-none z-10"></div>
+              <div class="absolute inset-1.5 rounded-t-full border border-[#B89352]/20 pointer-events-none z-10"></div>
+
+              <!-- Organic Artwork Canvas -->
+              <div class="w-full h-full rounded-t-full overflow-hidden relative">
+                <img 
+                  src="/assets/vector-hero.jpg" 
+                  alt={`Ilustrasi Mempelai ${content.couple.groom.nickname} & ${content.couple.bride.nickname}`} 
+                  class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                  loading="eager"
+                  fetchpriority="high"
+                />
+                <!-- Soft Feathered Dissolve at Base into Linen Canvas -->
+                <div class="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#FAF8F5] via-[#FAF8F5]/40 to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#2A3426]/08 via-transparent to-transparent pointer-events-none"></div>
               </div>
             </div>
-
-            <!-- Arch Base Floating Soft Shadow -->
-            <div class="w-40 sm:w-48 h-2.5 bg-[#263322]/10 rounded-full blur-sm mx-auto mt-1 pointer-events-none"></div>
           </div>
 
           <!-- BOTTOM BLOCK: Date, Venue, & Stitched Guest Welcoming Plaque -->
@@ -520,12 +517,6 @@ import FloralCorner from '../botanical/FloralCorner.astro';
 
     </div>
 
-    <!-- Discrete Floating Scroll Cue at Very Bottom -->
-    <div id="scroll-fly-cue" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/80 border border-[#566A4E]/20 text-[#4A5D43] text-[0.58rem] tracking-[0.24em] uppercase font-semibold shadow-xs pointer-events-none transition-opacity duration-300">
-      <span>Scroll ke Bawah</span>
-      <span class="w-1.5 h-1.5 rounded-full bg-[#B89352] animate-ping"></span>
-    </div>
-
   </div>
 
 </div>
@@ -543,7 +534,6 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     const sceneHero = document.getElementById('scene-hero');
     const sceneVerse = document.getElementById('scene-verse');
     const sceneCouple = document.getElementById('scene-couple');
-    const scrollCue = document.getElementById('scroll-fly-cue');
 
     // Pre-fill name from URL parameter
     const urlParams = new URLSearchParams(window.location.search);
@@ -634,9 +624,6 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         scrub: 1.2,
         anticipatePin: 1,
         onUpdate: (self) => {
-          if (scrollCue) {
-            scrollCue.style.opacity = self.progress > 0.88 ? '0' : '1';
-          }
           if (chapterRail) {
             chapterRail.style.opacity = self.progress > 0.88 ? '0' : '0.9';
           }
