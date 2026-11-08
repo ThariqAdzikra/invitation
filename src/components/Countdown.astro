@@ -2,6 +2,7 @@
 // Countdown.astro — Section 2: Lokasi & Tempat Acara (Dedicated Venue Sanctuary Stele, Alamat & Navigasi Maps)
 import content from '../data/content.json';
 import FloralFlourish from './botanical/FloralFlourish.astro';
+import FloralCorner from './botanical/FloralCorner.astro';
 ---
 
 <section 
@@ -18,6 +19,10 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     >
       <!-- Inset Classical Dashed Arch Hairline -->
       <div class="absolute inset-2 sm:inset-3 rounded-t-[92px] sm:rounded-t-[112px] rounded-b-xl border border-dashed border-[#B89352]/30 pointer-events-none"></div>
+
+      <!-- Botanical Corner Foliage at Lower Base (Forest Olive & Emerald Sage) -->
+      <FloralCorner position="bottom-left" size={76} className="absolute -bottom-1 -left-1 opacity-80 pointer-events-none block drop-shadow-xs" />
+      <FloralCorner position="bottom-right" size={76} className="absolute -bottom-1 -right-1 opacity-80 pointer-events-none block drop-shadow-xs" />
 
       <!-- Arch Crown: Compass / Location Pin with Gold Halo -->
       <div class="relative z-10 flex flex-col items-center justify-center mb-3">

@@ -1,7 +1,7 @@
 ---
 // FloralCorner.astro — Authentic Botanical Ginkgo Biloba Leaf Sprig
-// Features true-to-nature bi-lobed fan leaves, delicate dichotomous radiating venation,
-// slender curved petioles, and luxury antique gold & soft botanical sage shading.
+// Features true-to-nature bi-lobed fan leaves in rich botanical Forest Olive & Emerald Sage greens,
+// delicate dichotomous radiating venation, slender gilded petioles, and luxury gold berry seeds.
 interface Props {
   position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
   size?: number;
@@ -26,35 +26,43 @@ if (position === "bottom-right") transform = "scale(-1, -1)";
     height={size}
     viewBox="0 0 140 140"
     fill="none"
-    class="w-full h-full drop-shadow-[0_4px_14px_rgba(42,52,38,0.12)]"
+    class="w-full h-full drop-shadow-[0_4px_16px_rgba(42,52,38,0.16)]"
   >
     <defs>
-      <!-- Rich Antique Gold & Honey Leaf Gradient -->
-      <linearGradient id="ginkgo-gold-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#A68038" />
-        <stop offset="35%" stop-color="#C8A04D" />
-        <stop offset="70%" stop-color="#DFBA68" />
-        <stop offset="100%" stop-color="#EED58D" />
+      <!-- Leaf 1: Deep Forest Olive Gradient -->
+      <linearGradient id="ginkgo-forest-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#243420" />
+        <stop offset="35%" stop-color="#3B4F33" />
+        <stop offset="70%" stop-color="#55704A" />
+        <stop offset="100%" stop-color="#76946A" />
       </linearGradient>
 
-      <!-- Soft Summer Olive & Sage Ginkgo Leaf Gradient -->
+      <!-- Leaf 2: Vibrant Emerald Sage Gradient -->
       <linearGradient id="ginkgo-sage-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#3F5237" />
-        <stop offset="40%" stop-color="#556E4D" />
-        <stop offset="75%" stop-color="#6F8C65" />
-        <stop offset="100%" stop-color="#91AA87" />
+        <stop offset="0%" stop-color="#2A3C26" />
+        <stop offset="40%" stop-color="#445D3C" />
+        <stop offset="75%" stop-color="#607F56" />
+        <stop offset="100%" stop-color="#83A478" />
       </linearGradient>
 
-      <!-- Golden Amber Leaflet Gradient -->
-      <linearGradient id="ginkgo-amber-grad" x1="0%" y1="100%" x2="80%" y2="20%">
-        <stop offset="0%" stop-color="#7B612C" />
-        <stop offset="50%" stop-color="#B89352" />
-        <stop offset="100%" stop-color="#DDC282" />
+      <!-- Leaf 3: Rich Moss & Golden-Tipped Olive Gradient -->
+      <linearGradient id="ginkgo-moss-grad" x1="0%" y1="100%" x2="80%" y2="20%">
+        <stop offset="0%" stop-color="#2F4229" />
+        <stop offset="45%" stop-color="#4C6843" />
+        <stop offset="80%" stop-color="#6E8E63" />
+        <stop offset="100%" stop-color="#93B487" />
+      </linearGradient>
+
+      <!-- Leaf 4: Dewy Willow Sage Gradient -->
+      <linearGradient id="ginkgo-leaf4-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#384C32" />
+        <stop offset="50%" stop-color="#54714C" />
+        <stop offset="100%" stop-color="#76956D" />
       </linearGradient>
 
       <!-- Gilded Seed / Berry Gradient -->
       <radialGradient id="ginkgo-berry-grad" cx="35%" cy="35%" r="65%">
-        <stop offset="0%" stop-color="#FFF2D6" />
+        <stop offset="0%" stop-color="#FFF5DC" />
         <stop offset="40%" stop-color="#D4AF37" />
         <stop offset="85%" stop-color="#9E782A" />
         <stop offset="100%" stop-color="#6B4F1A" />
@@ -62,51 +70,51 @@ if (position === "bottom-right") transform = "scale(-1, -1)";
     </defs>
 
     <!-- ================================================================= -->
-    <!-- 1. SLENDER CURVED WOODY PETIOLES (Tangkai Ranting Alami)           -->
+    <!-- 1. SLENDER CURVED GILDED WOODY PETIOLES (Tangkai Ranting Emas)    -->
     <!-- ================================================================= -->
     <!-- Base Node at Corner (0,0) -->
     <path
       d="M 2 2 C 8 8, 16 14, 26 18 C 36 22, 48 26, 60 34"
-      stroke="#4A3B22"
+      stroke="#7A6030"
       stroke-width="1.8"
       stroke-linecap="round"
     />
     <!-- Vertical Stalk Branch -->
     <path
       d="M 16 14 C 18 26, 22 42, 34 60"
-      stroke="#4A3B22"
+      stroke="#7A6030"
       stroke-width="1.6"
       stroke-linecap="round"
     />
     <!-- Center Diagonal Petiole -->
     <path
       d="M 12 12 C 18 18, 24 24, 32 32"
-      stroke="#4A3B22"
+      stroke="#8C703C"
       stroke-width="1.3"
       stroke-linecap="round"
     />
     <!-- Delicate Berry Stalk -->
     <path
       d="M 32 20 C 38 28, 44 34, 46 44"
-      stroke="#8C7342"
-      stroke-width="0.8"
+      stroke="#B89352"
+      stroke-width="0.9"
       stroke-linecap="round"
     />
     <path
       d="M 40 30 C 46 34, 50 38, 54 42"
-      stroke="#8C7342"
-      stroke-width="0.7"
+      stroke="#B89352"
+      stroke-width="0.8"
       stroke-linecap="round"
     />
 
     <!-- ================================================================= -->
     <!-- 2. GINKGO FRUIT / GOLDEN BOTANICAL SEEDS (Buah Ginkgo Emas Anggun) -->
     <!-- ================================================================= -->
-    <circle cx="46" cy="46" r="3.2" fill="url(#ginkgo-berry-grad)" />
-    <circle cx="55" cy="44" r="2.6" fill="url(#ginkgo-berry-grad)" />
+    <circle cx="46" cy="46" r="3.4" fill="url(#ginkgo-berry-grad)" />
+    <circle cx="55" cy="44" r="2.8" fill="url(#ginkgo-berry-grad)" />
 
     <!-- ================================================================= -->
-    <!-- 3. GINKGO LEAF 1: UPPER HORIZONTAL FAN LEAF (Emas Hangat / Gold)   -->
+    <!-- 3. GINKGO LEAF 1: UPPER FAN LEAF (Rich Forest Olive Green)        -->
     <!-- Distinct Bi-Lobed Fan Shape, Scalloped Outer Margin, Deep Notch   -->
     <!-- ================================================================= -->
     <g class="transition-opacity duration-300">
@@ -120,30 +128,30 @@ if (position === "bottom-right") transform = "scale(-1, -1)";
            C 125 5, 133 13, 134 23 
            C 129 32, 112 36, 95 36 
            C 80 36, 68 35, 60 34 Z"
-        fill="url(#ginkgo-gold-grad)"
-        stroke="#967228"
+        fill="url(#ginkgo-forest-grad)"
+        stroke="#1E2B1A"
         stroke-width="0.75"
         stroke-linejoin="round"
       />
-      <!-- Ginkgo Dichotomous Radiating Veins (Venasi Khas Kipas Ginkgo) -->
+      <!-- Ginkgo Dichotomous Radiating Veins in Pale Dew & Gold -->
       <!-- Left Lobe Veins -->
-      <path d="M 60 34 Q 54 22 52 10" stroke="#FFF7E6" stroke-width="0.55" opacity="0.65" stroke-linecap="round" />
-      <path d="M 60 34 Q 60 18 64 5" stroke="#FFF7E6" stroke-width="0.55" opacity="0.65" stroke-linecap="round" />
-      <path d="M 60 34 Q 68 18 75 3" stroke="#FFF7E6" stroke-width="0.55" opacity="0.65" stroke-linecap="round" />
-      <path d="M 60 34 Q 76 20 85 8" stroke="#FFF7E6" stroke-width="0.55" opacity="0.65" stroke-linecap="round" />
-      <path d="M 60 34 Q 82 22 91 16" stroke="#8C661D" stroke-width="0.55" opacity="0.5" stroke-linecap="round" />
+      <path d="M 60 34 Q 54 22 52 10" stroke="#EAF2E6" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 60 34 Q 60 18 64 5" stroke="#EAF2E6" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 60 34 Q 68 18 75 3" stroke="#EAF2E6" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 60 34 Q 76 20 85 8" stroke="#EAF2E6" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 60 34 Q 82 22 91 16" stroke="#D4AF37" stroke-width="0.55" opacity="0.5" stroke-linecap="round" />
       <!-- Right Lobe Veins -->
-      <path d="M 60 34 Q 84 22 95 16" stroke="#8C661D" stroke-width="0.55" opacity="0.5" stroke-linecap="round" />
-      <path d="M 60 34 Q 90 20 102 7" stroke="#FFF7E6" stroke-width="0.55" opacity="0.65" stroke-linecap="round" />
-      <path d="M 60 34 Q 98 22 113 6" stroke="#FFF7E6" stroke-width="0.55" opacity="0.65" stroke-linecap="round" />
-      <path d="M 60 34 Q 106 26 124 15" stroke="#FFF7E6" stroke-width="0.55" opacity="0.65" stroke-linecap="round" />
-      <path d="M 60 34 Q 108 32 130 24" stroke="#FFF7E6" stroke-width="0.55" opacity="0.65" stroke-linecap="round" />
+      <path d="M 60 34 Q 84 22 95 16" stroke="#D4AF37" stroke-width="0.55" opacity="0.5" stroke-linecap="round" />
+      <path d="M 60 34 Q 90 20 102 7" stroke="#EAF2E6" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 60 34 Q 98 22 113 6" stroke="#EAF2E6" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 60 34 Q 106 26 124 15" stroke="#EAF2E6" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 60 34 Q 108 32 130 24" stroke="#EAF2E6" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
       <!-- Subtle Golden Lobe Ridge Highlight -->
-      <path d="M 60 34 Q 75 22 88 12" stroke="#FFFCEB" stroke-width="0.75" opacity="0.5" stroke-linecap="round" />
+      <path d="M 60 34 Q 75 22 88 12" stroke="#FAF8F0" stroke-width="0.8" opacity="0.5" stroke-linecap="round" />
     </g>
 
     <!-- ================================================================= -->
-    <!-- 4. GINKGO LEAF 2: VERTICAL DOWNWARD FAN LEAF (Sage & Olive Green) -->
+    <!-- 4. GINKGO LEAF 2: VERTICAL DOWNWARD FAN LEAF (Emerald Sage Green) -->
     <!-- Downward Arching, Deep Notch, Authentic Foliage Texture          -->
     <!-- ================================================================= -->
     <g class="transition-opacity duration-300">
@@ -158,29 +166,29 @@ if (position === "bottom-right") transform = "scale(-1, -1)";
            C 32 129, 36 112, 36 95 
            C 36 80, 35 68, 34 60 Z"
         fill="url(#ginkgo-sage-grad)"
-        stroke="#33452B"
+        stroke="#202F1C"
         stroke-width="0.75"
         stroke-linejoin="round"
       />
       <!-- Ginkgo Dichotomous Radiating Veins -->
       <!-- Upper Lobe Veins -->
-      <path d="M 34 60 Q 22 54 10 52" stroke="#FAF8F5" stroke-width="0.55" opacity="0.55" stroke-linecap="round" />
-      <path d="M 34 60 Q 18 60 5 64" stroke="#FAF8F5" stroke-width="0.55" opacity="0.55" stroke-linecap="round" />
-      <path d="M 34 60 Q 18 68 3 75" stroke="#FAF8F5" stroke-width="0.55" opacity="0.55" stroke-linecap="round" />
-      <path d="M 34 60 Q 20 76 8 85" stroke="#FAF8F5" stroke-width="0.55" opacity="0.55" stroke-linecap="round" />
-      <path d="M 34 60 Q 22 82 16 91" stroke="#253320" stroke-width="0.55" opacity="0.5" stroke-linecap="round" />
+      <path d="M 34 60 Q 22 54 10 52" stroke="#EBF4E8" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 34 60 Q 18 60 5 64" stroke="#EBF4E8" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 34 60 Q 18 68 3 75" stroke="#EBF4E8" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 34 60 Q 20 76 8 85" stroke="#EBF4E8" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 34 60 Q 22 82 16 91" stroke="#D4AF37" stroke-width="0.55" opacity="0.5" stroke-linecap="round" />
       <!-- Lower Lobe Veins -->
-      <path d="M 34 60 Q 22 84 16 95" stroke="#253320" stroke-width="0.55" opacity="0.5" stroke-linecap="round" />
-      <path d="M 34 60 Q 20 90 7 102" stroke="#FAF8F5" stroke-width="0.55" opacity="0.55" stroke-linecap="round" />
-      <path d="M 34 60 Q 22 98 6 113" stroke="#FAF8F5" stroke-width="0.55" opacity="0.55" stroke-linecap="round" />
-      <path d="M 34 60 Q 26 106 15 124" stroke="#FAF8F5" stroke-width="0.55" opacity="0.55" stroke-linecap="round" />
-      <path d="M 34 60 Q 32 108 24 130" stroke="#FAF8F5" stroke-width="0.55" opacity="0.55" stroke-linecap="round" />
+      <path d="M 34 60 Q 22 84 16 95" stroke="#D4AF37" stroke-width="0.55" opacity="0.5" stroke-linecap="round" />
+      <path d="M 34 60 Q 20 90 7 102" stroke="#EBF4E8" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 34 60 Q 22 98 6 113" stroke="#EBF4E8" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 34 60 Q 26 106 15 124" stroke="#EBF4E8" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
+      <path d="M 34 60 Q 32 108 24 130" stroke="#EBF4E8" stroke-width="0.6" opacity="0.6" stroke-linecap="round" />
       <!-- Soft Leaf Ridge Highlight -->
-      <path d="M 34 60 Q 22 75 12 88" stroke="#D9E6D5" stroke-width="0.75" opacity="0.45" stroke-linecap="round" />
+      <path d="M 34 60 Q 22 75 12 88" stroke="#F6FAF4" stroke-width="0.8" opacity="0.5" stroke-linecap="round" />
     </g>
 
     <!-- ================================================================= -->
-    <!-- 5. GINKGO LEAF 3: CENTER DIAGONAL ACCENT (Warm Amber Gold)         -->
+    <!-- 5. GINKGO LEAF 3: CENTER DIAGONAL ACCENT (Lush Moss Olive)         -->
     <!-- Angled 45° Towards Invitation Center with Distinct Bilobed Notch -->
     <!-- ================================================================= -->
     <g class="transition-opacity duration-300">
@@ -194,24 +202,24 @@ if (position === "bottom-right") transform = "scale(-1, -1)";
            C 79 56, 84 48, 85 38 
            C 82 28, 72 23, 62 25 
            C 50 25, 40 27, 32 32 Z"
-        fill="url(#ginkgo-amber-grad)"
-        stroke="#6E5220"
-        stroke-width="0.7"
+        fill="url(#ginkgo-moss-grad)"
+        stroke="#243320"
+        stroke-width="0.75"
         stroke-linejoin="round"
       />
       <!-- Radiating Fan Veins -->
-      <path d="M 32 32 Q 26 48 26 62" stroke="#FFF7E6" stroke-width="0.5" opacity="0.6" stroke-linecap="round" />
-      <path d="M 32 32 Q 32 56 36 74" stroke="#FFF7E6" stroke-width="0.5" opacity="0.6" stroke-linecap="round" />
-      <path d="M 32 32 Q 40 60 50 82" stroke="#FFF7E6" stroke-width="0.5" opacity="0.6" stroke-linecap="round" />
-      <path d="M 32 32 Q 52 60 67 74" stroke="#FFF7E6" stroke-width="0.5" opacity="0.6" stroke-linecap="round" />
-      <path d="M 32 32 Q 58 52 72 58" stroke="#FFF7E6" stroke-width="0.5" opacity="0.6" stroke-linecap="round" />
-      <path d="M 32 32 Q 62 42 82 38" stroke="#FFF7E6" stroke-width="0.5" opacity="0.6" stroke-linecap="round" />
-      <path d="M 32 32 Q 56 30 68 26" stroke="#FFF7E6" stroke-width="0.5" opacity="0.6" stroke-linecap="round" />
+      <path d="M 32 32 Q 26 48 26 62" stroke="#EBF4E8" stroke-width="0.55" opacity="0.6" stroke-linecap="round" />
+      <path d="M 32 32 Q 32 56 36 74" stroke="#EBF4E8" stroke-width="0.55" opacity="0.6" stroke-linecap="round" />
+      <path d="M 32 32 Q 40 60 50 82" stroke="#EBF4E8" stroke-width="0.55" opacity="0.6" stroke-linecap="round" />
+      <path d="M 32 32 Q 52 60 67 74" stroke="#EBF4E8" stroke-width="0.55" opacity="0.6" stroke-linecap="round" />
+      <path d="M 32 32 Q 58 52 72 58" stroke="#D4AF37" stroke-width="0.5" opacity="0.5" stroke-linecap="round" />
+      <path d="M 32 32 Q 62 42 82 38" stroke="#EBF4E8" stroke-width="0.55" opacity="0.6" stroke-linecap="round" />
+      <path d="M 32 32 Q 56 30 68 26" stroke="#EBF4E8" stroke-width="0.55" opacity="0.6" stroke-linecap="round" />
     </g>
 
     <!-- ================================================================= -->
-    <!-- 6. GINKGO LEAF 4: DAINTY PETITE LEAFLET (Near Corner Base)        -->
-    <!-- Soft Warm Ivory-Gold Accompanying Leaflet                         -->
+    <!-- 6. GINKGO LEAF 4: DAINTY PETITE LEAFLET (Willow Sage)              -->
+    <!-- Soft Fresh Spring Olive Leaflet Near Base                         -->
     <!-- ================================================================= -->
     <g class="transition-opacity duration-300">
       <path
@@ -220,29 +228,29 @@ if (position === "bottom-right") transform = "scale(-1, -1)";
            C 16 42, 24 45, 31 43 
            C 34 39, 36 34, 38 28 
            C 36 21, 28 16, 18 18 Z"
-        fill="url(#ginkgo-gold-grad)"
-        stroke="#967228"
+        fill="url(#ginkgo-leaf4-grad)"
+        stroke="#273822"
         stroke-width="0.6"
-        opacity="0.9"
+        opacity="0.95"
       />
-      <path d="M 18 18 Q 14 28 14 34" stroke="#FFF7E6" stroke-width="0.45" opacity="0.6" />
-      <path d="M 18 18 Q 22 32 28 42" stroke="#FFF7E6" stroke-width="0.45" opacity="0.6" />
-      <path d="M 18 18 Q 28 26 36 28" stroke="#FFF7E6" stroke-width="0.45" opacity="0.6" />
+      <path d="M 18 18 Q 14 28 14 34" stroke="#EBF4E8" stroke-width="0.45" opacity="0.6" />
+      <path d="M 18 18 Q 22 32 28 42" stroke="#EBF4E8" stroke-width="0.45" opacity="0.6" />
+      <path d="M 18 18 Q 28 26 36 28" stroke="#EBF4E8" stroke-width="0.45" opacity="0.6" />
     </g>
 
     <!-- ================================================================= -->
-    <!-- 7. GENTLE FLOATING GINKGO PETAL FLAKE                              -->
-    <!-- Small detached drifting leaf fragment adding ethereal flat-lay life-->
+    <!-- 7. GENTLE FLOATING GINKGO PETAL FLAKES (Forest & Emerald Green)   -->
+    <!-- Small detached drifting leaf fragments adding flat-lay life       -->
     <!-- ================================================================= -->
     <path
       d="M 88 56 C 84 52, 82 48, 86 46 C 92 45, 96 48, 98 54 C 94 58, 90 58, 88 56 Z"
-      fill="#C8A04D"
-      opacity="0.75"
+      fill="#445D3C"
+      opacity="0.85"
     />
     <path
       d="M 52 90 C 48 86, 46 82, 50 80 C 56 79, 60 82, 62 88 C 58 92, 54 92, 52 90 Z"
-      fill="#6F8C65"
-      opacity="0.75"
+      fill="#6B8961"
+      opacity="0.85"
     />
   </svg>
 </div>

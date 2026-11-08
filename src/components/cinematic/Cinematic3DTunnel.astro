@@ -161,9 +161,46 @@ import FloralCorner from '../botanical/FloralCorner.astro';
             <!-- 2. Second Fine Jewelry Dotted Contour Line -->
             <div class="absolute inset-3.5 sm:inset-5 rounded-t-[136px] sm:rounded-t-[176px] rounded-b-[14px] border border-dashed border-[#B89352]/20 pointer-events-none"></div>
 
-            <!-- Botanical Corner Ginkgo Sprigs at Lower Base -->
-            <FloralCorner position="bottom-left" size={68} className="absolute bottom-1 left-1 opacity-40 pointer-events-none hidden sm:block" />
-            <FloralCorner position="bottom-right" size={68} className="absolute bottom-1 right-1 opacity-40 pointer-events-none hidden sm:block" />
+            <!-- Botanical Olive Arch Garland Canopy (Top-Left & Top-Right Arch Shoulders) -->
+            <div class="absolute top-1 sm:top-2 inset-x-0 h-24 sm:h-28 pointer-events-none z-15 overflow-visible flex justify-between px-2 sm:px-4">
+              <!-- Left Arching Olive Branch -->
+              <svg class="w-24 sm:w-32 h-20 sm:h-24 transform -rotate-12 drop-shadow-xs" viewBox="0 0 100 80" fill="none">
+                <!-- Stem in Antique Gold -->
+                <path d="M 95 10 C 70 12, 45 25, 20 50 C 12 60, 5 75, 2 80" stroke="#B89352" stroke-width="1.6" stroke-linecap="round" />
+                <!-- Leaf Pairs in Rich Forest & Emerald Olive -->
+                <path d="M 95 10 C 82 2, 68 5, 62 14 C 74 18, 88 16, 95 10 Z" fill="#445D3C" stroke="#243420" stroke-width="0.6" />
+                <path d="M 95 10 Q 78 12 68 12" stroke="#EBF4E8" stroke-width="0.5" opacity="0.6" />
+                <path d="M 78 14 C 68 6, 52 10, 48 20 C 58 24, 72 20, 78 14 Z" fill="#5E7C54" stroke="#2A3C26" stroke-width="0.6" />
+                <path d="M 78 14 Q 62 16 54 18" stroke="#EBF4E8" stroke-width="0.5" opacity="0.6" />
+                <path d="M 64 22 C 58 32, 44 38, 38 30 C 44 22, 58 18, 64 22 Z" fill="#3B4F33" stroke="#202E1B" stroke-width="0.6" />
+                <path d="M 50 26 C 40 18, 28 24, 25 34 C 34 38, 46 34, 50 26 Z" fill="#6B8A61" stroke="#2A3C26" stroke-width="0.6" />
+                <path d="M 36 38 C 30 48, 18 52, 14 44 C 20 36, 32 34, 36 38 Z" fill="#445D3C" stroke="#243420" stroke-width="0.6" />
+                <path d="M 24 48 C 16 42, 6 48, 4 58 C 12 62, 22 56, 24 48 Z" fill="#55704A" stroke="#243420" stroke-width="0.6" />
+                <circle cx="68" cy="24" r="2.2" fill="#D4AF37" />
+                <circle cx="42" cy="38" r="1.8" fill="#D4AF37" />
+              </svg>
+
+              <!-- Right Arching Olive Branch -->
+              <svg class="w-24 sm:w-32 h-20 sm:h-24 transform rotate-12 scale-x-[-1] drop-shadow-xs" viewBox="0 0 100 80" fill="none">
+                <!-- Stem in Antique Gold -->
+                <path d="M 95 10 C 70 12, 45 25, 20 50 C 12 60, 5 75, 2 80" stroke="#B89352" stroke-width="1.6" stroke-linecap="round" />
+                <!-- Leaf Pairs in Rich Forest & Emerald Olive -->
+                <path d="M 95 10 C 82 2, 68 5, 62 14 C 74 18, 88 16, 95 10 Z" fill="#445D3C" stroke="#243420" stroke-width="0.6" />
+                <path d="M 95 10 Q 78 12 68 12" stroke="#EBF4E8" stroke-width="0.5" opacity="0.6" />
+                <path d="M 78 14 C 68 6, 52 10, 48 20 C 58 24, 72 20, 78 14 Z" fill="#5E7C54" stroke="#2A3C26" stroke-width="0.6" />
+                <path d="M 78 14 Q 62 16 54 18" stroke="#EBF4E8" stroke-width="0.5" opacity="0.6" />
+                <path d="M 64 22 C 58 32, 44 38, 38 30 C 44 22, 58 18, 64 22 Z" fill="#3B4F33" stroke="#202E1B" stroke-width="0.6" />
+                <path d="M 50 26 C 40 18, 28 24, 25 34 C 34 38, 46 34, 50 26 Z" fill="#6B8A61" stroke="#2A3C26" stroke-width="0.6" />
+                <path d="M 36 38 C 30 48, 18 52, 14 44 C 20 36, 32 34, 36 38 Z" fill="#445D3C" stroke="#243420" stroke-width="0.6" />
+                <path d="M 24 48 C 16 42, 6 48, 4 58 C 12 62, 22 56, 24 48 Z" fill="#55704A" stroke="#243420" stroke-width="0.6" />
+                <circle cx="68" cy="24" r="2.2" fill="#D4AF37" />
+                <circle cx="42" cy="38" r="1.8" fill="#D4AF37" />
+              </svg>
+            </div>
+
+            <!-- Botanical Corner Ginkgo Sprigs at Lower Base (Vibrant Rich Green & Gold) -->
+            <FloralCorner position="bottom-left" size={88} className="absolute -bottom-1 -left-1 opacity-90 pointer-events-none block drop-shadow-xs" />
+            <FloralCorner position="bottom-right" size={88} className="absolute -bottom-1 -right-1 opacity-90 pointer-events-none block drop-shadow-xs" />
 
             <!-- Arch Crown: Overline & Gilded Botanical Finial -->
             <div class="flex flex-col items-center justify-center mb-2 relative z-10">
@@ -171,26 +208,8 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                 AYAT SUCI AL-QUR'AN
               </span>
               
-              <!-- Royal Architectural Crown Finial SVG -->
-              <svg class="w-36 h-9 text-[#B89352] mb-1 drop-shadow-xs" viewBox="0 0 160 36" fill="none">
-                <!-- Center Star Crest (✦) -->
-                <path d="M 80 4 Q 80 14 74 14 Q 80 14 80 24 Q 80 14 86 14 Q 80 14 80 4 Z" fill="url(#crownGoldGrad)" />
-                <circle cx="80" cy="14" r="1.5" fill="#FAF8F5" />
-                
-                <!-- Left Arching Foliage Swash -->
-                <path d="M 72 14 C 54 14, 38 8, 20 18 C 12 23, 4 19, 6 13 C 8 7, 16 10, 20 15" stroke="url(#crownGoldGrad)" stroke-width="1.3" stroke-linecap="round" />
-                <path d="M 58 12 C 54 7, 46 8, 44 12 C 47 14, 55 14, 58 12 Z" fill="#6E8564" />
-                <path d="M 36 12 C 30 17, 24 16, 22 12 C 25 10, 31 10, 36 12 Z" fill="#4A5C43" />
-                <circle cx="20" cy="15" r="1.6" fill="#B89352" />
-                <circle cx="50" cy="16" r="1.3" fill="#B89352" />
-
-                <!-- Right Arching Foliage Swash -->
-                <path d="M 88 14 C 106 14, 122 8, 140 18 C 148 23, 156 19, 154 13 C 152 7, 144 10, 140 15" stroke="url(#crownGoldGrad)" stroke-width="1.3" stroke-linecap="round" />
-                <path d="M 102 12 C 106 7, 114 8, 116 12 C 113 14, 105 14, 102 12 Z" fill="#6E8564" />
-                <path d="M 124 12 C 130 17, 136 16, 138 12 C 135 10, 129 10, 124 12 Z" fill="#4A5C43" />
-                <circle cx="140" cy="15" r="1.6" fill="#B89352" />
-                <circle cx="110" cy="16" r="1.3" fill="#B89352" />
-
+              <!-- Royal Architectural Crown Finial with Rich Emerald & Olive Foliage -->
+              <svg class="w-44 sm:w-52 h-10 sm:h-11 text-[#B89352] mb-1.5 drop-shadow-xs" viewBox="0 0 180 36" fill="none">
                 <defs>
                   <linearGradient id="crownGoldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stop-color="#9A7836" />
@@ -199,7 +218,35 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                     <stop offset="75%" stop-color="#D4AF37" />
                     <stop offset="100%" stop-color="#9A7836" />
                   </linearGradient>
+                  <linearGradient id="finialLeafDark" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#2D3E27" />
+                    <stop offset="100%" stop-color="#49633F" />
+                  </linearGradient>
+                  <linearGradient id="finialLeafLight" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#4F6A44" />
+                    <stop offset="100%" stop-color="#739467" />
+                  </linearGradient>
                 </defs>
+
+                <!-- Center Star Crest (✦) -->
+                <path d="M 90 4 Q 90 14 84 14 Q 90 14 90 24 Q 90 14 96 14 Q 90 14 90 4 Z" fill="url(#crownGoldGrad)" />
+                <circle cx="90" cy="14" r="1.6" fill="#FAF8F5" />
+                
+                <!-- Left Arching Foliage Swash -->
+                <path d="M 82 14 C 64 14, 46 8, 26 18 C 16 23, 6 19, 8 13 C 10 7, 20 10, 26 15" stroke="url(#crownGoldGrad)" stroke-width="1.3" stroke-linecap="round" />
+                <path d="M 68 12 C 64 6, 54 7, 52 12 C 56 15, 65 15, 68 12 Z" fill="url(#finialLeafLight)" stroke="#202F1C" stroke-width="0.5" />
+                <path d="M 44 12 C 37 18, 29 17, 27 12 C 31 9, 39 9, 44 12 Z" fill="url(#finialLeafDark)" stroke="#202F1C" stroke-width="0.5" />
+                <path d="M 58 16 C 52 23, 42 22, 40 17 C 46 14, 54 14, 58 16 Z" fill="url(#finialLeafDark)" stroke="#202F1C" stroke-width="0.5" />
+                <circle cx="26" cy="15" r="1.8" fill="#D4AF37" />
+                <circle cx="58" cy="16" r="1.4" fill="#D4AF37" />
+
+                <!-- Right Arching Foliage Swash -->
+                <path d="M 98 14 C 116 14, 134 8, 154 18 C 164 23, 174 19, 172 13 C 170 7, 160 10, 154 15" stroke="url(#crownGoldGrad)" stroke-width="1.3" stroke-linecap="round" />
+                <path d="M 112 12 C 116 6, 126 7, 128 12 C 124 15, 115 15, 112 12 Z" fill="url(#finialLeafLight)" stroke="#202F1C" stroke-width="0.5" />
+                <path d="M 136 12 C 143 18, 151 17, 153 12 C 149 9, 141 9, 136 12 Z" fill="url(#finialLeafDark)" stroke="#202F1C" stroke-width="0.5" />
+                <path d="M 122 16 C 128 23, 138 22, 140 17 C 134 14, 126 14, 122 16 Z" fill="url(#finialLeafDark)" stroke="#202F1C" stroke-width="0.5" />
+                <circle cx="154" cy="15" r="1.8" fill="#D4AF37" />
+                <circle cx="122" cy="16" r="1.4" fill="#D4AF37" />
               </svg>
             </div>
 
