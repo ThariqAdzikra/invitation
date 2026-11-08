@@ -227,19 +227,19 @@ import FloralCorner from '../botanical/FloralCorner.astro';
             </div>
           </div>
 
-          <!-- Dual Profiles Grid -->
-          <div id="couple-cards-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full mt-2 relative">
+          <!-- Dual Profiles Grid (Side-by-Side on both mobile & desktop) -->
+          <div id="couple-cards-container" class="grid grid-cols-2 gap-2.5 sm:gap-6 w-full mt-2 relative">
             
             <!-- Zharkasi (Groom) -->
             <article 
               id="couple-groom-card"
-              class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-4 sm:p-5 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden interactive-foil-card will-change-transform"
+              class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-2.5 sm:p-5 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden interactive-foil-card will-change-transform"
               data-foil="true"
             >
               <div class="card-gold-top absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
-              <div class="groom-avatar-wrap mb-2.5 relative group">
-                <div class="w-22 h-22 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-[#B89352]/40 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-md relative overflow-hidden">
+              <div class="groom-avatar-wrap mb-1.5 sm:mb-2.5 relative group">
+                <div class="w-16 h-16 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-[#B89352]/40 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-md relative overflow-hidden">
                   <img 
                     src="/assets/vector-groom.jpg" 
                     alt={content.couple.groom.fullName} 
@@ -251,16 +251,16 @@ import FloralCorner from '../botanical/FloralCorner.astro';
 
               <!-- Text block that hides on fusion scroll -->
               <div class="couple-card-text flex flex-col items-center w-full will-change-transform">
-                <p class="text-[0.55rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-0.5">Mempelai Pria</p>
-                <h3 class="font-display text-base sm:text-lg text-[#2A3426] font-normal">
+                <p class="text-[0.52rem] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-0.5">Mempelai Pria</p>
+                <h3 class="font-display text-xs sm:text-base md:text-lg text-[#2A3426] font-normal leading-snug">
                   {content.couple.groom.fullName}
                 </h3>
-                <p class="text-[0.65rem] text-[#566A4E] font-light max-w-xs leading-relaxed mt-0.5 mb-2">
+                <p class="text-[0.58rem] sm:text-[0.65rem] text-[#566A4E] font-light max-w-xs leading-tight mt-0.5 mb-1.5 sm:mb-2 line-clamp-2">
                   {content.couple.groom.parents}
                 </p>
 
-                <div class="py-1.5 px-3 rounded-lg bg-[#FAF8F5] border border-[#566A4E]/10 w-full mb-2.5">
-                  <p class="font-display italic text-[0.65rem] sm:text-xs text-[#3E4C38] leading-relaxed">
+                <div class="py-1 px-1.5 sm:py-1.5 sm:px-3 rounded-lg bg-[#FAF8F5] border border-[#566A4E]/10 w-full mb-1.5 sm:mb-2.5">
+                  <p class="font-display italic text-[0.58rem] sm:text-xs text-[#3E4C38] leading-tight line-clamp-2">
                     &ldquo;{content.couple.groom.quote}&rdquo;
                   </p>
                 </div>
@@ -269,10 +269,10 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                   href={`https://instagram.com/${content.couple.groom.instagram.replace('@', '')}`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  class="inline-flex items-center gap-1.5 text-[0.6rem] text-[#566A4E] hover:text-[#2A3426] tracking-widest uppercase font-semibold px-3 py-1 rounded-full border border-[#566A4E]/20 bg-white hover:border-[#B89352] transition-colors"
+                  class="inline-flex items-center gap-1 text-[0.55rem] sm:text-[0.6rem] text-[#566A4E] hover:text-[#2A3426] tracking-wider uppercase font-semibold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border border-[#566A4E]/20 bg-white hover:border-[#B89352] transition-colors"
                 >
                   <span>{content.couple.groom.instagram}</span>
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
                   </svg>
                 </a>
@@ -282,13 +282,13 @@ import FloralCorner from '../botanical/FloralCorner.astro';
             <!-- Difa (Bride) -->
             <article 
               id="couple-bride-card"
-              class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-4 sm:p-5 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden interactive-foil-card will-change-transform"
+              class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-2.5 sm:p-5 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden interactive-foil-card will-change-transform"
               data-foil="true"
             >
               <div class="card-gold-top absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
-              <div class="bride-avatar-wrap mb-2.5 relative group">
-                <div class="w-22 h-22 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-[#B89352]/40 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-md relative overflow-hidden">
+              <div class="bride-avatar-wrap mb-1.5 sm:mb-2.5 relative group">
+                <div class="w-16 h-16 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-[#B89352]/40 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-md relative overflow-hidden">
                   <img 
                     src="/assets/vector-bride.jpg" 
                     alt={content.couple.bride.fullName} 
@@ -300,16 +300,16 @@ import FloralCorner from '../botanical/FloralCorner.astro';
 
               <!-- Text block that hides on fusion scroll -->
               <div class="couple-card-text flex flex-col items-center w-full will-change-transform">
-                <p class="text-[0.55rem] tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-0.5">Mempelai Wanita</p>
-                <h3 class="font-display text-base sm:text-lg text-[#2A3426] font-normal">
+                <p class="text-[0.52rem] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] text-[#B89352] uppercase font-semibold mb-0.5">Mempelai Wanita</p>
+                <h3 class="font-display text-xs sm:text-base md:text-lg text-[#2A3426] font-normal leading-snug">
                   {content.couple.bride.fullName}
                 </h3>
-                <p class="text-[0.65rem] text-[#566A4E] font-light max-w-xs leading-relaxed mt-0.5 mb-2">
+                <p class="text-[0.58rem] sm:text-[0.65rem] text-[#566A4E] font-light max-w-xs leading-tight mt-0.5 mb-1.5 sm:mb-2 line-clamp-2">
                   {content.couple.bride.parents}
                 </p>
 
-                <div class="py-1.5 px-3 rounded-lg bg-[#FAF8F5] border border-[#566A4E]/10 w-full mb-2.5">
-                  <p class="font-display italic text-[0.65rem] sm:text-xs text-[#3E4C38] leading-relaxed">
+                <div class="py-1 px-1.5 sm:py-1.5 sm:px-3 rounded-lg bg-[#FAF8F5] border border-[#566A4E]/10 w-full mb-1.5 sm:mb-2.5">
+                  <p class="font-display italic text-[0.58rem] sm:text-xs text-[#3E4C38] leading-tight line-clamp-2">
                     &ldquo;{content.couple.bride.quote}&rdquo;
                   </p>
                 </div>
@@ -318,10 +318,10 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                   href={`https://instagram.com/${content.couple.bride.instagram.replace('@', '')}`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  class="inline-flex items-center gap-1.5 text-[0.6rem] text-[#566A4E] hover:text-[#2A3426] tracking-widest uppercase font-semibold px-3 py-1 rounded-full border border-[#566A4E]/20 bg-white hover:border-[#B89352] transition-colors"
+                  class="inline-flex items-center gap-1 text-[0.55rem] sm:text-[0.6rem] text-[#566A4E] hover:text-[#2A3426] tracking-wider uppercase font-semibold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border border-[#566A4E]/20 bg-white hover:border-[#B89352] transition-colors"
                 >
                   <span>{content.couple.bride.instagram}</span>
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
                   </svg>
                 </a>
@@ -456,7 +456,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                 <!-- Twin Portraits Sitting Side-by-Side with Gold Hairline Frames -->
                 <div class="flex items-center justify-center gap-2.5 sm:gap-3.5 mb-1.5 sm:mb-2">
                   <!-- Groom Avatar -->
-                  <div class="w-15 h-15 sm:w-19 sm:h-19 rounded-full p-0.5 border-1.5 border-[#B89352]/65 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
+                  <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full p-0.5 border-1.5 border-[#B89352]/65 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
                     <img src="/assets/vector-groom.jpg" alt={content.couple.groom.nickname} class="w-full h-full object-cover rounded-full" />
                   </div>
 
@@ -468,7 +468,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                   </div>
                   
                   <!-- Bride Avatar -->
-                  <div class="w-15 h-15 sm:w-19 sm:h-19 rounded-full p-0.5 border-1.5 border-[#B89352]/65 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
+                  <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full p-0.5 border-1.5 border-[#B89352]/65 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
                     <img src="/assets/vector-bride.jpg" alt={content.couple.bride.nickname} class="w-full h-full object-cover rounded-full" />
                   </div>
                 </div>
@@ -806,10 +806,10 @@ import FloralCorner from '../botanical/FloralCorner.astro';
 
     // Cards glide towards center and dissolve white borders
     const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 640;
-    const groomMoveX = isDesktop ? 150 : 0;
-    const groomMoveY = isDesktop ? 0 : 70;
-    const brideMoveX = isDesktop ? -150 : 0;
-    const brideMoveY = isDesktop ? 0 : -70;
+    const groomMoveX = isDesktop ? 150 : 70;
+    const groomMoveY = 0;
+    const brideMoveX = isDesktop ? -150 : -70;
+    const brideMoveY = 0;
 
     if (groomCard) {
       tl.to(groomCard, {
