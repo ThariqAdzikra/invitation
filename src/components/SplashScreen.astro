@@ -340,7 +340,7 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
         tl.to(splashBorder, { opacity: 0, duration: 0.45, ease: 'power2.out' }, 0.05);
       }
 
-      // PHASE 2: Euro flap flips open 180° in 3D (0.12s -> 0.75s)
+      // PHASE 2: Euro flap flips open 180° in 3D (0.10s -> 0.70s)
       tl.to(topFlap, {
         rotateX: 180,
         duration: 0.65,
@@ -351,70 +351,89 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
             topFlapContainer.style.zIndex = '2';
           }
         }
-      }, 0.12);
+      }, 0.10);
 
-      // PHASE 3: Surat keluar mengalir anggun dari dalam amplop (0.35s -> 1.15s)
-      // Gerakan continuous halus, natural tanpa lompatan atau penurunan kaku
+      // Fade out nameplate and ribbon so envelope pocket is clean
+      const frontNameplate = document.querySelector('#envelope-body .z-25');
+      const frontRibbon = document.querySelector('#envelope-body .z-23');
+      if (frontNameplate) {
+        tl.to(frontNameplate, { opacity: 0, duration: 0.35, ease: 'power2.out' }, 0.35);
+      }
+      if (frontRibbon) {
+        tl.to(frontRibbon, { opacity: 0, duration: 0.35, ease: 'power2.out' }, 0.35);
+      }
+
+      // PHASE 3: Surat ditarik PENUH keluar dari saku amplop (0.35s -> 0.95s)
+      // Meluncur ke atas sampai seluruh badan surat keluar dari kantong (tidak beradu dengan lipatan)
       tl.to(letterCard, {
         opacity: 1,
-        y: '-44%',
-        scale: 1.04,
-        boxShadow: '0 28px 65px rgba(42, 52, 38, 0.22)',
-        duration: 0.8,
+        y: '-92%',
+        scale: 1.02,
+        duration: 0.60,
         ease: 'power2.out'
       }, 0.35);
 
-      // Fisika alami: badan amplop turun sedikit memberi kesan kedalaman (depth parallax)
+      // Badan amplop turun sedikit memberi efek kedalaman fisik
       if (envelopeBody) {
         tl.to(envelopeBody, {
-          y: 18,
-          scale: 0.98,
-          duration: 0.8,
+          y: 35,
+          scale: 0.96,
+          duration: 0.70,
           ease: 'power2.out'
         }, 0.35);
       }
 
-      // Suara kertas dan semburan confetti mewah saat surat keluar sempurna
+      // Saat surat sudah keluar penuh dari saku, pindahkan ke lapisan terdepan (zIndex 50)
+      // dan picu suara kertas serta confetti
       tl.add(() => {
+        if (letterCard) {
+          letterCard.style.zIndex = '50';
+          gsap.set(letterCard, { z: 50 });
+        }
         playCardFlipSound();
         if ((window as any).triggerLuxuryConfetti) {
-          (window as any).triggerLuxuryConfetti(window.innerWidth / 2, window.innerHeight * 0.42);
+          (window as any).triggerLuxuryConfetti(window.innerWidth / 2, window.innerHeight * 0.45);
         }
-      }, 0.7);
+      }, 0.92);
 
-      // PHASE 4: Gentle organic breathing beat (1.15s -> 1.55s)
+      // Surat meluncur anggun ke posisi tengah membaca di DEPAN amplop (0.95s -> 1.55s)
+      // Surat berada 100% di atas amplop tanpa terhalang atau beradu dengan lipatan segitiga
       tl.to(letterCard, {
-        scale: 1.055,
-        duration: 0.4,
-        ease: 'sine.inOut'
-      }, 1.15);
+        y: '-12%',
+        scale: 1.05,
+        boxShadow: '0 32px 75px rgba(42, 52, 38, 0.28)',
+        duration: 0.60,
+        ease: 'power2.out'
+      }, 0.95);
 
-      // PHASE 5: BARU TRANSISI HALUS KE HALAMAN UTAMA (1.55s -> 2.30s)
+      // PHASE 4: Jeda hening natural untuk membaca surat (1.55s -> 1.85s)
+
+      // PHASE 5: BARU TRANSISI HALUS KE HALAMAN UTAMA (1.85s -> 2.55s)
       // Camera smoothly zooms in directly onto the letter card
       tl.to(scene, {
         scale: 2.1,
         y: 40,
-        duration: 0.75,
+        duration: 0.70,
         ease: 'power2.inOut'
-      }, 1.55);
+      }, 1.85);
 
       // Envelope body fades away smoothly
       if (envelopeBody) {
         tl.to(envelopeBody, {
           opacity: 0,
-          duration: 0.55,
+          duration: 0.50,
           ease: 'power2.inOut'
-        }, 1.60);
+        }, 1.90);
       }
 
       // Splash screen dissolves smoothly into the waiting Hero section directly underneath
       tl.to(screen, {
         opacity: 0,
-        duration: 0.65,
+        duration: 0.60,
         ease: 'power2.inOut'
-      }, 1.65);
+      }, 1.95);
 
-      // PHASE 6: Transition Complete — Enable Lenis Scroll & Clean Screen (2.35s)
+      // PHASE 6: Transition Complete — Enable Lenis Scroll & Clean Screen (2.60s)
       tl.add(() => {
         if (screen) screen.style.display = 'none';
         document.documentElement.classList.remove('is-locked');
@@ -425,7 +444,7 @@ import BotanicalStamp from './botanical/BotanicalStamp.astro';
           (window as any).__lenis.start();
         }
         window.dispatchEvent(new CustomEvent('invitationOpened'));
-      }, 2.35);
+      }, 2.60);
     }
 
     // Event listeners
