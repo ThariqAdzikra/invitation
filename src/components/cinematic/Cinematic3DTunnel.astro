@@ -960,9 +960,14 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
             chapterRail.style.opacity = self.progress > 0.89 ? '0' : '0.9';
           }
           if (viewport) {
-            if (self.progress >= 0.99) {
+            if (self.progress >= 0.98) {
               viewport.style.opacity = '0';
               viewport.style.visibility = 'hidden';
+              viewport.style.pointerEvents = 'none';
+            } else if (self.progress >= 0.92) {
+              const fade = Math.max(0, 1 - (self.progress - 0.92) / 0.06);
+              viewport.style.opacity = fade.toFixed(3);
+              viewport.style.visibility = 'visible';
               viewport.style.pointerEvents = 'none';
             } else {
               viewport.style.opacity = '1';
