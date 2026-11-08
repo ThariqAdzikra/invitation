@@ -35,7 +35,7 @@
       "address": "Jl. Koto Baru, Komp PLN No. 8C, Kelurahan Koto Baru Nan. XX, Kecamatan Lubuk Begalung, Kota Padang, Sumatera Barat",
       "city": "Kota Padang",
       "mapsUrl": "https://maps.google.com/?q=Komp+PLN+No+8C+Koto+Baru+Nan+XX+Lubuk+Begalung+Kota+Padang+Sumatera+Barat",
-      "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Difa+%26+Zharkasi&dates=20261226T010000Z/20261226T100000Z&details=Pernikahan+Difa+Auliya+Syahmi+%26+Muhammad+Zharkasi&location=Jl.+Koto+Baru,+Komp+PLN+No.+8C,+Kota+Padang"
+      "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Zharkasi+%26+Difa&dates=20261226T010000Z/20261226T100000Z&details=Pernikahan+Muhammad+Zharkasi+%26+Difa+Auliya+Syahmi&location=Jl.+Koto+Baru,+Komp+PLN+No.+8C,+Kota+Padang"
     }
   },
   "opening": {
@@ -96,8 +96,8 @@
     }
   },
   "meta": {
-    "title": "Undangan Pernikahan Difa & Zharkasi",
-    "description": "Kami mengundang Anda untuk berbagi kebahagiaan di hari pernikahan Difa & Zharkasi.",
+    "title": "Undangan Pernikahan Zharkasi & Difa",
+    "description": "Kami mengundang Anda untuk berbagi kebahagiaan di hari pernikahan Zharkasi & Difa.",
     "ogImage": "/assets/og.jpg",
     "siteUrl": "https://undangan.domain.com"
   }

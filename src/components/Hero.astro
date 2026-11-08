@@ -11,7 +11,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     
     <!-- Royal Monogram Crest -->
     <div class="hero-crest mb-3 opacity-0">
-      <FloralWreath monogram="DZ" size={80} />
+      <FloralWreath monogram="ZD" size={80} />
     </div>
 
     <!-- Sacred Tagline -->
@@ -22,7 +22,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     <!-- Couple Headline -->
     <div class="overflow-hidden my-1">
       <h1 id="hero-headline" class="font-display text-4xl sm:text-6xl md:text-7xl text-[#2A3426] font-normal tracking-tight leading-tight translate-y-[110%] opacity-0 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
-        {content.couple.bride.nickname} <span class="font-display italic text-[#B89352] font-normal px-2">&amp;</span> {content.couple.groom.nickname}
+        {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-2">&amp;</span> {content.couple.bride.nickname}
       </h1>
     </div>
 
@@ -41,7 +41,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
         <div class="w-full h-full rounded-t-full overflow-hidden border border-[#566A4E]/20 relative bg-[#FAF8F5]">
           <img 
             src="/assets/vector-hero.jpg" 
-            alt={`Ilustrasi Mempelai ${content.couple.bride.nickname} & ${content.couple.groom.nickname}`} 
+            alt={`Ilustrasi Mempelai ${content.couple.groom.nickname} & ${content.couple.bride.nickname}`} 
             class="w-full h-full object-cover"
             loading="eager"
             fetchpriority="high"

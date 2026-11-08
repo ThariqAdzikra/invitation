@@ -130,9 +130,9 @@
     // =========================================================================
     // MASTER SCROLL-DRIVEN CELESTIAL TIMELINE
     // 0.00 -> 0.24: Hero & Verse (Sun COMPLETELY HIDDEN, Opacity 0)
-    // 0.25 -> 0.44: KEDUA MEMPELAI (Sunrise! Sun rises gracefully from horizon)
-    // 0.45 -> 0.74: Acara, Countdown, LoveStory (Midday zenith, champagne golden light)
-    // 0.75 -> 1.00: Wishes & Closing (Sunset! Sinks behind rolling hills and couple)
+    // 0.25 -> 0.42: KEDUA MEMPELAI (Sunrise! Sun rises gracefully from horizon)
+    // 0.43 -> 0.70: Acara & Countdown (Midday zenith, champagne golden light)
+    // 0.71 -> 1.00: LoveStory & Closing (Sunset! Sinks behind romantic swans)
     // =========================================================================
     const sunTL = gsap.timeline({
       scrollTrigger: {
@@ -185,20 +185,20 @@
       sunTL.to(skyMidday, { opacity: 0.80, duration: 0.20, ease: 'power1.inOut' }, 0.46);
     }
 
-    // 4. SUNSET: Wishes -> Closing (0.75 -> 1.00)
-    // Sun descends toward the horizon behind the rolling hills and couple
+    // 4. SUNSET: LoveStory -> Closing (0.71 -> 1.00)
+    // Sun descends toward the horizon behind the romantic swans
     sunTL.to(sunWrapper, {
       x: () => calculateCoordinates().pSunset.x,
       y: () => calculateCoordinates().pSunset.y,
       scale: () => calculateCoordinates().pSunset.scale,
-      duration: 0.25,
+      duration: 0.26,
       ease: 'power1.inOut'
-    }, 0.75);
+    }, 0.71);
 
     // Midday sky transitions to warm amber terracotta Sunset glow
     if (skyMidday && skySunset) {
-      sunTL.to(skyMidday, { opacity: 0, duration: 0.15, ease: 'power1.inOut' }, 0.75);
-      sunTL.to(skySunset, { opacity: 1, duration: 0.22, ease: 'power2.out' }, 0.78);
+      sunTL.to(skyMidday, { opacity: 0, duration: 0.15, ease: 'power1.inOut' }, 0.71);
+      sunTL.to(skySunset, { opacity: 1, duration: 0.22, ease: 'power2.out' }, 0.74);
     }
 
     // Sunset color shift on sun sphere & outer bloom
@@ -207,7 +207,7 @@
         opacity: 1,
         duration: 0.22,
         ease: 'power2.out'
-      }, 0.78);
+      }, 0.74);
     }
 
     if (sunGlow) {
@@ -216,7 +216,7 @@
         opacity: 0.9,
         duration: 0.22,
         ease: 'power2.out'
-      }, 0.78);
+      }, 0.74);
     }
 
     // Handle viewport resize gracefully

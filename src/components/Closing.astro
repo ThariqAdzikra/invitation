@@ -36,7 +36,7 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
       <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-2">Hormat Kami yang Berbahagia</p>
       
       <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tracking-tight">
-        {content.couple.bride.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.groom.nickname}
+        {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.bride.nickname}
       </h2>
 
       <p class="text-xs text-[#7E8F77] font-light mt-1.5 italic">
@@ -78,10 +78,10 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
     <!-- End Title Credits Footer -->
     <footer class="w-full pt-8 border-t border-[#566A4E]/15 text-center">
       <div class="w-8 h-8 rounded-full border border-[#B89352]/30 flex items-center justify-center mx-auto mb-2 text-[#B89352] text-xs font-serif italic">
-        DZ
+        ZD
       </div>
       <p class="text-[0.62rem] tracking-[0.3em] uppercase text-[#B89352] font-mono mb-1">
-        THE WEDDING OF DIFA &amp; ZHARKASI &bull; 2026
+        THE WEDDING OF ZHARKASI &amp; DIFA &bull; 2026
       </p>
       <p class="text-[0.62rem] md:text-xs text-[#7E8F77] tracking-[0.2em] uppercase font-medium">
         Terima Kasih atas Doa &amp; Restu Anda &bull; Padang
@@ -116,9 +116,9 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
     if (shareBtn) {
       shareBtn.addEventListener('click', () => {
         playChimeSound();
-        const title = 'Undangan Pernikahan Difa & Zharkasi';
+        const title = 'Undangan Pernikahan Zharkasi & Difa';
         const url = window.location.href;
-        const text = `Assalamu'alaikum Wr. Wb.\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami, Difa Auliya Syahmi & Muhammad Zharkasi:\n\n${url}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.`;
+        const text = `Assalamu'alaikum Wr. Wb.\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami, Muhammad Zharkasi & Difa Auliya Syahmi:\n\n${url}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.`;
 
         if (navigator.share) {
           navigator.share({
