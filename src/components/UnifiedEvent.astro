@@ -1,5 +1,5 @@
 ---
-// UnifiedEvent.astro — Section 1: Rangkaian Acara & Waktu (Twin Royal Arches: Save The Date Calendar + Jadwal Akad, Resepsi & Countdown)
+// UnifiedEvent.astro — Section 1: Rangkaian Acara & Waktu (Master Architectural Pavilion: Save The Date Calendar + Jadwal Akad, Resepsi & Countdown)
 import content from '../data/content.json';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 
@@ -32,157 +32,146 @@ const calendarCells = [
   data-timezone={content.event.timezone}
 >
   
-  <div id="event-editorial-stele" class="max-w-4xl mx-auto w-full relative z-10 text-center will-change-transform">
+  <div id="event-editorial-stele" class="max-w-xl lg:max-w-4xl mx-auto w-full relative z-10 text-center will-change-transform">
     
-    <!-- Top Rings Crest: Intertwined Rings with Gold Halo -->
-    <div class="flex items-center justify-center mb-3">
-      <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#B89352]/50 bg-white/80 backdrop-blur-xs flex items-center justify-center text-[#B89352] shadow-[0_4px_16px_rgba(184,147,82,0.16)]">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="9" cy="12" r="5.5"></circle>
-          <circle cx="15" cy="12" r="5.5"></circle>
-        </svg>
+    <!-- The Single Master Architectural Event Pavilion Card -->
+    <div 
+      id="master-event-card"
+      class="relative w-full mx-auto pt-8 sm:pt-10 pb-8 sm:pb-10 px-5 sm:px-8 lg:px-10 rounded-t-[140px] sm:rounded-t-[160px] rounded-b-3xl border border-[#B89352]/35 bg-gradient-to-b from-[#FAF8F5]/96 via-[#FAF8F5]/92 to-[#FAF8F5]/96 backdrop-blur-md shadow-[0_12px_40px_rgba(42,52,38,0.07)]"
+    >
+      <!-- Inset Classical Dashed Arch Hairline -->
+      <div class="absolute inset-2 sm:inset-3 rounded-t-[130px] sm:rounded-t-[150px] rounded-b-2xl border border-dashed border-[#B89352]/30 pointer-events-none"></div>
+
+      <!-- Arch Crown: Intertwined Rings with Gold Halo -->
+      <div class="relative z-10 flex flex-col items-center justify-center mb-3">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#B89352]/50 bg-white/90 backdrop-blur-xs flex items-center justify-center text-[#B89352] shadow-[0_4px_16px_rgba(184,147,82,0.16)]">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="12" r="5.5"></circle>
+            <circle cx="15" cy="12" r="5.5"></circle>
+          </svg>
+        </div>
       </div>
-    </div>
 
-    <!-- Overline & Section Title -->
-    <div class="event-header mb-6 sm:mb-8">
-      <p class="text-overline tracking-[0.32em] text-[0.62rem] sm:text-xs text-[#B89352] font-semibold uppercase mb-1">
-        RANGKAIAN ACARA
-      </p>
-      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tracking-tight">
-        Waktu &amp; Jadwal
-      </h2>
-      <div class="my-2.5 flex justify-center opacity-75">
-        <FloralFlourish width={140} height={18} />
+      <!-- Overline & Section Title -->
+      <div class="event-header mb-5 sm:mb-7 relative z-10">
+        <p class="text-overline tracking-[0.32em] text-[0.62rem] sm:text-xs text-[#B89352] font-semibold uppercase mb-1">
+          RANGKAIAN ACARA
+        </p>
+        <h2 class="font-display text-2xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tracking-tight">
+          Waktu &amp; Jadwal
+        </h2>
+        <div class="flex justify-center my-2 opacity-70">
+          <FloralFlourish width={130} height={16} />
+        </div>
       </div>
-    </div>
 
-    <!-- The Grand Royal Diptych: Twin Matching Symmetrical Arched Steles -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch justify-center max-w-3xl mx-auto text-left">
-      
-      <!-- =========================================================================
-           LEFT ARCH: THE SAVE-THE-DATE CALENDAR STELE
-           ========================================================================= -->
-      <div class="flex justify-center w-full">
-        <div 
-          id="event-calendar-card" 
-          class="relative w-full max-w-sm pt-6 pb-5 px-5 sm:px-6 rounded-t-[120px] sm:rounded-t-[140px] rounded-b-2xl border border-[#B89352]/35 bg-gradient-to-b from-[#FAF8F5]/96 via-[#FAF8F5]/92 to-[#FAF8F5]/96 backdrop-blur-md shadow-[0_12px_36px_rgba(42,52,38,0.06)] flex flex-col justify-between"
-        >
-          <!-- Inset Tailored Arch Hairline -->
-          <div class="absolute inset-2 rounded-t-[112px] sm:rounded-t-[132px] rounded-b-xl border border-dashed border-[#B89352]/30 pointer-events-none"></div>
-
-          <!-- Top Arch Crown Badge: Calendar Icon -->
-          <div class="relative z-10 flex flex-col items-center justify-center mb-1.5">
-            <div class="w-9 h-9 rounded-full border border-[#B89352]/40 bg-[#FAF8F5] flex items-center justify-center shadow-xs mb-1">
-              <svg class="w-4 h-4 text-[#B89352]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-                <circle cx="12" cy="16" r="1.5" fill="#B89352"></circle>
-              </svg>
-            </div>
-          </div>
+      <!-- Editorial Body: 2 Columns on Desktop, Natural Fluid Flow on Mobile -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center text-left relative z-10">
+        
+        <!-- LEFT WING: The Save-The-Date Calendar (lg:col-span-6) -->
+        <div class="lg:col-span-6 flex flex-col items-center justify-center text-center lg:border-r lg:border-[#B89352]/20 lg:pr-8">
           
-          <!-- Card Header: Save The Date & Month -->
-          <div class="text-center mb-3 relative z-10">
+          <!-- Month Header -->
+          <div class="text-center mb-2.5">
             <div class="flex items-center justify-center gap-2 mb-0.5">
               <span class="h-[1px] w-6 bg-gradient-to-r from-transparent to-[#B89352]/70"></span>
-              <span class="text-[0.6rem] font-semibold tracking-[0.28em] text-[#B89352] uppercase">
+              <span class="text-[0.6rem] sm:text-[0.65rem] font-semibold tracking-[0.28em] text-[#B89352] uppercase">
                 SAVE THE DATE
               </span>
               <span class="h-[1px] w-6 bg-gradient-to-l from-transparent to-[#B89352]/70"></span>
             </div>
-            
-            <h3 class="font-display text-2xl sm:text-3xl text-[#2A3426] tracking-wide font-normal">
+            <h3 class="font-display text-xl sm:text-2xl text-[#2A3426] tracking-wide font-normal">
               Desember 2026
             </h3>
           </div>
 
-          <!-- Calendar 7-Day Header -->
-          <div class="grid grid-cols-7 gap-1 mb-1.5 pb-2 border-b border-[#B89352]/20 relative z-10">
-            {dayNames.map((name, idx) => (
-              <div class={`text-center text-[0.62rem] sm:text-xs font-semibold uppercase tracking-wider ${
-                idx === 0 
-                  ? 'text-[#B89352]' 
-                  : idx === 6 
-                    ? 'text-[#4A5D43] font-bold' 
-                    : 'text-[#7E8F77]'
-              }`}>
-                {name}
-              </div>
-            ))}
-          </div>
+          <!-- Calendar Grid -->
+          <div class="w-full max-w-[280px] sm:max-w-xs mx-auto">
+            <!-- 7-Day Header -->
+            <div class="grid grid-cols-7 gap-1 mb-1 pb-1.5 border-b border-[#B89352]/20">
+              {dayNames.map((name, idx) => (
+                <div class={`text-center text-[0.62rem] sm:text-xs font-semibold uppercase tracking-wider ${
+                  idx === 0 
+                    ? 'text-[#B89352]' 
+                    : idx === 6 
+                      ? 'text-[#4A5D43] font-bold' 
+                      : 'text-[#7E8F77]'
+                }`}>
+                  {name}
+                </div>
+              ))}
+            </div>
 
-          <!-- Calendar 35-Cell Grid -->
-          <div class="grid grid-cols-7 gap-1 select-none relative z-10">
-            {calendarCells.map((day) => {
-              if (!day) {
-                return <div class="h-7 sm:h-8 flex items-center justify-center" aria-hidden="true"></div>;
-              }
+            <!-- 35-Cell Grid -->
+            <div class="grid grid-cols-7 gap-1 select-none">
+              {calendarCells.map((day) => {
+                if (!day) {
+                  return <div class="h-6 sm:h-7 flex items-center justify-center" aria-hidden="true"></div>;
+                }
 
-              const isWeddingDay = day === weddingDay;
+                const isWeddingDay = day === weddingDay;
 
-              return (
-                <div class={`h-7 sm:h-8 flex items-center justify-center relative ${isWeddingDay ? 'z-10' : ''}`}>
-                  {isWeddingDay ? (
-                    <div 
-                      class="relative flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 group" 
-                      title={`Hari Pernikahan Zharkasi & Difa: ${day} Desember 2026`}
-                    >
-                      <!-- Hand-Drawn Gold Brush Circle SVG -->
-                      <svg 
-                        class="absolute inset-0 w-full h-full text-[#B89352] scale-125 drop-shadow-[0_2px_8px_rgba(184,147,82,0.4)]" 
-                        viewBox="0 0 50 50" 
-                        fill="none" 
-                        xmlns="http://www.w3.org/2000/svg"
+                return (
+                  <div class={`h-6 sm:h-7 flex items-center justify-center relative ${isWeddingDay ? 'z-10' : ''}`}>
+                    {isWeddingDay ? (
+                      <div 
+                        class="relative flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 group cursor-default" 
+                        title={`Hari Pernikahan Zharkasi & Difa: ${day} Desember 2026`}
                       >
-                        <path 
-                          d="M25 6 C37 4.8, 46.5 13.5, 45 25.5 C43.8 36.8, 34.5 45.2, 23 44.8 C11.5 44.2, 4.8 35.5, 5.2 24 C5.5 12.8, 14.2 5.8, 26 5.2" 
-                          stroke="url(#calendarGoldGrad)" 
-                          stroke-width="2.2" 
-                          stroke-linecap="round" 
-                          stroke-linejoin="round"
-                        />
-                        <path 
-                          d="M22 8 C34.5 6.8, 43 15.2, 43.5 27 C43.8 38.5, 32.2 43.2, 21 42.8 C10.8 42.2, 7.2 33.5, 7.5 22.8 C7.8 13.5, 16.5 7.8, 28 7.2" 
-                          stroke="url(#calendarGoldGrad)" 
-                          stroke-width="1.2" 
-                          stroke-linecap="round" 
-                          stroke-dasharray="26 3" 
-                          opacity="0.85"
-                        />
-                        <defs>
-                          <linearGradient id="calendarGoldGrad" x1="5" y1="5" x2="45" y2="45" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#E2C48D"/>
-                            <stop offset="0.5" stop-color="#B89352"/>
-                            <stop offset="1" stop-color="#8C703C"/>
-                          </linearGradient>
-                        </defs>
-                      </svg>
+                        <!-- Hand-Drawn Gold Brush Circle SVG -->
+                        <svg 
+                          class="absolute inset-0 w-full h-full text-[#B89352] scale-135 drop-shadow-[0_2px_8px_rgba(184,147,82,0.4)]" 
+                          viewBox="0 0 50 50" 
+                          fill="none" 
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path 
+                            d="M25 6 C37 4.8, 46.5 13.5, 45 25.5 C43.8 36.8, 34.5 45.2, 23 44.8 C11.5 44.2, 4.8 35.5, 5.2 24 C5.5 12.8, 14.2 5.8, 26 5.2" 
+                            stroke="url(#calendarGoldGradUnified)" 
+                            stroke-width="2.2" 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round"
+                          />
+                          <path 
+                            d="M22 8 C34.5 6.8, 43 15.2, 43.5 27 C43.8 38.5, 32.2 43.2, 21 42.8 C10.8 42.2, 7.2 33.5, 7.5 22.8 C7.8 13.5, 16.5 7.8, 28 7.2" 
+                            stroke="url(#calendarGoldGradUnified)" 
+                            stroke-width="1.2" 
+                            stroke-linecap="round" 
+                            stroke-dasharray="26 3" 
+                            opacity="0.85"
+                          />
+                          <defs>
+                            <linearGradient id="calendarGoldGradUnified" x1="5" y1="5" x2="45" y2="45" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#E2C48D"/>
+                              <stop offset="0.5" stop-color="#B89352"/>
+                              <stop offset="1" stop-color="#8C703C"/>
+                            </linearGradient>
+                          </defs>
+                        </svg>
 
-                      <!-- Bouncing Gold Heart Pin Badge on Top-Right -->
-                      <span class="absolute -top-1 -right-0.5 text-[#B89352] text-[10px] leading-none drop-shadow-sm select-none animate-pulse">
-                        ♥
-                      </span>
+                        <!-- Bouncing Gold Heart Pin Badge on Top-Right -->
+                        <span class="absolute -top-1 -right-0.5 text-[#B89352] text-[9px] sm:text-[10px] leading-none drop-shadow-sm select-none animate-pulse">
+                          ♥
+                        </span>
 
-                      <!-- Date 26 Number -->
-                      <span class="font-display font-bold text-xs sm:text-sm text-[#2A3426] relative z-10">
+                        <!-- Date 26 Number -->
+                        <span class="font-display font-bold text-xs sm:text-sm text-[#2A3426] relative z-10">
+                          {day}
+                        </span>
+                      </div>
+                    ) : (
+                      <span class="text-[0.7rem] sm:text-xs font-sans text-[#2A3426]/75 font-medium hover:text-[#B89352] transition-colors">
                         {day}
                       </span>
-                    </div>
-                  ) : (
-                    <span class="text-[0.72rem] sm:text-xs font-sans text-[#2A3426]/75 font-medium hover:text-[#B89352] transition-colors">
-                      {day}
-                    </span>
-                  )}
-                </div>
-              );
-            })}
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
-          <!-- Stele Footer: Explicit Day, Date & City -->
-          <div class="mt-auto pt-2.5 border-t border-[#B89352]/20 flex items-center justify-center gap-2 relative z-10 min-h-[46px]">
+          <!-- Date Badge Footer -->
+          <div class="mt-2.5 pt-2 border-t border-[#B89352]/20 flex items-center justify-center gap-1.5">
             <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#B89352]"></span>
             <span class="text-[0.62rem] sm:text-xs tracking-wider uppercase font-semibold text-[#4A5D43]">
               Sabtu, 26 Desember 2026 · Padang
@@ -190,50 +179,19 @@ const calendarCells = [
           </div>
 
         </div>
-      </div>
 
-      <!-- =========================================================================
-           RIGHT ARCH: THE JADWAL PROSESI & COUNTDOWN STELE
-           ========================================================================= -->
-      <div class="flex justify-center w-full">
-        <div 
-          id="event-schedule-card" 
-          class="relative w-full max-w-sm pt-6 pb-5 px-5 sm:px-6 rounded-t-[120px] sm:rounded-t-[140px] rounded-b-2xl border border-[#B89352]/35 bg-gradient-to-b from-[#FAF8F5]/96 via-[#FAF8F5]/92 to-[#FAF8F5]/96 backdrop-blur-md shadow-[0_12px_36px_rgba(42,52,38,0.06)] flex flex-col justify-between"
-        >
-          <!-- Inset Tailored Arch Hairline -->
-          <div class="absolute inset-2 rounded-t-[112px] sm:rounded-t-[132px] rounded-b-xl border border-dashed border-[#B89352]/30 pointer-events-none"></div>
+        <!-- MOBILE GILDED DIVIDER -->
+        <div class="block lg:hidden w-32 h-[1px] bg-gradient-to-r from-transparent via-[#B89352]/35 to-transparent mx-auto my-0.5"></div>
 
-          <!-- Top Arch Crown Badge: Clock / Time Icon -->
-          <div class="relative z-10 flex flex-col items-center justify-center mb-1.5">
-            <div class="w-9 h-9 rounded-full border border-[#B89352]/40 bg-[#FAF8F5] flex items-center justify-center shadow-xs mb-1">
-              <svg class="w-4 h-4 text-[#B89352]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-            </div>
-          </div>
+        <!-- RIGHT WING: Sesi Prosesi, Countdown & Tombol Aksi (lg:col-span-6) -->
+        <div class="lg:col-span-6 flex flex-col justify-center space-y-3.5 sm:space-y-4">
           
-          <!-- Card Header: Jadwal & Sesi -->
-          <div class="text-center mb-3 relative z-10">
-            <div class="flex items-center justify-center gap-2 mb-0.5">
-              <span class="h-[1px] w-6 bg-gradient-to-r from-transparent to-[#B89352]/70"></span>
-              <span class="text-[0.6rem] font-semibold tracking-[0.28em] text-[#B89352] uppercase">
-                JADWAL PROSESI
-              </span>
-              <span class="h-[1px] w-6 bg-gradient-to-l from-transparent to-[#B89352]/70"></span>
-            </div>
-            
-            <h3 class="font-display text-2xl sm:text-3xl text-[#2A3426] tracking-wide font-normal">
-              Akad &amp; Resepsi
-            </h3>
-          </div>
-
-          <!-- Dual Sessions: Horizontal Clean Luxury Strips (No Awkward Word Wraps) -->
-          <div class="space-y-2 relative z-10 mb-2">
+          <!-- Dual Sessions: Horizontal Luxury Strips -->
+          <div class="space-y-2 w-full">
             <!-- Akad Nikah Strip -->
-            <div class="flex items-center justify-between py-2 px-3 sm:px-3.5 rounded-xl border border-[#B89352]/25 bg-white/70 backdrop-blur-xs shadow-xs hover:border-[#B89352]/50 transition-colors">
+            <div class="flex items-center justify-between py-2.5 px-3.5 sm:px-4 rounded-xl border border-[#B89352]/25 bg-white/70 backdrop-blur-xs shadow-xs hover:border-[#B89352]/50 transition-colors">
               <div class="text-left">
-                <span class="text-[0.62rem] sm:text-[0.66rem] tracking-[0.2em] text-[#B89352] uppercase font-semibold block">
+                <span class="text-[0.62rem] sm:text-[0.68rem] tracking-[0.2em] text-[#B89352] uppercase font-semibold block">
                   AKAD NIKAH
                 </span>
                 <span class="text-[0.62rem] text-[#7E8F77] italic font-light">
@@ -248,9 +206,9 @@ const calendarCells = [
             </div>
 
             <!-- Resepsi Pernikahan Strip -->
-            <div class="flex items-center justify-between py-2 px-3 sm:px-3.5 rounded-xl border border-[#B89352]/25 bg-white/70 backdrop-blur-xs shadow-xs hover:border-[#B89352]/50 transition-colors">
+            <div class="flex items-center justify-between py-2.5 px-3.5 sm:px-4 rounded-xl border border-[#B89352]/25 bg-white/70 backdrop-blur-xs shadow-xs hover:border-[#B89352]/50 transition-colors">
               <div class="text-left">
-                <span class="text-[0.62rem] sm:text-[0.66rem] tracking-[0.2em] text-[#B89352] uppercase font-semibold block">
+                <span class="text-[0.62rem] sm:text-[0.68rem] tracking-[0.2em] text-[#B89352] uppercase font-semibold block">
                   RESEPSI PERNIKAHAN
                 </span>
                 <span class="text-[0.62rem] text-[#7E8F77] italic font-light">
@@ -265,79 +223,72 @@ const calendarCells = [
             </div>
           </div>
 
-          <!-- Elegant Gilded Divider -->
-          <div class="flex items-center justify-center gap-2 my-1 opacity-60 relative z-10">
-            <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#B89352]"></div>
-            <span class="text-[#B89352] text-[10px]">♦</span>
-            <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#B89352]"></div>
-          </div>
-
           <!-- Live Countdown Medallions -->
-          <div class="w-full text-center relative z-10 my-1">
+          <div class="w-full text-center pt-0.5">
             <p class="text-[0.58rem] sm:text-[0.62rem] font-semibold tracking-[0.24em] text-[#566A4E] uppercase mb-2">
               HITUNG MUNDUR HARI BAHAGIA
             </p>
 
-            <div id="countdown-grid" class="flex items-center justify-center gap-1.5 sm:gap-2">
+            <div id="countdown-grid" class="flex items-center justify-center gap-1.5 sm:gap-2.5">
               <!-- Hari -->
               <div class="countdown-box flex flex-col items-center">
-                <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/90 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_2px_10px_rgba(184,147,82,0.08)] hover:border-[#B89352] transition-all relative group">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/90 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_2px_10px_rgba(184,147,82,0.08)] hover:border-[#B89352] transition-all relative group">
                   <div class="absolute inset-0.5 rounded-full border border-dashed border-[#B89352]/25 pointer-events-none"></div>
-                  <span id="countdown-days" class="font-display text-base sm:text-lg text-[#2A3426] font-medium tabular-nums leading-none relative z-10">
+                  <span id="countdown-days" class="font-display text-base sm:text-xl text-[#2A3426] font-medium tabular-nums leading-none relative z-10">
                     00
                   </span>
-                  <span class="text-[0.45rem] sm:text-[0.5rem] text-[#566A4E] uppercase tracking-widest mt-0.5 font-semibold relative z-10">Hari</span>
+                  <span class="text-[0.45rem] sm:text-[0.52rem] text-[#566A4E] uppercase tracking-widest mt-0.5 font-semibold relative z-10">Hari</span>
                 </div>
               </div>
 
-              <span class="text-[#B89352]/70 text-[10px] font-serif select-none">•</span>
+              <span class="text-[#B89352]/70 text-xs font-serif select-none">•</span>
 
               <!-- Jam -->
               <div class="countdown-box flex flex-col items-center">
-                <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/90 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_2px_10px_rgba(184,147,82,0.08)] hover:border-[#B89352] transition-all relative group">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/90 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_2px_10px_rgba(184,147,82,0.08)] hover:border-[#B89352] transition-all relative group">
                   <div class="absolute inset-0.5 rounded-full border border-dashed border-[#B89352]/25 pointer-events-none"></div>
-                  <span id="countdown-hours" class="font-display text-base sm:text-lg text-[#2A3426] font-medium tabular-nums leading-none relative z-10">
+                  <span id="countdown-hours" class="font-display text-base sm:text-xl text-[#2A3426] font-medium tabular-nums leading-none relative z-10">
                     00
                   </span>
-                  <span class="text-[0.45rem] sm:text-[0.5rem] text-[#566A4E] uppercase tracking-widest mt-0.5 font-semibold relative z-10">Jam</span>
+                  <span class="text-[0.45rem] sm:text-[0.52rem] text-[#566A4E] uppercase tracking-widest mt-0.5 font-semibold relative z-10">Jam</span>
                 </div>
               </div>
 
-              <span class="text-[#B89352]/70 text-[10px] font-serif select-none">•</span>
+              <span class="text-[#B89352]/70 text-xs font-serif select-none">•</span>
 
               <!-- Menit -->
               <div class="countdown-box flex flex-col items-center">
-                <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/90 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_2px_10px_rgba(184,147,82,0.08)] hover:border-[#B89352] transition-all relative group">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/90 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_2px_10px_rgba(184,147,82,0.08)] hover:border-[#B89352] transition-all relative group">
                   <div class="absolute inset-0.5 rounded-full border border-dashed border-[#B89352]/25 pointer-events-none"></div>
-                  <span id="countdown-minutes" class="font-display text-base sm:text-lg text-[#2A3426] font-medium tabular-nums leading-none relative z-10">
+                  <span id="countdown-minutes" class="font-display text-base sm:text-xl text-[#2A3426] font-medium tabular-nums leading-none relative z-10">
                     00
                   </span>
-                  <span class="text-[0.45rem] sm:text-[0.5rem] text-[#566A4E] uppercase tracking-widest mt-0.5 font-semibold relative z-10">Menit</span>
+                  <span class="text-[0.45rem] sm:text-[0.52rem] text-[#566A4E] uppercase tracking-widest mt-0.5 font-semibold relative z-10">Menit</span>
                 </div>
               </div>
 
-              <span class="text-[#B89352]/70 text-[10px] font-serif select-none">•</span>
+              <span class="text-[#B89352]/70 text-xs font-serif select-none">•</span>
 
               <!-- Detik -->
               <div class="countdown-box flex flex-col items-center">
-                <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/90 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_2px_10px_rgba(184,147,82,0.08)] hover:border-[#B89352] transition-all relative group">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/90 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_2px_10px_rgba(184,147,82,0.08)] hover:border-[#B89352] transition-all relative group">
                   <div class="absolute inset-0.5 rounded-full border border-dashed border-[#B89352]/25 pointer-events-none"></div>
-                  <span id="countdown-seconds" class="font-display text-base sm:text-lg text-[#2A3426] font-medium tabular-nums leading-none relative z-10">
+                  <span id="countdown-seconds" class="font-display text-base sm:text-xl text-[#2A3426] font-medium tabular-nums leading-none relative z-10">
                     00
                   </span>
-                  <span class="text-[0.45rem] sm:text-[0.5rem] text-[#566A4E] uppercase tracking-widest mt-0.5 font-semibold relative z-10">Detik</span>
+                  <span class="text-[0.45rem] sm:text-[0.52rem] text-[#566A4E] uppercase tracking-widest mt-0.5 font-semibold relative z-10">Detik</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Calendar Sync Action Button inside Footer -->
-          <div class="mt-auto pt-2.5 border-t border-[#B89352]/20 flex justify-center relative z-10 min-h-[46px] items-center">
+          <!-- Calendar Sync Action Button -->
+          <div class="pt-1 flex justify-center">
             <a 
               href={content.event.venue.calendarUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="w-full inline-flex items-center justify-center gap-2 py-2 px-4 rounded-full text-[0.68rem] sm:text-xs uppercase tracking-widest font-semibold bg-[#4A5D43] text-white hover:bg-[#384833] transition-all shadow-[0_4px_12px_rgba(74,93,67,0.18)] active:scale-95"
+              class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-full text-[0.68rem] sm:text-xs uppercase tracking-widest font-semibold bg-[#4A5D43] text-white hover:bg-[#384833] transition-all shadow-[0_4px_12px_rgba(74,93,67,0.18)] active:scale-95"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -350,6 +301,7 @@ const calendarCells = [
           </div>
 
         </div>
+
       </div>
 
     </div>
@@ -411,61 +363,25 @@ const calendarCells = [
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    // 2. Entrance Fade-in for Open Editorial Typography Header
+    // 2. Master Card Entrance Animation
     gsap.fromTo(
-      '#event-editorial-stele',
-      { opacity: 0, y: 35 },
+      '#master-event-card',
+      { opacity: 0, y: 35, scale: 0.97 },
       {
         opacity: 1,
         y: 0,
+        scale: 1,
         duration: 0.9,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '#events',
-          start: 'top 75%',
+          start: 'top 80%',
           once: true
         }
       }
     );
 
-    // 3. Left Calendar Card Entrance Animation
-    gsap.fromTo(
-      '#event-calendar-card',
-      { opacity: 0, y: 30, scale: 0.96 },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.85,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '#event-calendar-card',
-          start: 'top 85%',
-          once: true
-        }
-      }
-    );
-
-    // 4. Right Schedule Card Entrance Animation (Gentle Stagger)
-    gsap.fromTo(
-      '#event-schedule-card',
-      { opacity: 0, y: 30, scale: 0.96 },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.85,
-        delay: 0.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '#event-schedule-card',
-          start: 'top 85%',
-          once: true
-        }
-      }
-    );
-
-    // 5. Countdown medallions stagger entrance
+    // 3. Countdown medallions stagger entrance
     gsap.fromTo(
       '.countdown-box',
       { opacity: 0, y: 15, scale: 0.94 },
