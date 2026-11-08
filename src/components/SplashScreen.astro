@@ -18,31 +18,19 @@ import FloralCorner from './botanical/FloralCorner.astro';
   <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_45%,rgba(212,175,55,0.12)_0%,rgba(250,248,245,0.45)_50%,rgba(238,231,219,0.92)_100%)]" aria-hidden="true"></div>
   <div class="absolute inset-0 pointer-events-none opacity-30 bg-[radial-gradient(rgba(184,147,82,0.14)_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
-  <!-- LUXURY DOUBLE HAIRLINE GOLD STATIONERY BORDER (Fine-Art Postal Frame) -->
-  <div id="splash-stationery-border" class="absolute inset-3 sm:inset-6 pointer-events-none z-5 transition-opacity duration-700">
-    <div class="w-full h-full border border-[#B89352]/30 rounded-2xl sm:rounded-3xl relative">
-      <div class="absolute inset-1 sm:inset-1.5 border border-dashed border-[#566A4E]/20 rounded-xl sm:rounded-2xl"></div>
-      <!-- 4 Micro Corner Gilded Brackets -->
-      <div class="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-[#B89352] rounded-tl"></div>
-      <div class="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-[#B89352] rounded-tr"></div>
-      <div class="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-[#B89352] rounded-bl"></div>
-      <div class="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-[#B89352] rounded-br"></div>
+  <!-- HAUTE-COUTURE BOTANICAL FLAT-LAY CORNERS (Authentic Olive & Ginkgo Leaf Sprigs) -->
+  <div class="splash-botanical-corners absolute inset-0 pointer-events-none z-10 transition-opacity duration-700 overflow-hidden">
+    <div class="absolute -top-1 -left-1 sm:top-0 sm:left-0 opacity-90 transform scale-90 sm:scale-100">
+      <FloralCorner position="top-left" size={130} />
     </div>
-  </div>
-
-  <!-- HAUTE-COUTURE BOTANICAL FLAT-LAY CORNERS (Fine-Art Olive & Ginkgo Foliage) -->
-  <div class="splash-botanical-corners absolute inset-0 pointer-events-none z-10 transition-opacity duration-700">
-    <div class="absolute top-2 left-2 sm:top-5 sm:left-5 opacity-75 transform scale-80 sm:scale-100">
-      <FloralCorner position="top-left" size={115} />
+    <div class="absolute -top-1 -right-1 sm:top-0 sm:right-0 opacity-90 transform scale-90 sm:scale-100">
+      <FloralCorner position="top-right" size={130} />
     </div>
-    <div class="absolute top-2 right-2 sm:top-5 sm:right-5 opacity-75 transform scale-80 sm:scale-100">
-      <FloralCorner position="top-right" size={115} />
+    <div class="absolute -bottom-1 -left-1 sm:bottom-0 sm:left-0 opacity-80 transform scale-90 sm:scale-100">
+      <FloralCorner position="bottom-left" size={120} />
     </div>
-    <div class="absolute bottom-2 left-2 sm:bottom-5 sm:left-5 opacity-60 transform scale-80 sm:scale-100">
-      <FloralCorner position="bottom-left" size={105} />
-    </div>
-    <div class="absolute bottom-2 right-2 sm:bottom-5 sm:right-5 opacity-60 transform scale-80 sm:scale-100">
-      <FloralCorner position="bottom-right" size={105} />
+    <div class="absolute -bottom-1 -right-1 sm:bottom-0 sm:right-0 opacity-80 transform scale-90 sm:scale-100">
+      <FloralCorner position="bottom-right" size={120} />
     </div>
   </div>
 
@@ -282,7 +270,6 @@ import FloralCorner from './botanical/FloralCorner.astro';
     const letterCard = document.getElementById('envelope-card');
     const waxSealContainer = document.getElementById('wax-seal-container');
     const editorialHeader = document.getElementById('splash-editorial-header');
-    const splashBorder = document.getElementById('splash-stationery-border');
     const guestSplash = document.getElementById('guest-name-splash');
     const envelopeBody = document.getElementById('envelope-body');
     const envelopeShadow = document.getElementById('envelope-shadow');
@@ -344,10 +331,6 @@ import FloralCorner from './botanical/FloralCorner.astro';
       const botanicalCorners = document.querySelectorAll('.splash-botanical-corners');
       if (botanicalCorners.length) {
         tl.to(botanicalCorners, { opacity: 0, scale: 0.95, duration: 0.45, ease: 'power2.out' }, 0.05);
-      }
-
-      if (splashBorder) {
-        tl.to(splashBorder, { opacity: 0, duration: 0.45, ease: 'power2.out' }, 0.05);
       }
 
       // PHASE 2: Euro flap flips open 180° in 3D (0.08s -> 0.65s)
