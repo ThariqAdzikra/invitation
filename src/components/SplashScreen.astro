@@ -73,11 +73,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
       style="transform-style: preserve-3d;"
     >
       <!-- LAYER 0: INSIDE POCKET LINING (Revealed when flap opens: Clean Warm Ivory Cotton Stock) -->
-      <div id="envelope-lining" class="absolute inset-0 rounded-2xl overflow-hidden bg-gradient-to-b from-[#FAF7F0] via-[#F2EDE2] to-[#E5DFCFC] pointer-events-none z-0 transition-opacity">
-        <!-- Delicate Inset Gold Stitching Line Inside -->
-        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 68" preserveAspectRatio="none">
-          <rect x="2.5" y="2" width="95" height="64" rx="2" fill="none" stroke="#B89352" stroke-width="0.4" stroke-dasharray="1.8 1.2" opacity="0.3" />
-        </svg>
+      <div id="envelope-lining" class="absolute inset-0 rounded-2xl overflow-hidden bg-gradient-to-b from-[#FAF7F0] via-[#F2EDE2] to-[#E5DFCF] pointer-events-none z-0 transition-opacity">
         <!-- Inner Pocket Depth Shadow -->
         <div class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#2A3426]/15 via-[#2A3426]/04 to-transparent"></div>
       </div>
@@ -87,9 +83,9 @@ import FloralCorner from './botanical/FloralCorner.astro';
         id="envelope-card"
         class="absolute left-[3.5%] right-[3.5%] top-[4%] h-[92%] bg-[#FAF8F5] rounded-xl shadow-[0_12px_35px_rgba(42,52,38,0.14)] border border-[#B89352]/40 p-5 sm:p-7 flex flex-col items-center justify-between text-center z-10 opacity-0 pointer-events-none will-change-transform"
       >
-        <!-- Double Gold Hairline Inset Frame with Stitching -->
+        <!-- Double Gold Hairline Inset Frame (Clean, No Disruptive Dashed Lines) -->
         <div class="absolute inset-2 sm:inset-3 border border-[#B89352]/30 rounded-lg pointer-events-none"></div>
-        <div class="absolute inset-2.5 sm:inset-3.5 border border-dashed border-[#566A4E]/20 rounded-md pointer-events-none"></div>
+        <div class="absolute inset-2.5 sm:inset-3.5 border border-[#566A4E]/15 rounded-md pointer-events-none"></div>
 
         <!-- Header -->
         <div class="pt-1 relative z-10">
@@ -123,7 +119,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
         </div>
       </div>
 
-      <!-- LAYER 2: FRONT ENVELOPE SOLID POCKET (100% Opaque Cotton Stock with Tailored Gold Stitching) -->
+      <!-- LAYER 2: FRONT ENVELOPE SOLID POCKET (100% Opaque Cotton Stock - Clean Folds, Zero Dashed Lines) -->
       <div id="envelope-pocket" class="absolute inset-0 z-20 pointer-events-none rounded-2xl overflow-hidden transition-opacity">
         
         <!-- Left Side Flap Fold -->
@@ -144,36 +140,12 @@ import FloralCorner from './botanical/FloralCorner.astro';
           style="clip-path: polygon(0 100%, 100% 100%, 50% 50%); background: linear-gradient(180deg, #FAF7F0 0%, #F1ECE2 50%, #E8E2D4 100%);"
         ></div>
 
-        <!-- Bespoke Gold Stitching Lines along Seams (Pola Jahitan Rapi) -->
-        <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 68" preserveAspectRatio="none">
-          <!-- Perimeter Stitching -->
-          <rect x="2" y="1.5" width="96" height="65" rx="3" fill="none" stroke="#B89352" stroke-width="0.5" stroke-dasharray="2 1.5" opacity="0.45" />
-          
-          <!-- Bottom V-fold Stitching -->
-          <path d="M1 67 L50 34.5 L99 67" fill="none" stroke="#B89352" stroke-width="0.7" stroke-dasharray="2 1.5" opacity="0.75" />
-          
-          <!-- Diagonal Side Flap Stitching -->
-          <path d="M1 1 L50 34.5" fill="none" stroke="#B89352" stroke-width="0.5" stroke-dasharray="2 1.5" opacity="0.5" />
-          <path d="M99 1 L50 34.5" fill="none" stroke="#B89352" stroke-width="0.5" stroke-dasharray="2 1.5" opacity="0.5" />
-        </svg>
-
-      </div>
-
-      <!-- LAYER 2.3: VERTICAL OLIVE SATIN RIBBON SASH (Running vertically behind wax seal) -->
-      <div id="envelope-ribbon" class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 sm:w-9.5 z-23 pointer-events-none overflow-hidden shadow-sm transition-opacity">
-        <div class="w-full h-full bg-gradient-to-r from-[#33422E] via-[#4A5D43] to-[#33422E] relative border-x border-[#B89352]/40">
-          <!-- Subtle Satin Sheen Line -->
-          <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[1.5px] bg-white/20"></div>
-          <div class="absolute inset-y-0 left-1 w-[0.5px] bg-[#B89352]/35"></div>
-          <div class="absolute inset-y-0 right-1 w-[0.5px] bg-[#B89352]/35"></div>
-        </div>
       </div>
 
       <!-- LAYER 2.5: LUXURY GUEST CALLIGRAPHY NAMEPLATE (Centered on lower pocket) -->
       <div id="envelope-nameplate" class="absolute bottom-3.5 sm:bottom-4 left-1/2 -translate-x-1/2 w-[82%] sm:w-[72%] max-w-[270px] z-25 pointer-events-none transition-opacity">
         <div class="py-2 px-3.5 rounded-xl bg-white/95 border border-[#B89352]/40 shadow-[0_4px_16px_rgba(42,52,38,0.06)] text-center relative overflow-hidden">
-          <!-- Inset Gold Stitching Frame -->
-          <div class="absolute inset-1 border border-dashed border-[#B89352]/35 rounded-lg pointer-events-none"></div>
+          <div class="absolute inset-1 border border-[#B89352]/25 rounded-lg pointer-events-none"></div>
           
           <p class="text-[0.52rem] text-[#7E8F77] uppercase tracking-[0.24em] font-semibold mb-0.5 relative z-10">
             Kepada Yth. Bapak/Ibu/Saudara/i:
@@ -184,7 +156,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
         </div>
       </div>
 
-      <!-- LAYER 3: 3D EURO TOP FLAP (Deep V with Gold Contour & Gold Stitching) -->
+      <!-- LAYER 3: 3D EURO TOP FLAP (Deep V with Clean Paper Crease) -->
       <div
         id="envelope-top-flap-container"
         class="absolute top-0 left-0 right-0 h-[56%] origin-top z-30 pointer-events-none"
@@ -196,15 +168,10 @@ import FloralCorner from './botanical/FloralCorner.astro';
           class="w-full h-full will-change-transform filter drop-shadow-[0_8px_16px_rgba(42,52,38,0.12)]"
           style="transform-origin: top center; transform-style: preserve-3d; clip-path: polygon(0 0, 100% 0, 50% 100%); background: linear-gradient(180deg, #FAF7F0 0%, #F1ECE2 60%, #E7E0D0 100%);"
         >
-          <!-- Inset Gold Stitching Contour Line along Flap Edge -->
-          <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 56" preserveAspectRatio="none">
-            <path d="M2.5 1 L50 54 L97.5 1" fill="none" stroke="#B89352" stroke-width="0.75" stroke-dasharray="2 1.5" opacity="0.8" />
-            <path d="M0 0 L50 56 L100 0" fill="none" stroke="#D5CCBC" stroke-width="0.5" opacity="0.7" />
-          </svg>
         </div>
       </div>
 
-      <!-- LAYER 4: AUTHENTIC POURED OLIVE WAX SEAL (Centered at Flap V-Tip on top of the Satin Ribbon) -->
+      <!-- LAYER 4: AUTHENTIC POURED OLIVE WAX SEAL (Centered at Flap V-Tip) -->
       <div
         id="wax-seal-container"
         class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto transform transition-transform duration-200 active:scale-95"
@@ -232,7 +199,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
             
             <!-- Recessed Stamped Center Ring -->
             <circle cx="50" cy="50" r="34" fill="#3B4C35" stroke="#B89352" stroke-width="1.2" opacity="0.9" />
-            <circle cx="50" cy="50" r="30" fill="none" stroke="#B89352" stroke-width="0.8" stroke-dasharray="2 1.5" opacity="0.7" />
+            <circle cx="50" cy="50" r="30" fill="none" stroke="#B89352" stroke-width="0.7" opacity="0.5" />
 
             <!-- Embossed Monogram "ZD" & Sprig -->
             <text x="50" y="55" font-family="'Cormorant Garamond', serif" font-size="22" font-style="italic" font-weight="600" fill="#F4E5C7" text-anchor="middle" letter-spacing="1">ZD</text>
@@ -275,7 +242,6 @@ import FloralCorner from './botanical/FloralCorner.astro';
     const envelopeShadow = document.getElementById('envelope-shadow');
     const envelopePocket = document.getElementById('envelope-pocket');
     const envelopeLining = document.getElementById('envelope-lining');
-    const envelopeRibbon = document.getElementById('envelope-ribbon');
     const envelopeNameplate = document.getElementById('envelope-nameplate');
 
     if (!screen || !scene || !topFlap || !letterCard) return;
@@ -354,34 +320,24 @@ import FloralCorner from './botanical/FloralCorner.astro';
         ease: 'power2.out'
       }, 0.30);
 
-      // AS THE CARD REACHES THE TOP: FADE OUT AND DISSOLVE THE ENVELOPE (NO COLLISION!)
-      // All envelope parts (top flap, pocket seams, lining, ribbon, nameplate, shadow)
-      // dissolve completely so they NEVER clash behind the letter card!
+      // AS THE CARD EMERGES: FADE OUT AND DISSOLVE THE ENVELOPE (ZERO COLLISION)
+      // All envelope parts (top flap, pocket, lining, nameplate, shadow, body)
+      // sink down and dissolve cleanly to 0 opacity
       const envelopeDissolveTargets = [
         topFlapContainer,
         envelopePocket,
         envelopeLining,
-        envelopeRibbon,
         envelopeNameplate,
-        envelopeShadow
+        envelopeShadow,
+        envelopeBody
       ].filter(Boolean);
 
       tl.to(envelopeDissolveTargets, {
         opacity: 0,
-        y: 25,
-        duration: 0.42,
+        y: 30,
+        duration: 0.38,
         ease: 'power2.out'
-      }, 0.58);
-
-      if (envelopeBody) {
-        tl.to(envelopeBody, {
-          backgroundColor: 'transparent',
-          borderColor: 'transparent',
-          boxShadow: 'none',
-          duration: 0.42,
-          ease: 'power2.out'
-        }, 0.58);
-      }
+      }, 0.48);
 
       // 0.90s: Saat amplop sudah larut sempurna, posisikan surat di layer teratas
       // dan picu suara kertas serta semburan kelopak emas confetti
