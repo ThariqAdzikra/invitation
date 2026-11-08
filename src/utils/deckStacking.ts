@@ -1,6 +1,5 @@
-// deckStacking.ts — GSAP ScrollTrigger 3D Perspective Architectural Section Transitions
-// Delivers a non-standard, ultra-luxurious 3D deck stacking & perspective depth transition
-// between UnifiedEvent, Location Sanctuary, and Closing Grand Finale.
+// deckStacking.ts — Architectural Section Transitions & Depth Perspective
+// Ensures 100% crystal-clear readability for Event, Venue Sanctuary, and Closing Grand Finale.
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -21,182 +20,86 @@ export function initSectionTransitions() {
 
   if (!eventsSec || !locationSec || !closingSec) return;
 
-  // Establish 3D spatial perspective on parent section stages
+  // Establish spatial depth perspective on parent sections
   [eventsSec, locationSec, closingSec].forEach(sec => {
     gsap.set(sec, {
-      perspective: 1400,
+      perspective: 1200,
       transformStyle: 'preserve-3d',
     });
   });
 
-  // =========================================================================
-  // TRANSITION 1: UnifiedEvent (#events) -> Location (#location)
-  // Outgoing: #master-event-card recedes back into 3D horizon (scale down, tilt, soft blur)
-  // Incoming: #venue-sanctuary-stele ascends smoothly from depth into crisp focus
-  // =========================================================================
+  // Ensure all cards are crystal clear and fully opaque by default
   if (masterEventCard) {
+    gsap.set(masterEventCard, { opacity: 1, filter: 'none', transformOrigin: 'center center' });
+    
+    // Smooth subtle parallax depth only as Location enters the upper screen
     gsap.to(masterEventCard, {
-      scale: 0.93,
-      z: -100,
-      rotationX: 3.5,
-      opacity: 0.42,
-      filter: 'blur(1.5px) brightness(0.96)',
-      ease: 'power1.out',
+      scale: 0.97,
+      y: 20,
+      ease: 'none',
       scrollTrigger: {
         trigger: locationSec,
-        start: 'top bottom',
-        end: 'top 25%',
-        scrub: 1.2,
+        start: 'top 50%',
+        end: 'top top',
+        scrub: 1,
       }
     });
   }
 
+  // Venue Sanctuary Card: Enters with graceful elevation, settling into 100% crisp focus
   if (venueCard) {
     gsap.fromTo(venueCard, 
       {
-        y: 75,
-        scale: 0.96,
-        opacity: 0.70,
-        filter: 'blur(1px)',
+        y: 40,
+        opacity: 0.85,
       },
       {
         y: 0,
-        scale: 1,
         opacity: 1,
-        filter: 'blur(0px)',
-        ease: 'power1.out',
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: locationSec,
-          start: 'top 92%',
-          end: 'top 28%',
-          scrub: 1.2,
+          start: 'top 85%',
+          end: 'top 40%',
+          scrub: 1,
         }
       }
     );
-  }
 
-  // =========================================================================
-  // TRANSITION 2: Location (#location) -> Closing (#closing)
-  // Outgoing: #venue-sanctuary-stele recedes back into 3D depth
-  // Incoming: .closing-content blossoms into view with warm twilight ambiance
-  // =========================================================================
-  if (venueCard) {
+    // Subtle gentle exit parallax when moving into Closing
     gsap.to(venueCard, {
-      scale: 0.93,
-      z: -100,
-      rotationX: 3.5,
-      opacity: 0.42,
-      filter: 'blur(1.5px) brightness(0.96)',
-      ease: 'power1.out',
+      scale: 0.97,
+      y: 20,
+      ease: 'none',
       scrollTrigger: {
         trigger: closingSec,
-        start: 'top bottom',
-        end: 'top 25%',
-        scrub: 1.2,
+        start: 'top 50%',
+        end: 'top top',
+        scrub: 1,
       }
     });
   }
 
+  // Closing Content: Smoothly blossoms into warm twilight ambiance
   if (closingContent) {
     gsap.fromTo(closingContent,
       {
-        y: 65,
-        scale: 0.96,
-        opacity: 0.65,
+        y: 35,
+        opacity: 0.85,
       },
       {
         y: 0,
-        scale: 1,
         opacity: 1,
-        ease: 'power1.out',
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: closingSec,
-          start: 'top 88%',
-          end: 'top 32%',
-          scrub: 1.2,
+          start: 'top 85%',
+          end: 'top 45%',
+          scrub: 1,
         }
       }
     );
   }
-
-  // =========================================================================
-  // MULTI-PLANE PARALLAX 3D: NATURE DESCENT STAGE CHOREOGRAPHY
-  // Canopy Boughs (1.35x speed), River Stream (1.25x speed), Sunset Lake (0.85x)
-  // =========================================================================
-  const natureStage = document.getElementById('nature-descent-stage');
-  const canopyLayer = document.getElementById('nature-canopy-layer');
-  const riverLayer = document.getElementById('nature-river-layer');
-  const lakeLayer = document.getElementById('nature-lake-layer');
-
-  if (natureStage) {
-    // 1. Canopy Boughs Parallax: Emerges as user leaves the sky tunnel, gliding down at 1.35x speed
-    if (canopyLayer && eventsSec) {
-      gsap.to(canopyLayer, {
-        y: 160,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: eventsSec,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 0.8,
-        }
-      });
-    }
-
-    // 2. Meandering River Stream: Courses down smoothly with natural multi-plane depth
-    if (riverLayer && eventsSec && closingSec) {
-      gsap.fromTo(riverLayer,
-        { y: -60 },
-        {
-          y: 90,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: eventsSec,
-            start: 'top bottom',
-            endTrigger: closingSec,
-            end: 'bottom bottom',
-            scrub: 1.0,
-          }
-        }
-      );
-    }
-
-    // 3. Sunset Lake Surface: Rises gently to meet the sun and romantic swans in #closing
-    if (lakeLayer && closingSec) {
-      gsap.fromTo(lakeLayer,
-        { y: 70, opacity: 0.65 },
-        {
-          y: 0,
-          opacity: 1,
-          ease: 'power1.out',
-          scrollTrigger: {
-            trigger: closingSec,
-            start: 'top 85%',
-            end: 'bottom bottom',
-            scrub: 1.2,
-          }
-        }
-      );
-    }
-  }
-
-  // Secondary handling for any other .section-flow elements
-  const otherSections = gsap.utils.toArray<HTMLElement>('.section-flow');
-  otherSections.forEach((sec, i) => {
-    const nextSec = otherSections[i + 1];
-    if (!nextSec) return;
-    gsap.to(sec, {
-      opacity: 0.85,
-      y: 30,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: nextSec,
-        start: 'top bottom',
-        end: 'top center',
-        scrub: 1.2,
-      }
-    });
-  });
 
   // Re-calculate ScrollTrigger metrics on invitation opening or resize
   window.addEventListener('invitationOpened', () => {
