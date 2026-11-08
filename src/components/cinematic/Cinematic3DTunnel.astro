@@ -860,11 +860,11 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
     const stanza3 = document.getElementById('stanza-3');
 
     // Atmospheric Ethereal Cloud Elements & Radiant Golden Dawn Mist
+    const cloudStage = document.getElementById('cinematic-cloud-stage');
     const cloudBankTL = document.getElementById('cloud-bank-tl');
     const cloudBankTR = document.getElementById('cloud-bank-tr');
     const cloudBankBL = document.getElementById('cloud-bank-bl');
     const cloudBankBR = document.getElementById('cloud-bank-br');
-    const cloudHaze = document.getElementById('cloud-ambient-haze');
     const cloudStardust = document.getElementById('cloud-stardust-layer');
 
     // Initial states for atmospheric clouds
@@ -872,8 +872,8 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
     if (cloudBankTR) gsap.set(cloudBankTR, { x: 0, y: 0, opacity: 0.85 });
     if (cloudBankBL) gsap.set(cloudBankBL, { x: 0, y: 0, opacity: 0.80 });
     if (cloudBankBR) gsap.set(cloudBankBR, { x: 0, y: 0, opacity: 0.80 });
-    if (cloudHaze) gsap.set(cloudHaze, { scale: 1, opacity: 0.70 });
     if (cloudStardust) gsap.set(cloudStardust, { y: 0, opacity: 0.70 });
+    if (cloudStage) gsap.set(cloudStage, { opacity: 1 });
 
     // Dynamic horizontal travel distance calculation for panoramic tracking shot
     const getSteleDist = () => {
@@ -974,6 +974,15 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
           if (chapterRail) {
             chapterRail.style.opacity = self.progress > 0.92 ? '0' : '0.9';
           }
+          if (viewport) {
+            if (self.progress >= 0.99) {
+              viewport.style.opacity = '0';
+              viewport.style.pointerEvents = 'none';
+            } else if (self.progress <= 0.88) {
+              viewport.style.opacity = '1';
+              viewport.style.pointerEvents = 'auto';
+            }
+          }
           if (self.progress < 0.22) {
             setActivePip(1);
           } else if (self.progress < 0.46) {
@@ -1029,7 +1038,6 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
     if (cloudBankBL) tl.to(cloudBankBL, { x: -240, y: 110, rotation: 2, opacity: 0, duration: 0.20, ease: 'power1.inOut' }, 0);
     if (cloudBankBR) tl.to(cloudBankBR, { x: 240, y: 110, rotation: -2, opacity: 0, duration: 0.20, ease: 'power1.inOut' }, 0);
     if (cloudStardust) tl.to(cloudStardust, { y: -80, opacity: 0.25, duration: 0.22, ease: 'power1.inOut' }, 0);
-    if (cloudHaze) tl.to(cloudHaze, { scale: 1.25, opacity: 0.35, duration: 0.22, ease: 'power1.inOut' }, 0);
 
     tl.to(sceneHero, {
       z: 450,
@@ -1061,7 +1069,6 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
     // Lower cloud sea gently rolls back in at the bottom horizon to ground the holy verse
     if (cloudBankBL) tl.to(cloudBankBL, { x: -30, y: 0, rotation: 0, opacity: 0.70, duration: 0.22, ease: 'power2.out' }, 0.22);
     if (cloudBankBR) tl.to(cloudBankBR, { x: 30, y: 0, rotation: 0, opacity: 0.70, duration: 0.22, ease: 'power2.out' }, 0.22);
-    if (cloudHaze) tl.to(cloudHaze, { scale: 1.05, opacity: 0.65, duration: 0.22, ease: 'power2.out' }, 0.22);
     if (cloudStardust) tl.to(cloudStardust, { y: -20, opacity: 0.70, duration: 0.22, ease: 'power2.out' }, 0.22);
 
     if (verseArchCard) {
@@ -1198,9 +1205,6 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
         ease: 'power2.inOut'
       }, 1.20);
     }
-
-    // Golden dawn haze warms and blooms behind the love convergence
-    if (cloudHaze) tl.to(cloudHaze, { scale: 1.35, opacity: 0.85, duration: 0.14 }, 1.20);
 
     // 3. Golden collision spark flares at meeting point
     if (coupleMergeSpark) {
@@ -1447,6 +1451,8 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
     // Climax Ascend & Section Transition to UnifiedEvent (3.02 -> 3.15)
     if (cloudBankBL) tl.to(cloudBankBL, { y: 120, opacity: 0, duration: 0.13 }, 3.02);
     if (cloudBankBR) tl.to(cloudBankBR, { y: 120, opacity: 0, duration: 0.13 }, 3.02);
+    if (cloudStardust) tl.to(cloudStardust, { opacity: 0, duration: 0.13 }, 3.02);
+    if (cloudStage) tl.to(cloudStage, { opacity: 0, duration: 0.13 }, 3.02);
 
     tl.to(sceneAsmaraloka, {
       y: -50,
@@ -1457,6 +1463,20 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
         if (sceneAsmaraloka) sceneAsmaraloka.style.pointerEvents = 'none';
       }
     }, 3.02);
+
+    if (viewport) {
+      tl.to(viewport, {
+        opacity: 0,
+        duration: 0.13,
+        ease: 'power1.in',
+        onComplete: () => {
+          if (viewport) viewport.style.pointerEvents = 'none';
+        },
+        onReverseComplete: () => {
+          if (viewport) viewport.style.pointerEvents = 'auto';
+        }
+      }, 3.02);
+    }
 
     // Smooth Click-to-Navigate for Chapter Pips and Steles
     const scrollToBabak = (babakNum: number) => {
