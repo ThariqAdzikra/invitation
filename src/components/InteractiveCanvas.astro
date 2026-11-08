@@ -74,12 +74,19 @@
       opacity: number;
     }
 
-    const clouds: Cloud[] = [
-      { x: width * 0.1, y: height * 0.08, radiusX: 230, radiusY: 70, speedX: 0.10, opacity: 0.20 },
-      { x: width * 0.55, y: height * 0.14, radiusX: 290, radiusY: 85, speedX: 0.08, opacity: 0.16 },
-      { x: width * 0.88, y: height * 0.06, radiusX: 200, radiusY: 60, speedX: 0.12, opacity: 0.22 },
-      { x: -width * 0.2, y: height * 0.11, radiusX: 260, radiusY: 75, speedX: 0.09, opacity: 0.18 }
-    ];
+    const isMobile = window.innerWidth < 768;
+
+    const clouds: Cloud[] = isMobile
+      ? [
+          { x: width * 0.2, y: height * 0.08, radiusX: 180, radiusY: 55, speedX: 0.08, opacity: 0.18 },
+          { x: width * 0.75, y: height * 0.12, radiusX: 200, radiusY: 60, speedX: 0.06, opacity: 0.14 }
+        ]
+      : [
+          { x: width * 0.1, y: height * 0.08, radiusX: 230, radiusY: 70, speedX: 0.10, opacity: 0.20 },
+          { x: width * 0.55, y: height * 0.14, radiusX: 290, radiusY: 85, speedX: 0.08, opacity: 0.16 },
+          { x: width * 0.88, y: height * 0.06, radiusX: 200, radiusY: 60, speedX: 0.12, opacity: 0.22 },
+          { x: -width * 0.2, y: height * 0.11, radiusX: 260, radiusY: 75, speedX: 0.09, opacity: 0.18 }
+        ];
 
     // =========================================================================
     // LAYER 2: ORGANIC CURVED WIND GUSTS (Hembusan Angin Melengkung & Bergelombang)
@@ -98,7 +105,7 @@
       companionOffset: number;
     }
 
-    const gustCount = window.innerWidth < 640 ? 3 : 4;
+    const gustCount = isMobile ? 2 : 4;
     const windGusts: WindGust[] = [];
 
     // Helper to keep wind streams in atmospheric sky & lower ground (never clashing across center text)
