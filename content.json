@@ -35,9 +35,9 @@
   ],
   "music": { "file": "assets/music.mp3", "title": "Wedding Instrumental" },
   "meta": {
-    "title": "Undangan Pernikahan",
-    "description": "Kami mengundang Anda untuk berbagi kebahagiaan di hari pernikahan kami.",
-    "ogImage": "assets/og.jpg",
-    "siteUrl": "https://undangan.domain.com"
+    "title": "Undangan Pernikahan Zharkasi & Difa",
+    "description": "Sabtu, 26 Desember 2026 · Padang, Sumatera Barat. \"Dua insan, satu jiwa, melangkah bersama menuju keabadian cinta.\" Buka undangan resmi pernikahan Zharkasi & Difa.",
+    "ogImage": "https://zhar-difa.my.id/assets/og.jpg",
+    "siteUrl": "https://zhar-difa.my.id"
   }
 }
