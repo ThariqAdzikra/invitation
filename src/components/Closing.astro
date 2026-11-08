@@ -1,13 +1,17 @@
 ---
-// Closing.astro — Grand Finale, Words of Gratitude & Invitation Sharing
+// Closing.astro — Grand Finale, Words of Gratitude & Developer Credit
 import content from '../data/content.json';
 import RomanticSwans from './botanical/RomanticSwans.astro';
 ---
 
-<section id="closing" class="deck-section relative px-4 text-center min-h-[100svh] flex flex-col justify-center items-center py-10 sm:py-16 z-30" aria-label="Penutup Undangan">
+<section 
+  id="closing" 
+  class="deck-section relative px-4 text-center min-h-[100vh] flex flex-col justify-center items-center pt-20 sm:pt-28 pb-16 sm:pb-20 z-30" 
+  aria-label="Penutup Undangan"
+>
   
-  <!-- CLOSING CONTENT (Centered & Balanced) -->
-  <div class="max-w-2xl sm:max-w-3xl mx-auto flex flex-col items-center w-full relative z-10 closing-content">
+  <!-- CLOSING CONTENT (Centered & Balanced with Breathing Room) -->
+  <div class="max-w-2xl sm:max-w-3xl mx-auto flex flex-col items-center w-full relative z-10 closing-content my-auto">
 
     <!-- Romantic Quote -->
     <div class="mb-3 sm:mb-4 text-center max-w-lg mx-auto relative z-30">
@@ -26,14 +30,16 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
       Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.
     </p>
 
-    <!-- Romantic Swans Emblem (Symbolizing Eternal Devotion & Monogamy) -->
+    <!-- Romantic Swans Emblem (Centered in Warm Golden Sunset Aura) -->
     <div class="my-2 sm:my-3 flex justify-center transform transition-transform hover:scale-105 duration-500">
       <RomanticSwans size={150} />
     </div>
 
     <!-- Family Closing Sign-off -->
     <div class="my-3 sm:my-4">
-      <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-2">Hormat Kami yang Berbahagia</p>
+      <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-2">
+        Hormat Kami yang Berbahagia
+      </p>
       
       <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tracking-tight">
         {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.bride.nickname}
@@ -44,48 +50,74 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
       </p>
     </div>
 
-    <!-- Interactive Actions: Bagikan Undangan & Kembali ke Atas -->
-    <div class="mt-4 sm:mt-6 mb-8 sm:mb-10 flex flex-wrap items-center justify-center gap-3">
-      
-      <!-- WhatsApp Share Button -->
-      <button
-        type="button"
-        id="btn-share-invitation"
-        class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold bg-[#4A5D43] text-white hover:bg-[#384833] transition-all cursor-pointer shadow-sm active:scale-95"
-      >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-          <polyline points="16 6 12 2 8 6"></polyline>
-          <line x1="12" y1="2" x2="12" y2="15"></line>
-        </svg>
-        <span>Bagikan Undangan</span>
-      </button>
-
-      <!-- Back to Top Button -->
+    <!-- Single Action: Kembali ke Awal (Tailored Rounded-XL) -->
+    <div class="mt-4 sm:mt-5 mb-6 sm:mb-8 flex justify-center">
       <button
         type="button"
         id="btn-back-to-top"
-        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#566A4E]/30 text-xs uppercase tracking-widest font-semibold text-[#4A5D43] bg-white/90 hover:bg-[#FAF8F5] hover:border-[#4A5D43] transition-all cursor-pointer shadow-sm active:scale-95"
+        class="inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:px-7 sm:py-3 rounded-xl text-xs uppercase tracking-widest font-semibold bg-[#4A5D43] text-[#FAF8F5] hover:bg-[#384833] transition-all cursor-pointer shadow-[0_4px_14px_rgba(74,93,67,0.22)] active:scale-95 border border-[#4A5D43] group"
       >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-y-0.5 transition-transform">
           <path d="M18 15l-6-6-6 6"/>
         </svg>
         <span>Kembali ke Awal</span>
       </button>
-
     </div>
 
-    <!-- End Title Credits Footer -->
-    <footer class="w-full pt-8 border-t border-[#566A4E]/15 text-center">
-      <div class="w-8 h-8 rounded-full border border-[#B89352]/30 flex items-center justify-center mx-auto mb-2 text-[#B89352] text-xs font-serif italic">
+    <!-- Luxury End Title & Developer Credits Footer -->
+    <footer class="w-full pt-6 sm:pt-8 border-t border-[#B89352]/25 text-center">
+      <!-- Monogram Seal -->
+      <div class="w-8 h-8 rounded-full border border-[#B89352]/40 bg-white/70 backdrop-blur-xs flex items-center justify-center mx-auto mb-2 text-[#B89352] text-[11px] font-serif italic shadow-xs">
         ZD
       </div>
-      <p class="text-[0.62rem] tracking-[0.3em] uppercase text-[#B89352] font-mono mb-1">
+      
+      <p class="text-[0.62rem] sm:text-[0.68rem] tracking-[0.28em] uppercase text-[#B89352] font-semibold mb-1">
         THE WEDDING OF ZHARKASI &amp; DIFA &bull; 2026
       </p>
-      <p class="text-[0.62rem] md:text-xs text-[#7E8F77] tracking-[0.2em] uppercase font-medium">
+      <p class="text-[0.62rem] sm:text-xs text-[#7E8F77] tracking-[0.16em] uppercase font-light mb-4">
         Terima Kasih atas Doa &amp; Restu Anda &bull; Padang
       </p>
+
+      <!-- Developer Credits Pill -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white/60 backdrop-blur-md border border-[#B89352]/30 shadow-2xs text-xs text-[#566A4E]">
+        <span class="text-[0.62rem] sm:text-[0.66rem] uppercase tracking-wider font-semibold text-[#B89352]">
+          Developed by
+        </span>
+        <span class="font-medium text-[#2A3426]">Thariq Adzikra</span>
+        <span class="text-[#B89352]/40 select-none">•</span>
+        
+        <!-- Instagram Link -->
+        <a 
+          href="https://instagram.com/thrqdz_" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-flex items-center gap-1 text-[#4A5D43] hover:text-[#B89352] font-medium transition-colors hover:underline group"
+          title="Instagram @thrqdz_"
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:scale-110 transition-transform">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <span>@thrqdz_</span>
+        </a>
+
+        <span class="text-[#B89352]/40 select-none">•</span>
+
+        <!-- GitHub Link -->
+        <a 
+          href="https://github.com/ThariqAdzikra" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-flex items-center gap-1 text-[#4A5D43] hover:text-[#B89352] font-medium transition-colors hover:underline group"
+          title="GitHub ThariqAdzikra"
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:scale-110 transition-transform">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </div>
     </footer>
 
   </div>
@@ -100,7 +132,6 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
 
   function initClosing() {
     const backToTopBtn = document.getElementById('btn-back-to-top');
-    const shareBtn = document.getElementById('btn-share-invitation');
 
     if (backToTopBtn) {
       backToTopBtn.addEventListener('click', () => {
@@ -109,31 +140,6 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
           (window as any).__lenis.scrollTo(0, { duration: 1.6 });
         } else {
           window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      });
-    }
-
-    if (shareBtn) {
-      shareBtn.addEventListener('click', () => {
-        playChimeSound();
-        const title = 'Undangan Pernikahan Zharkasi & Difa';
-        const url = window.location.href;
-        const text = `Assalamu'alaikum Wr. Wb.\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami, Muhammad Zharkasi & Difa Auliya Syahmi:\n\n${url}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.`;
-
-        if (navigator.share) {
-          navigator.share({
-            title: title,
-            text: text,
-            url: url
-          }).catch(() => {});
-        } else {
-          const encoded = encodeURIComponent(text);
-          window.open(`https://wa.me/?text=${encoded}`, '_blank');
-        }
-
-        if (typeof (window as any).triggerLuxuryConfetti === 'function') {
-          const rect = shareBtn.getBoundingClientRect();
-          (window as any).triggerLuxuryConfetti(rect.left + rect.width / 2, rect.top);
         }
       });
     }
@@ -149,7 +155,7 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
       });
 
       closingTl.fromTo(
-        '#closing p, #closing .my-4, #closing .my-6',
+        '#closing p, #closing .my-3, #closing .my-4',
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out' }
       );
