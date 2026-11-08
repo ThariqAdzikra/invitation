@@ -210,7 +210,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         style="transform: translate3d(0, 0, -850px); transform-style: preserve-3d;"
         aria-label="Profil Kedua Mempelai"
       >
-        <div class="max-w-2xl w-full mx-auto flex flex-col items-center justify-center my-auto relative">
+        <div class="max-w-2xl md:max-w-4xl lg:max-w-5xl w-full mx-auto flex flex-col items-center justify-center my-auto relative">
           
           <!-- Header -->
           <div id="couple-header-block" class="flex flex-col items-center will-change-transform mb-1 sm:mb-2">
@@ -314,11 +314,11 @@ import FloralCorner from '../botanical/FloralCorner.astro';
 
             </div>
 
-            <!-- THE ASMARALOKA POETIC INSCRIPTION (Creative, Open Typography) -->
-            <div id="couple-asmaraloka-block" class="mt-3 sm:mt-5 w-full max-w-xl mx-auto text-center will-change-transform">
+            <!-- THE ASMARALOKA POETIC TIMELINE (Chronological Romance Journey) -->
+            <div id="couple-asmaraloka-block" class="mt-3 sm:mt-5 w-full max-w-xl md:max-w-3xl lg:max-w-4xl mx-auto will-change-transform">
               
               <!-- Title Badge with Filigree -->
-              <div class="inline-flex items-center justify-center gap-2 mb-1.5 sm:mb-2 opacity-90">
+              <div class="flex items-center justify-center gap-2 mb-2 sm:mb-3 opacity-90 text-center">
                 <span class="h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent to-[#B89352]"></span>
                 <span class="text-[#B89352] text-[0.65rem] sm:text-xs">❦</span>
                 <h3 class="font-display italic text-base sm:text-xl md:text-2xl text-[#B89352] tracking-wider font-normal">
@@ -328,24 +328,75 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                 <span class="h-[1px] w-6 sm:w-10 bg-gradient-to-l from-transparent to-[#B89352]"></span>
               </div>
 
-              <!-- Poetic Verses (Pure Editorial Letterpress Styling) -->
-              <div class="space-y-1.5 sm:space-y-2.5 font-display italic text-[0.68rem] sm:text-[0.84rem] md:text-[0.92rem] leading-relaxed px-2 sm:px-4">
+              <!-- Responsive Timeline Container -->
+              <div class="relative w-full px-2 sm:px-4">
                 
-                <p class="text-[#3E4C38]">
-                  &ldquo;Tidak semua awal perlu diceritakan panjang, karena yang bertahan akan selalu menemukan jalannya. 
-                  Bukan karena semuanya sempurna, melainkan karena kami terus belajar untuk tumbuh bersama.&rdquo;
-                </p>
+                <!-- Desktop Horizontal Connecting Stem Behind Nodes -->
+                <div class="hidden md:block absolute top-3.5 left-[18%] right-[18%] h-[1px] bg-gradient-to-r from-[#B89352]/20 via-[#B89352]/50 to-[#B89352]/20 -z-0 pointer-events-none"></div>
 
-                <p class="text-[#4A5D43]">
-                  &ldquo;Kami percaya, tidak ada pertemuan yang benar-benar kebetulan. Ada doa yang diam-diam dikabulkan, ada langkah yang diarahkan tanpa kita sadari. 
-                  Dan Allah SWT, dengan cara-Nya yang paling tenang, menuntun kami sampai di titik ini.&rdquo;
-                </p>
+                <!-- 3 Chronological Milestones -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 relative z-10">
+                  
+                  <!-- Milestone 1: Awal -->
+                  <div class="flex items-start gap-3.5 md:flex-col md:items-center text-left md:text-center group">
+                    <!-- Node with Mobile Connecting Stem -->
+                    <div class="relative shrink-0 flex flex-col items-center">
+                      <div class="w-7 h-7 rounded-full border border-[#B89352]/60 bg-[#FAF8F5] flex items-center justify-center text-[0.58rem] sm:text-[0.62rem] font-serif text-[#B89352] font-semibold shadow-xs z-10 group-hover:border-[#B89352] group-hover:scale-105 transition-all">
+                        01
+                      </div>
+                      <div class="md:hidden w-[1px] flex-1 bg-gradient-to-b from-[#B89352]/50 to-[#B89352]/20 mt-1 min-h-[46px]"></div>
+                    </div>
+                    <!-- Content -->
+                    <div class="flex-1 pb-2 md:pb-0">
+                      <span class="block text-[0.52rem] sm:text-[0.58rem] tracking-[0.24em] text-[#B89352] uppercase font-semibold mb-0.5 sm:mb-1">
+                        Awal Cerita
+                      </span>
+                      <p class="font-display italic text-[0.68rem] sm:text-[0.76rem] md:text-[0.82rem] leading-relaxed text-[#3E4C38]">
+                        &ldquo;Tidak semua awal perlu diceritakan panjang, karena yang bertahan akan selalu menemukan jalannya. Bukan karena semuanya sempurna, melainkan karena kami terus belajar untuk tumbuh bersama.&rdquo;
+                      </p>
+                    </div>
+                  </div>
 
-                <p class="text-[#2A3426] font-medium">
-                  &ldquo;Hingga pada waktunya, segala yang telah kami lewati bermuara pada satu keputusan yang sama. 
-                  Dengan penuh syukur, kami memilih untuk saling menetap dalam ikatan yang diridhai oleh-Nya. 
-                  Semoga perjalanan ini selalu diliputi ketenangan dan dipelihara dalam kebaikan yang panjang.&rdquo;
-                </p>
+                  <!-- Milestone 2: Pertemuan & Takdir -->
+                  <div class="flex items-start gap-3.5 md:flex-col md:items-center text-left md:text-center group">
+                    <!-- Node with Mobile Connecting Stem -->
+                    <div class="relative shrink-0 flex flex-col items-center">
+                      <div class="w-7 h-7 rounded-full border border-[#B89352]/60 bg-[#FAF8F5] flex items-center justify-center text-[0.58rem] sm:text-[0.62rem] font-serif text-[#B89352] font-semibold shadow-xs z-10 group-hover:border-[#B89352] group-hover:scale-105 transition-all">
+                        02
+                      </div>
+                      <div class="md:hidden w-[1px] flex-1 bg-gradient-to-b from-[#B89352]/50 to-[#B89352]/20 mt-1 min-h-[46px]"></div>
+                    </div>
+                    <!-- Content -->
+                    <div class="flex-1 pb-2 md:pb-0">
+                      <span class="block text-[0.52rem] sm:text-[0.58rem] tracking-[0.24em] text-[#B89352] uppercase font-semibold mb-0.5 sm:mb-1">
+                        Titik Temu
+                      </span>
+                      <p class="font-display italic text-[0.68rem] sm:text-[0.76rem] md:text-[0.82rem] leading-relaxed text-[#4A5D43]">
+                        &ldquo;Kami percaya, tidak ada pertemuan yang benar-benar kebetulan. Ada doa yang diam-diam dikabulkan, ada langkah yang diarahkan tanpa kita sadari. Dan Allah SWT, dengan cara-Nya yang paling tenang, menuntun kami sampai di titik ini.&rdquo;
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Milestone 3: Muara & Ikatan -->
+                  <div class="flex items-start gap-3.5 md:flex-col md:items-center text-left md:text-center group">
+                    <!-- Node (Terminal) -->
+                    <div class="relative shrink-0 flex flex-col items-center">
+                      <div class="w-7 h-7 rounded-full border border-[#B89352]/60 bg-[#FAF8F5] flex items-center justify-center text-[0.58rem] sm:text-[0.62rem] font-serif text-[#B89352] font-semibold shadow-xs z-10 group-hover:border-[#B89352] group-hover:scale-105 transition-all">
+                        03
+                      </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="flex-1">
+                      <span class="block text-[0.52rem] sm:text-[0.58rem] tracking-[0.24em] text-[#B89352] uppercase font-semibold mb-0.5 sm:mb-1">
+                        Satu Muara
+                      </span>
+                      <p class="font-display italic text-[0.68rem] sm:text-[0.76rem] md:text-[0.82rem] leading-relaxed text-[#2A3426] font-medium">
+                        &ldquo;Hingga pada waktunya, segala yang telah kami lewati bermuara pada satu keputusan yang sama. Dengan penuh syukur, kami memilih untuk saling menetap dalam ikatan yang diridhai oleh-Nya. Semoga perjalanan ini selalu diliputi ketenangan dan dipelihara dalam kebaikan yang panjang.&rdquo;
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
 
               </div>
 
