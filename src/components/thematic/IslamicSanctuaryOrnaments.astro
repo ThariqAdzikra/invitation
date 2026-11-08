@@ -2,6 +2,7 @@
 // IslamicSanctuaryOrnaments.astro — Sacred Moroccan Arabesque Filigree & Glowing Qandil Lanterns
 // Created exclusively for Scene 2 (Ayat Suci QS Ar-Rum: 21)
 // Conveys divine peace, sacred elegance, and reverence — completely distinct from garden flowers!
+// Pre-configured with distinct IDs for GSAP ScrollTrigger "Descending Sanctuary Lanterns & Gilded Brackets"
 ---
 
 <div class="verse-thematic-sanctuary absolute inset-0 pointer-events-none z-0 overflow-hidden select-none" aria-hidden="true">
@@ -10,8 +11,8 @@
        1. FOUR SACRED GEOMETRIC ARABESQUE CORNER BRACKETS (Moroccan Arch Tracery)
        ========================================================================= -->
   <!-- Top-Left Arabesque Bracket -->
-  <div class="absolute top-2 left-2 sm:top-4 sm:left-4 opacity-75">
-    <svg width="110" height="110" viewBox="0 0 120 120" fill="none" class="w-20 sm:w-28 md:w-32 h-auto text-[#B89352]">
+  <div id="verse-bracket-tl" class="absolute top-2 left-2 sm:top-4 sm:left-4 opacity-75 will-change-transform">
+    <svg width="110" height="110" viewBox="0 0 120 120" fill="none" class="w-16 sm:w-24 md:w-32 h-auto text-[#B89352]">
       <!-- Outer Border Arc -->
       <path d="M 4 116 L 4 4 L 116 4" stroke="#B89352" stroke-width="1.2" opacity="0.5" />
       <path d="M 12 108 L 12 12 L 108 12" stroke="#B89352" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.4" />
@@ -36,8 +37,8 @@
   </div>
 
   <!-- Top-Right Arabesque Bracket (Mirrored) -->
-  <div class="absolute top-2 right-2 sm:top-4 sm:right-4 opacity-75">
-    <svg width="110" height="110" viewBox="0 0 120 120" fill="none" class="w-20 sm:w-28 md:w-32 h-auto text-[#B89352] scale-x-[-1]">
+  <div id="verse-bracket-tr" class="absolute top-2 right-2 sm:top-4 sm:right-4 opacity-75 will-change-transform">
+    <svg width="110" height="110" viewBox="0 0 120 120" fill="none" class="w-16 sm:w-24 md:w-32 h-auto text-[#B89352] scale-x-[-1]">
       <path d="M 4 116 L 4 4 L 116 4" stroke="#B89352" stroke-width="1.2" opacity="0.5" />
       <path d="M 12 108 L 12 12 L 108 12" stroke="#B89352" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.4" />
       <g transform="translate(32, 32)">
@@ -55,8 +56,8 @@
   </div>
 
   <!-- Bottom-Left Arabesque Bracket -->
-  <div class="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 opacity-70">
-    <svg width="110" height="110" viewBox="0 0 120 120" fill="none" class="w-18 sm:w-26 md:w-30 h-auto text-[#B89352] scale-y-[-1]">
+  <div id="verse-bracket-bl" class="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 opacity-70 will-change-transform">
+    <svg width="110" height="110" viewBox="0 0 120 120" fill="none" class="w-14 sm:w-22 md:w-28 h-auto text-[#B89352] scale-y-[-1]">
       <path d="M 4 116 L 4 4 L 116 4" stroke="#B89352" stroke-width="1.2" opacity="0.5" />
       <path d="M 12 108 L 12 12 L 108 12" stroke="#B89352" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.4" />
       <g transform="translate(32, 32)">
@@ -69,8 +70,8 @@
   </div>
 
   <!-- Bottom-Right Arabesque Bracket -->
-  <div class="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 opacity-70">
-    <svg width="110" height="110" viewBox="0 0 120 120" fill="none" class="w-18 sm:w-26 md:w-30 h-auto text-[#B89352] scale-[-1]">
+  <div id="verse-bracket-br" class="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 opacity-70 will-change-transform">
+    <svg width="110" height="110" viewBox="0 0 120 120" fill="none" class="w-14 sm:w-22 md:w-28 h-auto text-[#B89352] scale-[-1]">
       <path d="M 4 116 L 4 4 L 116 4" stroke="#B89352" stroke-width="1.2" opacity="0.5" />
       <path d="M 12 108 L 12 12 L 108 12" stroke="#B89352" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.4" />
       <g transform="translate(32, 32)">
@@ -85,39 +86,35 @@
   <!-- =========================================================================
        2. TWO GILDED HANGING QANDIL LANTERNS (Left & Right Flanks)
        ========================================================================= -->
-  <!-- Left Hanging Lantern (Visible on tablet & desktop) -->
-  <div class="absolute top-0 left-4 sm:left-10 md:left-16 lg:left-24 hidden sm:flex flex-col items-center">
+  <!-- Left Hanging Lantern (GSAP target: #verse-lantern-left) -->
+  <div id="verse-lantern-left" class="absolute top-0 left-2 sm:left-8 md:left-14 lg:left-20 flex flex-col items-center will-change-transform">
     <!-- Slender Gilded Suspension Chain -->
-    <div class="w-[1px] h-20 md:h-28 bg-gradient-to-b from-[#B89352]/10 via-[#B89352]/50 to-[#B89352]"></div>
+    <div class="w-[1px] h-16 sm:h-24 md:h-32 bg-gradient-to-b from-[#B89352]/10 via-[#B89352]/50 to-[#B89352]"></div>
     
     <!-- Moroccan Qandil Lantern Silhouette with Warm Light -->
     <div class="relative flex items-center justify-center">
       <!-- Ambient Golden Light Halo -->
-      <div class="absolute -inset-4 rounded-full bg-[radial-gradient(circle,rgba(255,214,120,0.45)_0%,rgba(212,175,55,0.15)_50%,transparent_75%)] blur-md animate-pulse"></div>
+      <div class="absolute -inset-4 rounded-full bg-[radial-gradient(circle,rgba(255,214,120,0.5)_0%,rgba(212,175,55,0.18)_50%,transparent_75%)] blur-md"></div>
       
-      <svg width="48" height="72" viewBox="0 0 48 72" fill="none" class="relative z-10 text-[#B89352] drop-shadow-md">
-        <!-- Top Dome & Finial -->
+      <svg width="42" height="66" viewBox="0 0 48 72" fill="none" class="relative z-10 w-8 sm:w-10 md:w-12 h-auto text-[#B89352] drop-shadow-md">
         <circle cx="24" cy="4" r="2.5" fill="#D4AF37" />
         <path d="M 24 6 C 20 12, 16 16, 12 20 L 36 20 C 32 16, 28 12, 24 6 Z" fill="#B89352" />
-        <!-- Lantern Glass Body -->
         <polygon points="12,20 8,46 16,56 32,56 40,46 36,20" fill="rgba(255, 246, 220, 0.45)" stroke="#B89352" stroke-width="1.2" />
         <line x1="24" y1="20" x2="24" y2="56" stroke="#B89352" stroke-width="0.9" stroke-dasharray="2 2" />
-        <!-- Inner Glowing Candle Flame -->
         <circle cx="24" cy="38" r="4.5" fill="#FFF2CE" />
         <circle cx="24" cy="38" r="2.5" fill="#FFC83B" />
-        <!-- Bottom Finial & Tassel Drop -->
         <polygon points="16,56 24,66 32,56" fill="#B89352" />
         <circle cx="24" cy="69" r="1.8" fill="#D4AF37" />
       </svg>
     </div>
   </div>
 
-  <!-- Right Hanging Lantern (Mirrored Flank) -->
-  <div class="absolute top-0 right-4 sm:right-10 md:right-16 lg:right-24 hidden sm:flex flex-col items-center">
-    <div class="w-[1px] h-28 md:h-36 bg-gradient-to-b from-[#B89352]/10 via-[#B89352]/50 to-[#B89352]"></div>
+  <!-- Right Hanging Lantern (GSAP target: #verse-lantern-right) -->
+  <div id="verse-lantern-right" class="absolute top-0 right-2 sm:right-8 md:right-14 lg:right-20 flex flex-col items-center will-change-transform">
+    <div class="w-[1px] h-20 sm:h-30 md:h-40 bg-gradient-to-b from-[#B89352]/10 via-[#B89352]/50 to-[#B89352]"></div>
     <div class="relative flex items-center justify-center">
-      <div class="absolute -inset-4 rounded-full bg-[radial-gradient(circle,rgba(255,214,120,0.45)_0%,rgba(212,175,55,0.15)_50%,transparent_75%)] blur-md animate-pulse"></div>
-      <svg width="48" height="72" viewBox="0 0 48 72" fill="none" class="relative z-10 text-[#B89352] drop-shadow-md">
+      <div class="absolute -inset-4 rounded-full bg-[radial-gradient(circle,rgba(255,214,120,0.5)_0%,rgba(212,175,55,0.18)_50%,transparent_75%)] blur-md"></div>
+      <svg width="42" height="66" viewBox="0 0 48 72" fill="none" class="relative z-10 w-8 sm:w-10 md:w-12 h-auto text-[#B89352] drop-shadow-md">
         <circle cx="24" cy="4" r="2.5" fill="#D4AF37" />
         <path d="M 24 6 C 20 12, 16 16, 12 20 L 36 20 C 32 16, 28 12, 24 6 Z" fill="#B89352" />
         <polygon points="12,20 8,46 16,56 32,56 40,46 36,20" fill="rgba(255, 246, 220, 0.45)" stroke="#B89352" stroke-width="1.2" />

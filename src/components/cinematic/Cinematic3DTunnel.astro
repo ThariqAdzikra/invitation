@@ -4,6 +4,7 @@ import content from '../../data/content.json';
 import FloralWreath from '../botanical/FloralWreath.astro';
 import FloralFlourish from '../botanical/FloralFlourish.astro';
 import FloralCorner from '../botanical/FloralCorner.astro';
+import HeroBotanicalOrnaments from '../botanical/HeroBotanicalOrnaments.astro';
 import IslamicSanctuaryOrnaments from '../thematic/IslamicSanctuaryOrnaments.astro';
 import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents.astro';
 ---
@@ -61,24 +62,8 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
         style="transform: translate3d(0, 0, 0px); transform-style: preserve-3d;"
         aria-label="Cover Undangan Pernikahan"
       >
-        <!-- THEMATIC SCENE 1 CORNERS: Royal Garden Entrance Canopy & Flanking Flowerbeds (Moves in 3D with Hero) -->
-        <div class="hero-thematic-corners absolute inset-0 pointer-events-none z-0 overflow-hidden select-none" aria-hidden="true">
-          <!-- Top-Left & Top-Right Cascading Wisteria Garden Canopies -->
-          <div class="absolute -top-2 -left-2 sm:top-0 sm:left-0 opacity-85">
-            <img src="/assets/floral-corner-top.png" alt="" class="w-28 sm:w-44 md:w-56 lg:w-68 h-auto block" />
-          </div>
-          <div class="absolute -top-2 -right-2 sm:top-0 sm:right-0 opacity-85">
-            <img src="/assets/floral-corner-top.png" alt="" class="w-28 sm:w-44 md:w-56 lg:w-68 h-auto block scale-x-[-1]" />
-          </div>
-
-          <!-- Bottom-Left & Bottom-Right Blooming Rose Garden Beds -->
-          <div class="absolute -bottom-2 -left-2 sm:bottom-0 sm:left-0 opacity-80">
-            <img src="/assets/floral-corner-bottom.png" alt="" class="w-32 sm:w-48 md:w-60 lg:w-72 h-auto block" />
-          </div>
-          <div class="absolute -bottom-2 -right-2 sm:bottom-0 sm:right-0 opacity-80">
-            <img src="/assets/floral-corner-bottom.png" alt="" class="w-32 sm:w-48 md:w-60 lg:w-72 h-auto block scale-x-[-1]" />
-          </div>
-        </div>
+        <!-- THEMATIC SCENE 1 CORNERS: Artisan Haute-Couture Vector Botanical Canopies (100% Vector, Zero AI Slop) -->
+        <HeroBotanicalOrnaments />
 
         <div class="max-w-lg w-full mx-auto flex flex-col items-center justify-between h-[84svh] max-h-[720px] my-auto relative z-10">
           
@@ -330,9 +315,9 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
       >
         <!-- THEMATIC SCENE 3 CORNERS: Groom's Olive Branch & Bride's Blush Peony Ribbon Flanks -->
         <div class="couple-thematic-flanks absolute inset-0 pointer-events-none z-0 overflow-hidden select-none" aria-hidden="true">
-          <!-- Left: Zharkasi's Masculine Olive & Laurel Flank -->
-          <div class="absolute top-10 left-3 md:left-10 lg:left-16 hidden sm:block opacity-75">
-            <svg width="140" height="140" viewBox="0 0 100 100" fill="none" class="w-24 md:w-32 lg:w-36 h-auto text-[#566A4E]">
+          <!-- Left: Zharkasi's Masculine Olive & Laurel Flank (GSAP target: #couple-flank-left) -->
+          <div id="couple-flank-left" class="absolute top-8 left-2 sm:left-6 md:left-10 lg:left-16 opacity-85 will-change-transform">
+            <svg width="140" height="140" viewBox="0 0 100 100" fill="none" class="w-18 sm:w-26 md:w-32 lg:w-36 h-auto text-[#566A4E] drop-shadow-sm">
               <path d="M 10 90 C 25 70, 35 45, 55 20 C 65 10, 80 5, 95 2" stroke="#566A4E" stroke-width="1.6" stroke-linecap="round" />
               <path d="M 25 70 C 15 62, 10 50, 18 42 C 28 46, 32 58, 25 70 Z" fill="#5E7C54" />
               <path d="M 38 52 C 28 44, 25 32, 34 26 C 42 32, 44 44, 38 52 Z" fill="#445D3C" />
@@ -342,9 +327,9 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
             </svg>
           </div>
 
-          <!-- Right: Difa's Feminine Blush Peony & Flowing Ribbon Flank -->
-          <div class="absolute top-10 right-3 md:right-10 lg:right-16 hidden sm:block opacity-75 scale-x-[-1]">
-            <svg width="140" height="140" viewBox="0 0 100 100" fill="none" class="w-24 md:w-32 lg:w-36 h-auto text-[#EAA194]">
+          <!-- Right: Difa's Feminine Blush Peony & Flowing Ribbon Flank (GSAP target: #couple-flank-right) -->
+          <div id="couple-flank-right" class="absolute top-8 right-2 sm:right-6 md:right-10 lg:right-16 opacity-85 will-change-transform scale-x-[-1]">
+            <svg width="140" height="140" viewBox="0 0 100 100" fill="none" class="w-18 sm:w-26 md:w-32 lg:w-36 h-auto text-[#EAA194] drop-shadow-sm">
               <path d="M 10 90 C 25 70, 35 45, 55 20 C 65 10, 80 5, 95 2" stroke="#B89352" stroke-width="1.4" stroke-linecap="round" />
               <circle cx="25" cy="62" r="12" fill="#FFEAE6" stroke="#EAA194" stroke-width="0.8" />
               <circle cx="23" cy="60" r="7" fill="#F8C4AD" />
@@ -354,14 +339,14 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
             </svg>
           </div>
 
-          <!-- Intertwined Gilded Wedding Ring Accent in Bottom Corners -->
-          <div class="absolute bottom-4 left-6 hidden sm:block opacity-40">
+          <!-- Intertwined Gilded Wedding Ring Accent in Bottom Corners (GSAP targets: #couple-rings-left, #couple-rings-right) -->
+          <div id="couple-rings-left" class="absolute bottom-4 left-4 sm:left-8 opacity-45 will-change-transform">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B89352" stroke-width="1.2">
               <circle cx="10" cy="12" r="6" />
               <circle cx="14" cy="12" r="6" />
             </svg>
           </div>
-          <div class="absolute bottom-4 right-6 hidden sm:block opacity-40">
+          <div id="couple-rings-right" class="absolute bottom-4 right-4 sm:right-8 opacity-45 will-change-transform">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B89352" stroke-width="1.2">
               <circle cx="10" cy="12" r="6" />
               <circle cx="14" cy="12" r="6" />
@@ -921,6 +906,49 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
     const stanza2 = document.getElementById('stanza-2');
     const stanza3 = document.getElementById('stanza-3');
 
+    // Thematic Ornament Elements across all chapters
+    const heroBracketTL = document.getElementById('hero-bracket-tl');
+    const heroBracketTR = document.getElementById('hero-bracket-tr');
+    const heroBracketBL = document.getElementById('hero-bracket-bl');
+    const heroBracketBR = document.getElementById('hero-bracket-br');
+    const heroPetalsL = [document.getElementById('hero-petal-l1'), document.getElementById('hero-petal-l2')].filter(Boolean);
+    const heroPetalsR = [document.getElementById('hero-petal-r1'), document.getElementById('hero-petal-r2')].filter(Boolean);
+
+    const verseLanternLeft = document.getElementById('verse-lantern-left');
+    const verseLanternRight = document.getElementById('verse-lantern-right');
+    const verseBracketTL = document.getElementById('verse-bracket-tl');
+    const verseBracketTR = document.getElementById('verse-bracket-tr');
+    const verseBracketBL = document.getElementById('verse-bracket-bl');
+    const verseBracketBR = document.getElementById('verse-bracket-br');
+
+    const coupleFlankLeft = document.getElementById('couple-flank-left');
+    const coupleFlankRight = document.getElementById('couple-flank-right');
+    const coupleRingsLeft = document.getElementById('couple-rings-left');
+    const coupleRingsRight = document.getElementById('couple-rings-right');
+
+    const asmaralokaStamp = document.getElementById('asmaraloka-stamp-tl');
+    const asmaralokaQuill = document.getElementById('asmaraloka-quill-tr');
+    const asmaralokaFern = document.getElementById('asmaraloka-fern-bl');
+    const asmaralokaSeal = document.getElementById('asmaraloka-seal-br');
+
+    // Initial states for thematic chapter ornaments
+    if (verseLanternLeft && verseLanternRight) {
+      gsap.set([verseLanternLeft, verseLanternRight], { y: -130, opacity: 0 });
+    }
+    const verseBrackets = [verseBracketTL, verseBracketTR, verseBracketBL, verseBracketBR].filter(Boolean);
+    if (verseBrackets.length) {
+      gsap.set(verseBrackets, { scale: 0.65, opacity: 0 });
+    }
+    if (coupleFlankLeft) gsap.set(coupleFlankLeft, { x: -80, rotation: -12, opacity: 0 });
+    if (coupleFlankRight) gsap.set(coupleFlankRight, { x: 80, rotation: 12, opacity: 0 });
+    const coupleRings = [coupleRingsLeft, coupleRingsRight].filter(Boolean);
+    if (coupleRings.length) gsap.set(coupleRings, { scale: 0.5, opacity: 0 });
+
+    if (asmaralokaStamp) gsap.set(asmaralokaStamp, { scale: 0.6, rotation: -25, opacity: 0 });
+    if (asmaralokaQuill) gsap.set(asmaralokaQuill, { x: 40, y: -25, rotation: 22, opacity: 0 });
+    const asmaralokaAccents = [asmaralokaFern, asmaralokaSeal].filter(Boolean);
+    if (asmaralokaAccents.length) gsap.set(asmaralokaAccents, { scale: 0.5, opacity: 0 });
+
     // Dynamic horizontal travel distance calculation for panoramic tracking shot
     const getSteleDist = () => {
       if (stanza1 && stanza2) {
@@ -1069,6 +1097,14 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
         ease: 'power1.inOut'
       }, 0);
     }
+    // Active scroll-driven animation: Archival Botanical Brackets part open and satin petals drift
+    if (heroBracketTL) tl.to(heroBracketTL, { x: -65, y: -45, rotation: -14, opacity: 0, duration: 0.20, ease: 'power1.inOut' }, 0);
+    if (heroBracketTR) tl.to(heroBracketTR, { x: 65, y: -45, rotation: 14, opacity: 0, duration: 0.20, ease: 'power1.inOut' }, 0);
+    if (heroBracketBL) tl.to(heroBracketBL, { x: -55, y: 55, rotation: 10, opacity: 0, duration: 0.18, ease: 'power1.inOut' }, 0);
+    if (heroBracketBR) tl.to(heroBracketBR, { x: 55, y: 55, rotation: -10, opacity: 0, duration: 0.18, ease: 'power1.inOut' }, 0);
+    if (heroPetalsL.length) tl.to(heroPetalsL, { y: 100, rotation: 45, opacity: 0, duration: 0.20, ease: 'power1.inOut' }, 0);
+    if (heroPetalsR.length) tl.to(heroPetalsR, { y: 120, rotation: -35, opacity: 0, duration: 0.20, ease: 'power1.inOut' }, 0);
+
     tl.to(sceneHero, {
       z: 450,
       duration: 0.22,
@@ -1095,6 +1131,11 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
         if (sceneVerse) sceneVerse.style.pointerEvents = 'auto';
       }
     }, 0.22);
+
+    // Moroccan hanging lanterns descend from heavens & Arabesque brackets frame the holy verse
+    if (verseLanternLeft) tl.to(verseLanternLeft, { y: 0, opacity: 1, rotation: -2, duration: 0.22, ease: 'power2.out' }, 0.22);
+    if (verseLanternRight) tl.to(verseLanternRight, { y: 0, opacity: 1, rotation: 2, duration: 0.24, ease: 'power2.out' }, 0.22);
+    if (verseBrackets.length) tl.to(verseBrackets, { scale: 1, opacity: 0.85, duration: 0.20, stagger: 0.02, ease: 'back.out(1.4)' }, 0.24);
 
     if (verseArchCard) {
       tl.fromTo(verseArchCard,
@@ -1126,9 +1167,14 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
     }
 
     // Comfortable reading plateau for Ayat Suci (0.44 -> 0.58)
+    // Subtle pendular sway on Moroccan lanterns during scroll pause
+    if (verseLanternLeft) tl.to(verseLanternLeft, { rotation: 2, duration: 0.14, ease: 'sine.inOut' }, 0.44);
+    if (verseLanternRight) tl.to(verseLanternRight, { rotation: -2, duration: 0.14, ease: 'sine.inOut' }, 0.44);
     tl.to(sceneVerse, { z: 0, duration: 0.14 }, 0.44);
 
     // Verse scene ascends & flies past camera in 3D Z-space (0.58 -> 0.70)
+    if (verseLanternLeft && verseLanternRight) tl.to([verseLanternLeft, verseLanternRight], { y: -80, opacity: 0, duration: 0.12 }, 0.58);
+    if (verseBrackets.length) tl.to(verseBrackets, { scale: 1.15, opacity: 0, duration: 0.12 }, 0.58);
     tl.to(sceneVerse, {
       z: 480,
       scale: 1.25,
@@ -1155,6 +1201,11 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
         if (sceneCouple) sceneCouple.style.pointerEvents = 'auto';
       }
     }, 0.68);
+
+    // Flanks glide in from left & right margins
+    if (coupleFlankLeft) tl.to(coupleFlankLeft, { x: 0, rotation: 0, opacity: 0.85, duration: 0.22, ease: 'power2.out' }, 0.68);
+    if (coupleFlankRight) tl.to(coupleFlankRight, { x: 0, rotation: 0, opacity: 0.85, duration: 0.22, ease: 'power2.out' }, 0.68);
+    if (coupleRings.length) tl.to(coupleRings, { scale: 1, opacity: 0.5, duration: 0.18, ease: 'power2.out' }, 0.72);
 
     if (coupleHeader) {
       tl.fromTo(coupleHeader,
@@ -1220,6 +1271,10 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
         ease: 'power2.inOut'
       }, 1.20);
     }
+
+    // Flanks gently bow toward the merged love crest
+    if (coupleFlankLeft) tl.to(coupleFlankLeft, { x: 30, rotation: 6, duration: 0.14 }, 1.20);
+    if (coupleFlankRight) tl.to(coupleFlankRight, { x: -30, rotation: -6, duration: 0.14 }, 1.20);
 
     // 3. Golden collision spark flares at meeting point
     if (coupleMergeSpark) {
@@ -1288,6 +1343,9 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
     }
 
     // Scene 3 completes smoothly to hand off to Scene 4
+    if (coupleFlankLeft && coupleFlankRight) tl.to([coupleFlankLeft, coupleFlankRight], { opacity: 0, scale: 0.9, duration: 0.08 }, 1.60);
+    if (coupleRings.length) tl.to(coupleRings, { opacity: 0, scale: 0.8, duration: 0.08 }, 1.60);
+
     tl.to(sceneCouple, {
       opacity: 0,
       duration: 0.06,
@@ -1311,6 +1369,11 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
         if (sceneAsmaraloka) sceneAsmaraloka.style.pointerEvents = 'auto';
       }
     }, 1.68);
+
+    // Postal stamp and feather quill land on parchment
+    if (asmaralokaStamp) tl.to(asmaralokaStamp, { scale: 1, rotation: -10, opacity: 0.75, duration: 0.20, ease: 'back.out(1.5)' }, 1.68);
+    if (asmaralokaQuill) tl.to(asmaralokaQuill, { x: 0, y: 0, rotation: 6, opacity: 0.85, duration: 0.20, ease: 'power2.out' }, 1.68);
+    if (asmaralokaAccents.length) tl.to(asmaralokaAccents, { scale: 1, opacity: 0.6, duration: 0.20, ease: 'power2.out' }, 1.70);
 
     if (asmaralokaHeader) {
       tl.fromTo(asmaralokaHeader,
@@ -1379,6 +1442,10 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
       // Chapter indicator updates to Babak 2
       tl.call(() => setChapterPip(2), [], 2.26);
 
+      // Quill flourishes and postal stamp tilts as story advances
+      if (asmaralokaQuill) tl.to(asmaralokaQuill, { x: -20, y: 15, rotation: -3, duration: 0.23, ease: 'power1.inOut' }, 2.15);
+      if (asmaralokaStamp) tl.to(asmaralokaStamp, { rotation: 5, duration: 0.23, ease: 'power1.inOut' }, 2.15);
+
       // Ambient lighting warms up to terracotta amber
       if (asmaralokaHalo) {
         tl.to(asmaralokaHalo, {
@@ -1432,6 +1499,10 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
       // Chapter indicator updates to Babak 3
       tl.call(() => setChapterPip(3), [], 2.73);
 
+      // Quill completes final flourish and stamp tilts to final angle
+      if (asmaralokaQuill) tl.to(asmaralokaQuill, { x: -35, y: 28, rotation: -8, duration: 0.23, ease: 'power1.inOut' }, 2.62);
+      if (asmaralokaStamp) tl.to(asmaralokaStamp, { rotation: -12, duration: 0.23, ease: 'power1.inOut' }, 2.62);
+
       // Ambient lighting deepens to sacred twilight rose-gold
       if (asmaralokaHalo) {
         tl.to(asmaralokaHalo, {
@@ -1447,6 +1518,10 @@ import VintageLoveChronicleAccents from '../thematic/VintageLoveChronicleAccents
     tl.to(sceneAsmaraloka, { z: 0, duration: 0.17 }, 2.85);
 
     // Climax Ascend & Section Transition to UnifiedEvent (3.02 -> 3.15)
+    if (asmaralokaStamp) tl.to(asmaralokaStamp, { opacity: 0, y: -25, duration: 0.13 }, 3.02);
+    if (asmaralokaQuill) tl.to(asmaralokaQuill, { opacity: 0, y: -25, duration: 0.13 }, 3.02);
+    if (asmaralokaAccents.length) tl.to(asmaralokaAccents, { opacity: 0, y: -20, duration: 0.13 }, 3.02);
+
     tl.to(sceneAsmaraloka, {
       y: -50,
       opacity: 0,
