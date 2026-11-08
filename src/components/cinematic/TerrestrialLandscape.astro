@@ -8,10 +8,11 @@
   <!-- =========================================================================
        LAYER 0: AUTHENTIC WATERCOLOR MINANGKABAU MOUNTAIN HORIZON
        (Bukit Barisan / Lembah Harau berkabut emas - High-Resolution Artwork)
+       Feathered top & bottom mask ensures 100% seamless boundary-free blending
        ========================================================================= -->
   <div 
     id="landscape-mountains-wrap" 
-    class="absolute top-0 inset-x-0 h-[85vh] min-h-[520px] max-h-[880px] opacity-75 will-change-transform pointer-events-none overflow-hidden flex items-start justify-center"
+    class="absolute top-0 inset-x-0 h-[85vh] min-h-[520px] max-h-[880px] opacity-75 will-change-transform pointer-events-none overflow-hidden flex items-start justify-center [mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_80%,transparent_100%)]"
   >
     <!-- Soft Mist Gradient blending into top -->
     <div class="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/0 via-[#F5EFE6]/25 to-[#FAF8F5] pointer-events-none z-10"></div>
@@ -43,24 +44,6 @@
   </div>
 
   <!-- =========================================================================
-       LAYER 1: AUTHENTIC WATERCOLOR OVERHANGING BOTANICAL CANOPY
-       Romantic weeping willow, olive branches, and blush roses framing the top edges
-       Pushed up to gracefully frame the screen without cluttering the center card
-       ========================================================================= -->
-  <div 
-    id="landscape-trees-wrap" 
-    class="absolute -top-32 sm:-top-48 md:-top-60 lg:-top-72 inset-x-0 w-full flex justify-center opacity-85 will-change-transform pointer-events-none z-10"
-  >
-    <img 
-      src="/assets/watercolor-overhanging-trees.webp" 
-      alt="" 
-      class="w-full max-w-[1500px] h-auto object-contain object-top drop-shadow-md select-none pointer-events-none" 
-      loading="eager"
-      decoding="async"
-    />
-  </div>
-
-  <!-- =========================================================================
        LAYER 2: THE SHIMMERING SACRED RIVERWAY (Aliran Sungai Suci Lembah Asri)
        Organic meandering river flowing gracefully along the landscape margins
        past the event pavilions and opening into the sunset lake!
@@ -73,16 +56,16 @@
       <defs>
         <!-- Shimmering River Stream Gradient (Jade Emerald, Mountain Spring & Golden Sunlight Caustics) -->
         <linearGradient id="riverStreamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#8DB094" stop-opacity="0.35" />
-          <stop offset="30%" stop-color="#E5C778" stop-opacity="0.50" />
-          <stop offset="65%" stop-color="#70967C" stop-opacity="0.40" />
-          <stop offset="100%" stop-color="#E28E46" stop-opacity="0.55" />
+          <stop offset="0%" stop-color="#8DB094" stop-opacity="0.30" />
+          <stop offset="30%" stop-color="#E5C778" stop-opacity="0.45" />
+          <stop offset="65%" stop-color="#70967C" stop-opacity="0.35" />
+          <stop offset="100%" stop-color="#E28E46" stop-opacity="0.50" />
         </linearGradient>
 
         <linearGradient id="riverShimmerLine" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.80" />
-          <stop offset="50%" stop-color="#F3DE98" stop-opacity="0.75" />
-          <stop offset="100%" stop-color="#FED7AA" stop-opacity="0.85" />
+          <stop offset="50%" stop-color="#F3DE98" stop-opacity="0.70" />
+          <stop offset="100%" stop-color="#FED7AA" stop-opacity="0.80" />
         </linearGradient>
 
         <linearGradient id="lakeWaterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -100,13 +83,13 @@
            C 50 1140, 260 1380, 180 1620 
            C 120 1860, 480 2080, 720 2360" 
         stroke="url(#riverStreamGrad)" 
-        stroke-width="48" 
+        stroke-width="38" 
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="filter blur-sm"
+        class="filter blur-md"
       />
 
-      <!-- Glimmering Center River Current Line (Glittering Stream) -->
+      <!-- Glimmering Center River Current Line (Glittering Stream - continuous water shimmer) -->
       <path 
         id="river-current-glimmer"
         d="M 120 120 
@@ -114,10 +97,9 @@
            C 50 1140, 260 1380, 180 1620 
            C 120 1860, 480 2080, 720 2360" 
         stroke="url(#riverShimmerLine)" 
-        stroke-width="2.2" 
+        stroke-width="1.8" 
         stroke-linecap="round"
-        stroke-dasharray="14 22"
-        opacity="0.75"
+        opacity="0.65"
       />
 
       <!-- Riverbank Pebbles & Delicate Water Lily Lotus Pads along margin -->
@@ -134,6 +116,14 @@
         fill="url(#lakeWaterGrad)" 
         class="filter blur-sm"
       />
+
+      <!-- Concentric Sunset Water Ripples on Lake Surface (Under Romantic Swans) -->
+      <ellipse cx="720" cy="2360" rx="280" ry="22" stroke="#EEAF73" stroke-width="1.2" opacity="0.45" stroke-dasharray="6 8" />
+      <ellipse cx="720" cy="2390" rx="380" ry="28" stroke="#D4AF37" stroke-width="1.4" opacity="0.40" stroke-dasharray="8 12" />
+      <ellipse cx="720" cy="2430" rx="490" ry="36" stroke="#EEAF73" stroke-width="1.2" opacity="0.35" stroke-dasharray="10 16" />
+      <ellipse cx="720" cy="2480" rx="600" ry="45" stroke="#C27838" stroke-width="1.0" opacity="0.25" stroke-dasharray="12 20" />
+    </svg>
+  </div>
 
       <!-- Concentric Sunset Water Ripples on Lake Surface (Under Romantic Swans) -->
       <ellipse cx="720" cy="2360" rx="280" ry="22" stroke="#EEAF73" stroke-width="1.2" opacity="0.45" stroke-dasharray="6 8" />
@@ -181,7 +171,6 @@
   function initTerrestrialLandscape() {
     const stage = document.getElementById('interactive-stage');
     const mountains = document.getElementById('landscape-mountains-wrap');
-    const trees = document.getElementById('landscape-trees-wrap');
     const swallows = document.getElementById('landscape-swallows');
     const riverWrap = document.getElementById('landscape-riverway-wrap');
     const riverGlimmer = document.getElementById('river-current-glimmer');
@@ -207,22 +196,7 @@
       });
     }
 
-    // 2. Overhanging Tree Canopy Gentle Breathing Parallax
-    if (trees) {
-      gsap.to(trees, {
-        y: 40,
-        scale: 1.02,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: stage,
-          start: 'top 80%',
-          end: 'top top',
-          scrub: 1.2,
-        }
-      });
-    }
-
-    // 3. Swallows Soaring across the Mountain Sky
+    // 2. Swallows Soaring across the Mountain Sky
     if (swallows) {
       gsap.to(swallows, {
         x: 160,
