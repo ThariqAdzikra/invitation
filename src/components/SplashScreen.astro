@@ -85,7 +85,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
       style="transform-style: preserve-3d;"
     >
       <!-- LAYER 0: INSIDE POCKET LINING (Revealed when flap opens: Clean Warm Ivory Cotton Stock) -->
-      <div class="absolute inset-0 rounded-2xl overflow-hidden bg-gradient-to-b from-[#FAF7F0] via-[#F2EDE2] to-[#E5DFCFC] pointer-events-none z-0">
+      <div id="envelope-lining" class="absolute inset-0 rounded-2xl overflow-hidden bg-gradient-to-b from-[#FAF7F0] via-[#F2EDE2] to-[#E5DFCFC] pointer-events-none z-0 transition-opacity">
         <!-- Delicate Inset Gold Stitching Line Inside -->
         <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 68" preserveAspectRatio="none">
           <rect x="2.5" y="2" width="95" height="64" rx="2" fill="none" stroke="#B89352" stroke-width="0.4" stroke-dasharray="1.8 1.2" opacity="0.3" />
@@ -136,7 +136,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
       </div>
 
       <!-- LAYER 2: FRONT ENVELOPE SOLID POCKET (100% Opaque Cotton Stock with Tailored Gold Stitching) -->
-      <div class="absolute inset-0 z-20 pointer-events-none rounded-2xl overflow-hidden">
+      <div id="envelope-pocket" class="absolute inset-0 z-20 pointer-events-none rounded-2xl overflow-hidden transition-opacity">
         
         <!-- Left Side Flap Fold -->
         <div 
@@ -172,7 +172,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
       </div>
 
       <!-- LAYER 2.3: VERTICAL OLIVE SATIN RIBBON SASH (Running vertically behind wax seal) -->
-      <div class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 sm:w-9.5 z-23 pointer-events-none overflow-hidden shadow-sm">
+      <div id="envelope-ribbon" class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-8 sm:w-9.5 z-23 pointer-events-none overflow-hidden shadow-sm transition-opacity">
         <div class="w-full h-full bg-gradient-to-r from-[#33422E] via-[#4A5D43] to-[#33422E] relative border-x border-[#B89352]/40">
           <!-- Subtle Satin Sheen Line -->
           <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[1.5px] bg-white/20"></div>
@@ -182,7 +182,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
       </div>
 
       <!-- LAYER 2.5: LUXURY GUEST CALLIGRAPHY NAMEPLATE (Centered on lower pocket) -->
-      <div class="absolute bottom-3.5 sm:bottom-4 left-1/2 -translate-x-1/2 w-[82%] sm:w-[72%] max-w-[270px] z-25 pointer-events-none">
+      <div id="envelope-nameplate" class="absolute bottom-3.5 sm:bottom-4 left-1/2 -translate-x-1/2 w-[82%] sm:w-[72%] max-w-[270px] z-25 pointer-events-none transition-opacity">
         <div class="py-2 px-3.5 rounded-xl bg-white/95 border border-[#B89352]/40 shadow-[0_4px_16px_rgba(42,52,38,0.06)] text-center relative overflow-hidden">
           <!-- Inset Gold Stitching Frame -->
           <div class="absolute inset-1 border border-dashed border-[#B89352]/35 rounded-lg pointer-events-none"></div>
@@ -219,12 +219,11 @@ import FloralCorner from './botanical/FloralCorner.astro';
       <!-- LAYER 4: AUTHENTIC POURED OLIVE WAX SEAL (Centered at Flap V-Tip on top of the Satin Ribbon) -->
       <div
         id="wax-seal-container"
-        class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto transform transition-all duration-300 hover:scale-105 active:scale-95"
-        style="transform-style: preserve-3d; transform: translate3d(-50%, -50%, 25px);"
+        class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto transform transition-transform duration-200 active:scale-95"
       >
         <div class="relative flex items-center justify-center group">
           <!-- Ambient Gold Glow Halo -->
-          <div id="wax-seal-halo" class="absolute -inset-3 rounded-full bg-[#B89352]/25 blur-md opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"></div>
+          <div id="wax-seal-halo" class="absolute -inset-3 rounded-full bg-[#B89352]/25 blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
 
           <!-- Poured Molten Wax Seal Disc (Organic 8-Lobed Shape) -->
           <svg width="60" height="60" viewBox="0 0 100 100" class="filter drop-shadow-[0_8px_18px_rgba(36,49,32,0.4)]">
@@ -268,16 +267,6 @@ import FloralCorner from './botanical/FloralCorner.astro';
     </div>
   </div>
 
-  <!-- SUBTLE INTERACTION HINT (Pulsing Gilded Badge) -->
-  <div id="envelope-prompt" class="mt-4 sm:mt-6 flex flex-col items-center gap-1.5 pointer-events-auto cursor-pointer group z-20 transition-opacity duration-300">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/85 border border-[#B89352]/40 shadow-[0_4px_14px_rgba(42,52,38,0.06)] backdrop-blur-xs group-hover:border-[#B89352] group-hover:bg-white group-hover:scale-105 transition-all">
-      <span class="w-1.5 h-1.5 rounded-full bg-[#B89352] animate-ping"></span>
-      <span class="text-[0.56rem] sm:text-[0.62rem] text-[#4A5D43] tracking-[0.26em] uppercase font-semibold">
-        Ketuk Segel untuk Membuka
-      </span>
-    </div>
-  </div>
-
 </div>
 
 <script>
@@ -292,12 +281,15 @@ import FloralCorner from './botanical/FloralCorner.astro';
     const topFlapContainer = document.getElementById('envelope-top-flap-container');
     const letterCard = document.getElementById('envelope-card');
     const waxSealContainer = document.getElementById('wax-seal-container');
-    const promptContainer = document.getElementById('envelope-prompt');
     const editorialHeader = document.getElementById('splash-editorial-header');
     const splashBorder = document.getElementById('splash-stationery-border');
     const guestSplash = document.getElementById('guest-name-splash');
     const envelopeBody = document.getElementById('envelope-body');
     const envelopeShadow = document.getElementById('envelope-shadow');
+    const envelopePocket = document.getElementById('envelope-pocket');
+    const envelopeLining = document.getElementById('envelope-lining');
+    const envelopeRibbon = document.getElementById('envelope-ribbon');
+    const envelopeNameplate = document.getElementById('envelope-nameplate');
 
     if (!screen || !scene || !topFlap || !letterCard) return;
 
@@ -319,75 +311,14 @@ import FloralCorner from './botanical/FloralCorner.astro';
     }
 
     let isOpened = false;
-    let isTilting = true;
 
     // =========================================================================
-    // 3D PARALLAX GYRO / TILT ON ENVELOPE (Desktop Mouse & Mobile Touch)
-    // =========================================================================
-    function handleTilt(clientX: number, clientY: number) {
-      if (!isTilting || isOpened || !scene) return;
-      const rect = screen.getBoundingClientRect();
-      const nx = (clientX - rect.left) / rect.width - 0.5; // -0.5 to 0.5
-      const ny = (clientY - rect.top) / rect.height - 0.5; // -0.5 to 0.5
-
-      const rotateY = nx * 14; // max ~7 deg
-      const rotateX = -ny * 14; // max ~7 deg
-
-      gsap.to(scene, {
-        rotateX: rotateX,
-        rotateY: rotateY,
-        duration: 0.45,
-        ease: 'power1.out',
-        transformPerspective: 1600
-      });
-
-      if (envelopeShadow) {
-        gsap.to(envelopeShadow, {
-          x: -nx * 24,
-          y: -ny * 16 + 40,
-          duration: 0.45,
-          ease: 'power1.out'
-        });
-      }
-    }
-
-    function resetTilt() {
-      if (!isTilting || isOpened || !scene) return;
-      gsap.to(scene, {
-        rotateX: 0,
-        rotateY: 0,
-        duration: 0.7,
-        ease: 'power2.out'
-      });
-      if (envelopeShadow) {
-        gsap.to(envelopeShadow, {
-          x: 0,
-          y: 40,
-          duration: 0.7,
-          ease: 'power2.out'
-        });
-      }
-    }
-
-    screen.addEventListener('mousemove', (e) => handleTilt(e.clientX, e.clientY));
-    screen.addEventListener('mouseleave', resetTilt);
-    screen.addEventListener('touchmove', (e) => {
-      if (e.touches && e.touches[0]) {
-        handleTilt(e.touches[0].clientX, e.touches[0].clientY);
-      }
-    }, { passive: true });
-    screen.addEventListener('touchend', resetTilt);
-
-    // =========================================================================
-    // CINEMATIC SEQUENTIAL UNBOXING: FLAP OPENS -> CARD EMERGES FULLY -> SMOOTH TRANSITION
+    // CINEMATIC SEQUENTIAL UNBOXING:
+    // FLAP OPENS -> CARD EMERGES -> ENVELOPE DISSOLVES CLEANLY -> PRISTINE CARD RESTS IN CENTER
     // =========================================================================
     function openInvitation() {
       if (isOpened) return;
       isOpened = true;
-      isTilting = false;
-
-      // Smoothly level scene for unboxing
-      gsap.to(scene, { rotateX: 0, rotateY: 0, duration: 0.25, ease: 'power2.out' });
 
       // 1. Play tactile wax breaking sound & trigger music fade-in
       playWaxSealSound();
@@ -395,23 +326,19 @@ import FloralCorner from './botanical/FloralCorner.astro';
 
       const tl = gsap.timeline();
 
-      // PHASE 1: Wax seal lifts with soft gold halo & dissolves; Header and surrounding accents fade softly
+      // PHASE 1: Wax seal lifts & dissolves; Header and surrounding borders fade softly
       if (waxSealContainer) {
         tl.to(waxSealContainer, {
           scale: 1.15,
           y: -8,
           opacity: 0,
-          duration: 0.32,
+          duration: 0.28,
           ease: 'power2.out'
         }, 0);
       }
 
-      if (promptContainer) {
-        tl.to(promptContainer, { opacity: 0, y: 8, duration: 0.25, ease: 'power2.out' }, 0);
-      }
-
       if (editorialHeader) {
-        tl.to(editorialHeader, { opacity: 0, y: -12, duration: 0.4, ease: 'power2.out' }, 0.05);
+        tl.to(editorialHeader, { opacity: 0, y: -12, duration: 0.35, ease: 'power2.out' }, 0.05);
       }
 
       const botanicalCorners = document.querySelectorAll('.splash-botanical-corners');
@@ -423,51 +350,58 @@ import FloralCorner from './botanical/FloralCorner.astro';
         tl.to(splashBorder, { opacity: 0, duration: 0.45, ease: 'power2.out' }, 0.05);
       }
 
-      // PHASE 2: Euro flap flips open 180° in 3D (0.10s -> 0.70s)
+      // PHASE 2: Euro flap flips open 180° in 3D (0.08s -> 0.65s)
       tl.to(topFlap, {
         rotateX: 180,
-        duration: 0.65,
+        duration: 0.58,
         ease: 'power2.inOut',
         onUpdate: function() {
-          // Send open flap to back (behind emerging card) once it passes vertical
           if (this.progress() > 0.45 && topFlapContainer) {
             topFlapContainer.style.zIndex = '2';
           }
         }
-      }, 0.10);
+      }, 0.08);
 
-      // Fade out nameplate and ribbon so envelope pocket is clean
-      const frontNameplate = document.querySelector('#envelope-body .z-25');
-      const frontRibbon = document.querySelector('#envelope-body .z-23');
-      if (frontNameplate) {
-        tl.to(frontNameplate, { opacity: 0, duration: 0.35, ease: 'power2.out' }, 0.35);
-      }
-      if (frontRibbon) {
-        tl.to(frontRibbon, { opacity: 0, duration: 0.35, ease: 'power2.out' }, 0.35);
-      }
-
-      // PHASE 3: Surat ditarik PENUH keluar dari saku amplop (0.35s -> 0.95s)
-      // Meluncur ke atas sampai seluruh badan surat keluar dari kantong (tidak beradu dengan lipatan)
+      // PHASE 3: Surat ditarik PENUH keluar dari saku amplop (0.30s -> 0.90s)
       tl.to(letterCard, {
         opacity: 1,
         y: '-92%',
         scale: 1.02,
         duration: 0.60,
         ease: 'power2.out'
-      }, 0.35);
+      }, 0.30);
 
-      // Badan amplop turun sedikit memberi efek kedalaman fisik
+      // AS THE CARD REACHES THE TOP: FADE OUT AND DISSOLVE THE ENVELOPE (NO COLLISION!)
+      // All envelope parts (top flap, pocket seams, lining, ribbon, nameplate, shadow)
+      // dissolve completely so they NEVER clash behind the letter card!
+      const envelopeDissolveTargets = [
+        topFlapContainer,
+        envelopePocket,
+        envelopeLining,
+        envelopeRibbon,
+        envelopeNameplate,
+        envelopeShadow
+      ].filter(Boolean);
+
+      tl.to(envelopeDissolveTargets, {
+        opacity: 0,
+        y: 25,
+        duration: 0.42,
+        ease: 'power2.out'
+      }, 0.58);
+
       if (envelopeBody) {
         tl.to(envelopeBody, {
-          y: 35,
-          scale: 0.96,
-          duration: 0.70,
+          backgroundColor: 'transparent',
+          borderColor: 'transparent',
+          boxShadow: 'none',
+          duration: 0.42,
           ease: 'power2.out'
-        }, 0.35);
+        }, 0.58);
       }
 
-      // Saat surat sudah keluar penuh dari saku, pindahkan ke lapisan terdepan (zIndex 50)
-      // dan picu suara kertas serta confetti
+      // 0.90s: Saat amplop sudah larut sempurna, posisikan surat di layer teratas
+      // dan picu suara kertas serta semburan kelopak emas confetti
       tl.add(() => {
         if (letterCard) {
           letterCard.style.zIndex = '50';
@@ -476,16 +410,12 @@ import FloralCorner from './botanical/FloralCorner.astro';
         playCardFlipSound();
 
         // Haute-Couture Gold Leaf, Olive & Ivory Confetti Burst
-        const sealRect = waxSealContainer?.getBoundingClientRect();
-        const originX = sealRect ? (sealRect.left + sealRect.width / 2) / window.innerWidth : 0.5;
-        const originY = sealRect ? (sealRect.top + sealRect.height / 2) / window.innerHeight : 0.45;
-
         confetti({
-          particleCount: 55,
+          particleCount: 50,
           spread: 70,
-          origin: { x: originX, y: originY },
+          origin: { x: 0.5, y: 0.45 },
           colors: ['#B89352', '#D4AF6E', '#F4E5C7', '#566A4E', '#3E4C38', '#FFFFFF'],
-          ticks: 190,
+          ticks: 180,
           gravity: 0.85,
           scalar: 1.15,
           shapes: ['circle', 'square'],
@@ -494,66 +424,57 @@ import FloralCorner from './botanical/FloralCorner.astro';
 
         setTimeout(() => {
           confetti({
-            particleCount: 28,
+            particleCount: 25,
             angle: 60,
-            spread: 55,
-            origin: { x: originX - 0.15, y: originY },
+            spread: 50,
+            origin: { x: 0.35, y: 0.45 },
             colors: ['#D4AF6E', '#B89352', '#FAF8F5'],
             gravity: 0.65,
             scalar: 0.95,
             zIndex: 999999
           });
           confetti({
-            particleCount: 28,
+            particleCount: 25,
             angle: 120,
-            spread: 55,
-            origin: { x: originX + 0.15, y: originY },
+            spread: 50,
+            origin: { x: 0.65, y: 0.45 },
             colors: ['#D4AF6E', '#566A4E', '#FAF8F5'],
             gravity: 0.65,
             scalar: 0.95,
             zIndex: 999999
           });
-        }, 160);
+        }, 150);
+      }, 0.90);
+
+      // PHASE 4: Surat meluncur anggun ke posisi tengah membaca di kanvas yang BERSIH & MURNI (0.92s -> 1.50s)
+      // Tidak ada amplop belakang, tidak ada segitiga flap, tidak beradu sama sekali!
+      tl.to(letterCard, {
+        y: '0%',
+        scale: 1.06,
+        boxShadow: '0 24px 70px rgba(42, 52, 38, 0.22)',
+        duration: 0.58,
+        ease: 'power2.out'
       }, 0.92);
 
-      // Surat meluncur anggun ke posisi tengah membaca di DEPAN amplop (0.95s -> 1.55s)
-      // Surat berada 100% di atas amplop tanpa terhalang atau beradu dengan lipatan segitiga
-      tl.to(letterCard, {
-        y: '-12%',
-        scale: 1.05,
-        boxShadow: '0 32px 75px rgba(42, 52, 38, 0.28)',
-        duration: 0.60,
-        ease: 'power2.out'
-      }, 0.95);
+      // PHASE 5: Jeda membaca yang tenang & natural (1.50s -> 1.80s)
 
-      // PHASE 4: Jeda hening natural untuk membaca surat (1.55s -> 1.85s)
-
-      // PHASE 5: BARU TRANSISI HALUS KE HALAMAN UTAMA (1.85s -> 2.55s)
-      // Camera smoothly zooms in directly onto the letter card
+      // PHASE 6: BARU TRANSISI HALUS KE HALAMAN UTAMA (1.80s -> 2.50s)
+      // Camera smoothly zooms in directly onto the pristine letter card
       tl.to(scene, {
         scale: 2.1,
         y: 40,
         duration: 0.70,
         ease: 'power2.inOut'
-      }, 1.85);
-
-      // Envelope body fades away smoothly
-      if (envelopeBody) {
-        tl.to(envelopeBody, {
-          opacity: 0,
-          duration: 0.50,
-          ease: 'power2.inOut'
-        }, 1.90);
-      }
+      }, 1.80);
 
       // Splash screen dissolves smoothly into the waiting Hero section directly underneath
       tl.to(screen, {
         opacity: 0,
         duration: 0.60,
         ease: 'power2.inOut'
-      }, 1.95);
+      }, 1.90);
 
-      // PHASE 6: Transition Complete — Enable Lenis Scroll & Clean Screen (2.60s)
+      // PHASE 7: Transition Complete — Enable Lenis Scroll & Clean Screen (2.55s)
       tl.add(() => {
         if (screen) screen.style.display = 'none';
         document.documentElement.classList.remove('is-locked');
@@ -564,12 +485,11 @@ import FloralCorner from './botanical/FloralCorner.astro';
           (window as any).__lenis.start();
         }
         window.dispatchEvent(new CustomEvent('invitationOpened'));
-      }, 2.60);
+      }, 2.55);
     }
 
-    // Event listeners
+    // Event listeners: Klik wax seal atau amplop langsung membuka
     if (waxSealContainer) waxSealContainer.addEventListener('click', openInvitation);
-    if (promptContainer) promptContainer.addEventListener('click', openInvitation);
     if (scene) scene.addEventListener('click', openInvitation);
 
     // Prevent wheel/touch from scrolling background while envelope is visible
