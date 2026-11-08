@@ -4,7 +4,6 @@ import SplashScreen from '../components/SplashScreen.astro';
 import Cinematic3DTunnel from '../components/cinematic/Cinematic3DTunnel.astro';
 import UnifiedEvent from '../components/UnifiedEvent.astro';
 import Countdown from '../components/Countdown.astro';
-import LoveStory from '../components/LoveStory.astro';
 import Closing from '../components/Closing.astro';
 import AudioPlayer from '../components/AudioPlayer.astro';
 import ProgressBar from '../components/ProgressBar.astro';
@@ -36,11 +35,10 @@ import content from '../data/content.json';
     <!-- Phase 1: Pinned 3D Camera Z-Space Fly-Through (Hero -> Ayat Suci -> Kedua Mempelai) -->
     <Cinematic3DTunnel />
 
-    <!-- Phase 2: Grounded Interactive 3D Stage (Jadwal, Countdown, Kisah, & Penutup) -->
+    <!-- Phase 2: Grounded Interactive 3D Stage (Jadwal, Countdown, & Penutup) -->
     <div id="interactive-stage" class="relative z-30">
       <UnifiedEvent />
       <Countdown />
-      <LoveStory />
       <Closing />
     </div>
   </main>

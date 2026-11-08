@@ -45,28 +45,14 @@
     "source": "QS. Ar-Rum: 21",
     "greeting": "Dengan memohon rahmat dan rida Allah SWT, kami bermaksud mengumumkan ikrar suci pernikahan kami kepada Bapak/Ibu/Saudara/i sekalian."
   },
-  "loveStory": [
-    {
-      "year": "2021",
-      "title": "Pertemuan Pertama",
-      "text": "Takdir mempertemukan kami di sebuah ruang diskusi hangat di sudut kota, bertukar sapa yang menjadi awal perjalanan panjang."
-    },
-    {
-      "year": "2024",
-      "title": "Sebuah Komitmen",
-      "text": "Di bawah restu kedua keluarga, kami memutuskan untuk saling menggenggam janji melangkah bersama menuju ibadah terpanjang."
-    },
-    {
-      "year": "2025",
-      "title": "Lamaran Khidmat",
-      "text": "Pertemuan dua keluarga besar untuk mengikat niat suci dalam ikatan pertunangan yang penuh kehangatan dan doa restu."
-    },
-    {
-      "year": "2026",
-      "title": "Hari Bahagia",
-      "text": "Hari di mana kami mengikat janji suci pernikahan, menyempurnakan separuh agama di hadapan orang-orang terkasih."
-    }
-  ],
+  "asmaraloka": {
+    "title": "Asmaraloka",
+    "stanzas": [
+      "Tidak semua awal perlu diceritakan panjang, karena yang bertahan akan selalu menemukan jalannya. Bukan karena semuanya sempurna, melainkan karena kami terus belajar untuk tumbuh bersama.",
+      "Kami percaya, tidak ada pertemuan yang benar-benar kebetulan. Ada doa yang diam-diam dikabulkan, ada langkah yang diarahkan tanpa kita sadari. Dan Allah SWT, dengan cara-Nya yang paling tenang, menuntun kami sampai di titik ini.",
+      "Hingga pada waktunya, segala yang telah kami lewati bermuara pada satu keputusan yang sama. Dengan penuh syukur, kami memilih untuk saling menetap dalam ikatan yang diridhai oleh-Nya. Semoga perjalanan ini selalu diliputi ketenangan dan dipelihara dalam kebaikan yang panjang."
+    ]
+  },
   "music": {
     "file": "/assets/audio/muara-adera.mp3",
     "title": "Muara",
