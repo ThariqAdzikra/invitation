@@ -1,24 +1,23 @@
 ---
-// UnifiedEvent.astro — Open Editorial Botanical Stele with 3D Parallax Falling & Zooming Leaves
+// UnifiedEvent.astro — Section 1: Waktu & Rangkaian Acara (Jadwal Akad & Resepsi + Live Countdown)
 import content from '../data/content.json';
 import FloralFlourish from './botanical/FloralFlourish.astro';
 ---
 
 <section 
   id="events" 
-  class="deck-section relative px-4 overflow-hidden z-30 pt-20 sm:pt-28 pb-24 sm:pb-36 min-h-[125vh] flex flex-col items-center justify-center" 
+  class="deck-section relative px-4 overflow-hidden z-30 pt-16 sm:pt-24 pb-20 sm:pb-28 min-h-[100vh] flex flex-col items-center justify-center" 
   aria-label="Rangkaian Acara Pernikahan"
+  data-date={content.event.date}
+  data-time={content.event.akad.time.split(' ')[0]}
+  data-timezone={content.event.timezone}
 >
   
-  <!-- =========================================================================
-       OPEN EDITORIAL BOTANICAL STELE (NO BOX CARDS)
-       Pure High-Fashion Wedding Typography Resting Cleanly on Cream Linen
-       ========================================================================= -->
   <div id="event-editorial-stele" class="max-w-2xl mx-auto w-full relative z-10 text-center will-change-transform">
     
     <!-- Top Rings Crest: Intertwined Rings with Gold Halo -->
-    <div class="flex items-center justify-center mb-4">
-      <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-full border border-[#B89352]/50 bg-white/80 backdrop-blur-xs flex items-center justify-center text-[#B89352] shadow-[0_4px_16px_rgba(184,147,82,0.16)]">
+    <div class="flex items-center justify-center mb-3">
+      <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-[#B89352]/50 bg-white/80 backdrop-blur-xs flex items-center justify-center text-[#B89352] shadow-[0_4px_16px_rgba(184,147,82,0.16)]">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="9" cy="12" r="5.5"></circle>
           <circle cx="15" cy="12" r="5.5"></circle>
@@ -27,12 +26,12 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     </div>
 
     <!-- Overline & Section Title -->
-    <div class="event-header mb-6">
+    <div class="event-header mb-5">
       <p class="text-overline tracking-[0.32em] text-[0.62rem] sm:text-xs text-[#B89352] font-semibold uppercase mb-1">
         RANGKAIAN ACARA
       </p>
       <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tracking-tight">
-        Waktu &amp; Tempat
+        Waktu &amp; Jadwal
       </h2>
       <div class="my-2.5 flex justify-center opacity-75">
         <FloralFlourish width={140} height={18} />
@@ -40,7 +39,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     </div>
 
     <!-- Main Highlighted Date (Clean Double Gold Hairline Rules) -->
-    <div class="my-6 sm:my-8 py-3.5 border-y border-[#B89352]/25 max-w-lg mx-auto">
+    <div class="my-5 sm:my-6 py-3.5 border-y border-[#B89352]/25 max-w-lg mx-auto">
       <span class="text-[0.62rem] sm:text-[0.68rem] tracking-[0.28em] text-[#566A4E] uppercase font-semibold block mb-0.5">
         HARI &amp; TANGGAL
       </span>
@@ -50,15 +49,15 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
     </div>
 
     <!-- Dual Symmetrical Sessions: Akad Nikah & Resepsi Pernikahan -->
-    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 sm:gap-8 items-center max-w-xl mx-auto my-7 sm:my-9">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 sm:gap-6 items-center max-w-xl mx-auto my-6 sm:my-8">
       
       <!-- Akad Nikah Wing -->
-      <div class="flex flex-col items-center text-center py-1">
+      <div class="flex flex-col items-center text-center p-5 sm:p-6 rounded-2xl border border-[#B89352]/25 bg-white/50 backdrop-blur-xs shadow-[0_4px_16px_rgba(42,52,38,0.04)]">
         <span class="inline-flex items-center gap-1.5 text-[0.68rem] sm:text-[0.72rem] tracking-[0.22em] text-[#B89352] uppercase font-semibold mb-1">
           <span class="w-1.5 h-1.5 rounded-full bg-[#B89352]"></span>
           {content.event.akad.title}
         </span>
-        <p class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal my-0.5 whitespace-nowrap">
+        <p class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal my-1 whitespace-nowrap">
           Pukul {content.event.akad.time}
         </p>
         <span class="text-[0.70rem] text-[#7E8F77] italic font-light">
@@ -67,7 +66,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       </div>
 
       <!-- Center Gilded Divider Desktop -->
-      <div class="hidden md:flex flex-col items-center justify-center px-2">
+      <div class="hidden md:flex flex-col items-center justify-center px-1">
         <div class="w-[1px] h-8 bg-gradient-to-b from-transparent to-[#B89352]/45"></div>
         <span class="text-[#B89352] text-xs my-1 select-none">♦</span>
         <div class="w-[1px] h-8 bg-gradient-to-t from-transparent to-[#B89352]/45"></div>
@@ -76,12 +75,12 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       <div class="block md:hidden w-24 h-[1px] bg-gradient-to-r from-transparent via-[#B89352]/35 to-transparent mx-auto"></div>
 
       <!-- Resepsi Pernikahan Wing -->
-      <div class="flex flex-col items-center text-center py-1">
+      <div class="flex flex-col items-center text-center p-5 sm:p-6 rounded-2xl border border-[#B89352]/25 bg-white/50 backdrop-blur-xs shadow-[0_4px_16px_rgba(42,52,38,0.04)]">
         <span class="inline-flex items-center gap-1.5 text-[0.68rem] sm:text-[0.72rem] tracking-[0.22em] text-[#B89352] uppercase font-semibold mb-1">
           <span class="w-1.5 h-1.5 rounded-full bg-[#B89352]"></span>
           {content.event.resepsi.title}
         </span>
-        <p class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal my-0.5 whitespace-nowrap">
+        <p class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal my-1 whitespace-nowrap">
           Pukul {content.event.resepsi.time}
         </p>
         <span class="text-[0.70rem] text-[#7E8F77] italic font-light">
@@ -91,53 +90,72 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
 
     </div>
 
-    <!-- Venue & Location Block -->
-    <div class="my-7 sm:my-9 max-w-lg mx-auto">
-      <span class="text-[0.62rem] sm:text-xs text-[#566A4E] uppercase tracking-[0.24em] font-semibold mb-1.5 block">
-        BERTEMPAT DI
-      </span>
-      <h4 class="font-display text-2xl sm:text-3xl text-[#2A3426] font-normal mb-1.5">
-        {content.event.venue.name}
-      </h4>
-      <p class="text-xs sm:text-sm text-[#566A4E] font-light max-w-md mx-auto leading-relaxed mb-4">
-        {content.event.venue.address}
+    <!-- Live Countdown Section (Integrated directly with schedule) -->
+    <div class="mt-7 sm:mt-9 mb-4 max-w-lg mx-auto">
+      <p class="text-[0.62rem] sm:text-xs font-semibold tracking-[0.26em] text-[#566A4E] uppercase mb-4">
+        WAKTU TERSISA MENUJU HARI BAHAGIA
       </p>
 
-      <!-- 1-Click Copy Address Pill -->
-      <button
-        type="button"
-        id="btn-copy-venue-address"
-        class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-[#566A4E]/25 text-[0.65rem] tracking-wider uppercase font-semibold text-[#566A4E] bg-white/80 hover:bg-white hover:border-[#B89352] hover:text-[#B89352] transition-all cursor-pointer shadow-xs active:scale-95"
-        data-address={content.event.venue.address}
-      >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-        </svg>
-        <span>Salin Alamat Venue</span>
-      </button>
+      <div id="countdown-grid" class="flex items-center justify-center gap-2 sm:gap-4 max-w-md mx-auto">
+        <!-- Hari -->
+        <div class="countdown-box flex flex-col items-center">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/90 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.08)] hover:border-[#B89352] transition-all relative group">
+            <div class="absolute inset-1 rounded-full border border-dashed border-[#B89352]/25 pointer-events-none"></div>
+            <span id="countdown-days" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none relative z-10">
+              00
+            </span>
+            <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold relative z-10">Hari</span>
+          </div>
+        </div>
+
+        <span class="text-[#B89352]/70 text-xs sm:text-sm font-serif select-none">•</span>
+
+        <!-- Jam -->
+        <div class="countdown-box flex flex-col items-center">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/90 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.08)] hover:border-[#B89352] transition-all relative group">
+            <div class="absolute inset-1 rounded-full border border-dashed border-[#B89352]/25 pointer-events-none"></div>
+            <span id="countdown-hours" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none relative z-10">
+              00
+            </span>
+            <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold relative z-10">Jam</span>
+          </div>
+        </div>
+
+        <span class="text-[#B89352]/70 text-xs sm:text-sm font-serif select-none">•</span>
+
+        <!-- Menit -->
+        <div class="countdown-box flex flex-col items-center">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/90 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.08)] hover:border-[#B89352] transition-all relative group">
+            <div class="absolute inset-1 rounded-full border border-dashed border-[#B89352]/25 pointer-events-none"></div>
+            <span id="countdown-minutes" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none relative z-10">
+              00
+            </span>
+            <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold relative z-10">Menit</span>
+          </div>
+        </div>
+
+        <span class="text-[#B89352]/70 text-xs sm:text-sm font-serif select-none">•</span>
+
+        <!-- Detik -->
+        <div class="countdown-box flex flex-col items-center">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89352]/45 bg-[#FAF8F5]/90 backdrop-blur-[2px] flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(184,147,82,0.08)] hover:border-[#B89352] transition-all relative group">
+            <div class="absolute inset-1 rounded-full border border-dashed border-[#B89352]/25 pointer-events-none"></div>
+            <span id="countdown-seconds" class="font-display text-xl sm:text-3xl text-[#2A3426] font-normal tabular-nums leading-none relative z-10">
+              00
+            </span>
+            <span class="text-[0.52rem] sm:text-[0.6rem] text-[#566A4E] uppercase tracking-widest mt-1 font-semibold relative z-10">Detik</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Luxury Cohesive Action Buttons -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mt-8 max-w-md mx-auto">
-      <a 
-        href={content.event.venue.mapsUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold bg-[#4A5D43] text-white hover:bg-[#384833] transition-all shadow-[0_4px_14px_rgba(74,93,67,0.22)] active:scale-95"
-      >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-          <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-        <span>Buka Google Maps</span>
-      </a>
-
+    <!-- Calendar Sync Action (Sole, Non-Duplicate CTA) -->
+    <div class="mt-7 sm:mt-8 flex justify-center">
       <a 
         href={content.event.venue.calendarUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold border-1.5 border-[#B89352]/50 text-[#4A5D43] bg-white hover:bg-[#FAF8F5] hover:border-[#4A5D43] transition-all shadow-xs active:scale-95"
+        class="inline-flex items-center justify-center gap-2 px-7 py-2.5 rounded-full text-xs uppercase tracking-widest font-semibold border-1.5 border-[#B89352]/50 text-[#4A5D43] bg-white hover:bg-[#FAF8F5] hover:border-[#4A5D43] transition-all shadow-xs active:scale-95"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -145,7 +163,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        <span>Simpan ke Kalender</span>
+        <span>Simpan ke Google Calendar</span>
       </a>
     </div>
 
@@ -160,27 +178,56 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
   gsap.registerPlugin(ScrollTrigger);
 
   function initEventSection() {
-    const copyVenueBtn = document.getElementById('btn-copy-venue-address') as HTMLButtonElement | null;
-    if (copyVenueBtn) {
-      copyVenueBtn.addEventListener('click', () => {
-        const addr = copyVenueBtn.dataset.address;
-        if (addr) {
-          navigator.clipboard.writeText(addr).then(() => {
-            if ((window as any).showLuxuryToast) {
-              (window as any).showLuxuryToast('Alamat venue berhasil disalin!');
-            }
-          });
-        }
-      });
+    // 1. Live Countdown Engine
+    const eventsSec = document.getElementById('events');
+    const dateStr = eventsSec?.dataset.date || '2026-12-26';
+    const timeStr = eventsSec?.dataset.time || '08:00';
+    const timeFormatted = timeStr ? timeStr.replace('.', ':') : '08:00';
+    const targetDate = new Date(`${dateStr}T${timeFormatted}:00+07:00`).getTime();
+
+    const daysEl = document.getElementById('countdown-days');
+    const hoursEl = document.getElementById('countdown-hours');
+    const minutesEl = document.getElementById('countdown-minutes');
+    const secondsEl = document.getElementById('countdown-seconds');
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        if (daysEl) daysEl.innerText = '00';
+        if (hoursEl) hoursEl.innerText = '00';
+        if (minutesEl) minutesEl.innerText = '00';
+        if (secondsEl) secondsEl.innerText = '00';
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const dStr = d.toString().padStart(2, '0');
+      const hStr = h.toString().padStart(2, '0');
+      const mStr = m.toString().padStart(2, '0');
+      const sStr = s.toString().padStart(2, '0');
+
+      if (daysEl && daysEl.innerText !== dStr) daysEl.innerText = dStr;
+      if (hoursEl && hoursEl.innerText !== hStr) hoursEl.innerText = hStr;
+      if (minutesEl && minutesEl.innerText !== mStr) minutesEl.innerText = mStr;
+      if (secondsEl && secondsEl.innerText !== sStr) secondsEl.innerText = sStr;
     }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    // 1. Entrance Fade-in for Open Editorial Typography
+    // 2. Entrance Fade-in for Open Editorial Typography
     gsap.fromTo(
       '#event-editorial-stele',
-      { opacity: 0, y: 40 },
+      { opacity: 0, y: 35 },
       {
         opacity: 1,
         y: 0,
@@ -189,6 +236,25 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
         scrollTrigger: {
           trigger: '#events',
           start: 'top 75%',
+          once: true
+        }
+      }
+    );
+
+    // 3. Countdown medallions stagger entrance
+    gsap.fromTo(
+      '.countdown-box',
+      { opacity: 0, y: 20, scale: 0.94 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.08,
+        ease: 'back.out(1.2)',
+        scrollTrigger: {
+          trigger: '#countdown-grid',
+          start: 'top 85%',
           once: true
         }
       }
