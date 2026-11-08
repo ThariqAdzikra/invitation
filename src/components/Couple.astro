@@ -1,7 +1,8 @@
 ---
-// Couple.astro — Editorial Dual Profile of Groom & Bride (Vector Portraits)
+// Couple.astro — Editorial Dual Profile of Groom & Bride (100% Free of Human Avatars)
 import content from '../data/content.json';
 import FloralFlourish from './botanical/FloralFlourish.astro';
+import FloralMonogramMedallion from './botanical/FloralMonogramMedallion.astro';
 ---
 
 <section id="couple" class="deck-section section-flow relative px-4 overflow-hidden z-30 pt-20 pb-24" aria-label="Profil Kedua Mempelai">
@@ -31,94 +32,36 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       <article class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden interactive-foil-card" data-foil="true">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
-        <!-- Groom Vector Portrait Frame -->
-        <div class="mb-5 relative group">
-          <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full p-1.5 border-2 border-[#B89352]/40 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-md relative overflow-hidden">
-            <img 
-              src="/assets/vector-groom.jpg" 
-              alt={content.couple.groom.fullName} 
-              class="w-full h-full object-cover rounded-full"
-              loading="lazy"
-            />
-          </div>
-          <div class="w-24 h-2.5 bg-[#263322]/10 rounded-full blur-sm mx-auto -mt-1 pointer-events-none"></div>
+        <!-- Groom Royal Botanical Monogram Medallion -->
+        <div class="mb-4">
+          <FloralMonogramMedallion
+            initial="Z"
+            role="groom"
+            fullName={content.couple.groom.fullName}
+            parents={content.couple.groom.parents}
+            instagram={content.couple.groom.instagram}
+            quote={content.couple.groom.quote}
+            size={120}
+          />
         </div>
-
-        <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-1">Mempelai Pria</p>
-        <h3 class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal mb-1">
-          {content.couple.groom.fullName}
-        </h3>
-        
-        <p class="text-xs text-[#566A4E] font-light max-w-xs leading-relaxed mt-1 mb-4">
-          {content.couple.groom.parents}
-        </p>
-
-        <!-- Personal Quote -->
-        <div class="my-auto py-3 px-4 rounded-xl bg-[#FAF8F5] border border-[#566A4E]/10 w-full max-w-xs">
-          <p class="font-display italic text-xs sm:text-sm text-[#3E4C38] leading-relaxed">
-            &ldquo;{content.couple.groom.quote}&rdquo;
-          </p>
-        </div>
-
-        <!-- Social Media Link -->
-        <a 
-          href={`https://instagram.com/${content.couple.groom.instagram.replace('@', '')}`} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="inline-flex items-center gap-1.5 text-[0.68rem] text-[#566A4E] hover:text-[#2A3426] tracking-widest uppercase font-semibold mt-4 px-3.5 py-1.5 rounded-full border border-[#566A4E]/20 bg-white hover:border-[#B89352] transition-colors"
-        >
-          <span>{content.couple.groom.instagram}</span>
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-          </svg>
-        </a>
       </article>
 
       <!-- Profil Mempelai Wanita (Difa) -->
       <article class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden interactive-foil-card" data-foil="true">
         <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
 
-        <!-- Bride Vector Portrait Frame -->
-        <div class="mb-5 relative group">
-          <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full p-1.5 border-2 border-[#B89352]/40 bg-gradient-to-tr from-[#FAF8F5] via-[#FFFFFF] to-[#F3EEE5] shadow-md relative overflow-hidden">
-            <img 
-              src="/assets/vector-bride.jpg" 
-              alt={content.couple.bride.fullName} 
-              class="w-full h-full object-cover rounded-full"
-              loading="lazy"
-            />
-          </div>
-          <div class="w-24 h-2.5 bg-[#263322]/10 rounded-full blur-sm mx-auto -mt-1 pointer-events-none"></div>
+        <!-- Bride Royal Botanical Monogram Medallion -->
+        <div class="mb-4">
+          <FloralMonogramMedallion
+            initial="D"
+            role="bride"
+            fullName={content.couple.bride.fullName}
+            parents={content.couple.bride.parents}
+            instagram={content.couple.bride.instagram}
+            quote={content.couple.bride.quote}
+            size={120}
+          />
         </div>
-
-        <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-1">Mempelai Wanita</p>
-        <h3 class="font-display text-xl sm:text-2xl text-[#2A3426] font-normal mb-1">
-          {content.couple.bride.fullName}
-        </h3>
-        
-        <p class="text-xs text-[#566A4E] font-light max-w-xs leading-relaxed mt-1 mb-4">
-          {content.couple.bride.parents}
-        </p>
-
-        <!-- Personal Quote -->
-        <div class="my-auto py-3 px-4 rounded-xl bg-[#FAF8F5] border border-[#566A4E]/10 w-full max-w-xs">
-          <p class="font-display italic text-xs sm:text-sm text-[#3E4C38] leading-relaxed">
-            &ldquo;{content.couple.bride.quote}&rdquo;
-          </p>
-        </div>
-
-        <!-- Social Media Link -->
-        <a 
-          href={`https://instagram.com/${content.couple.bride.instagram.replace('@', '')}`} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="inline-flex items-center gap-1.5 text-[0.68rem] text-[#566A4E] hover:text-[#2A3426] tracking-widest uppercase font-semibold mt-4 px-3.5 py-1.5 rounded-full border border-[#566A4E]/20 bg-white hover:border-[#B89352] transition-colors"
-        >
-          <span>{content.couple.bride.instagram}</span>
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-          </svg>
-        </a>
       </article>
 
     </div>

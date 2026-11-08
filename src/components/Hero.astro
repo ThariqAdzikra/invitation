@@ -3,6 +3,7 @@
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
+import FloralHeroGate from './botanical/FloralHeroGate.astro';
 ---
 
 <section id="hero" class="deck-section section-hero relative px-4 text-center overflow-hidden z-10 pt-16 pb-24" aria-label="Informasi Utama Pernikahan">
@@ -31,21 +32,13 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       <FloralFlourish width={160} height={24} />
     </div>
 
-    <!-- EDITORIAL PREWEDDING VECTOR ILLUSTRATION (Frameless Organic Art) -->
-    <div id="hero-silhouette-container" class="my-4 relative opacity-0 transform transition-transform duration-700 flex flex-col items-center justify-center">
+    <!-- GRAND BOTANICAL ARCHWAY (100% Free of Human Avatars) -->
+    <div id="hero-silhouette-container" class="my-3 relative opacity-0 transform transition-transform duration-700 flex flex-col items-center justify-center">
       <!-- Ethereal Sunrise Golden Aura Blooming Naturally Behind Art -->
-      <div class="absolute -inset-10 sm:-inset-14 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.26)_0%,rgba(184,147,82,0.14)_40%,rgba(74,93,67,0.03)_65%,transparent_80%)] blur-2xl pointer-events-none -z-10"></div>
+      <div class="absolute -inset-10 sm:-inset-14 bg-[radial-gradient(ellipse_at_center,rgba(248,196,173,0.28)_0%,rgba(212,175,55,0.16)_40%,rgba(74,93,67,0.03)_65%,transparent_80%)] blur-2xl pointer-events-none -z-10"></div>
 
-      <!-- Direct Floral Gate Presentation (Frameless Haute-Couture, 100% Seamless) -->
-      <div class="relative w-56 sm:w-64 aspect-[3/4] mx-auto flex items-center justify-center pointer-events-none select-none">
-        <img 
-          src="/assets/vector-hero-gate.png" 
-          alt={`Ilustrasi Mempelai ${content.couple.groom.nickname} & ${content.couple.bride.nickname}`} 
-          class="w-full h-full object-contain pointer-events-none select-none"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </div>
+      <!-- Grand Floral Botanical Archway with Twin Doves & Monogram -->
+      <FloralHeroGate width={260} height={345} className="scale-90 sm:scale-100" />
     </div>
 
     <!-- Date & Venue -->

@@ -1,0 +1,115 @@
+---
+// FloralMonogramMedallion.astro — Ornate Matrimonial Monogram Medallion (100% Free of Human Avatars)
+// Replaces cartoon vector portraits with bespoke royal botanical monogram crests
+interface Props {
+  initial: "Z" | "D";
+  role: "groom" | "bride";
+  fullName: string;
+  parents: string;
+  instagram: string;
+  quote: string;
+  size?: number;
+}
+
+const {
+  initial,
+  role,
+  fullName,
+  parents,
+  instagram,
+  quote,
+  size = 130
+} = Astro.props;
+
+const isGroom = role === "groom";
+---
+
+<div class="flex flex-col items-center text-center will-change-transform flex-1 max-w-[210px] sm:max-w-[240px]">
+  
+  <!-- The Ornate Botanical Oval Medallion -->
+  <div class="relative mb-2 group will-change-transform">
+    <!-- Ambient Halo Glow -->
+    <div class="absolute -inset-4 rounded-full bg-[radial-gradient(circle,rgba(234,161,148,0.28)_0%,rgba(212,175,55,0.16)_45%,transparent_75%)] blur-lg pointer-events-none"></div>
+
+    <!-- The Oval Plaque -->
+    <div
+      class="relative rounded-full p-1 border-2 border-[#B89352]/60 bg-gradient-to-tr from-[#FFFDF9] via-[#FAF8F5] to-[#F7F1E6] shadow-[0_10px_28px_rgba(42,52,38,0.10)] flex items-center justify-center overflow-visible"
+      style={`width: ${size}px; height: ${size * 1.15}px;`}
+    >
+      <!-- Concentric Beaded Gilded Ring -->
+      <div class="absolute inset-1.5 rounded-full border border-dashed border-[#B89352]/35 pointer-events-none"></div>
+      <div class="absolute inset-2.5 rounded-full border border-[#D4AF37]/20 pointer-events-none"></div>
+
+      <!-- Left Climbing Blossom Accent -->
+      <svg class="absolute -left-3 -top-2 w-14 h-14 pointer-events-none drop-shadow-xs" viewBox="0 0 60 60" fill="none">
+        <path d="M 10 50 C 15 35, 25 20, 45 10" stroke="#7A6030" stroke-width="1.4" stroke-linecap="round"/>
+        <!-- Rosebud -->
+        <circle cx="28" cy="24" r="7" fill={isGroom ? "#EAA194" : "#F8C4AD"} stroke="#DE7C6E" stroke-width="0.8"/>
+        <circle cx="28" cy="24" r="3.5" fill="#FFF2F0"/>
+        <!-- Sage Leaves -->
+        <path d="M 16 38 C 6 32, 8 20, 20 22 C 22 30, 20 36, 16 38 Z" fill="#5E7C54"/>
+        <path d="M 38 18 C 34 8, 46 4, 48 14 C 44 18, 40 18, 38 18 Z" fill="#445D3C"/>
+        <circle cx="14" cy="42" r="1.8" fill="#D4AF37"/>
+      </svg>
+
+      <!-- Right Climbing Blossom Accent -->
+      <svg class="absolute -right-3 -bottom-2 w-14 h-14 pointer-events-none drop-shadow-xs" viewBox="0 0 60 60" fill="none">
+        <path d="M 50 10 C 45 25, 35 40, 15 50" stroke="#7A6030" stroke-width="1.4" stroke-linecap="round"/>
+        <!-- Blossom -->
+        <circle cx="32" cy="36" r="7" fill={isGroom ? "#F8C4AD" : "#EAA194"} stroke="#DE7C6E" stroke-width="0.8"/>
+        <circle cx="32" cy="36" r="3.5" fill="#FFF2F0"/>
+        <!-- Sage Leaves -->
+        <path d="M 44 22 C 54 28, 52 40, 40 38 C 38 30, 40 24, 44 22 Z" fill="#5E7C54"/>
+        <path d="M 22 42 C 26 52, 14 56, 12 46 C 16 42, 20 42, 22 42 Z" fill="#445D3C"/>
+        <circle cx="46" cy="18" r="1.8" fill="#D4AF37"/>
+      </svg>
+
+      <!-- Center Grand Gilded Initial -->
+      <div class="flex flex-col items-center justify-center relative z-10">
+        <span class="text-[0.55rem] tracking-[0.2em] text-[#B89352] uppercase font-serif font-medium">✦</span>
+        <span class="font-display italic text-4xl sm:text-5xl md:text-6xl text-[#2A3426] leading-none select-none font-normal drop-shadow-xs my-0.5">
+          {initial}
+        </span>
+        <span class="h-[1px] w-6 bg-[#B89352]/40"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Editorial Profile Details -->
+  <div class="flex flex-col items-center text-center will-change-transform">
+    <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-[#B89352]/30 mb-1 shadow-2xs">
+      <span class="w-1 h-1 rounded-full bg-[#B89352]"></span>
+      <p class="text-[0.50rem] sm:text-[0.58rem] tracking-[0.24em] text-[#B89352] uppercase font-semibold">
+        {isGroom ? "Mempelai Pria" : "Mempelai Wanita"}
+      </p>
+      <span class="w-1 h-1 rounded-full bg-[#B89352]"></span>
+    </div>
+
+    <h3 class="font-display text-xs sm:text-base md:text-lg text-[#2A3426] font-normal leading-snug">
+      {fullName}
+    </h3>
+
+    <p class="text-[0.54rem] sm:text-[0.62rem] text-[#566A4E] font-light mt-0.5 italic">
+      {parents}
+    </p>
+
+    <!-- Romantic Quote -->
+    <p class="font-display italic text-[0.62rem] sm:text-[0.72rem] text-[#4A5D43] leading-relaxed mt-1.5 px-1 max-w-[210px]">
+      &ldquo;{quote}&rdquo;
+    </p>
+
+    <!-- Instagram Link -->
+    <a 
+      href={`https://instagram.com/${instagram.replace('@', '')}`} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="inline-flex items-center gap-1 text-[0.48rem] sm:text-[0.54rem] text-[#7E8F77] hover:text-[#B89352] tracking-wider uppercase font-medium mt-1.5 transition-colors"
+    >
+      <span>{instagram}</span>
+      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+      </svg>
+    </a>
+  </div>
+
+</div>

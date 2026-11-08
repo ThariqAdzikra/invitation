@@ -1,0 +1,141 @@
+---
+// PastelBlossoms.astro — Lush Garden Peony & Rose Blossoms in Sweet Blush Pink, Peach & Sage
+interface Props {
+  variant?: "spray-left" | "spray-right" | "cluster" | "garland";
+  size?: number;
+  className?: string;
+}
+
+const { variant = "cluster", size = 160, className = "" } = Astro.props;
+---
+
+<div
+  class={`relative inline-block pointer-events-none select-none ${className}`}
+  style={`width: ${size}px; height: ${size * 0.75}px;`}
+  aria-hidden="true"
+>
+  <svg
+    viewBox="0 0 200 150"
+    width={size}
+    height={size * 0.75}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-full h-full drop-shadow-[0_4px_16px_rgba(42,52,38,0.12)]"
+  >
+    <defs>
+      <!-- Petal Gradient 1: Deep Blush Rose -->
+      <linearGradient id="blushRoseDeep" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#DE7C6E" />
+        <stop offset="45%" stop-color="#EAA194" />
+        <stop offset="85%" stop-color="#F7D2CC" />
+        <stop offset="100%" stop-color="#FFF2F0" />
+      </linearGradient>
+
+      <!-- Petal Gradient 2: Sweet Peach Blossom -->
+      <linearGradient id="peachBlossom" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F2A585" />
+        <stop offset="40%" stop-color="#F8C4AD" />
+        <stop offset="80%" stop-color="#FDE4D0" />
+        <stop offset="100%" stop-color="#FFF5EC" />
+      </linearGradient>
+
+      <!-- Petal Gradient 3: Soft Buttercup Highlight -->
+      <linearGradient id="buttercupPetal" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#EED596" />
+        <stop offset="60%" stop-color="#FFF3D4" />
+        <stop offset="100%" stop-color="#FFFFFF" />
+      </linearGradient>
+
+      <!-- Foliage Gradient 1: Emerald Sage -->
+      <linearGradient id="sageLeafGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#2D3E27" />
+        <stop offset="40%" stop-color="#49633F" />
+        <stop offset="80%" stop-color="#739467" />
+        <stop offset="100%" stop-color="#98B88C" />
+      </linearGradient>
+
+      <!-- Gold Accent Gradient -->
+      <linearGradient id="flowerGold" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFF2CE" />
+        <stop offset="50%" stop-color="#D4AF37" />
+        <stop offset="100%" stop-color="#8E6E32" />
+      </linearGradient>
+    </defs>
+
+    <!-- FOLIAGE LEAF SPRIGS (Behind the Blossoms) -->
+    <!-- Left Leaf Pair -->
+    <path
+      d="M 60 75 C 35 60, 20 72, 10 90 C 28 95, 45 88, 60 75 Z"
+      fill="url(#sageLeafGrad)"
+      stroke="#202F1C"
+      stroke-width="0.75"
+    />
+    <path d="M 60 75 Q 35 78 12 88" stroke="#EBF4E8" stroke-width="0.6" opacity="0.6" />
+
+    <path
+      d="M 50 60 C 28 40, 30 24, 42 12 C 55 28, 55 45, 50 60 Z"
+      fill="url(#sageLeafGrad)"
+      stroke="#202F1C"
+      stroke-width="0.75"
+    />
+    <path d="M 50 60 Q 42 38 40 16" stroke="#EBF4E8" stroke-width="0.6" opacity="0.6" />
+
+    <!-- Right Leaf Pair -->
+    <path
+      d="M 140 75 C 165 60, 180 72, 190 90 C 172 95, 155 88, 140 75 Z"
+      fill="url(#sageLeafGrad)"
+      stroke="#202F1C"
+      stroke-width="0.75"
+    />
+    <path d="M 140 75 Q 165 78 188 88" stroke="#EBF4E8" stroke-width="0.6" opacity="0.6" />
+
+    <path
+      d="M 150 60 C 172 40, 170 24, 158 12 C 145 28, 145 45, 150 60 Z"
+      fill="url(#sageLeafGrad)"
+      stroke="#202F1C"
+      stroke-width="0.75"
+    />
+    <path d="M 150 60 Q 158 38 160 16" stroke="#EBF4E8" stroke-width="0.6" opacity="0.6" />
+
+    <!-- Slender Gold Woody Petiole & Berries -->
+    <path d="M 40 85 C 25 100, 30 115, 20 130" stroke="#B89352" stroke-width="1.2" stroke-linecap="round" />
+    <circle cx="22" cy="128" r="3" fill="url(#flowerGold)" />
+    <circle cx="34" cy="112" r="2.4" fill="url(#flowerGold)" />
+
+    <path d="M 160 85 C 175 100, 170 115, 180 130" stroke="#B89352" stroke-width="1.2" stroke-linecap="round" />
+    <circle cx="178" cy="128" r="3" fill="url(#flowerGold)" />
+    <circle cx="166" cy="112" r="2.4" fill="url(#flowerGold)" />
+
+    <!-- MAIN CENTRAL GARDEN PEONY (Blush Pink, Multi-Layered Velvet Petals) -->
+    <g transform="translate(100, 75)">
+      <!-- Outer Petal Flounces -->
+      <path d="M -42 0 C -48 -24, -24 -46, 0 -44 C 24 -46, 48 -24, 42 0 C 46 24, 24 44, 0 42 C -24 44, -46 24, -42 0 Z" fill="url(#blushRoseDeep)" opacity="0.95" />
+      
+      <!-- Second Tier Petal Cup -->
+      <path d="M -32 -6 C -36 -24, -18 -36, 0 -34 C 18 -36, 36 -24, 32 -6 C 36 16, 18 32, 0 30 C -18 32, -36 16, -32 -6 Z" fill="url(#peachBlossom)" />
+      
+      <!-- Inner Swirling Petals -->
+      <path d="M -22 -4 C -22 -18, -10 -26, 0 -24 C 10 -26, 22 -18, 22 -4 C 20 12, 10 20, 0 20 C -10 20, -20 12, -22 -4 Z" fill="url(#blushRoseDeep)" />
+      
+      <!-- Center Bud Core (Soft Buttercup Heart) -->
+      <ellipse cx="0" cy="-2" rx="12" ry="10" fill="url(#buttercupPetal)" />
+      <path d="M -6 -4 C -4 -8, 4 -8, 6 -4 C 4 2, -4 2, -6 -4 Z" fill="#E89F82" opacity="0.8" />
+      <circle cx="-2" cy="-3" r="1.4" fill="#D4AF37" />
+      <circle cx="3" cy="-2" r="1.2" fill="#D4AF37" />
+    </g>
+
+    <!-- SECONDARY SWEET PEACH ROSEBUD (Offset Left) -->
+    <g transform="translate(56, 92) scale(0.68)">
+      <path d="M -28 0 C -32 -16, -16 -30, 0 -28 C 16 -30, 32 -16, 28 0 C 30 16, 16 28, 0 26 C -16 28, -30 16, -28 0 Z" fill="url(#peachBlossom)" />
+      <path d="M -18 -2 C -20 -12, -10 -20, 0 -18 C 10 -20, 20 -12, 18 -2 C 20 10, 10 18, 0 16 C -10 18, -20 10, -18 -2 Z" fill="url(#blushRoseDeep)" />
+      <circle cx="0" cy="-1" r="6" fill="url(#buttercupPetal)" />
+    </g>
+
+    <!-- TERTIARY BUTTERCUP BLOSSOM (Offset Right) -->
+    <g transform="translate(144, 92) scale(0.68)">
+      <path d="M -28 0 C -32 -16, -16 -30, 0 -28 C 16 -30, 32 -16, 28 0 C 30 16, 16 28, 0 26 C -16 28, -30 16, -28 0 Z" fill="url(#peachBlossom)" />
+      <path d="M -18 -2 C -20 -12, -10 -20, 0 -18 C 10 -20, 20 -12, 18 -2 C 20 10, 10 18, 0 16 C -10 18, -20 10, -18 -2 Z" fill="url(#blushRoseDeep)" />
+      <circle cx="0" cy="-1" r="6" fill="url(#buttercupPetal)" />
+    </g>
+  </svg>
+</div>

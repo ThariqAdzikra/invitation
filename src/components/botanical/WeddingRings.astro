@@ -1,0 +1,162 @@
+---
+// WeddingRings.astro — Bespoke Interlocking 18K Gold & Solitaire Diamond Wedding Rings
+// Designed for the "Kedua Mempelai" matrimonial climax (100% human-illustration-free)
+interface Props {
+  size?: number;
+  className?: string;
+}
+
+const { size = 180, className = "" } = Astro.props;
+---
+
+<div
+  class={`relative inline-flex items-center justify-center select-none ${className}`}
+  style={`width: ${size}px; height: ${size}px;`}
+  aria-label="Sepasang Cincin Pernikahan Emas & Berlian"
+>
+  <!-- Ambient Radiance Sparkle Halo -->
+  <div class="absolute -inset-6 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.35)_0%,rgba(238,175,115,0.18)_40%,transparent_75%)] blur-xl pointer-events-none animate-pulse"></div>
+
+  <svg
+    viewBox="0 0 240 240"
+    width={size}
+    height={size}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-full h-full drop-shadow-[0_8px_24px_rgba(42,52,38,0.18)]"
+  >
+    <defs>
+      <!-- Gold Gradient (Lustrous Multi-Tone Metallic) -->
+      <linearGradient id="ringGoldLuxe" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFF8E7" />
+        <stop offset="25%" stop-color="#F2D785" />
+        <stop offset="50%" stop-color="#D4AF37" />
+        <stop offset="75%" stop-color="#AA822A" />
+        <stop offset="100%" stop-color="#6E5018" />
+      </linearGradient>
+
+      <!-- Diamond Shimmer Gradient -->
+      <linearGradient id="diamondShine" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFFFFF" />
+        <stop offset="35%" stop-color="#E8F4FD" />
+        <stop offset="70%" stop-color="#C2E2FB" />
+        <stop offset="100%" stop-color="#8AC4F7" />
+      </linearGradient>
+
+      <!-- Diamond Prongs Gradient -->
+      <linearGradient id="prongSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFFFFF" />
+        <stop offset="50%" stop-color="#D8E2EC" />
+        <stop offset="100%" stop-color="#9CAAB8" />
+      </linearGradient>
+    </defs>
+
+    <!-- Ring 1 (Left: Diamond Solitaire Ring, tilted -15deg) -->
+    <g class="ring-groom-interlock" transform="translate(10, 0)">
+      <!-- Back half of Ring 1 Band -->
+      <ellipse
+        cx="88"
+        cy="126"
+        rx="44"
+        ry="36"
+        transform="rotate(-15 88 126)"
+        stroke="url(#ringGoldLuxe)"
+        stroke-width="11"
+        fill="none"
+      />
+      <!-- Inner Gold Specular Hairline -->
+      <ellipse
+        cx="88"
+        cy="126"
+        rx="48"
+        ry="40"
+        transform="rotate(-15 88 126)"
+        stroke="#FFFDF6"
+        stroke-width="1.2"
+        opacity="0.75"
+        fill="none"
+      />
+    </g>
+
+    <!-- Ring 2 (Right: Classic Polished Gold Wedding Band, tilted +15deg) -->
+    <g class="ring-bride-interlock" transform="translate(-10, 0)">
+      <!-- Classic Wedding Band -->
+      <ellipse
+        cx="142"
+        cy="126"
+        rx="44"
+        ry="36"
+        transform="rotate(15 142 126)"
+        stroke="url(#ringGoldLuxe)"
+        stroke-width="13"
+        fill="none"
+      />
+      <!-- Specular Highlight Ridge on Ring 2 -->
+      <ellipse
+        cx="142"
+        cy="126"
+        rx="48"
+        ry="40"
+        transform="rotate(15 142 126)"
+        stroke="#FFF8E7"
+        stroke-width="1.4"
+        opacity="0.8"
+        fill="none"
+      />
+    </g>
+
+    <!-- Interlocking Front Overlap (Physical 3D Interlock illusion) -->
+    <g transform="translate(10, 0)">
+      <!-- Front Arc of Ring 1 overlapping Ring 2 -->
+      <path
+        d="M 102 100 C 120 108, 126 122, 122 138"
+        stroke="url(#ringGoldLuxe)"
+        stroke-width="11"
+        stroke-linecap="round"
+        fill="none"
+      />
+      <path
+        d="M 104 98 C 122 107, 128 122, 124 138"
+        stroke="#FFFDF6"
+        stroke-width="1.2"
+        opacity="0.8"
+        fill="none"
+      />
+
+      <!-- SOLITAIRE BRILLIANT DIAMOND (Apex of Ring 1) -->
+      <!-- Crown Setting Prongs -->
+      <path d="M 54 84 L 56 94 M 76 84 L 74 94 M 65 82 L 65 92" stroke="url(#prongSilver)" stroke-width="2.6" stroke-linecap="round" />
+
+      <!-- Faceted Diamond Gemstone -->
+      <!-- Outer Crown Contour -->
+      <polygon
+        points="65,60 78,72 74,86 56,86 52,72"
+        fill="url(#diamondShine)"
+        stroke="#FFFFFF"
+        stroke-width="1.2"
+        stroke-linejoin="round"
+      />
+      <!-- Internal Facets -->
+      <polygon points="65,60 59,72 71,72" fill="#FFFFFF" opacity="0.9" />
+      <polygon points="52,72 59,72 56,86" fill="#CBE5FC" opacity="0.75" />
+      <polygon points="78,72 71,72 74,86" fill="#B3D7F7" opacity="0.8" />
+      <polygon points="59,72 71,72 65,86" fill="#FFFFFF" opacity="0.95" />
+
+      <!-- Radiant Diamond Sparkle Star (✦) -->
+      <g transform="translate(65, 58)">
+        <!-- Vertical Ray -->
+        <path d="M 0 -14 L 0 14" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" />
+        <!-- Horizontal Ray -->
+        <path d="M -14 0 L 14 0" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" />
+        <!-- Diagonal Glint -->
+        <path d="M -7 -7 L 7 7 M -7 7 L 7 -7" stroke="#FFF7DC" stroke-width="1.2" stroke-linecap="round" />
+        <circle cx="0" cy="0" r="3.2" fill="#FFFFFF" />
+      </g>
+    </g>
+
+    <!-- Romantic Center Stardust & Flourish -->
+    <circle cx="115" cy="126" r="2.2" fill="#FFF2CE" />
+    <circle cx="128" cy="116" r="1.6" fill="#F0D698" />
+    <circle cx="102" cy="136" r="1.6" fill="#F0D698" />
+  </svg>
+</div>
