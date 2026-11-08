@@ -91,7 +91,7 @@
       // Phase 1: Sunrise (Appears in Kedua Mempelai: centered royal morning sunrise crown)
       const pSunrise = {
         x: windowW * 0.50,
-        y: isMobile ? windowH * 0.14 : windowH * 0.16,
+        y: isMobile ? windowH * 0.12 : windowH * 0.14,
         scale: isMobile ? 0.85 : 0.95
       };
 
@@ -117,8 +117,8 @@
     // STRICT REQUIREMENT 1: Sun is 100% HIDDEN at the beginning (Hero & Verse)!
     gsap.set(sunWrapper, {
       x: coords.pSunrise.x,
-      y: coords.windowH * 0.78, // waiting below horizon
-      scale: 0.75,
+      y: coords.pSunrise.y, // Placed safely at top zenith
+      scale: coords.pSunrise.scale,
       opacity: 0 // Zero opacity at start!
     });
 
@@ -150,9 +150,9 @@
     }, 0);
 
     // 2. SUNRISE: Enters at Kedua Mempelai (0.25 -> 0.38)
-    // Sun rises up from below horizon and fades in smoothly
+    // Sun dawns gracefully at the top center with warm celestial aura (No vertical transit glare)
     sunTL.to(sunWrapper, {
-      opacity: 0.95,
+      opacity: 0.85,
       x: () => calculateCoordinates().pSunrise.x,
       y: () => calculateCoordinates().pSunrise.y,
       scale: () => calculateCoordinates().pSunrise.scale,
