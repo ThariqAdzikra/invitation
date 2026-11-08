@@ -7,7 +7,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
 import CinematicCloudStage from './CinematicCloudStage.astro';
 ---
 
-<div id="cinematic-tunnel-container" class="relative w-full min-h-[680vh] z-20">
+<div id="cinematic-tunnel-container" class="relative w-full min-h-[680vh] z-30">
   
   <!-- Pinned 3D Viewport Rig (Stationary Camera Perspective) -->
   <div 
@@ -962,10 +962,12 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
           if (viewport) {
             if (self.progress >= 0.99) {
               viewport.style.opacity = '0';
+              viewport.style.visibility = 'hidden';
               viewport.style.pointerEvents = 'none';
-            } else if (self.progress <= 0.85) {
+            } else {
               viewport.style.opacity = '1';
-              viewport.style.pointerEvents = 'auto';
+              viewport.style.visibility = 'visible';
+              viewport.style.pointerEvents = self.progress > 0.88 ? 'none' : 'auto';
             }
           }
           if (self.progress < 0.18) {
@@ -1258,19 +1260,14 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
     }
 
     // Scene 3 completes smoothly to hand off to Scene 4
-    if (cloudBankTL) tl.to(cloudBankTL, { opacity: 0, duration: 0.08 }, 1.60);
-    if (cloudBankTR) tl.to(cloudBankTR, { opacity: 0, duration: 0.08 }, 1.60);
-    if (cloudBankBL) tl.to(cloudBankBL, { opacity: 0, duration: 0.08 }, 1.60);
-    if (cloudBankBR) tl.to(cloudBankBR, { opacity: 0, duration: 0.08 }, 1.60);
-
     tl.to(sceneCouple, {
       opacity: 0,
-      duration: 0.06,
+      duration: 0.08,
       ease: 'power1.out',
       onComplete: () => {
         if (sceneCouple) sceneCouple.style.pointerEvents = 'none';
       }
-    }, 1.66);
+    }, 1.62);
 
     // =========================================================================
     // STEP 5: SCENE 4 — KISAH ASMARALOKA (PANORAMIC CINEMATIC TRACK) (1.68 -> 3.05)
@@ -1287,7 +1284,9 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
       }
     }, 1.68);
 
-    // Rolling mist grounds the Asmaraloka chronicle steles
+    // Ethereal clouds cradle the Asmaraloka chronicle steles
+    if (cloudBankTL) tl.to(cloudBankTL, { x: 0, y: 0, opacity: 0.55, duration: 0.20, ease: 'power2.out' }, 1.68);
+    if (cloudBankTR) tl.to(cloudBankTR, { x: 0, y: 0, opacity: 0.55, duration: 0.20, ease: 'power2.out' }, 1.68);
     if (cloudBankBL) tl.to(cloudBankBL, { x: 0, y: 0, opacity: 0.65, duration: 0.20, ease: 'power2.out' }, 1.68);
     if (cloudBankBR) tl.to(cloudBankBR, { x: 0, y: 0, opacity: 0.65, duration: 0.20, ease: 'power2.out' }, 1.68);
 
@@ -1462,19 +1461,13 @@ import CinematicCloudStage from './CinematicCloudStage.astro';
     if (cloudStardust) tl.to(cloudStardust, { opacity: 0, duration: 0.15 }, 3.42);
     if (cloudStage) tl.to(cloudStage, { opacity: 0, duration: 0.23 }, 3.42);
 
-    if (viewport) {
-      tl.to(viewport, {
-        opacity: 0,
-        duration: 0.23,
-        ease: 'power1.in',
-        onComplete: () => {
-          if (viewport) viewport.style.pointerEvents = 'none';
-        },
-        onReverseComplete: () => {
-          if (viewport) viewport.style.pointerEvents = 'auto';
-        }
-      }, 3.42);
-    }
+    // At the climax of cloud parting (3.65), seamlessly hand off pointer interactions to terrestrial stage
+    tl.call(() => {
+      if (viewport) {
+        viewport.style.pointerEvents = 'none';
+        viewport.style.visibility = 'hidden';
+      }
+    }, [], 3.64);
 
     // Smooth Click-to-Navigate for Chapter Pips
     const scrollToBabak = (babakNum: number) => {

@@ -128,11 +128,12 @@
     if (sunSunsetOverlay) gsap.set(sunSunsetOverlay, { opacity: 0 });
 
     // =========================================================================
-    // MASTER SCROLL-DRIVEN CELESTIAL TIMELINE
+    // MASTER SCROLL-DRIVEN CELESTIAL TIMELINE (Synchronized to Narrative Flow)
     // 0.00 -> 0.24: Hero & Verse (Sun COMPLETELY HIDDEN, Opacity 0)
-    // 0.25 -> 0.42: KEDUA MEMPELAI (Sunrise! Sun rises gracefully from horizon)
-    // 0.43 -> 0.70: Acara & Countdown (Midday zenith, champagne golden light)
-    // 0.71 -> 1.00: LoveStory & Closing (Sunset! Sinks behind romantic swans)
+    // 0.25 -> 0.40: KEDUA MEMPELAI (Sunrise! Sun rises gracefully from horizon)
+    // 0.40 -> 0.76: ASMARALOKA & WAKTU & JADWAL (Midday zenith, champagne golden daylight)
+    // 0.76 -> 0.86: LOKASI ACARA (Golden Hour, afternoon sun begins gentle descent)
+    // 0.86 -> 1.00: CLOSING FINALE (Sunset! Sinks behind romantic swans in rich terracotta dusk)
     // =========================================================================
     const sunTL = gsap.timeline({
       scrollTrigger: {
@@ -150,7 +151,7 @@
     }, 0);
 
     // 2. SUNRISE: Enters at Kedua Mempelai (0.25 -> 0.38)
-    // Sun dawns gracefully at the top center with warm celestial aura (No vertical transit glare)
+    // Sun dawns gracefully at the top center with warm celestial aura
     sunTL.to(sunWrapper, {
       opacity: 0.85,
       x: () => calculateCoordinates().pSunrise.x,
@@ -169,54 +170,54 @@
       }, 0.25);
     }
 
-    // 3. MIDDAY: Kedua Mempelai -> Acara & Countdown (0.42 -> 0.65)
-    // Sun ascends to high noon at zenith
+    // 3. MIDDAY: Asmaraloka & Waktu & Jadwal (0.40 -> 0.76)
+    // Sun ascends to high noon at zenith with radiant daylight
     sunTL.to(sunWrapper, {
       x: () => calculateCoordinates().pMidday.x,
       y: () => calculateCoordinates().pMidday.y,
       scale: () => calculateCoordinates().pMidday.scale,
-      duration: 0.24,
+      duration: 0.32,
       ease: 'power1.inOut'
-    }, 0.42);
+    }, 0.40);
 
     // Sunrise sky transitions to Midday champagne brightness
     if (skySunrise && skyMidday) {
-      sunTL.to(skySunrise, { opacity: 0, duration: 0.20, ease: 'power1.inOut' }, 0.44);
-      sunTL.to(skyMidday, { opacity: 0.80, duration: 0.20, ease: 'power1.inOut' }, 0.46);
+      sunTL.to(skySunrise, { opacity: 0, duration: 0.16, ease: 'power1.inOut' }, 0.42);
+      sunTL.to(skyMidday, { opacity: 0.80, duration: 0.20, ease: 'power1.inOut' }, 0.44);
     }
 
-    // 4. SUNSET: LoveStory -> Closing (0.71 -> 1.00)
-    // Sun descends toward the horizon behind the romantic swans
+    // 4. GOLDEN HOUR & SUNSET: Lokasi -> Closing (0.76 -> 1.00)
+    // Sun descends toward the lake horizon directly behind the romantic swans
     sunTL.to(sunWrapper, {
       x: () => calculateCoordinates().pSunset.x,
       y: () => calculateCoordinates().pSunset.y,
       scale: () => calculateCoordinates().pSunset.scale,
-      duration: 0.26,
+      duration: 0.24,
       ease: 'power1.inOut'
-    }, 0.71);
+    }, 0.76);
 
-    // Midday sky transitions to warm amber terracotta Sunset glow
+    // Midday sky transitions to warm amber terracotta Sunset glow in Closing
     if (skyMidday && skySunset) {
-      sunTL.to(skyMidday, { opacity: 0, duration: 0.15, ease: 'power1.inOut' }, 0.71);
-      sunTL.to(skySunset, { opacity: 1, duration: 0.22, ease: 'power2.out' }, 0.74);
+      sunTL.to(skyMidday, { opacity: 0, duration: 0.12, ease: 'power1.inOut' }, 0.78);
+      sunTL.to(skySunset, { opacity: 1, duration: 0.20, ease: 'power2.out' }, 0.80);
     }
 
     // Sunset color shift on sun sphere & outer bloom
     if (sunSunsetOverlay) {
       sunTL.to(sunSunsetOverlay, {
         opacity: 1,
-        duration: 0.22,
+        duration: 0.20,
         ease: 'power2.out'
-      }, 0.74);
+      }, 0.80);
     }
 
     if (sunGlow) {
       sunTL.to(sunGlow, {
-        scale: 1.20,
-        opacity: 0.9,
-        duration: 0.22,
+        scale: 1.25,
+        opacity: 0.95,
+        duration: 0.20,
         ease: 'power2.out'
-      }, 0.74);
+      }, 0.80);
     }
 
     // Handle viewport resize gracefully
