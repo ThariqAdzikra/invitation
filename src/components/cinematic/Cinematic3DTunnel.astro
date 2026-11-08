@@ -77,7 +77,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
           <div id="hero-top-block" class="flex flex-col items-center pt-1 will-change-transform">
             <!-- Monogram Crest -->
             <div class="mb-1.5">
-              <FloralWreath monogram="AD" size={62} />
+              <FloralWreath monogram="DZ" size={62} />
             </div>
 
             <!-- Overline -->
@@ -87,7 +87,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
 
             <!-- Names with spacious breathing room -->
             <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-[#2A3426] font-normal tracking-tight leading-none my-1">
-              {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.bride.nickname}
+              {content.couple.bride.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.groom.nickname}
             </h1>
 
             <div class="my-1.5 opacity-75">
@@ -116,7 +116,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                 <div class="w-full h-full rounded-t-full overflow-hidden border border-[#566A4E]/20 relative bg-[#FAF8F5]">
                   <img 
                     src="/assets/vector-hero.jpg" 
-                    alt="Ilustrasi Mempelai Arya & Dian" 
+                    alt={`Ilustrasi Mempelai ${content.couple.bride.nickname} & ${content.couple.groom.nickname}`} 
                     class="w-full h-full object-cover"
                     loading="eager"
                     fetchpriority="high"
@@ -136,7 +136,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
               {content.event.dateFormatted} &bull; {content.event.timezone}
             </p>
             <p class="text-[0.62rem] text-[#7E8F77] font-light tracking-wider">
-              {content.event.venue.name} &bull; Banda Aceh
+              {content.event.venue.name} &bull; Padang
             </p>
 
             <!-- Personalized Guest Welcoming Plaque (Haute-Couture Stitched Badge) -->
@@ -205,7 +205,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
       </section>
 
       <!-- ===================================================================
-           SCENE 3: KEDUA MEMPELAI (ARYA & DIAN) (Z: -850 -> 0 Crisp landing)
+           SCENE 3: KEDUA MEMPELAI (DIFA & ZHARKASI) (Z: -850 -> 0 Crisp landing)
            =================================================================== -->
       <section 
         id="scene-couple" 
@@ -230,7 +230,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
           <!-- Dual Profiles Grid -->
           <div id="couple-cards-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full mt-2 relative">
             
-            <!-- Arya (Groom) -->
+            <!-- Zharkasi (Groom) -->
             <article 
               id="couple-groom-card"
               class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-4 sm:p-5 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden interactive-foil-card will-change-transform"
@@ -279,7 +279,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
               </div>
             </article>
 
-            <!-- Dian (Bride) -->
+            <!-- Difa (Bride) -->
             <article 
               id="couple-bride-card"
               class="couple-profile-card bg-white/95 border border-[#566A4E]/20 rounded-2xl p-4 sm:p-5 flex flex-col items-center text-center shadow-[0_12px_35px_rgba(42,52,38,0.06)] relative overflow-hidden interactive-foil-card will-change-transform"
@@ -455,9 +455,9 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                 
                 <!-- Twin Portraits Sitting Side-by-Side with Gold Hairline Frames -->
                 <div class="flex items-center justify-center gap-2.5 sm:gap-3.5 mb-1.5 sm:mb-2">
-                  <!-- Arya Avatar -->
+                  <!-- Groom Avatar -->
                   <div class="w-15 h-15 sm:w-19 sm:h-19 rounded-full p-0.5 border-1.5 border-[#B89352]/65 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
-                    <img src="/assets/vector-groom.jpg" alt="Arya" class="w-full h-full object-cover rounded-full" />
+                    <img src="/assets/vector-groom.jpg" alt={content.couple.groom.nickname} class="w-full h-full object-cover rounded-full" />
                   </div>
 
                   <!-- Delicate Gilded Heart Pin Clasp -->
@@ -467,20 +467,20 @@ import FloralCorner from '../botanical/FloralCorner.astro';
                     </svg>
                   </div>
                   
-                  <!-- Dian Avatar -->
+                  <!-- Bride Avatar -->
                   <div class="w-15 h-15 sm:w-19 sm:h-19 rounded-full p-0.5 border-1.5 border-[#B89352]/65 bg-white shadow-[0_4px_14px_rgba(42,52,38,0.08)] overflow-hidden">
-                    <img src="/assets/vector-bride.jpg" alt="Dian" class="w-full h-full object-cover rounded-full" />
+                    <img src="/assets/vector-bride.jpg" alt={content.couple.bride.nickname} class="w-full h-full object-cover rounded-full" />
                   </div>
                 </div>
 
                 <!-- Regal Typography in font-display -->
                 <h3 class="font-display text-xl sm:text-2xl text-[#2A3426] tracking-wide font-normal leading-tight">
-                  Arya <span class="font-display italic text-[#B89352] font-normal px-0.5">&amp;</span> Dian
+                  {content.couple.bride.nickname} <span class="font-display italic text-[#B89352] font-normal px-0.5">&amp;</span> {content.couple.groom.nickname}
                 </h3>
 
                 <!-- Subtle Gilded Wedding Date -->
                 <div class="text-[0.58rem] sm:text-[0.62rem] tracking-[0.32em] text-[#B89352] uppercase font-semibold mt-1">
-                  12 · 12 · 2026
+                  26 · 12 · 2026
                 </div>
 
               </div>

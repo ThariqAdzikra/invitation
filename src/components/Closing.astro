@@ -22,7 +22,7 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
         <!-- Mid-distance Olive Rolling Hills -->
         <path d="M0 230 Q350 170 700 210 T1200 180 L1200 320 L0 320 Z" fill="url(#mid-ridge-grad)" opacity="0.88" />
         
-        <!-- Foreground Lush Meadow Ridge where Arya & Dian stand -->
+        <!-- Foreground Lush Meadow Ridge where Difa & Zharkasi stand -->
         <path d="M0 265 Q450 215 900 250 T1200 235 L1200 320 L0 320 Z" fill="url(#fore-ridge-grad)" />
 
         <!-- Gradient Definitions matching Haute-Couture Olive & Gold -->
@@ -55,11 +55,11 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
         </svg>
       </div>
 
-      <!-- LAYER 2: Transparent Cutout Couple (Arya & Dian standing hand-in-hand at sunset) -->
+      <!-- LAYER 2: Transparent Cutout Couple (Difa & Zharkasi standing hand-in-hand at sunset) -->
       <div class="relative z-20 w-60 sm:w-76 md:w-88 max-w-[85vw] pb-2 sm:pb-4 drop-shadow-[0_16px_36px_rgba(20,30,15,0.4)]">
         <img 
           src="/assets/vector-couple-cutout.png" 
-          alt="Arya & Dian Berdiri Bersama Menatap Senja" 
+          alt="Difa & Zharkasi Berdiri Bersama Menatap Senja" 
           class="w-full h-auto object-contain select-none pointer-events-none"
           loading="lazy"
         />
@@ -91,7 +91,7 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
       <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-2">Hormat Kami yang Berbahagia</p>
       
       <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tracking-tight">
-        {content.couple.groom.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.bride.nickname}
+        {content.couple.bride.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.groom.nickname}
       </h2>
 
       <p class="text-xs text-[#7E8F77] font-light mt-1 italic">
@@ -133,13 +133,13 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
     <!-- End Title Credits Footer -->
     <footer class="w-full pt-8 border-t border-[#566A4E]/15 text-center">
       <div class="w-8 h-8 rounded-full border border-[#B89352]/30 flex items-center justify-center mx-auto mb-2 text-[#B89352] text-xs font-serif italic">
-        AD
+        DZ
       </div>
       <p class="text-[0.62rem] tracking-[0.3em] uppercase text-[#B89352] font-mono mb-1">
-        THE WEDDING OF ARYA &amp; DIAN &bull; 2026
+        THE WEDDING OF DIFA &amp; ZHARKASI &bull; 2026
       </p>
       <p class="text-[0.62rem] md:text-xs text-[#7E8F77] tracking-[0.2em] uppercase font-medium">
-        Terima Kasih atas Doa &amp; Restu Anda &bull; Banda Aceh
+        Terima Kasih atas Doa &amp; Restu Anda &bull; Padang
       </p>
     </footer>
 
@@ -171,9 +171,9 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
     if (shareBtn) {
       shareBtn.addEventListener('click', () => {
         playChimeSound();
-        const title = 'Undangan Pernikahan Arya & Dian';
+        const title = 'Undangan Pernikahan Difa & Zharkasi';
         const url = window.location.href;
-        const text = `Assalamu'alaikum Wr. Wb.\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami, Arya Wirayudha & Dian Paramitha:\n\n${url}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.`;
+        const text = `Assalamu'alaikum Wr. Wb.\n\nTanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami, Difa Auliya Syahmi & Muhammad Zharkasi:\n\n${url}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.`;
 
         if (navigator.share) {
           navigator.share({

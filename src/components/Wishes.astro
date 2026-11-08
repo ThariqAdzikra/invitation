@@ -34,7 +34,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       <div class="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#B89352] to-transparent"></div>
       
       <!-- Watermark Monogram -->
-      <span class="absolute -right-3 -bottom-5 font-display italic text-7xl text-[#B89352]/08 pointer-events-none select-none">A&amp;D</span>
+      <span class="absolute -right-3 -bottom-5 font-display italic text-7xl text-[#B89352]/08 pointer-events-none select-none">D&amp;Z</span>
 
       <!-- Ticket Header -->
       <div class="flex items-center justify-between border-b border-dashed border-[#B89352]/30 pb-3 mb-4">
@@ -42,7 +42,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
           <span class="w-2 h-2 rounded-full bg-[#B89352] animate-ping"></span>
           <span class="text-[0.62rem] uppercase tracking-[0.24em] text-[#B89352] font-semibold">VIP GUEST INVITATION PASS</span>
         </div>
-        <span class="text-[0.58rem] font-mono tracking-widest text-[#566A4E]/80 uppercase bg-[#B89352]/10 px-2 py-0.5 rounded">NO. #AD-2026-VIP</span>
+        <span class="text-[0.58rem] font-mono tracking-widest text-[#566A4E]/80 uppercase bg-[#B89352]/10 px-2 py-0.5 rounded">NO. #DZ-2026-VIP</span>
       </div>
 
       <!-- Ticket Body -->
@@ -59,7 +59,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
               <line x1="8" y1="2" x2="8" y2="6"></line>
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            Sabtu, 12 Desember 2026 • Banda Aceh Convention Hall
+            Sabtu, 26 Desember 2026 • Komp. PLN Koto Baru, Padang
           </p>
         </div>
 
@@ -214,7 +214,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       id: "w-1",
       name: "Dimas Pratama & Keluarga",
       attendance: "Hadir (2 Orang)",
-      message: "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khoir. Selamat menempuh hidup baru Arya & Dian! Semoga selalu rukun, bahagia, dan penuh berkah sampai kakek nenek.",
+      message: "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khoir. Selamat menempuh hidup baru Difa & Zharkasi! Semoga selalu rukun, bahagia, dan penuh berkah sampai kakek nenek.",
       date: "Kemarin",
       aamiinCount: 14,
       loveCount: 9
@@ -223,7 +223,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       id: "w-2",
       name: "Rania Amanda, S.Ds.",
       attendance: "Hadir (1 Orang)",
-      message: "Selamat berbahagia Dian sahabatku tercinta & mas Arya! MasyaAllah terharu sekali akhirnya kalian berlabuh di pelaminan. Semoga rumah tangganya senantiasa dilimpahi sakinah mawaddah warahmah.",
+      message: "Selamat berbahagia Difa sahabatku tercinta & Zharkasi! MasyaAllah terharu sekali akhirnya kalian berlabuh di pelaminan. Semoga rumah tangganya senantiasa dilimpahi sakinah mawaddah warahmah.",
       date: "2 hari lalu",
       aamiinCount: 21,
       loveCount: 16
@@ -232,7 +232,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       id: "w-3",
       name: "Fikri Kurniawan",
       attendance: "Hadir (1 Orang)",
-      message: "Selamat bro Arya & Dian! Lancar lancar sampai hari H nanti. InsyaAllah hadir merayakan hari bahagia kalian berdua!",
+      message: "Selamat bro Zharkasi & Difa! Lancar lancar sampai hari H nanti. InsyaAllah hadir merayakan hari bahagia kalian berdua!",
       date: "3 hari lalu",
       aamiinCount: 8,
       loveCount: 5
@@ -385,7 +385,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
       btnCopyTicket.addEventListener('click', () => {
         playChimeSound();
         const currentName = ticketName?.textContent || 'Tamu Undangan';
-        const ticketSummary = `VIP GUEST PASS #AD-2026-VIP\nTamu: ${currentName}\nAcara: The Wedding of Arya & Dian\nTanggal: Sabtu, 12 Desember 2026\nLokasi: Banda Aceh Convention Hall`;
+        const ticketSummary = `VIP GUEST PASS #DZ-2026-VIP\nTamu: ${currentName}\nAcara: The Wedding of Difa & Zharkasi\nTanggal: Sabtu, 26 Desember 2026\nLokasi: Komp. PLN No. 8C, Koto Baru, Padang`;
         navigator.clipboard.writeText(ticketSummary).then(() => {
           if (typeof (window as any).showLuxuryToast === 'function') {
             (window as any).showLuxuryToast('Rincian Tiket VIP berhasil disalin!');
@@ -450,7 +450,7 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
 
         // WhatsApp redirection
         const defaultPhone = '6281234567890';
-        let waText = `Assalamu'alaikum Warahmatullahi Wabarakatuh.\n\nHalo Arya & Dian, saya *${name}* ingin mengonfirmasi:\n`;
+        let waText = `Assalamu'alaikum Warahmatullahi Wabarakatuh.\n\nHalo Difa & Zharkasi, saya *${name}* ingin mengonfirmasi:\n`;
         if (attendance === 'Hadir') {
           waText += `Status: *InsyaAllah Hadir (${pax})*\n\n`;
         } else {

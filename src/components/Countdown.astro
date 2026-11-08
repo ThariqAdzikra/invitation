@@ -6,9 +6,9 @@ import FloralFlourish from './botanical/FloralFlourish.astro';
 // Calendar math for December 2026:
 // Dec 1, 2026 is Tuesday (day index 2 with Sunday = 0)
 // 31 days in December 2026
-// Wedding Day: Sabtu, 12 Desember 2026
+// Wedding Day: Sabtu, 26 Desember 2026
 const dayNames = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
-const weddingDay = 12;
+const weddingDay = 26;
 
 // 35-cell grid (5 rows x 7 columns)
 // 2 leading nulls (Sun, Mon) + 31 days + 2 trailing nulls (Fri, Sat)
@@ -115,7 +115,7 @@ const calendarCells = [
               {isWeddingDay ? (
                 <div 
                   class="relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 group" 
-                  title={`Hari Pernikahan Arya & Dian: ${day} Desember 2026`}
+                  title={`Hari Pernikahan Difa & Zharkasi: ${day} Desember 2026`}
                 >
                   <!-- Organic Hand-Drawn Gold Brush Circle SVG -->
                   <svg 

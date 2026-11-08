@@ -1,26 +1,26 @@
 {
   "couple": {
     "groom": {
-      "nickname": "Arya",
-      "fullName": "Arya Wirayudha, S.T.",
+      "nickname": "Zharkasi",
+      "fullName": "Muhammad Zharkasi",
       "photo": "/assets/groom.jpg",
-      "parents": "Putra dari Bapak H. Bambang Soedirman & Ibu Hj. Siti Rahayu",
+      "parents": "Putra dari Bapak & Ibu Tercinta",
       "quote": "Bagi saya, mencintaimu adalah ketenangan paling tulus yang dianugerahkan semesta.",
-      "instagram": "@aryawira"
+      "instagram": "@zharkasi"
     },
     "bride": {
-      "nickname": "Dian",
-      "fullName": "Dian Paramitha, S.Ds.",
+      "nickname": "Difa",
+      "fullName": "Difa Auliya Syahmi",
       "photo": "/assets/bride.jpg",
-      "parents": "Putri dari Bapak Ir. H. Hendra Kusuma & Ibu Hj. Ratna Dewi",
+      "parents": "Putri dari Bapak & Ibu Tercinta",
       "quote": "Menemukanmu adalah jawaban dari setiap doa yang kupanjatkan dalam hening.",
-      "instagram": "@dianparamitha"
+      "instagram": "@difaauliya"
     }
   },
   "event": {
     "day": "Sabtu",
-    "date": "2026-12-12",
-    "dateFormatted": "Sabtu, 12 Desember 2026",
+    "date": "2026-12-26",
+    "dateFormatted": "Sabtu, 26 Desember 2026",
     "timezone": "WIB",
     "akad": {
       "title": "Akad Nikah",
@@ -31,10 +31,11 @@
       "time": "11.00 – Selesai"
     },
     "venue": {
-      "name": "Banda Aceh Convention Hall",
-      "address": "Jl. Prof. A. Majid Ibrahim No. 2, Lampaseh Kota, Kec. Kuta Raja, Kota Banda Aceh, Aceh",
-      "mapsUrl": "https://maps.google.com/?q=Banda+Aceh+Convention+Hall",
-      "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Arya+%26+Dian&dates=20261212T010000Z/20261212T100000Z&details=Pernikahan+Arya+Wirayudha+%26+Dian+Paramitha&location=Banda+Aceh+Convention+Hall"
+      "name": "Komp. PLN Koto Baru",
+      "address": "Jl. Koto Baru, Komp PLN No. 8C, Kelurahan Koto Baru Nan. XX, Kecamatan Lubuk Begalung, Kota Padang, Sumatera Barat",
+      "city": "Kota Padang",
+      "mapsUrl": "https://maps.google.com/?q=Komp+PLN+No+8C+Koto+Baru+Nan+XX+Lubuk+Begalung+Kota+Padang+Sumatera+Barat",
+      "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Difa+%26+Zharkasi&dates=20261226T010000Z/20261226T100000Z&details=Pernikahan+Difa+Auliya+Syahmi+%26+Muhammad+Zharkasi&location=Jl.+Koto+Baru,+Komp+PLN+No.+8C,+Kota+Padang"
     }
   },
   "opening": {
@@ -79,24 +80,24 @@
         "bank": "Bank Syariah Indonesia",
         "code": "BSI",
         "accountNumber": "7189201928",
-        "holder": "Arya Wirayudha"
+        "holder": "Muhammad Zharkasi"
       },
       {
         "bank": "Bank Central Asia",
         "code": "BCA",
         "accountNumber": "0439182910",
-        "holder": "Dian Paramitha"
+        "holder": "Difa Auliya Syahmi"
       }
     ],
     "shipping": {
-      "recipient": "Arya Wirayudha & Dian Paramitha",
-      "address": "Jl. Teuku Umar No. 45, Setui, Kec. Baiturrahman, Kota Banda Aceh, Aceh 23243",
+      "recipient": "Difa Auliya Syahmi & Muhammad Zharkasi",
+      "address": "Jl. Koto Baru, Komp PLN No. 8C, Kelurahan Koto Baru Nan. XX, Kecamatan Lubuk Begalung, Kota Padang, Sumatera Barat",
       "phone": "0812-3456-7890"
     }
   },
   "meta": {
-    "title": "Undangan Pernikahan Arya & Dian",
-    "description": "Kami mengundang Anda untuk berbagi kebahagiaan di hari pernikahan Arya & Dian.",
+    "title": "Undangan Pernikahan Difa & Zharkasi",
+    "description": "Kami mengundang Anda untuk berbagi kebahagiaan di hari pernikahan Difa & Zharkasi.",
     "ogImage": "/assets/og.jpg",
     "siteUrl": "https://undangan.domain.com"
   }
