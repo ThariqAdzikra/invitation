@@ -101,18 +101,29 @@
     const gustCount = window.innerWidth < 640 ? 3 : 4;
     const windGusts: WindGust[] = [];
 
+    // Helper to keep wind streams in atmospheric sky & lower ground (never clashing across center text)
+    function getSafeWindY(index: number) {
+      if (index % 2 === 0) {
+        // High atmospheric sky stream
+        return height * (0.06 + Math.random() * 0.12);
+      } else {
+        // Lower gentle ground breeze stream
+        return height * (0.82 + Math.random() * 0.12);
+      }
+    }
+
     for (let i = 0; i < gustCount; i++) {
       windGusts.push({
         headX: (width / gustCount) * i + Math.random() * 200,
-        baseY: height * (0.18 + (i * 0.24) + (Math.random() - 0.5) * 0.08),
-        speedX: Math.random() * 1.4 + 2.0, // Brisk, visible breeze speed
+        baseY: getSafeWindY(i),
+        speedX: Math.random() * 1.2 + 1.8, // Elegant, smooth breeze speed
         length: Math.random() * 140 + 260, // 260px - 400px sweeping trails
-        amplitude: Math.random() * 18 + 16, // Organic wave curvature
+        amplitude: Math.random() * 14 + 12, // Organic wave curvature
         frequency: Math.random() * 0.008 + 0.006,
         wavePhase: Math.random() * Math.PI * 2,
         hasCurl: i % 2 === 0, // Alternating delicate loop curl
-        curlRadius: Math.random() * 8 + 12,
-        alpha: Math.random() * 0.18 + 0.22,
+        curlRadius: Math.random() * 8 + 10,
+        alpha: Math.random() * 0.10 + 0.14, // Whispered golden elegance
         companionOffset: Math.random() * 8 + 6
       });
     }
@@ -186,10 +197,10 @@
         // Reset gust when it travels beyond right edge
         if (gust.headX - gust.length > width + 100) {
           gust.headX = -100;
-          gust.baseY = height * (0.15 + Math.random() * 0.7);
-          gust.speedX = Math.random() * 1.4 + 2.0;
+          gust.baseY = getSafeWindY(Math.floor(Math.random() * 2));
+          gust.speedX = Math.random() * 1.2 + 1.8;
           gust.length = Math.random() * 140 + 260;
-          gust.amplitude = Math.random() * 18 + 16;
+          gust.amplitude = Math.random() * 14 + 12;
         }
 
         // Draw Main Curved Breeze Ribbon
@@ -205,7 +216,7 @@
         strokeGrad.addColorStop(1, 'rgba(184, 147, 82, 0)');
 
         ctx.strokeStyle = strokeGrad;
-        ctx.lineWidth = 1.2;
+        ctx.lineWidth = 0.9;
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
 

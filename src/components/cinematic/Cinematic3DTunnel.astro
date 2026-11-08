@@ -138,6 +138,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
 
       <!-- ===================================================================
            SCENE 2: THE SACRED VERSE (QS AR-RUM: 21) (Z: -850 -> 0 -> Zoom past)
+           ROYAL SACRED ARCH PORTAL (LENGKUNG MIHRAB KUBAH SUCI)
            =================================================================== -->
       <section 
         id="scene-verse" 
@@ -146,41 +147,56 @@ import FloralCorner from '../botanical/FloralCorner.astro';
         aria-label="Ayat Suci Al-Qur'an"
       >
         <div class="max-w-xl w-full mx-auto flex flex-col items-center justify-center my-auto relative">
-          <!-- Ethereal Celestial Golden Halo Blooming Behind the Sacred Words -->
-          <div class="absolute -inset-8 sm:-inset-16 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.22)_0%,rgba(184,147,82,0.10)_45%,transparent_75%)] blur-2xl pointer-events-none -z-10"></div>
           
-          <!-- Sacred Bismillah -->
-          <p id="verse-bismillah" class="font-arabic text-2xl sm:text-3xl text-[#3E4C38] mb-3 drop-shadow-sm will-change-transform" dir="rtl" lang="ar">
-            {content.opening.bismillah}
-          </p>
+          <!-- Ethereal Volumetric Golden Halo Blooming Behind the Arch -->
+          <div class="absolute -inset-10 sm:-inset-16 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.25)_0%,rgba(184,147,82,0.12)_45%,rgba(74,93,67,0.02)_70%,transparent_85%)] blur-2xl pointer-events-none -z-10"></div>
+          
+          <!-- Royal Mihrab Cathedral Archway Container -->
+          <div 
+            id="verse-arch-card" 
+            class="relative w-full max-w-md sm:max-w-lg rounded-t-[140px] sm:rounded-t-[180px] rounded-b-3xl border border-[#B89352]/35 bg-gradient-to-b from-[#FAF8F5]/94 via-[#FAF8F5]/90 to-[#FAF8F5]/96 backdrop-blur-md shadow-[0_16px_48px_rgba(42,52,38,0.07)] p-6 sm:p-8 pt-8 sm:pt-10 flex flex-col items-center text-center will-change-transform overflow-hidden"
+          >
+            <!-- Inner Concentric Gilded Arch Inset Line -->
+            <div class="absolute inset-1.5 sm:inset-2 rounded-t-[132px] sm:rounded-t-[172px] rounded-b-[20px] border border-[#B89352]/20 pointer-events-none"></div>
 
-          <!-- Pure Editorial Sacred Typography Block (No Card Box, No Borders, No Drop Shadow) -->
-          <div id="verse-content-block" class="w-full flex flex-col items-center text-center px-2 sm:px-6 will-change-transform">
-            <!-- Sacred Arabic Verse -->
-            <blockquote lang="ar" dir="rtl" class="font-arabic text-xl sm:text-2xl sm:leading-[2.4] text-[#2A3426] leading-loose max-w-lg mx-auto drop-shadow-sm">
-              {content.opening.verse}
-            </blockquote>
-
-            <!-- Whispered Minimalist Hairline Divider with Diamond Star (✦) -->
-            <div class="my-4 sm:my-5 flex items-center justify-center gap-3 opacity-70">
-              <span class="w-12 sm:w-20 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]/50"></span>
-              <span class="text-[0.6rem] text-[#B89352]">✦</span>
-              <span class="w-12 sm:w-20 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]/50"></span>
+            <!-- Arch Apex Finial Star & Whispered Rays -->
+            <div class="flex items-center justify-center gap-2 mb-2 sm:mb-3 opacity-80">
+              <span class="w-8 sm:w-12 h-[1px] bg-gradient-to-r from-transparent to-[#B89352]/60"></span>
+              <span class="text-[0.65rem] text-[#B89352]">✦</span>
+              <span class="w-8 sm:w-12 h-[1px] bg-gradient-to-l from-transparent to-[#B89352]/60"></span>
             </div>
 
-            <!-- Indonesian Translation -->
-            <p class="text-xs sm:text-sm text-[#566A4E] font-light leading-relaxed max-w-md mx-auto italic font-serif">
-              &ldquo;{content.opening.translation}&rdquo;
+            <!-- Sacred Bismillah -->
+            <p id="verse-bismillah" class="font-arabic text-2xl sm:text-3xl text-[#3E4C38] mb-3 drop-shadow-xs will-change-transform" dir="rtl" lang="ar">
+              {content.opening.bismillah}
             </p>
 
-            <!-- Classical Surah Citation -->
-            <p class="text-[0.62rem] sm:text-[0.68rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mt-3">
-              {content.opening.source}
-            </p>
+            <!-- Sacred Arabic Verse -->
+            <div id="verse-content-block" class="w-full flex flex-col items-center text-center px-2 sm:px-4 will-change-transform">
+              <blockquote lang="ar" dir="rtl" class="font-arabic text-xl sm:text-2xl sm:leading-[2.5] text-[#242F21] leading-loose max-w-lg mx-auto drop-shadow-xs selection:bg-[#B89352]/20">
+                {content.opening.verse}
+              </blockquote>
+
+              <!-- Whispered Floral Flourish Divider -->
+              <div class="my-3.5 sm:my-4 flex items-center justify-center opacity-70">
+                <FloralFlourish width={130} height={16} />
+              </div>
+
+              <!-- Indonesian Translation -->
+              <p class="text-xs sm:text-[0.82rem] text-[#4A5D43] font-light leading-relaxed max-w-md mx-auto italic font-serif">
+                &ldquo;{content.opening.translation}&rdquo;
+              </p>
+
+              <!-- Classical Surah Citation Badge -->
+              <div class="inline-flex items-center gap-1.5 px-3.5 py-0.5 rounded-full border border-[#B89352]/35 bg-[#B89352]/8 text-[0.58rem] sm:text-[0.64rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mt-3">
+                <span>{content.opening.source}</span>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Editorial Greeting Sentence -->
-          <p id="verse-greeting" class="text-[0.72rem] sm:text-xs text-[#7E8F77] mt-5 font-light max-w-md leading-relaxed will-change-transform">
+          <!-- Editorial Greeting Sentence (Positioned as Pedestal Foundation) -->
+          <p id="verse-greeting" class="text-[0.68rem] sm:text-[0.74rem] text-[#7E8F77] mt-4 font-light max-w-md leading-relaxed will-change-transform">
             {content.opening.greeting}
           </p>
 
@@ -647,6 +663,7 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     const heroTop = document.getElementById('hero-top-block');
     const heroArch = document.getElementById('hero-arch-block');
     const heroBottom = document.getElementById('hero-bottom-block');
+    const verseArchCard = document.getElementById('verse-arch-card');
     const verseBismillah = document.getElementById('verse-bismillah');
     const verseContent = document.getElementById('verse-content-block');
     const verseGreeting = document.getElementById('verse-greeting');
@@ -734,37 +751,37 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     });
 
     // =========================================================================
-    // STEP 1: HERO SCENE PORTAL SEPARATION & FLY-THROUGH (0.00 -> 0.35)
+    // STEP 1: HERO SCENE PORTAL SEPARATION & FLY-THROUGH (0.00 -> 0.22)
     // Symmetrical portal parting: top rises, arch zooms, bottom descends
     // =========================================================================
     if (heroTop) {
       tl.to(heroTop, {
-        y: -90,
+        y: -70,
         opacity: 0,
-        duration: 0.30,
+        duration: 0.20,
         ease: 'power1.inOut'
       }, 0);
     }
     if (heroArch) {
       tl.to(heroArch, {
-        scale: 1.3,
+        scale: 1.25,
         opacity: 0,
-        filter: 'blur(6px)',
-        duration: 0.34,
+        filter: 'blur(5px)',
+        duration: 0.20,
         ease: 'power1.inOut'
       }, 0.02);
     }
     if (heroBottom) {
       tl.to(heroBottom, {
-        y: 70,
+        y: 50,
         opacity: 0,
-        duration: 0.28,
+        duration: 0.18,
         ease: 'power1.inOut'
       }, 0);
     }
     tl.to(sceneHero, {
-      z: 500,
-      duration: 0.34,
+      z: 450,
+      duration: 0.22,
       ease: 'power1.inOut',
       onComplete: () => {
         if (sceneHero) sceneHero.style.pointerEvents = 'none';
@@ -775,38 +792,46 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     }, 0);
 
     // =========================================================================
-    // STEP 2: VERSE SCENE GLIDES FORWARD & READING PLATEAU (0.22 -> 0.76)
+    // STEP 2: VERSE SCENE GLIDES FORWARD & READING PLATEAU (0.22 -> 0.70)
+    // Royal Mihrab Cathedral Archway lands with calm majesty (No collision!)
     // =========================================================================
     tl.to(sceneVerse, {
       z: 0,
       scale: 1,
       opacity: 1,
       filter: 'blur(0px)',
-      duration: 0.24,
+      duration: 0.22,
       ease: 'power2.out',
       onStart: () => {
         if (sceneVerse) sceneVerse.style.pointerEvents = 'auto';
       }
     }, 0.22);
 
+    if (verseArchCard) {
+      tl.fromTo(verseArchCard,
+        { scale: 0.90, y: 25, opacity: 0 },
+        { scale: 1, y: 0, opacity: 1, duration: 0.22, ease: 'power2.out' },
+        0.24
+      );
+    }
     if (verseBismillah) {
       tl.fromTo(verseBismillah, 
-        { y: -30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.20, ease: 'power2.out' },
+        { y: -15, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.18, ease: 'power2.out' },
         0.26
       );
     }
     if (verseContent) {
       tl.fromTo(verseContent,
-        { scale: 0.94, y: 25, opacity: 0 },
-        { scale: 1, y: 0, opacity: 1, duration: 0.24, ease: 'power2.out' },
-        0.26
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.20, ease: 'power2.out' },
+        0.28
       );
     }
     if (verseGreeting) {
       tl.fromTo(verseGreeting,
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.20, ease: 'power2.out' },
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.18, ease: 'power2.out' },
         0.32
       );
     }
@@ -814,14 +839,14 @@ import FloralCorner from '../botanical/FloralCorner.astro';
     // Comfortable reading plateau for Ayat Suci (0.44 -> 0.58)
     tl.to(sceneVerse, { z: 0, duration: 0.14 }, 0.44);
 
-    // Verse scene ascends & flies past camera in 3D Z-space (0.58 -> 0.74)
+    // Verse scene ascends & flies past camera in 3D Z-space (0.58 -> 0.70)
     tl.to(sceneVerse, {
       z: 480,
-      scale: 1.30,
+      scale: 1.25,
       opacity: 0,
       filter: 'blur(8px)',
-      y: -50,
-      duration: 0.16,
+      y: -40,
+      duration: 0.12,
       ease: 'power1.in',
       onComplete: () => {
         if (sceneVerse) sceneVerse.style.pointerEvents = 'none';
