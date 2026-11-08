@@ -484,13 +484,23 @@ import FloralCorner from './botanical/FloralCorner.astro';
 
     // Strict Scroll Containment: Ensure page is locked at (0, 0)
     window.scrollTo(0, 0);
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Fast-path for testing/previews
+    if (urlParams.get('skip') === '1') {
+      screen.style.display = 'none';
+      document.documentElement.classList.remove('is-locked');
+      document.body.classList.remove('is-locked');
+      return;
+    }
+
     if ((window as any).__lenis) {
       (window as any).__lenis.stop();
       (window as any).__lenis.scrollTo(0, { immediate: true });
     }
 
     // Parse guest name from URL parameter ?to=
-    const urlParams = new URLSearchParams(window.location.search);
     const rawTo = urlParams.get('to');
     if (rawTo && guestSplash) {
       try {

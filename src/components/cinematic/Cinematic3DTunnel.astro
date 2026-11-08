@@ -3,13 +3,7 @@
 import content from '../../data/content.json';
 import FloralWreath from '../botanical/FloralWreath.astro';
 import FloralFlourish from '../botanical/FloralFlourish.astro';
-import FlyingDoves from '../botanical/FlyingDoves.astro';
 import FloralCorner from '../botanical/FloralCorner.astro';
-import FloralHeroGate from '../botanical/FloralHeroGate.astro';
-import FloralMonogramMedallion from '../botanical/FloralMonogramMedallion.astro';
-import WeddingRings from '../botanical/WeddingRings.astro';
-import PastelBlossoms from '../botanical/PastelBlossoms.astro';
-import SilkRibbon from '../botanical/SilkRibbon.astro';
 ---
 
 <div id="cinematic-tunnel-container" class="relative w-full min-h-[620vh] z-20">
@@ -65,6 +59,14 @@ import SilkRibbon from '../botanical/SilkRibbon.astro';
         style="transform: translate3d(0, 0, 0px); transform-style: preserve-3d;"
         aria-label="Cover Undangan Pernikahan"
       >
+        <!-- Viewport Botanical Corner Frames for Full, Rich Composition (Rame & Cutie) -->
+        <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+          <FloralCorner position="top-left" size={135} className="absolute -top-1 -left-1 opacity-85 block drop-shadow-xs" />
+          <FloralCorner position="top-right" size={135} className="absolute -top-1 -right-1 opacity-85 block drop-shadow-xs" />
+          <FloralCorner position="bottom-left" size={115} className="absolute -bottom-1 -left-1 opacity-70 block drop-shadow-xs" />
+          <FloralCorner position="bottom-right" size={115} className="absolute -bottom-1 -right-1 opacity-70 block drop-shadow-xs" />
+        </div>
+
         <div class="max-w-lg w-full mx-auto flex flex-col items-center justify-between h-[84svh] max-h-[720px] my-auto relative z-10">
           
           <!-- TOP BLOCK: Crest, Tagline, & Symmetrical Headline -->
@@ -93,13 +95,24 @@ import SilkRibbon from '../botanical/SilkRibbon.astro';
             </div>
           </div>
 
-          <!-- CENTER BLOCK: Grand Floral Botanical Archway (100% Free of Human Avatars) -->
+          <!-- CENTER BLOCK: Grand Botanical Floral Wedding Archway (Lush Pastel Watercolor Artwork) -->
           <div id="hero-arch-block" class="my-auto py-1 relative will-change-transform flex flex-col items-center justify-center">
-            <!-- Ethereal Sunrise Golden Aura Blooming Naturally Behind Art -->
-            <div class="absolute -inset-10 sm:-inset-16 bg-[radial-gradient(ellipse_at_center,rgba(248,196,173,0.30)_0%,rgba(212,175,55,0.18)_40%,rgba(74,93,67,0.03)_65%,transparent_80%)] blur-2xl pointer-events-none -z-10"></div>
+            <!-- Ethereal Sunrise Golden Aura Blooming Naturally Behind Arch -->
+            <div class="absolute -inset-10 sm:-inset-16 bg-[radial-gradient(ellipse_at_center,rgba(248,196,173,0.38)_0%,rgba(212,175,55,0.22)_40%,rgba(74,93,67,0.03)_65%,transparent_80%)] blur-2xl pointer-events-none -z-10"></div>
 
-            <!-- Grand Floral Botanical Archway with Twin Doves & Monogram -->
-            <FloralHeroGate width={260} height={345} className="scale-90 sm:scale-100" />
+            <!-- Grand Floral Botanical Archway (896x1200 transparent watercolor illustration) -->
+            <div class="relative w-72 sm:w-80 md:w-88 lg:w-[390px] aspect-[3/4] mx-auto flex items-center justify-center pointer-events-none select-none">
+              <img 
+                src="/assets/floral-hero-arch.png" 
+                alt="Gerbang Lengkung Bunga Pernikahan Zharkasi & Difa" 
+                class="w-full h-full object-contain filter drop-shadow-[0_16px_40px_rgba(42,52,38,0.14)] pointer-events-none select-none"
+                loading="eager"
+                fetchpriority="high"
+              />
+
+              <!-- Ethereal Portal Backlight Streaming Through Arch Center -->
+              <div class="absolute inset-x-[28%] top-[25%] bottom-[8%] rounded-t-[100px] bg-[radial-gradient(ellipse_at_50%_40%,rgba(255,248,235,0.7)_0%,rgba(248,196,173,0.3)_50%,transparent_80%)] blur-md pointer-events-none -z-5"></div>
+            </div>
           </div>
 
           <!-- BOTTOM BLOCK: Minimalist Editorial Date, Venue & Guest Welcoming -->
@@ -329,44 +342,9 @@ import SilkRibbon from '../botanical/SilkRibbon.astro';
               <!-- Zharkasi (Groom) -->
               <div id="couple-groom-profile" class="flex flex-col items-center text-center will-change-transform flex-1 max-w-[200px]">
                 <div id="couple-groom-avatar" class="relative mb-2 group will-change-transform">
-                  <!-- Ambient Halo Glow -->
-                  <div class="absolute -inset-4 rounded-full bg-[radial-gradient(circle,rgba(234,161,148,0.28)_0%,rgba(212,175,55,0.16)_45%,transparent_75%)] blur-lg pointer-events-none"></div>
-
-                  <!-- The Oval Plaque for Zharkasi -->
-                  <div
-                    class="relative rounded-full p-1 border-2 border-[#B89352]/60 bg-gradient-to-tr from-[#FFFDF9] via-[#FAF8F5] to-[#F7F1E6] shadow-[0_10px_28px_rgba(42,52,38,0.10)] flex items-center justify-center overflow-visible w-24 h-28 sm:w-28 sm:h-32"
-                  >
-                    <!-- Concentric Beaded Gilded Ring -->
-                    <div class="absolute inset-1.5 rounded-full border border-dashed border-[#B89352]/35 pointer-events-none"></div>
-                    <div class="absolute inset-2.5 rounded-full border border-[#D4AF37]/20 pointer-events-none"></div>
-
-                    <!-- Climbing Blossom Accent (Top-Left) -->
-                    <svg class="absolute -left-3 -top-2 w-12 h-12 pointer-events-none drop-shadow-xs" viewBox="0 0 60 60" fill="none">
-                      <path d="M 10 50 C 15 35, 25 20, 45 10" stroke="#7A6030" stroke-width="1.4" stroke-linecap="round"/>
-                      <circle cx="28" cy="24" r="6" fill="#EAA194" stroke="#DE7C6E" stroke-width="0.8"/>
-                      <circle cx="28" cy="24" r="3" fill="#FFF2F0"/>
-                      <path d="M 16 38 C 6 32, 8 20, 20 22 C 22 30, 20 36, 16 38 Z" fill="#5E7C54"/>
-                      <path d="M 38 18 C 34 8, 46 4, 48 14 C 44 18, 40 18, 38 18 Z" fill="#445D3C"/>
-                      <circle cx="14" cy="42" r="1.6" fill="#D4AF37"/>
-                    </svg>
-
-                    <!-- Climbing Blossom Accent (Bottom-Right) -->
-                    <svg class="absolute -right-3 -bottom-2 w-12 h-12 pointer-events-none drop-shadow-xs" viewBox="0 0 60 60" fill="none">
-                      <path d="M 50 10 C 45 25, 35 40, 15 50" stroke="#7A6030" stroke-width="1.4" stroke-linecap="round"/>
-                      <circle cx="32" cy="36" r="6" fill="#F8C4AD" stroke="#DE7C6E" stroke-width="0.8"/>
-                      <circle cx="32" cy="36" r="3" fill="#FFF2F0"/>
-                      <path d="M 44 22 C 54 28, 52 40, 40 38 C 38 30, 40 24, 44 22 Z" fill="#5E7C54"/>
-                      <circle cx="46" cy="18" r="1.6" fill="#D4AF37"/>
-                    </svg>
-
-                    <!-- Center Grand Initial 'Z' -->
-                    <div class="flex flex-col items-center justify-center relative z-10">
-                      <span class="text-[0.5rem] tracking-[0.2em] text-[#B89352] uppercase font-serif">✦</span>
-                      <span class="font-display italic text-3xl sm:text-4xl text-[#2A3426] leading-none select-none drop-shadow-xs my-0.5">
-                        Z
-                      </span>
-                      <span class="h-[1px] w-5 bg-[#B89352]/40"></span>
-                    </div>
+                  <div class="absolute -inset-3 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.22)_0%,transparent_70%)] blur-md pointer-events-none"></div>
+                  <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 border border-[#B89352]/45 bg-gradient-to-tr from-[#FFFDF9] via-[#FAF8F5] to-[#F7F1E6] shadow-[0_8px_24px_rgba(42,52,38,0.08)] flex items-center justify-center">
+                    <FloralWreath monogram="Z" size={84} />
                   </div>
                 </div>
 
@@ -409,44 +387,9 @@ import SilkRibbon from '../botanical/SilkRibbon.astro';
               <!-- Difa (Bride) -->
               <div id="couple-bride-profile" class="flex flex-col items-center text-center will-change-transform flex-1 max-w-[200px]">
                 <div id="couple-bride-avatar" class="relative mb-2 group will-change-transform">
-                  <!-- Ambient Halo Glow -->
-                  <div class="absolute -inset-4 rounded-full bg-[radial-gradient(circle,rgba(248,196,173,0.28)_0%,rgba(212,175,55,0.16)_45%,transparent_75%)] blur-lg pointer-events-none"></div>
-
-                  <!-- The Oval Plaque for Difa -->
-                  <div
-                    class="relative rounded-full p-1 border-2 border-[#B89352]/60 bg-gradient-to-tr from-[#FFFDF9] via-[#FAF8F5] to-[#F7F1E6] shadow-[0_10px_28px_rgba(42,52,38,0.10)] flex items-center justify-center overflow-visible w-24 h-28 sm:w-28 sm:h-32"
-                  >
-                    <!-- Concentric Beaded Gilded Ring -->
-                    <div class="absolute inset-1.5 rounded-full border border-dashed border-[#B89352]/35 pointer-events-none"></div>
-                    <div class="absolute inset-2.5 rounded-full border border-[#D4AF37]/20 pointer-events-none"></div>
-
-                    <!-- Climbing Blossom Accent (Top-Left) -->
-                    <svg class="absolute -left-3 -top-2 w-12 h-12 pointer-events-none drop-shadow-xs" viewBox="0 0 60 60" fill="none">
-                      <path d="M 10 50 C 15 35, 25 20, 45 10" stroke="#7A6030" stroke-width="1.4" stroke-linecap="round"/>
-                      <circle cx="28" cy="24" r="6" fill="#F8C4AD" stroke="#DE7C6E" stroke-width="0.8"/>
-                      <circle cx="28" cy="24" r="3" fill="#FFF2F0"/>
-                      <path d="M 16 38 C 6 32, 8 20, 20 22 C 22 30, 20 36, 16 38 Z" fill="#5E7C54"/>
-                      <path d="M 38 18 C 34 8, 46 4, 48 14 C 44 18, 40 18, 38 18 Z" fill="#445D3C"/>
-                      <circle cx="14" cy="42" r="1.6" fill="#D4AF37"/>
-                    </svg>
-
-                    <!-- Climbing Blossom Accent (Bottom-Right) -->
-                    <svg class="absolute -right-3 -bottom-2 w-12 h-12 pointer-events-none drop-shadow-xs" viewBox="0 0 60 60" fill="none">
-                      <path d="M 50 10 C 45 25, 35 40, 15 50" stroke="#7A6030" stroke-width="1.4" stroke-linecap="round"/>
-                      <circle cx="32" cy="36" r="6" fill="#EAA194" stroke="#DE7C6E" stroke-width="0.8"/>
-                      <circle cx="32" cy="36" r="3" fill="#FFF2F0"/>
-                      <path d="M 44 22 C 54 28, 52 40, 40 38 C 38 30, 40 24, 44 22 Z" fill="#5E7C54"/>
-                      <circle cx="46" cy="18" r="1.6" fill="#D4AF37"/>
-                    </svg>
-
-                    <!-- Center Grand Initial 'D' -->
-                    <div class="flex flex-col items-center justify-center relative z-10">
-                      <span class="text-[0.5rem] tracking-[0.2em] text-[#B89352] uppercase font-serif">✦</span>
-                      <span class="font-display italic text-3xl sm:text-4xl text-[#2A3426] leading-none select-none drop-shadow-xs my-0.5">
-                        D
-                      </span>
-                      <span class="h-[1px] w-5 bg-[#B89352]/40"></span>
-                    </div>
+                  <div class="absolute -inset-3 rounded-full bg-[radial-gradient(circle,rgba(248,196,173,0.25)_0%,transparent_70%)] blur-md pointer-events-none"></div>
+                  <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 border border-[#B89352]/45 bg-gradient-to-tr from-[#FFFDF9] via-[#FAF8F5] to-[#F7F1E6] shadow-[0_8px_24px_rgba(42,52,38,0.08)] flex items-center justify-center">
+                    <FloralWreath monogram="D" size={84} />
                   </div>
                 </div>
 
@@ -601,9 +544,14 @@ import SilkRibbon from '../botanical/SilkRibbon.astro';
                   </g>
                 </svg>
 
-                <!-- 3D Interlocking Diamond & 18K Gold Wedding Rings (100% Free of Human Avatars) -->
-                <div class="absolute inset-0 flex items-center justify-center pt-8 sm:pt-10">
-                  <WeddingRings size={170} />
+                <!-- 3D Luxury Watercolor Wedding Rings with Peonies & Diamonds -->
+                <div class="absolute inset-0 flex items-center justify-center pt-6 sm:pt-8">
+                  <img
+                    src="/assets/wedding-rings-luxury.png"
+                    alt="Sepasang Cincin Pernikahan Emas & Berlian Soliter"
+                    class="w-48 sm:w-56 h-auto drop-shadow-[0_12px_32px_rgba(234,161,148,0.30)] object-contain pointer-events-none select-none"
+                    loading="lazy"
+                  />
                 </div>
               </div>
 

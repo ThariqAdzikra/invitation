@@ -3,7 +3,6 @@
 import content from '../data/content.json';
 import FloralWreath from './botanical/FloralWreath.astro';
 import FloralFlourish from './botanical/FloralFlourish.astro';
-import FloralHeroGate from './botanical/FloralHeroGate.astro';
 ---
 
 <section id="hero" class="deck-section section-hero relative px-4 text-center overflow-hidden z-10 pt-16 pb-24" aria-label="Informasi Utama Pernikahan">
@@ -32,13 +31,24 @@ import FloralHeroGate from './botanical/FloralHeroGate.astro';
       <FloralFlourish width={160} height={24} />
     </div>
 
-    <!-- GRAND BOTANICAL ARCHWAY (100% Free of Human Avatars) -->
+    <!-- GRAND BOTANICAL ARCHWAY (Lush Pastel Watercolor Artwork) -->
     <div id="hero-silhouette-container" class="my-3 relative opacity-0 transform transition-transform duration-700 flex flex-col items-center justify-center">
       <!-- Ethereal Sunrise Golden Aura Blooming Naturally Behind Art -->
-      <div class="absolute -inset-10 sm:-inset-14 bg-[radial-gradient(ellipse_at_center,rgba(248,196,173,0.28)_0%,rgba(212,175,55,0.16)_40%,rgba(74,93,67,0.03)_65%,transparent_80%)] blur-2xl pointer-events-none -z-10"></div>
+      <div class="absolute -inset-10 sm:-inset-14 bg-[radial-gradient(ellipse_at_center,rgba(248,196,173,0.38)_0%,rgba(212,175,55,0.22)_40%,rgba(74,93,67,0.03)_65%,transparent_80%)] blur-2xl pointer-events-none -z-10"></div>
 
-      <!-- Grand Floral Botanical Archway with Twin Doves & Monogram -->
-      <FloralHeroGate width={260} height={345} className="scale-90 sm:scale-100" />
+      <!-- Grand Floral Botanical Archway (896x1200 transparent watercolor illustration) -->
+      <div class="relative w-72 sm:w-80 md:w-88 lg:w-[390px] aspect-[3/4] mx-auto flex items-center justify-center pointer-events-none select-none">
+        <img 
+          src="/assets/floral-hero-arch.png" 
+          alt="Gerbang Lengkung Bunga Pernikahan Zharkasi & Difa" 
+          class="w-full h-full object-contain filter drop-shadow-[0_16px_40px_rgba(42,52,38,0.14)] pointer-events-none select-none"
+          loading="eager"
+          fetchpriority="high"
+        />
+
+        <!-- Ethereal Portal Backlight Streaming Through Arch Center -->
+        <div class="absolute inset-x-[28%] top-[25%] bottom-[8%] rounded-t-[100px] bg-[radial-gradient(ellipse_at_50%_40%,rgba(255,248,235,0.7)_0%,rgba(248,196,173,0.3)_50%,transparent_80%)] blur-md pointer-events-none -z-5"></div>
+      </div>
     </div>
 
     <!-- Date & Venue -->
