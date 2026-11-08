@@ -22,30 +22,29 @@
     if (prefersReducedMotion) return;
 
     // =========================================================================
-    // LAYER 0: FALLING GINKGO & OLIVE LEAVES (powered by npm 'falling-leaves')
-    // Symbolic eternal love & blessed peace: delicate ginkgo fan & tapered olive leaves
+    // LAYER 0: FALLING GINKGO LEAVES (powered by npm 'falling-leaves')
+    // Background atmospheric drift: delicate fan-shaped Ginkgo leaves in gold & sage
+    // Z-INDEX IS SET TO 2 (STRICTLY IN BACKGROUND, NEVER COVERS TEXT/BUTTONS)
     // =========================================================================
     try {
       const leaves = new FallingLeaves({
-        shapes: ['ginkgo', 'oval'],
-        count: window.innerWidth < 640 ? 16 : 26,
-        size: [14, 26],
-        speed: [0.50, 1.15],
-        wind: [-0.2, 0.60],
-        sway: [0.6, 1.8],
-        rotationSpeed: [-1.2, 1.2],
-        opacity: 0.85,
-        zIndex: 35,
+        shapes: ['ginkgo'],
+        count: window.innerWidth < 640 ? 10 : 18,
+        size: [12, 22],
+        speed: [0.35, 0.85],
+        wind: [-0.15, 0.45],
+        sway: [0.5, 1.4],
+        rotationSpeed: [-0.9, 0.9],
+        opacity: 0.75,
+        zIndex: 2, // Background layer: behind #main-content (z-10) and cards (z-30)
         respectReducedMotion: true,
         autoStart: true,
         colors: [
-          '#4A5D43', // Deep botanical olive
-          '#566A4E', // Royal olive green (matching Zharkasi suit)
-          '#7E8F77', // Soft sage green
-          '#384833', // Muted forest olive
-          '#B89352', // Luxury wedding antique gold
-          '#D4AF37', // Radiant sunlight gold
+          '#D4AF37', // Radiant gold ginkgo
           '#E5C378', // Sparkling champagne gold
+          '#B89352', // Luxury antique gold
+          '#7E8F77', // Soft sage green
+          '#566A4E', // Royal botanical olive
           '#F3DE98'  // Delicate gilded ivory sheen
         ]
       });
