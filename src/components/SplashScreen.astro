@@ -69,23 +69,29 @@ import FloralCorner from './botanical/FloralCorner.astro';
     <!-- MAIN PHYSICAL ENVELOPE RIG -->
     <div
       id="envelope-body"
-      class="relative w-full h-full rounded-2xl shadow-[0_25px_60px_rgba(42,52,38,0.18),0_4px_12px_rgba(42,52,38,0.08)] bg-[#F5F1E8] border-x border-b border-[#D8D0BF] overflow-visible"
+      class="relative w-full h-full rounded-2xl overflow-visible"
       style="transform-style: preserve-3d;"
     >
-      <!-- LAYER 0: INSIDE POCKET LINING (Revealed when flap opens: Clean Warm Ivory Cotton Stock) -->
-      <div id="envelope-lining" class="absolute inset-0 rounded-2xl overflow-hidden bg-gradient-to-b from-[#FAF7F0] via-[#F2EDE2] to-[#E5DFCF] pointer-events-none z-0 transition-opacity">
+      <!-- LAYER 0.1: ENVELOPE BASE COTTON PAPER & FRAME (Dissolves cleanly with envelope) -->
+      <div 
+        id="envelope-base-paper" 
+        class="absolute inset-0 rounded-2xl bg-[#F5F0E6] border border-[#BAAD96] shadow-[0_25px_60px_rgba(42,52,38,0.18),0_4px_16px_rgba(42,52,38,0.10)] transition-opacity"
+      ></div>
+
+      <!-- LAYER 0.2: INSIDE POCKET LINING (Revealed when flap opens: Warm Cotton Stock & Shadow) -->
+      <div id="envelope-lining" class="absolute inset-0 rounded-2xl overflow-hidden bg-gradient-to-b from-[#FAF7F0] via-[#F1ECE0] to-[#E3DAC9] pointer-events-none z-0 transition-opacity">
         <!-- Inner Pocket Depth Shadow -->
-        <div class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#2A3426]/15 via-[#2A3426]/04 to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#2A3426]/18 via-[#2A3426]/05 to-transparent"></div>
       </div>
 
-      <!-- LAYER 1: THE LETTER CARD (Tucked inside, emerges upwards, then seamlessly zooms into Hero) -->
+      <!-- LAYER 1: THE LETTER CARD (Tucked inside, emerges upwards, then rests serenely in center) -->
       <div
         id="envelope-card"
-        class="absolute left-[3.5%] right-[3.5%] top-[4%] h-[92%] bg-[#FAF8F5] rounded-xl shadow-[0_12px_35px_rgba(42,52,38,0.14)] border border-[#B89352]/40 p-5 sm:p-7 flex flex-col items-center justify-between text-center z-10 opacity-0 pointer-events-none will-change-transform"
+        class="absolute left-[3.5%] right-[3.5%] top-[4%] h-[92%] bg-[#FAF8F5] rounded-xl shadow-[0_12px_35px_rgba(42,52,38,0.14)] border border-[#B89352]/45 p-5 sm:p-7 flex flex-col items-center justify-between text-center z-10 opacity-0 pointer-events-none will-change-transform"
       >
-        <!-- Double Gold Hairline Inset Frame (Clean, No Disruptive Dashed Lines) -->
-        <div class="absolute inset-2 sm:inset-3 border border-[#B89352]/30 rounded-lg pointer-events-none"></div>
-        <div class="absolute inset-2.5 sm:inset-3.5 border border-[#566A4E]/15 rounded-md pointer-events-none"></div>
+        <!-- Double Gold Hairline Inset Frame -->
+        <div class="absolute inset-2 sm:inset-3 border border-[#B89352]/35 rounded-lg pointer-events-none"></div>
+        <div class="absolute inset-2.5 sm:inset-3.5 border border-[#566A4E]/20 rounded-md pointer-events-none"></div>
 
         <!-- Header -->
         <div class="pt-1 relative z-10">
@@ -119,27 +125,73 @@ import FloralCorner from './botanical/FloralCorner.astro';
         </div>
       </div>
 
-      <!-- LAYER 2: FRONT ENVELOPE SOLID POCKET (100% Opaque Cotton Stock - Clean Folds, Zero Dashed Lines) -->
+      <!-- LAYER 2: FRONT ENVELOPE SOLID POCKET WITH CRISP, PROMINENT FOLD LINES -->
       <div id="envelope-pocket" class="absolute inset-0 z-20 pointer-events-none rounded-2xl overflow-hidden transition-opacity">
-        
-        <!-- Left Side Flap Fold -->
-        <div 
-          class="absolute inset-0"
-          style="clip-path: polygon(0 0, 50% 50%, 0 100%); background: linear-gradient(135deg, #F3EEE4 0%, #E7E0D2 100%);"
-        ></div>
+        <svg viewBox="0 0 500 342" class="w-full h-full overflow-hidden rounded-2xl pointer-events-none" preserveAspectRatio="none">
+          <defs>
+            <!-- Left flap gradient & shadow -->
+            <linearGradient id="pocket-left-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F3EDE2" />
+              <stop offset="100%" stop-color="#E2D8C6" />
+            </linearGradient>
+            <!-- Right flap gradient & shadow -->
+            <linearGradient id="pocket-right-grad" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#EFE9DC" />
+              <stop offset="100%" stop-color="#DDD3C0" />
+            </linearGradient>
+            <!-- Bottom V-pocket gradient -->
+            <linearGradient id="pocket-bottom-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FAF7F0" />
+              <stop offset="35%" stop-color="#F2ECE0" />
+              <stop offset="100%" stop-color="#E6DEC9" />
+            </linearGradient>
+            <!-- Soft drop shadow under the bottom V pocket -->
+            <filter id="bottom-pocket-shadow" x="-5%" y="-15%" width="110%" height="130%">
+              <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#2A3426" flood-opacity="0.12" />
+            </filter>
+          </defs>
 
-        <!-- Right Side Flap Fold -->
-        <div 
-          class="absolute inset-0"
-          style="clip-path: polygon(100% 0, 50% 50%, 100% 100%); background: linear-gradient(225deg, #F3EEE4 0%, #E7E0D2 100%);"
-        ></div>
+          <!-- Left Flap Fold -->
+          <path
+            d="M 0 0 L 250 171 L 0 342 Z"
+            fill="url(#pocket-left-grad)"
+            stroke="#BAAD96"
+            stroke-width="1.3"
+          />
 
-        <!-- Bottom Triangle Pocket (Rising with crisp paper crease & subtle shadow) -->
-        <div 
-          class="absolute inset-0 filter drop-shadow-[0_-5px_12px_rgba(42,52,38,0.07)]"
-          style="clip-path: polygon(0 100%, 100% 100%, 50% 50%); background: linear-gradient(180deg, #FAF7F0 0%, #F1ECE2 50%, #E8E2D4 100%);"
-        ></div>
+          <!-- Right Flap Fold -->
+          <path
+            d="M 500 0 L 250 171 L 500 342 Z"
+            fill="url(#pocket-right-grad)"
+            stroke="#BAAD96"
+            stroke-width="1.3"
+          />
 
+          <!-- Bottom V Pocket (Rising to center apex) -->
+          <g filter="url(#bottom-pocket-shadow)">
+            <path
+              d="M 0 342 
+                 L 245 168 
+                 Q 250 164.5, 255 168 
+                 L 500 342 
+                 Z"
+              fill="url(#pocket-bottom-grad)"
+              stroke="#AFA087"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            />
+            <!-- Inner Blind Deboss Crease Hairline on Bottom Pocket -->
+            <path
+              d="M 14 334 
+                 L 245 174 
+                 Q 250 170.5, 255 174 
+                 L 486 334"
+              stroke="#D2C8B5"
+              stroke-width="0.8"
+              fill="none"
+            />
+          </g>
+        </svg>
       </div>
 
       <!-- LAYER 2.5: LUXURY GUEST CALLIGRAPHY NAMEPLATE (Centered on lower pocket) -->
@@ -156,87 +208,204 @@ import FloralCorner from './botanical/FloralCorner.astro';
         </div>
       </div>
 
-      <!-- LAYER 3: 3D EURO TOP FLAP (Unified Curved Paper Crease, Matching Rounded Corners) -->
+      <!-- LAYER 3: 3D EURO TOP FLAP WITH CRISP OUTLINE & EMBOSSED CREASE -->
       <div
         id="envelope-top-flap-container"
-        class="absolute -top-[1px] -left-[1px] -right-[1px] h-[56%] origin-top z-30 pointer-events-none"
-        style="perspective: 1200px; transform-style: preserve-3d;"
+        class="absolute -top-[1px] -left-[1px] -right-[1px] h-[64%] origin-top z-30 pointer-events-none"
+        style="perspective: 1400px; transform-style: preserve-3d;"
       >
         <!-- The Flipping Flap Element (Swings up 180° with point facing upward into the sky) -->
         <div
           id="envelope-top-flap"
-          class="w-full h-full will-change-transform filter drop-shadow-[0_8px_14px_rgba(42,52,38,0.12)]"
+          class="w-full h-full will-change-transform filter drop-shadow-[0_10px_20px_rgba(35,46,31,0.18)]"
           style="transform-origin: top center; transform-style: preserve-3d;"
         >
-          <svg viewBox="0 0 100 56" preserveAspectRatio="none" class="w-full h-full overflow-visible">
+          <svg viewBox="0 0 500 230" preserveAspectRatio="none" class="w-full h-full overflow-visible">
             <defs>
               <linearGradient id="envelope-flap-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#FAF7F0" />
-                <stop offset="55%" stop-color="#F2EDE2" />
-                <stop offset="100%" stop-color="#E8E2D4" />
+                <stop offset="0%" stop-color="#FAF8F2" />
+                <stop offset="55%" stop-color="#F1ECE0" />
+                <stop offset="100%" stop-color="#E3DAC7" />
               </linearGradient>
             </defs>
+            <!-- Deep Euro V-Flap with Rounded Outer Shoulders -->
             <path
-              d="M 0 5 
-                 Q 0 0, 3.2 0 
-                 L 96.8 0 
-                 Q 100 0, 100 5 
-                 L 51.2 55.2 
-                 Q 50 56, 48.8 55.2 
+              d="M 0 16 
+                 Q 0 0, 16 0 
+                 L 484 0 
+                 Q 500 0, 500 16 
+                 L 255 222 
+                 Q 250 226, 245 222 
                  Z"
               fill="url(#envelope-flap-gradient)"
-              stroke="#D5CCBC"
-              stroke-width="0.35"
+              stroke="#A39379"
+              stroke-width="1.6"
               stroke-linejoin="round"
+            />
+            <!-- Inner Blind Deboss Crease Hairline on Top Flap -->
+            <path
+              d="M 16 8 
+                 L 484 8 
+                 M 480 16 
+                 L 254 214 
+                 Q 250 217.5, 246 214 
+                 L 20 16"
+              stroke="#C5B8A2"
+              stroke-width="0.9"
+              fill="none"
             />
           </svg>
         </div>
       </div>
 
-      <!-- LAYER 4: AUTHENTIC POURED OLIVE WAX SEAL (Centered at Flap V-Tip) -->
+      <!-- LAYER 4: PHOTOREALISTIC 3D POURED OLIVE WAX SEAL (Centered at Flap Tip) -->
       <div
         id="wax-seal-container"
-        class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto transform transition-transform duration-200 active:scale-95"
+        class="absolute top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 cursor-pointer pointer-events-auto transform transition-all duration-300 hover:scale-105 active:scale-95 group"
       >
-        <div class="relative flex items-center justify-center group">
+        <div class="relative flex items-center justify-center">
           <!-- Ambient Gold Glow Halo -->
-          <div id="wax-seal-halo" class="absolute -inset-3 rounded-full bg-[#B89352]/25 blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div id="wax-seal-halo" class="absolute -inset-4 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.32)_0%,transparent_70%)] blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
-          <!-- Poured Molten Wax Seal Disc (Organic 8-Lobed Shape) -->
-          <svg width="60" height="60" viewBox="0 0 100 100" class="filter drop-shadow-[0_8px_18px_rgba(36,49,32,0.4)]">
-            <path
-              d="M50 5 
-                 C62 4, 73 8, 82 17 
-                 C91 26, 96 37, 95 50 
-                 C94 63, 90 74, 81 83 
-                 C72 92, 61 96, 48 95 
-                 C35 94, 24 90, 16 80 
-                 C7 71, 3 59, 5 46 
-                 C7 33, 12 22, 22 14 
-                 C31 6, 41 5, 50 5 Z"
-              fill="url(#wax-gradient)"
-              stroke="#5C7352"
-              stroke-width="1.5"
-            />
-            
-            <!-- Recessed Stamped Center Ring -->
-            <circle cx="50" cy="50" r="34" fill="#3B4C35" stroke="#B89352" stroke-width="1.2" opacity="0.9" />
-            <circle cx="50" cy="50" r="30" fill="none" stroke="#B89352" stroke-width="0.7" opacity="0.5" />
-
-            <!-- Embossed Monogram "ZD" & Sprig -->
-            <text x="50" y="55" font-family="'Cormorant Garamond', serif" font-size="22" font-style="italic" font-weight="600" fill="#F4E5C7" text-anchor="middle" letter-spacing="1">ZD</text>
-            <path d="M42 62 Q50 64 58 62" stroke="#B89352" stroke-width="1" fill="none" stroke-linecap="round" />
-            <circle cx="50" cy="63" r="1" fill="#B89352" />
-
-            <!-- Wax Gradient Definitions -->
+          <!-- Photorealistic 3D Molten Wax Seal Disc -->
+          <svg width="78" height="78" viewBox="0 0 120 120" class="filter drop-shadow-[0_10px_22px_rgba(20,28,18,0.48)] drop-shadow-[0_2px_5px_rgba(20,28,18,0.38)] overflow-visible">
             <defs>
-              <linearGradient id="wax-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#556C4D" />
-                <stop offset="45%" stop-color="#40533A" />
-                <stop offset="85%" stop-color="#2E3C29" />
-                <stop offset="100%" stop-color="#232E1F" />
+              <!-- Base Molten Wax Radial Gradient (Rich Deep Olive with Top-Left Highlight) -->
+              <radialGradient id="wax-base-grad" cx="35%" cy="32%" r="70%">
+                <stop offset="0%" stop-color="#587350" />
+                <stop offset="28%" stop-color="#3D5337" />
+                <stop offset="65%" stop-color="#283724" />
+                <stop offset="100%" stop-color="#182215" />
+              </radialGradient>
+
+              <!-- Recessed Center Bed Gradient -->
+              <radialGradient id="wax-bed-grad" cx="42%" cy="38%" r="65%">
+                <stop offset="0%" stop-color="#3A4D33" />
+                <stop offset="60%" stop-color="#273523" />
+                <stop offset="100%" stop-color="#1B2518" />
+              </radialGradient>
+
+              <!-- Antique Gilded Gold Leaf Foil Gradient for Raised Embossed Monogram -->
+              <linearGradient id="wax-gold-foil" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFF8E4" />
+                <stop offset="25%" stop-color="#EED596" />
+                <stop offset="55%" stop-color="#C5A059" />
+                <stop offset="80%" stop-color="#9C7832" />
+                <stop offset="100%" stop-color="#6E501C" />
+              </linearGradient>
+
+              <!-- Inner Shadow Gradient for Crater Wall -->
+              <linearGradient id="wax-crater-shadow" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#121A10" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#121A10" stop-opacity="0.1" />
+              </linearGradient>
+
+              <!-- Glossy Specular Sheen Gradient -->
+              <linearGradient id="wax-gloss-sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55" />
+                <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.15" />
+                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
               </linearGradient>
             </defs>
+
+            <!-- 1. Organic Melted Wax Outer Puddle (Natural Flowing Lobes) -->
+            <path
+              d="M 60 7
+                 C 78 6, 92 11, 103 23
+                 C 114 34, 119 49, 116 66
+                 C 113 82, 104 95, 91 105
+                 C 78 114, 62 118, 46 116
+                 C 30 114, 17 105, 9 92
+                 C 2 79, 1 63, 5 47
+                 C 9 31, 19 18, 33 11
+                 C 46 4, 52 7, 60 7 Z"
+              fill="url(#wax-base-grad)"
+              stroke="#1E281A"
+              stroke-width="1.2"
+            />
+
+            <!-- 2. Tiny Satellite Melted Wax Droplets (Realism Details) -->
+            <circle cx="108" cy="74" r="3.2" fill="url(#wax-base-grad)" stroke="#1E281A" stroke-width="0.6" />
+            <circle cx="13" cy="38" r="2.2" fill="url(#wax-base-grad)" stroke="#1E281A" stroke-width="0.5" />
+
+            <!-- 3. Curved Specular Glossy Lip Highlight (Top-Left Rim) -->
+            <path
+              d="M 32 15 C 48 8, 74 8, 94 18"
+              stroke="url(#wax-gloss-sheen)"
+              stroke-width="3"
+              stroke-linecap="round"
+              fill="none"
+              opacity="0.8"
+            />
+            <ellipse cx="44" cy="14" rx="5" ry="2.2" fill="#FFFFFF" opacity="0.45" transform="rotate(-12 44 14)" />
+
+            <!-- 4. Outer Displacement Ridge (Where Brass Stamp Displaced Wax) -->
+            <circle cx="60" cy="60" r="42" fill="none" stroke="#68855F" stroke-width="2.2" opacity="0.75" />
+            <circle cx="60" cy="60" r="40" fill="none" stroke="#141E12" stroke-width="1.8" />
+
+            <!-- 5. Recessed Circular Stamp Bed -->
+            <circle cx="60" cy="60" r="38.5" fill="url(#wax-bed-grad)" />
+            <!-- Crater Top Shadow -->
+            <path d="M 21.5 60 A 38.5 38.5 0 0 1 98.5 60 Z" fill="url(#wax-crater-shadow)" opacity="0.6" />
+
+            <!-- 6. Milled Beaded Brass Ring Border (Authentic Seal Border) -->
+            <circle cx="60" cy="60" r="35" fill="none" stroke="url(#wax-gold-foil)" stroke-width="1.1" stroke-dasharray="1.8 2.5" opacity="0.8" />
+            <circle cx="60" cy="60" r="32" fill="none" stroke="url(#wax-gold-foil)" stroke-width="0.5" opacity="0.4" />
+
+            <!-- 7. 3D Embossed Gilded Monogram "ZD" -->
+            <!-- Emboss Cast Shadow -->
+            <text
+              x="61.2"
+              y="66.2"
+              font-family="'Cormorant Garamond', 'Playfair Display', serif"
+              font-size="28"
+              font-style="italic"
+              font-weight="700"
+              fill="#0F160D"
+              text-anchor="middle"
+              letter-spacing="2"
+              opacity="0.9"
+            >ZD</text>
+
+            <!-- Emboss Gold Gilded Face -->
+            <text
+              x="60"
+              y="65"
+              font-family="'Cormorant Garamond', 'Playfair Display', serif"
+              font-size="28"
+              font-style="italic"
+              font-weight="700"
+              fill="url(#wax-gold-foil)"
+              text-anchor="middle"
+              letter-spacing="2"
+            >ZD</text>
+
+            <!-- 8. Embossed Botanical Olive Sprig Under Monogram -->
+            <!-- Shadow -->
+            <path
+              d="M 44 76 Q 61 79 78 76"
+              stroke="#0F160D"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              fill="none"
+              opacity="0.8"
+            />
+            <circle cx="61.2" cy="78.2" r="1.5" fill="#0F160D" opacity="0.8" />
+
+            <!-- Gold Foil Sprig -->
+            <path
+              d="M 43 75 Q 60 78 77 75"
+              stroke="url(#wax-gold-foil)"
+              stroke-width="1.3"
+              stroke-linecap="round"
+              fill="none"
+            />
+            <path
+              d="M 48 72 C 46 69, 41 70, 42 74 Z
+                 M 72 72 C 74 69, 79 70, 78 74 Z"
+              fill="url(#wax-gold-foil)"
+            />
+            <circle cx="60" cy="77" r="1.4" fill="url(#wax-gold-foil)" />
           </svg>
         </div>
       </div>
@@ -261,6 +430,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
     const editorialHeader = document.getElementById('splash-editorial-header');
     const guestSplash = document.getElementById('guest-name-splash');
     const envelopeBody = document.getElementById('envelope-body');
+    const envelopeBasePaper = document.getElementById('envelope-base-paper');
     const envelopeShadow = document.getElementById('envelope-shadow');
     const envelopePocket = document.getElementById('envelope-pocket');
     const envelopeLining = document.getElementById('envelope-lining');
@@ -302,66 +472,66 @@ import FloralCorner from './botanical/FloralCorner.astro';
 
       const tl = gsap.timeline();
 
-      // PHASE 1: Wax seal lifts & dissolves softly; Header and nameplate float away
+      // PHASE 1: Wax seal lifts & dissolves softly; Header and nameplate float away cleanly
       if (waxSealContainer) {
         tl.to(waxSealContainer, {
-          scale: 1.15,
-          y: -8,
+          scale: 1.25,
           opacity: 0,
+          filter: 'blur(4px)',
           duration: 0.35,
           ease: 'power2.out'
         }, 0);
       }
 
       if (editorialHeader) {
-        tl.to(editorialHeader, { opacity: 0, y: -16, duration: 0.60, ease: 'power2.out' }, 0.05);
+        tl.to(editorialHeader, { opacity: 0, y: -22, duration: 0.40, ease: 'power2.out' }, 0);
       }
 
       if (envelopeNameplate) {
-        tl.to(envelopeNameplate, { opacity: 0, y: 16, duration: 0.50, ease: 'power2.out' }, 0.05);
+        tl.to(envelopeNameplate, { opacity: 0, y: 20, duration: 0.35, ease: 'power2.out' }, 0);
       }
 
       const botanicalCorners = document.querySelectorAll('.splash-botanical-corners');
 
-      // PHASE 2: Euro flap flips open 180° in 3D with authentic paper inertia (0.20s -> 1.15s)
+      // PHASE 2: Euro flap flips open 180° in 3D (0.15s -> 0.90s)
       tl.to(topFlap, {
         rotateX: 180,
-        duration: 0.95,
+        duration: 0.75,
         ease: 'power2.inOut',
         onUpdate: function() {
-          if (this.progress() > 0.45 && topFlapContainer) {
-            topFlapContainer.style.zIndex = '2';
+          if (this.progress() > 0.40 && topFlapContainer) {
+            topFlapContainer.style.zIndex = '1';
           }
         }
-      }, 0.20);
+      }, 0.15);
 
-      // PHASE 3: Surat ditarik meluncur anggun keluar dari saku amplop (0.65s -> 1.75s)
+      // PHASE 3: Card slides smoothly UPWARD out of the pocket (0.50s -> 1.30s)
       tl.to(letterCard, {
         opacity: 1,
-        y: '-92%',
+        y: '-65%',
         scale: 1.02,
-        duration: 1.10,
-        ease: 'power3.out'
-      }, 0.65);
+        duration: 0.80,
+        ease: 'power2.out'
+      }, 0.50);
 
-      // AS THE CARD EMERGES: FADE OUT AND DISSOLVE THE ENVELOPE BASE (ZERO COLLISION)
-      // All envelope parts sink down softly and melt into the background (1.15s -> 1.85s)
+      // AS THE CARD EMERGES: THE ENTIRE ENVELOPE BASE SINKS DOWNWARD AND DISSOLVES AWAY (0.75s -> 1.25s)
+      // This completely prevents ANY overlap: the pocket, lining, flap, and envelope base fade out and vanish!
       const envelopeDissolveTargets = [
         topFlapContainer,
         envelopePocket,
         envelopeLining,
         envelopeShadow,
-        envelopeBody
+        envelopeBasePaper
       ].filter(Boolean);
 
       tl.to(envelopeDissolveTargets, {
         opacity: 0,
-        y: 40,
-        duration: 0.70,
-        ease: 'power2.out'
-      }, 1.15);
+        y: 65,
+        duration: 0.50,
+        ease: 'power2.in'
+      }, 0.75);
 
-      // 1.75s: Layer surat diposisikan di paling depan & semburan kelopak emas confetti
+      // PHASE 4: Layer surat diposisikan di paling depan, confetti burst (1.25s)
       tl.add(() => {
         if (letterCard) {
           letterCard.style.zIndex = '50';
@@ -371,61 +541,38 @@ import FloralCorner from './botanical/FloralCorner.astro';
 
         // Haute-Couture Gold Leaf, Olive & Ivory Confetti Burst
         confetti({
-          particleCount: 55,
-          spread: 75,
-          origin: { x: 0.5, y: 0.42 },
+          particleCount: 50,
+          spread: 70,
+          origin: { x: 0.5, y: 0.45 },
           colors: ['#B89352', '#D4AF6E', '#F4E5C7', '#566A4E', '#3E4C38', '#FFFFFF'],
-          ticks: 200,
+          ticks: 180,
           gravity: 0.75,
-          scalar: 1.15,
+          scalar: 1.1,
           shapes: ['circle', 'square'],
           zIndex: 999999
         });
+      }, 1.25);
 
-        setTimeout(() => {
-          confetti({
-            particleCount: 28,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0.35, y: 0.42 },
-            colors: ['#D4AF6E', '#B89352', '#FAF8F5'],
-            gravity: 0.65,
-            scalar: 0.95,
-            zIndex: 999999
-          });
-          confetti({
-            particleCount: 28,
-            angle: 120,
-            spread: 55,
-            origin: { x: 0.65, y: 0.42 },
-            colors: ['#D4AF6E', '#566A4E', '#FAF8F5'],
-            gravity: 0.65,
-            scalar: 0.95,
-            zIndex: 999999
-          });
-        }, 180);
-      }, 1.75);
-
-      // PHASE 4: Surat meluncur turun anggun ke posisi tengah membaca di kanvas yang BERSIH (1.80s -> 2.85s)
+      // PHASE 5: Surat meluncur turun anggun ke posisi tengah membaca di kanvas yang BERSIH (1.20s -> 2.05s)
       tl.to(letterCard, {
         y: '0%',
-        scale: 1.05,
-        boxShadow: '0 25px 70px rgba(42, 52, 38, 0.20)',
-        duration: 1.05,
+        scale: 1.06,
+        boxShadow: '0 25px 70px rgba(42, 52, 38, 0.22)',
+        duration: 0.85,
         ease: 'power3.out'
-      }, 1.80);
+      }, 1.20);
 
-      // PHASE 5: Reading Plateau yang tenang & nyaman (2.85s -> 4.80s)
+      // PHASE 6: Reading Plateau yang tenang & nyaman (2.05s -> 4.40s)
       // Memberikan waktu bagi tamu untuk membaca isi kartu undangan dengan tenang
       // User juga dapat mengetuk layar kapan saja pada fase ini untuk langsung melanjutkan
       const skipReading = () => {
-        if (tl.time() >= 2.5 && tl.time() < 4.8) {
-          tl.seek(4.8);
+        if (tl.time() >= 1.8 && tl.time() < 4.4) {
+          tl.seek(4.4);
         }
       };
       screen.addEventListener('click', skipReading, { once: true });
 
-      // PHASE 6: SILKY-SMOOTH CINEMATIC DISSOLVE KE HALAMAN UTAMA (4.80s -> 6.00s)
+      // PHASE 7: SILKY-SMOOTH CINEMATIC DISSOLVE KE HALAMAN UTAMA (4.40s -> 5.60s)
       // Surat mengapung lembut ke atas, sementara splash screen larut halus ke Hero di baliknya
       tl.to(scene, {
         scale: 1.10,
@@ -433,7 +580,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
         opacity: 0,
         duration: 1.20,
         ease: 'power2.inOut'
-      }, 4.80);
+      }, 4.40);
 
       if (botanicalCorners.length) {
         tl.to(botanicalCorners, {
@@ -441,7 +588,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
           scale: 0.95,
           duration: 0.90,
           ease: 'power2.inOut'
-        }, 4.90);
+        }, 4.50);
       }
 
       // Splash screen larut dengan halus menampilkan section Hero
@@ -449,9 +596,9 @@ import FloralCorner from './botanical/FloralCorner.astro';
         opacity: 0,
         duration: 1.10,
         ease: 'power2.inOut'
-      }, 4.90);
+      }, 4.50);
 
-      // PHASE 7: Transition Complete — Enable Lenis Scroll & Clean Screen (6.05s)
+      // PHASE 8: Transition Complete — Enable Lenis Scroll & Clean Screen (5.65s)
       tl.add(() => {
         if (screen) screen.style.display = 'none';
         document.documentElement.classList.remove('is-locked');
@@ -462,7 +609,7 @@ import FloralCorner from './botanical/FloralCorner.astro';
           (window as any).__lenis.start();
         }
         window.dispatchEvent(new CustomEvent('invitationOpened'));
-      }, 6.05);
+      }, 5.65);
     }
 
     // Event listeners: Klik wax seal atau amplop langsung membuka
