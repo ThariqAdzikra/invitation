@@ -26,7 +26,7 @@
   <div 
     id="sky-sunset" 
     class="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out will-change-opacity"
-    style="background: radial-gradient(ellipse at 50% 35%, rgba(238, 175, 115, 0.42) 0%, rgba(215, 140, 85, 0.20) 45%, rgba(184, 147, 82, 0.08) 70%, transparent 95%);"
+    style="background: radial-gradient(ellipse at 50% 34%, rgba(238, 175, 115, 0.40) 0%, rgba(215, 140, 85, 0.18) 45%, rgba(184, 147, 82, 0.06) 70%, transparent 95%);"
   ></div>
 
   <!-- =========================================================================
@@ -102,11 +102,11 @@
         scale: isMobile ? 1.0 : 1.1
       };
 
-      // Phase 3: Sunset (Centered on horizon behind rolling hills & couple)
+      // Phase 3: Sunset (Centered behind Romantic Swans in Closing)
       const pSunset = {
         x: windowW * 0.50,
-        y: isMobile ? windowH * 0.38 : windowH * 0.36,
-        scale: isMobile ? 1.35 : 1.55
+        y: isMobile ? windowH * 0.32 : windowH * 0.34,
+        scale: isMobile ? 0.95 : 1.10
       };
 
       return { pSunrise, pMidday, pSunset, windowW, windowH };
@@ -212,8 +212,8 @@
 
     if (sunGlow) {
       sunTL.to(sunGlow, {
-        scale: 1.45,
-        opacity: 1,
+        scale: 1.20,
+        opacity: 0.9,
         duration: 0.22,
         ease: 'power2.out'
       }, 0.78);

@@ -4,13 +4,13 @@ import content from '../data/content.json';
 import RomanticSwans from './botanical/RomanticSwans.astro';
 ---
 
-<section id="closing" class="deck-section section-flow relative px-4 text-center pb-24 overflow-hidden z-30 pt-16 sm:pt-24" aria-label="Penutup Undangan">
+<section id="closing" class="deck-section relative px-4 text-center min-h-[100svh] flex flex-col justify-center items-center py-10 sm:py-16 z-30" aria-label="Penutup Undangan">
   
-  <!-- CLOSING CONTENT (Centered & Padded) -->
+  <!-- CLOSING CONTENT (Centered & Balanced) -->
   <div class="max-w-2xl sm:max-w-3xl mx-auto flex flex-col items-center w-full relative z-10 closing-content">
 
     <!-- Romantic Quote -->
-    <div class="my-4 text-center max-w-lg mx-auto relative z-30">
+    <div class="mb-3 sm:mb-4 text-center max-w-lg mx-auto relative z-30">
       <div class="inline-flex items-center justify-center gap-2 mb-2 opacity-70">
         <span class="h-[1px] w-8 bg-[#B89352]"></span>
         <span class="text-[#B89352] text-xs">❦</span>
@@ -22,30 +22,30 @@ import RomanticSwans from './botanical/RomanticSwans.astro';
     </div>
 
     <!-- Heartfelt Closing Words -->
-    <p class="text-xs sm:text-sm md:text-base text-[#4A5D43] font-light leading-relaxed my-4 max-w-md mx-auto">
+    <p class="text-xs sm:text-sm md:text-base text-[#4A5D43] font-light leading-relaxed mb-4 sm:mb-6 max-w-md mx-auto">
       Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.
     </p>
 
     <!-- Romantic Swans Emblem (Symbolizing Eternal Devotion & Monogamy) -->
-    <div class="my-6 flex justify-center transform transition-transform hover:scale-105 duration-500">
-      <RomanticSwans size={160} />
+    <div class="my-2 sm:my-3 flex justify-center transform transition-transform hover:scale-105 duration-500">
+      <RomanticSwans size={150} />
     </div>
 
     <!-- Family Closing Sign-off -->
-    <div class="my-4">
+    <div class="my-3 sm:my-4">
       <p class="text-[0.62rem] tracking-[0.28em] text-[#B89352] uppercase font-semibold mb-2">Hormat Kami yang Berbahagia</p>
       
       <h2 class="font-display text-3xl sm:text-4xl md:text-5xl text-[#2A3426] font-normal tracking-tight">
         {content.couple.bride.nickname} <span class="font-display italic text-[#B89352] font-normal px-1">&amp;</span> {content.couple.groom.nickname}
       </h2>
 
-      <p class="text-xs text-[#7E8F77] font-light mt-1 italic">
+      <p class="text-xs text-[#7E8F77] font-light mt-1.5 italic">
         Beserta Keluarga Besar Kedua Mempelai
       </p>
     </div>
 
     <!-- Interactive Actions: Bagikan Undangan & Kembali ke Atas -->
-    <div class="mt-6 mb-12 flex flex-wrap items-center justify-center gap-3">
+    <div class="mt-4 sm:mt-6 mb-8 sm:mb-10 flex flex-wrap items-center justify-center gap-3">
       
       <!-- WhatsApp Share Button -->
       <button
